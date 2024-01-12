@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+body,html{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+/* barra de navegación */
+nav{
+    display: flex;
+    justify-content: space-around;
+    gap: 20%;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+nav div.usuario{
+    display: flex;
+    align-items: center;
+}
+nav div img{
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+nav div.menu{
+    display: flex;
+    gap: 20%;
+}
+nav div button{
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+nav div button:first-child{
+    background: white;
+}
+nav div button:last-child{
+    border: none;
+    background: #B19CD9;
+}
+nav div button:last-child a{
+    color: white;
+}
+/* introducción principal */
+.introduccion1{
+    display: flex;
+    justify-content: center;
+}
+.introduccion1 div{
+    padding: 30px;
+}
+.introduccion1 div:first-child{
+    padding-right: 30px;
+}
+.introduccion1 div:first-child ul{
+    font-size: 1.5rem;
+    padding-inline-start: 20px;
+}
+.introduccion1 div:last-child img{
+    background: #000;
+    width: 300px;
+    height: 300px;
+}
+.introduccion1 div button{
+    font-size: 1.5rem;
+    border: 2px solid black;
+    background: white;
+    padding: 20px 50px;
+}
