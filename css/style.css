@@ -59,12 +59,34 @@ nav div button:last-child a{
 .introduccion1 div{
     padding: 30px;
 }
-.introduccion1 div:first-child{
-    padding-right: 30px;
+.introduccion1 #titulo{
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
+}
+.introduccion1 #titulo span{
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    color: #6545A1;
+    animation: 1s text-in ease-in-out forwards;
+    animation-delay: var(--delay);
+}
+@keyframes text-in {
+    from{
+        width: 0;
+    }
+    to{
+        width: auto;
+    }
 }
 .introduccion1 div:first-child ul{
     font-size: 1.5rem;
     padding-inline-start: 20px;
+    color: #6545A1;
+}
+.introduccion1 div:first-child ul li span{
+    color: #48A45A;
 }
 .introduccion1 div:last-child img{
     background: #000;
