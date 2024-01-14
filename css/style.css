@@ -219,6 +219,10 @@ nav div input:last-child:active{
         height: 350px;
     }
     to{
+        border: 3px solid;
+        border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+        border-image-slice: 1;
+        box-shadow: 2px 2px 4px #5CB85C;
         height: 484px;
     }
 }
@@ -243,6 +247,10 @@ nav div input:last-child:active{
         height: 350px;
     }
     to{
+        border: 3px solid;
+        border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+        border-image-slice: 1;
+        box-shadow: 2px 2px 4px #5CB85C;
         height: 450px;
     }
 }
@@ -267,6 +275,9 @@ nav div input:last-child:active{
         height: 350px;
     }
     to{
+        border: 3px solid;
+        border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+        border-image-slice: 1;
         height: 580px;
     }
 }
@@ -499,9 +510,15 @@ footer .elementos{
     margin: 0 0 120px 0;
     padding-inline-start: 0;
 }
-/*  */
+/* Sociales */
+.social a svg {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.5rem;
+    padding: 0;
+}
 /* linea horzontal */
-footer hr,.avisos pre{
+footer hr{
     margin: 0.5rem;
 }
 /* avisos legales */
@@ -510,6 +527,7 @@ footer hr,.avisos pre{
     justify-content: space-between;
 }
 .avisos pre{
+    margin: 0 0.5rem;
     font-family: "Montserrat";
 }
 /* responsive */
