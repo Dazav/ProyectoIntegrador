@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         // colocar propiedad al animación
         span.style.setProperty('--delay', delay+'s');
-        console.log(delay);
     });
 });
 // animación de carta del recurso

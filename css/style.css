@@ -161,7 +161,7 @@ nav div input:last-child:active{
     align-content: center;
 }
 .introduccion2 div:first-child div{
-    background-image: url(/img/img2.png);
+    background-image: url(../img/img2.png);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5%;
@@ -293,14 +293,14 @@ nav div input:last-child:active{
 }
 div.carta1 center div{
     background-size: cover;
-    background-image: url(/img/img3.png);
+    background-image: url(../img/img3.png);
 }
 div.carta2 center div{
     background-size: cover;
-    background-image: url(/img/img4.png);
+    background-image: url(../img/img4.png);
 }
 div.carta3 center div{
-    background-image: url(/img/img5.png);
+    background-image: url(../img/img5.png);
 }
 .cartas div h1{
     color: #48A45A;
@@ -329,7 +329,7 @@ div.carta3 center div{
     }
 }
 .active1 p{
-    animation: textPresente 0.5s linear forwards;
+    animation: textPresente 0.5s ease-in-out forwards;
 }
 @keyframes textPresente {
     from {
@@ -535,6 +535,7 @@ footer hr{
 /* responsive */
 @media screen and (max-width: 1700px){
     nav{
+        height: 50px;
         padding: 10px 0;
     }
     nav div a{
@@ -543,5 +544,168 @@ footer hr{
     nav div.iniciarUser input{
         font-size: 1rem;
         padding: 5px;
+    }
+}
+@media screen and (max-width: 1680px) {
+    /* introducción 1º */
+    .introduccion1{
+        height: 550px;
+    }
+    .introduccion1 #titulo{
+        font-size: 2rem;
+        margin: 2rem 0;
+    }
+    .introduccion1 ul li{
+        font-size: 1rem;
+    }
+    .introduccion1 div:last-child img{
+        width: 300px;
+        height: 300px;
+    }
+    .introduccion1 div:first-child button{
+        width: 200px;
+        height: 30px;
+        font-size: 1rem;
+        padding: 0px 25px;
+    }
+    /* introducción 2º */
+    .introduccion2{
+        gap: 2.5rem;
+    }
+    .introduccion2 div:first-child{
+        width: 400px;
+    }
+    .introduccion2 div:first-child div{
+        width: 300px;
+        height: 300px;
+    }
+    .introduccion2 div:last-child{
+        width: 500px;
+    }
+    .introduccion2 h1{
+        font-size: 1.5rem;
+    }
+    .introduccion2 p{
+        font-size: 1rem;
+    }
+    /* recurso */
+    .recursos h1{
+        font-size: 2rem;
+    }
+    .cartas{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 500px;
+    }
+    .cartas .responsiveCarta{
+        display: flex;
+        width: 600px;
+        padding: 0;
+        transition: 1s;
+    }
+    /* carta1 */
+    .carta1{
+        animation: responsiveHeighV 0.5s ease-in-out forwards;
+    }
+    .active1{
+        animation: responsiveHeighA 0.5s ease-in-out forwards;
+    }
+    /* carta2 */
+    .carta2{
+        animation: responsiveHeighV 0.5s ease-in-out forwards;
+    }
+    @keyframes responsiveHeighV {
+        from {
+            border: 3px solid;
+            border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+            border-image-slice: 1;
+            box-shadow: 2px 2px 4px #5CB85C;
+            width: 900px;
+        }
+        to{
+            width: 600px;
+        }
+    }
+    .active2{
+        animation: responsiveHeighA 0.5s ease-in-out forwards;
+    }
+    @keyframes responsiveHeighA {
+        from {
+            width: 600px;
+        }
+        to{
+            border: 3px solid;
+            border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+            border-image-slice: 1;
+            box-shadow: 2px 2px 4px #5CB85C;
+            width: 900px;
+        }
+    }
+    /* carta3 */
+    .carta3{
+        animation: responsiveHeighV 0.5s ease-in-out forwards;
+    }
+    .active3{
+        animation: responsiveHeighA 0.5s ease-in-out forwards;
+    }
+    .cartas .responsiveCarta div{
+        box-shadow: none;
+        width: 150px;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+    }
+    .cartas .responsiveCarta h1{
+        font-size: 1.5rem;
+        margin: 1rem;
+        font-weight: normal;
+        width: 250px;
+    }
+    .cartas .responsiveCarta p{
+        font-size: 1rem;
+        margin: 1rem;
+        height: 0;
+        width: 0px;
+    }
+    /* carta1 */
+    .carta1 p{
+        animation: widthVolver 0.5s ease-in-out forwards;
+    }
+    .active1 p{
+        animation: widthCambiar 0.5s ease-in-out forwards;
+    }
+    /* carta2 paraafo */
+    .carta2 p{
+        animation: widthVolver 0.5s ease-in-out forwards;
+    }
+    @keyframes widthVolver {
+        from{
+            width: 100%;
+            height: 100px;
+        }
+        to{
+            width: 0;
+            height: 0;
+        }
+    }
+     .active2 p{
+        animation: widthCambiar 0.5s ease-in-out forwards;
+    }
+    @keyframes widthCambiar {
+        from{
+            width: 0;
+            height: 0;
+        }
+        to{
+            width: 100%;
+            height: 100px;
+        }
+    }
+    /* carta3 */
+    .carta3 p{
+        animation: widthVolver 0.5s ease-in-out forwards;
+    }
+    .active3 p{
+        animation: widthCambiar 0.5s ease-in-out forwards;
     }
 }
