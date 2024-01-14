@@ -15,11 +15,13 @@ nav{
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-bottom: 2px solid black;
 }
 nav div.usuario{
     display: flex;
     align-items: center;
+}
+nav div.usuario a{
+    color: #6545A1;
 }
 nav div img{
     border-radius: 50%;
@@ -37,33 +39,58 @@ nav div.menu{
     display: flex;
     gap: 20%;
 }
-nav div button{
-    border: 1px solid black;
+.iniciarUser input {
+    border: 3px solid #B19CD9;
     padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
 }
-nav div button:first-child{
+.iniciarUser input:first-child{
     background: white;
+    color: #B19CD9;
 }
-nav div button:last-child{
-    border: none;
-    background: #B19CD9;
-}
-nav div button:last-child a{
+.iniciarUser input:first-child:hover{
     color: white;
+    background: #B19CD9;
+    box-shadow: 2px 2px 4px #6545A1;
+}
+.iniciarUser input:first-child:active{
+    border-color: #6545A1;
+    background: #6545A1;
+    box-shadow: none;
+    color: white;
+}
+/* búton de comenzar en navegación */
+nav div input:last-child{
+    background: #B19CD9;
+    color: white;
+}
+nav div input:last-child:hover{
+    box-shadow: 2px 2px 4px #6545A1;
+}
+nav div input:last-child:active{
+    box-shadow: none;
+    background: #6545A1;
+    border-color: #6545A1;
 }
 /* introducción principal */
 .introduccion1{
     display: flex;
     justify-content: center;
+    font-weight: bolder;
 }
 .introduccion1 div{
     padding: 30px;
 }
+/* título */
 .introduccion1 #titulo{
-    margin: 0;
+    margin: 3rem 0;
     padding: 0;
     font-size: 3rem;
+    font-family: 'Montserrat';
 }
+/* animación de título */
 .introduccion1 #titulo span{
     display: inline-block;
     overflow: hidden;
@@ -80,22 +107,355 @@ nav div button:last-child a{
         width: auto;
     }
 }
+/* la introducción corta */
 .introduccion1 div:first-child ul{
     font-size: 1.5rem;
     padding-inline-start: 20px;
     color: #6545A1;
 }
+.introduccion1 div:first-child ul li{
+    padding-bottom: 1.5rem;
+}
 .introduccion1 div:first-child ul li span{
     color: #48A45A;
+    font-weight: bold;
 }
+/* 1º imagen */
 .introduccion1 div:last-child img{
     background: #000;
-    width: 300px;
-    height: 300px;
+    width: 600;
+    height: 600px;
 }
+/* búton de comenzar ahora */
 .introduccion1 div button{
     font-size: 1.5rem;
-    border: 2px solid black;
+    border: 2px solid #6545A1;
     background: white;
     padding: 20px 50px;
+    color: #6545A1;
+    cursor: pointer;
+}
+.introduccion1 div button:hover{
+    background: #6545A1;
+    color: white;
+    box-shadow: 5px 5px 4px #B19CD9;
+}
+.introduccion1 div button:active{
+    box-shadow: none;
+}
+/* introducción 2 */
+.introduccion2{
+    background: #2E8B57;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    font-weight: bolder;
+    color: white;
+}
+.introduccion2 div {
+    width: 630px;
+    height: 600px;
+    display: grid;
+    align-content: center;
+}
+.introduccion2 div:first-child div{
+    background-image: url(/img/img2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5%;
+    width: 500px;
+    height: 400px;
+}
+.introduccion2 div:last-child p{
+    font-weight: normal;
+}
+/* recurso */
+.recursos{
+    padding: 3rem 0;
+}
+.recursos h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    margin: 0 0 3rem 0;
+}
+.recursos h1 b{
+    color: #48A45A;
+}
+.cartas{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+/* animación de carta */
+.cartas div{
+    border-radius: 5px;
+    width: 420px;
+    height: 350px;
+    padding: 0.5rem;
+    background: #F2F2F2;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0,50%);
+    transition: 0.5s ease-in-out;
+}
+
+/* carta1 */
+.carta1{
+    animation: heightVolver 0.5s ease-in-out forwards;
+}
+@keyframes heightVolver {
+    from {
+        height: 484px;
+    }
+    to{
+        height: 350px;
+    }
+}
+.active1{
+    transform: scale(0.95);
+    animation: heightAuto 0.5s ease-in-out forwards;
+}
+@keyframes heightAuto {
+    from {
+        height: 350px;
+    }
+    to{
+        height: 484px;
+    }
+}
+/* carta2 */
+.carta2{
+    animation: heighVolver2 0.5s ease-in-out forwards;
+}
+@keyframes heighVolver2 {
+    from {
+        height: 450px;
+    }
+    to{
+        height: 350px;
+    }
+}
+.active2{
+    transform: scale(0.95);
+    animation: heightAuto2 0.5s ease-in-out forwards;
+}
+@keyframes heightAuto2 {
+    from {
+        height: 350px;
+    }
+    to{
+        height: 450px;
+    }
+}
+/* carta 3 */
+.carta3{
+    animation: heighVolver3 0.5s ease-in-out forwards;
+}
+@keyframes heighVolver3 {
+    from {
+        height: 580px;
+    }
+    to{
+        height: 350px;
+    }
+}
+.active3{
+    transform: scale(0.95);
+    animation: heightAuto3 0.5s ease-in-out forwards;
+}
+@keyframes heightAuto3 {
+    from {
+        height: 350px;
+    }
+    to{
+        height: 580px;
+    }
+}
+/*  */
+.cartas div div{
+    padding: 0%;
+    border-radius: 0;
+    width: 400px;
+    height: 170px;
+    background-size: cover;
+}
+div.carta1 center div{
+    background-size: cover;
+    background-image: url(/img/img3.png);
+}
+div.carta2 center div{
+    background-size: cover;
+    background-image: url(/img/img4.png);
+}
+div.carta3 center div{
+    background-image: url(/img/img5.png);
+}
+.cartas div h1{
+    color: #48A45A;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+}
+.cartas div p{
+    margin: 0 16px;
+    height: 0;
+    overflow: auto;
+    color: #48A45A;
+}
+/* animación de parráfo de carta1 */
+.carta1 p{
+    animation: textEsconder 0.5s ease-in-out forwards;
+}
+@keyframes textEsconder {
+    from {
+        height: 134px;
+    }
+    to{
+        height: 0px;
+    }
+}
+.active1 p{
+    animation: textPresente 0.5s linear forwards;
+}
+@keyframes textPresente {
+    from {
+        height: 0;
+    }
+    to{
+        height: 134px;
+    }
+}
+/* animación de parráfo de carta2 */
+.carta2 p{
+    animation: textEsconder2 0.5s ease-in-out forwards;
+}
+@keyframes textEsconder2 {
+    from {
+        height: 100px;
+    }
+    to{
+        height: 0;
+    }
+}
+.active2 p{
+    animation: textPresente2 0.5s ease-in-out forwards;
+}
+@keyframes textPresente2 {
+    from {
+        height: 0;
+    }
+    to{
+        height: 100px;
+    }
+}
+/* parráfo de carta3 */
+.carta3 p{
+    animation: textEsconder3 0.5s ease-in-out forwards;
+}
+@keyframes textEsconder3 {
+    from {
+        height: 230px;
+    }
+    to{
+        height: 0;
+    }
+}
+.active3 p{
+    animation: textPresente3 0.5s ease-in-out forwards;
+}
+@keyframes textPresente3 {
+    from {
+        height: 0;
+    }
+    to{
+        height: 230px;
+    }
+}
+/*  */
+.cartas div button{
+    color: #48A45A;
+    width: 90px;
+    height:40px;
+    border: 3px solid #48A45A;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px;
+    cursor: pointer;
+}
+/* Opiniones de Clientes */
+.opiniones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #4682B4;
+    height: 353px;
+}
+.tituloComentarios{
+    width: 100vw;
+}
+.tituloComentarios h1{
+    font-size: 48px;
+    margin: 0 0 3rem 0;
+}
+.tituloComentarios h1 b{
+    color: white;
+}
+.opiniones .comentarios{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+.comentarios .flecha{
+    color: white;
+}
+.comentario{
+    display: flex;
+    background: white;
+    padding: 0 20px;
+    border-radius: 2rem;
+    height: 120px;
+    width: 255px;
+    gap: 20px;
+}
+.comentario div:first-child{
+    display: grid;
+    align-items: center;
+}
+.comentario div:first-child img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.comentario div:last-child{
+    text-align: start;
+    display: grid;
+    place-content: center;
+}
+.comentario div:last-child h4{
+    font-size: 1rem;
+    margin:0;
+}
+.comentario div:last-child p{
+    margin: 0;
+    font-size: 10px;
+}
+.comentario div:last-child p:last-child{
+    font-size: 1rem;
+}
+
+/* responsive */
+@media screen and (max-width: 1700px){
+    nav{
+        padding: 10px 0;
+    }
+    nav div a{
+        font-size: 1rem;
+    }
+    nav div.iniciarUser input{
+        font-size: 1rem;
+        padding: 5px;
+    }
 }

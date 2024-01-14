@@ -3,16 +3,26 @@ document.addEventListener("DOMContentLoaded", function() {
     h1.innerHTML = h1.textContent.replace(/./g,"<span>$&</span>");
     let delay =0;
     document.querySelectorAll('span').forEach(function(span,index){
-        if (index<7){
-            delay+=0.05;
-        } else if (index>6 && index<18){
-            delay+=0.1;
+        delay+=0.05;
+        if (index>11 && index<24){
             span.style.setProperty('color', '#48A45A');
-        } else{
-            delay+=0.05;
         }
         span.style.setProperty('--delay', delay+'s');
         console.log(delay);
     });
 });
-
+$(document).ready(function () {
+    $(".carta1").on("click", function () {
+        $(".carta1").toggleClass("active1");
+    });
+});
+$(document).ready(function () {
+    $(".carta2").on("click", function () {
+        $(".carta2").toggleClass("active2");
+    });
+});
+$(document).ready(function () {
+    $(".carta3").on("click", function () {
+        $(".carta3").toggleClass("active3");
+    });
+});
