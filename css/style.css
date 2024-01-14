@@ -419,6 +419,7 @@ div.carta3 center div{
     height: 120px;
     width: 255px;
     gap: 20px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
 .comentario div:first-child{
     display: grid;
@@ -428,6 +429,7 @@ div.carta3 center div{
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    box-shadow:0 0 2px 5px #3C5DD1;
 }
 .comentario div:last-child{
     text-align: start;
@@ -445,7 +447,71 @@ div.carta3 center div{
 .comentario div:last-child p:last-child{
     font-size: 1rem;
 }
-
+/* tienes dudas */
+.contacto{
+    height: 230px;
+    background: #D9D9D9;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: bold;
+}
+.contacto h1{
+    margin: 0 0 32px 0;
+    font-size: 2rem;
+}
+.contacto p{
+    font-size: 1rem;
+    margin: 24px 0;
+}
+.contacto input{
+    background: #000;
+    border-radius: 35px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+}
+/* footer */
+footer{
+    background: #000;
+    height: 400px;
+    color: white;
+}
+footer .elementos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.elementos div:first-child img{
+    width: 95px;
+    height: 95px;
+}
+.elementos div:first-child{
+    display: flex;
+    align-items: center;
+}
+.elementos div:nth-child(n+2) h2 {
+    margin: 100px 0 32px 0;
+}
+.elementos div:nth-child(n+2) ul{
+    list-style-type: none;
+    margin: 0 0 120px 0;
+    padding-inline-start: 0;
+}
+/*  */
+/* linea horzontal */
+footer hr,.avisos pre{
+    margin: 0.5rem;
+}
+/* avisos legales */
+.avisos{
+    display: flex;
+    justify-content: space-between;
+}
+.avisos pre{
+    font-family: "Montserrat";
+}
 /* responsive */
 @media screen and (max-width: 1700px){
     nav{
