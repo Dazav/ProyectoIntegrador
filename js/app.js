@@ -36,16 +36,34 @@ $(document).ready(function () {
 });
 //animacion de scroll
 $(document).ready(function () {
+    //coloca opacidad inicial
+    $(".introduccion2").css("opacity",0.5);
+    //desplazarse
     $(window).scroll(function () { 
+        //conseguir Y de sitio actual
         let scrollY = window.scrollY;
-        var offset = $('.introduccion2').offset();
-        var h=$('.introduccion2').height();
-        var top = offset.top;
-        var bottom = top+h;
-        if (scrollY > top && scrollY < bottom) {
-            console.log(true);
+        //offset div introduccion2
+        var offsetIntroduccion2 = $('.introduccion2').offset();
+        //conseguir altura de introduccion1
+        var h = $('.introduccion1').height();
+        //configura valor limite de animación
+        var top = offsetIntroduccion2.top-h/2;
+        var bottom = offsetIntroduccion2.top-h/3;
+        //para que pueda cambiar el estilo css en cada momento
+        const scrollPorcentaje = (scrollY-top)/(bottom-top);
+
+
+        if (scrollY > top) {
+            // console.log(scrollPercentage);
+            $(".introduccion2").animate({
+                //se muestra por la opacidad desde 0.5 hasta 1
+                opacity:scrollPorcentaje+0.5
+            },{
+                duration: scrollPorcentaje
+            });
         }else{
-            console.log(false);
+            $(".introduccion2").css("opacity",0.5);
+            // console.log(false);
         }
     });
 
