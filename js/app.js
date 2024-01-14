@@ -34,3 +34,19 @@ $(document).ready(function () {
         $(".carta3").toggleClass("active3");
     });
 });
+//animacion de scroll
+$(document).ready(function () {
+    $(window).scroll(function () { 
+        let scrollY = window.scrollY;
+        var offset = $('.introduccion2').offset();
+        var h=$('.introduccion2').height();
+        var top = offset.top;
+        var bottom = top+h;
+        if (scrollY > top && scrollY < bottom) {
+            console.log(true);
+        }else{
+            console.log(false);
+        }
+    });
+
+});
