@@ -42,8 +42,11 @@ nav div.menu{
     display: flex;
     gap: 20%;
 }
+div.menu a{
+    color: #6545A1;
+}
 .iniciarUser input {
-    border: 3px solid #B19CD9;
+    border: 2px solid #B19CD9;
     padding: 0.5rem;
     font-size: 1.5rem;
     font-weight: bold;
