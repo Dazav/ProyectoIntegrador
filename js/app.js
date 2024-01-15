@@ -79,24 +79,24 @@ $(document).ready(function () {
     var heightComentario = $(".comentario").height();
     var comentarioArra=document.getElementsByClassName("comentario");
     var index=0;
-    $("#flecha1").on("click", function () {
+    $("#flecha2").on("click", function () {
         index++;
         $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
         if (index == comentarioArra.length-4) {
-            $("#flecha1").css("color", "#D3D3D3");
-            $("#flecha2").css("color", "white");
-            $("#flecha1").prop("disabled", true);
-            $("#flecha2").prop("disabled", false);
-        }
-    });
-    $("#flecha2").on("click", function () {
-        index--;
-        $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
-        if (index < 1) {
             $("#flecha2").css("color", "#D3D3D3");
             $("#flecha1").css("color", "white");
             $("#flecha2").prop("disabled", true);
             $("#flecha1").prop("disabled", false);
+        }
+    });
+    $("#flecha1").on("click", function () {
+        index--;
+        $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
+        if (index < 1) {
+            $("#flecha1").css("color", "#D3D3D3");
+            $("#flecha2").css("color", "white");
+            $("#flecha1").prop("disabled", true);
+            $("#flecha2").prop("disabled", false);
         }
     });
 });
