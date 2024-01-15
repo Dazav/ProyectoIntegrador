@@ -197,7 +197,7 @@ nav div input:last-child:active{
 }
 /* animación de carta */
 .cartas div{
-    border-radius: 5px;
+    /* border-radius: 5px; */
     width: 420px;
     height: 350px;
     padding: 0.5rem;
@@ -342,6 +342,7 @@ div.carta3 center div{
         height: 0;
     }
     to{
+        transform: rotate3d(1,0,0,20turn);
         height: 134px;
     }
 }
@@ -365,6 +366,7 @@ div.carta3 center div{
         height: 0;
     }
     to{
+        transform: rotate3d(1,0,0,20turn);
         height: 100px;
     }
 }
@@ -388,6 +390,7 @@ div.carta3 center div{
         height: 0;
     }
     to{
+        transform: rotate3d(1,0,0,20turn);
         height: 230px;
     }
 }

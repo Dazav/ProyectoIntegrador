@@ -51,8 +51,6 @@ $(document).ready(function () {
         var bottom = offsetIntroduccion2.top-h/3;
         //para que pueda cambiar el estilo css en cada momento
         const scrollPorcentaje = (scrollY-top)/(bottom-top);
-
-
         if (scrollY > top) {
             // console.log(scrollPercentage);
             $(".introduccion2").animate({
@@ -66,5 +64,4 @@ $(document).ready(function () {
             // console.log(false);
         }
     });
-
 });
