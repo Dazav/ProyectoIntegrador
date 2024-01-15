@@ -16,6 +16,8 @@ nav{
     padding-top: 20px;
     padding-bottom: 20px;
     height: 100px;
+    position: fixed;
+    background: white;
 }
 nav div.usuario{
     display: flex;
@@ -81,6 +83,7 @@ nav div input:last-child:active{
     justify-content: center;
     font-weight: bolder;
     height: 750px;
+    padding-top: 70px;
 }
 .introduccion1 div{
     padding: 30px;
