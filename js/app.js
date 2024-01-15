@@ -66,7 +66,7 @@ $(document).ready(function () {
                 //se muestra por la opacidad desde 0.5 hasta 1
                 opacity:scrollPorcentaje+0.5
             },{
-                duration: scrollPorcentaje
+                duration: 1
             });
         }else{
             $(".introduccion2").css("opacity",0.5);
