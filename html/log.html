@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/logIn.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/app.js"></script>
-    <title>Página Principal</title>
+    <title>Inicial Sesión</title>
 </head>
 <body>
     <!-- barra navegación -->
@@ -27,135 +26,25 @@
             <a href="">Social</a>
         </div>
         <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='log.html'" />
+            <input type="button" value="Iniciar Sesión" onclick="" />
             <input type="button" value="Comenzar" onclick="" />
         </div>
     </nav>
-    <!-- introducción principal -->
-    <div class="introduccion1">
+    <!-- login -->
+    <div class="logIn">
         <div>
-            <pre id="titulo">La mejor web psicológica
-en el mercado</pre>
-            <ul>
-                <li>Recursos<span> para tratar la ansiedad</span></li>
-                <li>Herramientas<span> de apoyo y seguimiento</span></li>
-                <li>+1000 terapeutas especializados<span> a tu alcance</span></li>
-            </ul>
-            <button>Comenzar ahora</button>
+            <h1><b>ACCEDE</b> A TU CUENTA</h1>
+            <input type="email" placeholder="">
+            <label class="email" for="email">E-mail</label>
+            <input type="password">
+            <label class="pwd" for="password">Contraseña</label>
+            <input type="submit" value="Entre">
         </div>
         <div>
-            <img src="../img/img1.png" alt="">
-        </div>
-    </div>
-    <!-- introducción de ventaje -->
-    <div class="introduccion2">
-        <div class="foto">
-            <div></div>
-        </div>
-        <div class="contenido">
-            <h1>Psicólogos online experimentados, listos para ayudarte a construir una vida con mayor bienestar</h1>
-            <p>En nuestro equipo de psicólogos en línea, encontrarás psicólogos altamente capacitados y experimentados, con una sólida formación académica en psicología y maestría en psicoterapia.</p>
-            <p>Todos nuestros psicólogos online cuentan con la documentación necesaria para ejercer su profesión y tienen más de 5 años de experiencia profesional comprobable.</p>
-            <p>Con horarios flexibles y una amplia variedad de días disponibles, podrás comenzar tu terapia psicológica en línea en el momento que lo necesites.</p> 
-        </div>
-    </div>
-    <!-- recursos -->
-    <div class="recursos">
-        <h1>Variedad de <b>recursos</b></h1>
-        <div class="cartas">
-            <div class="carta1 responsiveCarta">
-                <center>
-                    <div></div>
-                </center>
-                <h1>Ejercicios de exposición gradual</h1>
-                <p>La técnica de exposición es un tipo de procedimiento terapéutico empleado en psicología clínica para tratar los trastornos de ansiedad. Esta técnica implica enfrentar al paciente con el objeto, el contexto o el pensamiento temido para ayudarle a superar los síntomas de ansiedad.</p>
-                <button id="btn1">IR</button>
-            </div>
-            <div class="carta2 responsiveCarta">
-                <center>
-                    <div></div>
-                </center>
-                <h1>Técnicas de relajación</h1>
-                <p>Las técnicas de relajación son métodos que se utilizan para reducir el estrés, la ansiedad y la tensión muscular, promoviendo un estado de calma y bienestar. Aquí tienes algunas técnicas de relajación que puedes probar:</p>
-                <button id="btn2">IR</button>
-            </div>
-            <div class="carta3 responsiveCarta">
-                <center>
-                    <div></div>
-                </center>
-                <h1>Ejercicios de apoyo</h1>
-                <p>
-                    El apoyo psicológico puede abordarse de diversas maneras, y los ejercicios pueden variar según las necesidades específicas de la persona. Aquí te presento algunos ejercicios generales que pueden ser útiles como apoyo psicológico. Sin embargo, ten en cuenta que es importante adaptar las intervenciones según la situación y las características individuales de cada persona. Siempre es recomendable consultar con un profesional de la salud mental para obtener orientación personalizada.</p>
-                <button id="btn3">IR</button>
-            </div>
-        </div>
-    </div>
-    <!-- opiniones -->
-    <div class="opiniones">
-        <div class="tituloComentarios">
-            <h1><b>Opiniones de</b> clientes</h1>
-            <button class="flecha" id="flecha1" disabled>
-                <i class='bx bxs-caret-up-circle' ></i>
-            </button>
-            <div class="comentarios">
-                <div class="outer">
-                    <ul class="cartaList">
-                        <div class="comentario">
-                            <div>
-                                <img src="../img/img6.png" alt="">
-                            </div>
-                            <div>
-                                <h4>Selena Brish</h4>
-                                <p>Profesionalidad y muy buena atención al paciente.</p>
-                                <p>⭐⭐⭐⭐⭐</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img7.png" alt=""></div>
-                            <div>
-                                <h4>Elizabeth Rex </h4>
-                                <p>Servicio deficiente y atención al paciente poco satisfactoria.</p>
-                                <p>⭐⭐⭐😒😒</p>
-                            </div>
-                        </div>
-                        <div class="comentario verMas">
-                            <div>
-                                <h4>Ve más comentarios de cuentas</h4>
-                                <h4><a href="">Ver Más</a></h4>
-                            </div>
-                        </div>
-                    </ul>
-                </div>
-                <div class="outer">
-                    <ul class="cartaList">
-                        <div class="comentario">
-                            <div><img src="../img/img8.png" alt=""></div>
-                            <div>
-                                <h4>Oliver Jacob</h4>
-                                <p>Destaca por su profesionalidad y atención al paciente de alta calidad.</p>
-                                <p>⭐⭐⭐⭐⭐</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img9.png" alt=""></div>
-                            <div>
-                                <h4>Evan Gelia</h4>
-                                <p>Unas problemas de profesionalidad y atención al paciente insatisfactoria.</p>
-                                <p>⭐⭐⭐😒😒</p>
-                            </div>
-                        </div>
-                        <div class="comentario verMas">
-                            <div>
-                                <h4>Ve más comentarios de cuentas</h4>
-                                <h4><a href="">Ver Más</a></h4>
-                            </div>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-            <button class="flecha" id="flecha2">
-                <i class='bx bxs-caret-down-circle'></i>
-            </button>
+            <h1></h1>
+            <button></button>
+            <button></button>
+            <button></button>
         </div>
     </div>
     <!-- contacto -->
