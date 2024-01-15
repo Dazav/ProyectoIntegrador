@@ -20,16 +20,25 @@ document.addEventListener("DOMContentLoaded", function() {
 // animación de carta del recurso
 $(document).ready(function () {
     // en el caso de clic la carta, cambiará la clase. 
+    $("#btn1").on("click", function () {
+        window.location.href = "";
+    });
     $(".carta1").on("click", function () {
-        $(".carta1").toggleClass("active1");
+        $(".carta1").toggleClass("active1"); 
     });
 });
 $(document).ready(function () {
+    $("#btn2").on("click", function () {
+        window.location.href = "";
+    });
     $(".carta2").on("click", function () {
         $(".carta2").toggleClass("active2");
     });
 });
 $(document).ready(function () {
+    $("#btn3").on("click", function () {
+        window.location.href = "";
+    });
     $(".carta3").on("click", function () {
         $(".carta3").toggleClass("active3");
     });
@@ -62,6 +71,32 @@ $(document).ready(function () {
         }else{
             $(".introduccion2").css("opacity",0.5);
             // console.log(false);
+        }
+    });
+});
+//animacion de opiniones
+$(document).ready(function () {
+    var heightComentario = $(".comentario").height();
+    var comentarioArra=document.getElementsByClassName("comentario");
+    var index=0;
+    $("#flecha1").on("click", function () {
+        index++;
+        $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
+        if (index == comentarioArra.length-4) {
+            $("#flecha1").css("color", "#D3D3D3");
+            $("#flecha2").css("color", "white");
+            $("#flecha1").prop("disabled", true);
+            $("#flecha2").prop("disabled", false);
+        }
+    });
+    $("#flecha2").on("click", function () {
+        index--;
+        $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
+        if (index < 1) {
+            $("#flecha2").css("color", "#D3D3D3");
+            $("#flecha1").css("color", "white");
+            $("#flecha2").prop("disabled", true);
+            $("#flecha1").prop("disabled", false);
         }
     });
 });

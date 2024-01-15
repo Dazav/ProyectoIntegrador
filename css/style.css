@@ -17,6 +17,7 @@ nav{
     padding-bottom: 20px;
     height: 100px;
     position: fixed;
+    z-index: 1;
     background: white;
 }
 nav div.usuario{
@@ -427,11 +428,31 @@ div.carta3 center div{
 .opiniones .comentarios{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-bottom: 3rem;
+    justify-content: center;
 }
-.comentarios .flecha{
+.flecha{
+    background: none;
+    border: none;
+    font-size: 2rem;
     color: white;
+    position: absolute;
+    right: 40px;
+}
+.flecha i:active{
+    color: #555555;
+}
+#flecha2{ color: #D3D3D3;}
+/* animacion de cartas */
+.outer{
+    width: 350px;
+    height:130px ;
+    overflow: hidden;
+    position: relative;
+}
+.cartaList{
+    margin: 0;
+    padding-inline-start: 0;
+    position: absolute;
 }
 .comentario{
     display: flex;
@@ -439,10 +460,14 @@ div.carta3 center div{
     padding: 0 20px;
     border-radius: 2rem;
     height: 120px;
-    width: 255px;
-    gap: 20px;
+    width: 300px;
+    margin-bottom: 10px;
     box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
+.verMas h4{
+    text-align: center;
+}
+/*  */
 .comentario div:first-child{
     display: grid;
     align-items: center;
@@ -461,10 +486,12 @@ div.carta3 center div{
 .comentario div:last-child h4{
     font-size: 1rem;
     margin:0;
+    padding-left: 10px;
 }
 .comentario div:last-child p{
     margin: 0;
     font-size: 10px;
+    padding-left: 10px;
 }
 .comentario div:last-child p:last-child{
     font-size: 1rem;
