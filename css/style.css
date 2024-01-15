@@ -429,6 +429,7 @@ div.carta3 center div{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 50px;
 }
 .flecha{
     background: none;
