@@ -43,37 +43,6 @@ $(document).ready(function () {
         $(".carta3").toggleClass("active3");
     });
 });
-//animacion de scroll
-$(document).ready(function () {
-    //coloca opacidad inicial
-    $(".introduccion2").css("opacity",0.5);
-    //desplazarse
-    $(window).scroll(function () { 
-        //conseguir Y de sitio actual
-        let scrollY = window.scrollY;
-        //offset div introduccion2
-        var offsetIntroduccion2 = $('.introduccion2').offset();
-        //conseguir altura de introduccion1
-        var h = $('.introduccion1').height();
-        //configura valor limite de animación
-        var top = offsetIntroduccion2.top-h/2;
-        var bottom = offsetIntroduccion2.top-h/3;
-        //para que pueda cambiar el estilo css en cada momento
-        const scrollPorcentaje = (scrollY-top)/(bottom-top);
-        if (scrollY > top) {
-            // console.log(scrollPercentage);
-            $(".introduccion2").animate({
-                //se muestra por la opacidad desde 0.5 hasta 1
-                opacity:scrollPorcentaje+0.5
-            },{
-                duration: 1
-            });
-        }else{
-            $(".introduccion2").css("opacity",0.5);
-            // console.log(false);
-        }
-    });
-});
 //animacion de opiniones
 $(document).ready(function () {
     var heightComentario = $(".comentario").height();

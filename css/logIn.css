@@ -168,6 +168,19 @@ input:focus{
     font-weight: bold;
     z-index: 0;
 }
+.btn{
+    opacity: 0;
+    animation: crazyInput 0.5s ease-in-out forwards;
+    animation-delay: var(--time);
+}
+@keyframes  crazyInput {
+    from{
+    }
+    to{
+        opacity: 1;
+        /* transform: rotate3d(1, 0, 0,1turn); */
+    }
+}
     /* enviar */
 .logIn input[type="submit"]{
     margin-top: 30px;
@@ -192,6 +205,7 @@ input:focus{
 }
 /* Continua con */
 .continua{
+    opacity: 0;
     width: 640px;
     height: 500px;
     background: #DDCBFF;
@@ -200,8 +214,10 @@ input:focus{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 button{
+    opacity: 0;
     width: var(--width);
     height: var(--height);
     background: white;
@@ -209,6 +225,19 @@ button{
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
+    animation: botonOpen 0.5s ease-in-out forwards;
+    animation-delay: var(--time);
+}
+@keyframes botonOpen {
+    from{
+        scale: 0.5;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        transform: rotate3d(1,0,0,1turn);
+        opacity: 1;
+    }
 }
 button:hover{
     background: #D3D3D3;

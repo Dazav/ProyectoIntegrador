@@ -21,3 +21,25 @@ $(document).ready(function () {
         $(".pwd").addClass("active2");        
     });
 });
+// 
+$(document).ready(function () {
+    // animacion de formulario
+    var time=0;
+    document.querySelectorAll('.btn').forEach(function(btn){
+        // cada 0.05s escribir una letra
+        time+=0.2;
+        // colocar propiedad al animación
+        btn.style.setProperty('--time', time+'s');
+        console.log(time);
+    });
+    $(".continua").animate({opacity: 1},{duration: 1000});
+    var time=0.5;
+    document.querySelectorAll('button').forEach(function(button){
+        // cada 0.05s escribir una letra
+        time+=0.3;
+        // colocar propiedad al animación
+        button.style.setProperty('--time', time+'s');
+        console.log(time);
+    });
+
+});
