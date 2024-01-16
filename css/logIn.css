@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
+:root{
+    /* input */
+    --left:170px;
+    --bottom1:245px;
+    --bottom2:195px;
+    /* input:focus */
+    --leftC:180px;
+    --bottom1C:265px;
+    --bottom2C:215px
+}
 body,html{
     border: 0;
     margin: 0;
@@ -89,7 +99,7 @@ nav div input:last-child:active{
     height: 800px;
     padding-top: 140px;
 }
-.logIn div{
+.logIn form{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -113,47 +123,67 @@ input[type="email"],input[type="password"]{
     background: none;
     height: 1.5rem;
 }
-.logIn input[type="submit"]{
-    color: #6545A1;
-    text-align: center;
-    font-size: 1rem;
-    border: 3px solid #6545A1;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 300px;
-}
 .logIn label{
     color: #6545A1;
     font-size: 1.5rem;
 }
-.logIn div:first-child{
+.logIn form{
     position: relative;
 }
 .email{
     position: absolute;
-    left: 170px;
-    bottom: 235px;
+    left: var(--left);
+    bottom: var(--bottom1);
+    z-index: -1;
 }
 .pwd{
     position: absolute;
-    left: 170px;
-    bottom: 187px;
+    left: var(--left);
+    bottom: var(--bottom2);
+    z-index: -1;
+}
+input:focus{
+    outline: none !important;
+    border-bottom: 3px solid #6545A1;
 }
 input:focus +.email{
     font-size: 1rem;
-    bottom: 255px;
-    left: 180px;
+    bottom: var(--bottom1C);
+    left: var(--leftC);
     background: white;
     transition: 0.5s;
     font-weight: bold;
+    z-index: 0;
 }
 input:focus + .pwd{
     font-size: 1rem;
-    bottom: 205px;
-    left: 180px;
+    bottom: var(--bottom2C);
+    left: var(--leftC);
     background: white;
     transition: 0.5s;
     font-weight: bold;
+    z-index: 0;
+}
+    /* enviar */
+.logIn input[type="submit"]{
+    color: #6545A1;
+    text-align: center;
+    font-size: 1rem;
+    border: 2px solid #6545A1;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 300px;
+    height: 2.5rem;
+}
+.logIn input[type="submit"]:hover{
+    color: white;
+    background: #6545A1;
+    box-shadow: 1px 1px 3px 0px #6545A1;
+}
+.logIn input[type="submit"]:active{
+    color: #6545A1;
+    background: white;
+    box-shadow: none;
 }
 /* tienes dudas */
 .contacto{
