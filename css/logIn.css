@@ -7,7 +7,11 @@
     /* input:focus */
     --leftC:180px;
     --bottom1C:265px;
-    --bottom2C:215px
+    --bottom2C:215px;
+    /* bóton */
+    --width:300px;
+    --height:2.5rem;
+    --boxshadow:4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 body,html{
     border: 0;
@@ -171,9 +175,9 @@ input:focus + .pwd{
     font-size: 1rem;
     border: 2px solid #6545A1;
     background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 300px;
-    height: 2.5rem;
+    box-shadow: var(--boxshadow);
+    width: var(--width);
+    height: var(--height);
 }
 .logIn input[type="submit"]:hover{
     color: white;
@@ -183,6 +187,35 @@ input:focus + .pwd{
 .logIn input[type="submit"]:active{
     color: #6545A1;
     background: white;
+    box-shadow: none;
+}
+/* Continua con */
+.continua{
+    width: 640px;
+    height: 500px;
+    background: #DDCBFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    width: var(--width);
+    height: var(--height);
+    background: white;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+button:hover{
+    background: #D3D3D3;
+    box-shadow: var(--boxshadow);
+}
+button:active{
+    background: #000;
+    color: white;
     box-shadow: none;
 }
 /* tienes dudas */
