@@ -423,11 +423,21 @@ div.carta3 center div{
     color: #48A45A;
     width: 90px;
     height:40px;
-    border: 3px solid #48A45A;
+    border: 2px solid #48A45A;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: normal;
     margin: 16px;
     cursor: pointer;
+}
+.cartas div button:hover{
+    color: white;
+    background: #48A45A;
+    box-shadow: var(--box-shadow);
+}
+.cartas div button:active{
+    background: white;
+    color: #48A45A;
+    box-shadow: none;
 }
 /* Opiniones de Clientes */
 .opiniones{
