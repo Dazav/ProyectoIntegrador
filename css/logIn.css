@@ -2,12 +2,12 @@
 :root{
     /* input */
     --left:170px;
-    --bottom1:245px;
-    --bottom2:195px;
+    --email:260px;
+    --pwd:210px;
     /* input:focus */
     --leftC:180px;
-    --bottom1C:265px;
-    --bottom2C:215px;
+    --emailC:280px;
+    --pwdC:230px;
     /* bóton */
     --width:300px;
     --height:2.5rem;
@@ -103,7 +103,7 @@ nav div input:last-child:active{
     height: 800px;
     padding-top: 140px;
 }
-.logIn form{
+form{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -129,47 +129,48 @@ input[type="email"],input[type="password"]{
 }
 .logIn label{
     color: #6545A1;
-    font-size: 1.5rem;
+    
 }
 .logIn form{
     position: relative;
 }
 .email{
+    font-size: 1.5rem;
     position: absolute;
     left: var(--left);
-    bottom: var(--bottom1);
+    bottom: var(--email);
     z-index: -1;
 }
 .pwd{
+    font-size: 1.5rem;
     position: absolute;
     left: var(--left);
-    bottom: var(--bottom2);
+    bottom: var(--pwd);
     z-index: -1;
 }
 input:focus{
     outline: none !important;
     border-bottom: 3px solid #6545A1;
 }
-input:focus +.email{
+.active{
     font-size: 1rem;
-    bottom: var(--bottom1C);
+    bottom: var(--emailC);
     left: var(--leftC);
     background: white;
-    transition: 0.5s;
     font-weight: bold;
     z-index: 0;
 }
-input:focus + .pwd{
+.active2{
     font-size: 1rem;
-    bottom: var(--bottom2C);
+    bottom: var(--pwdC);
     left: var(--leftC);
     background: white;
-    transition: 0.5s;
     font-weight: bold;
     z-index: 0;
 }
     /* enviar */
 .logIn input[type="submit"]{
+    margin-top: 30px;
     color: #6545A1;
     text-align: center;
     font-size: 1rem;
@@ -204,7 +205,7 @@ button{
     width: var(--width);
     height: var(--height);
     background: white;
-    margin: 10px;
+    margin: 20px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
