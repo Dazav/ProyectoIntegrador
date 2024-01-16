@@ -19,10 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 // animación de carta del recurso
 $(document).ready(function () {
-    // en el caso de clic la carta, cambiará la clase. 
+    // 
     $("#btn1").on("click", function () {
         window.location.href = "";
     });
+    // en el caso de clic la carta, cambiará la clase. 
     $(".carta1").on("click", function () {
         $(".carta1").toggleClass("active1"); 
     });
@@ -36,8 +37,9 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
+    // nevega a la página apoyo por bóton IR
     $("#btn3").on("click", function () {
-        window.location.href = "";
+        window.location.href = "apoyo.html";
     });
     $(".carta3").on("click", function () {
         $(".carta3").toggleClass("active3");
