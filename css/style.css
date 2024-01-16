@@ -6,15 +6,15 @@
     --border-image-slice: 1;
     --box-shadow: 2px 2px 4px #5CB85C;
     --scale: scale(0.95);
-    --carta1H:484px;
+    --carta1H:480px;
     --carta2H:450px;
-    --carta3H:580px;
+    --carta3H:420px;
     /* párrafo */
     --parrafo:0;
     --rotate3d: rotate3d(1,0,0,20turn);
     --parrafo1H:134px;
-    --parrafo2H:100px;
-    --parrafo3H:230px;
+    --parrafo2H:80px;
+    --parrafo3H:76px;
     /* carta responsive */
     --cartaW:600px;
     --cartaWCambiar:900px;
