@@ -47,15 +47,16 @@ $(document).ready(function () {
 });
 //animacion de opiniones
 $(document).ready(function () {
-    var heightComentario = $(".comentario").height();
+    var widthComentario = $(".comentario").width();
     var comentarioArra=document.getElementsByClassName("comentario");
     var index=0;
     $("#flecha2").on("click", function () {
         index++;
         $("#flecha1").css("color", "white");
         $("#flecha1").prop("disabled", false);
-        $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
-        if (index == comentarioArra.length-4) {
+        $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
+        console.log(widthComentario);
+        if (index >= comentarioArra.length-7) {
             $("#flecha2").css("color", "#D3D3D3");
             $("#flecha1").css("color", "white");
             $("#flecha2").prop("disabled", true);
@@ -66,7 +67,7 @@ $(document).ready(function () {
         index--;
         $("#flecha2").css("color", "white");
         $("#flecha2").prop("disabled", false);
-        $(".cartaList").animate({"top": -(heightComentario+10)*index},"easeInOut");
+        $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
         if (index < 1) {
             $("#flecha1").css("color", "#D3D3D3");
             $("#flecha2").css("color", "white");

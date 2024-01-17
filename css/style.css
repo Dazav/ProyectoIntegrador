@@ -469,8 +469,8 @@ div.carta3 center div{
     border: none;
     font-size: 2rem;
     color: white;
-    position: absolute;
-    right: 40px;
+    /* position: absolute; */
+    /* right: 40px; */
 }
 .flecha i:active{
     color: #555555;
@@ -478,12 +478,13 @@ div.carta3 center div{
 #flecha1{ color: #D3D3D3;}
 /* animacion de cartas */
 .outer{
-    width: 350px;
+    width: 1400px;
     height:130px ;
     overflow: hidden;
     position: relative;
 }
 .cartaList{
+    display: flex;
     margin: 0;
     padding-inline-start: 0;
     position: absolute;
@@ -495,7 +496,7 @@ div.carta3 center div{
     border-radius: 2rem;
     height: 120px;
     width: 300px;
-    margin-bottom: 10px;
+    margin:5px;
     box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
 .verMas h4{
