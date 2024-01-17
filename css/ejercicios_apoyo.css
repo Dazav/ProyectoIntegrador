@@ -82,9 +82,34 @@ nav div input:last-child:active{
     background: #6545A1;
     border-color: #6545A1;
 }
-/*  */
+/* ejercicios de apoyo */
+.apoyoTitulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    padding-top: 140px;
+    font-size: 2rem;
+}
+b{
+    opacity: 0;
+    position: relative;
+    left: 2rem;
+    top: 2rem;
+    animation: titulo-in 0.5s ease-in-out forwards;
+    animation-delay: var(--delayTitulo);
+}
 
-
+@keyframes titulo-in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        top: 0;
+        left: 0;
+    }
+}
 
 
 /* tienes dudas */
