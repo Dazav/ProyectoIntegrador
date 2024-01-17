@@ -159,9 +159,49 @@ b{
 .pregunta p{
     font-size: 1.5rem;
 }
-
-
-
+/* Otro ejercicio */
+.parteOtro{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.parteOtro h1{
+    font-size: 2.5rem;
+}
+.otroEje{
+    display: flex;
+    width: 600px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,50%);
+    margin: 2rem 0;
+}
+.descripcionEje{
+    text-align: left;
+    padding: 1rem 0 1rem 3rem;
+    width: 400px;
+}
+.imgEje{
+    height: 200px;
+    width: 200px;
+}
+/* animación de otro ejercicio */
+.otroEje{
+    position: relative;
+    opacity: 0;
+    animation: slipe 0.5s ease-in-out forwards;
+    animation-delay: var(--otroEje);
+}
+@keyframes slipe {
+    from{
+        opacity: 0;
+        scale: 1.25;
+        left: -10rem;
+    }
+    to{
+        opacity: 1;
+        left: 0;
+    }
+}
 /* tienes dudas */
 .contacto{
     height: 230px;

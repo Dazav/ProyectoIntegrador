@@ -1,3 +1,4 @@
+// animación de título
 $(document).ready(function () {
     var time=0;
     document.querySelectorAll("b").forEach(function (b,index){
@@ -5,6 +6,7 @@ $(document).ready(function () {
         b.style.setProperty("--delayTitulo", time+'s');
     });
 });
+// animación de preguntas
 $(document).ready(function () {
     var widthPregunta=$(".pregunta").width();
     var preguntaArray=document.getElementsByClassName("pregunta");
@@ -37,4 +39,25 @@ $(document).ready(function () {
             $("#flecha2").prop("disabled", false);
         }
     });
+});
+// animación de otros ejercicios
+$(document).ready(function () {
+    // $(window).scroll(function () { 
+    //     var scrollTop = $(document).scrollTop()
+    //     var topApoyoMitad=$(".apoyoTitulo").height()/2;
+            var time=0;
+            
+            document.querySelectorAll(".otroEje").forEach(function (otroEje,index){
+                time +=0.2;
+                otroEje.style.setProperty("--otroEje", time+'s');
+                // console.log(time);
+                // $(".otroEje").animate({
+                //     top:0,
+                //     opacity:1
+                // },{
+                //     delay: del,
+                //     duration: 2000
+                // });
+            });
+    // });        
 });
