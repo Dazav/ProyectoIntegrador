@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+:root{
+    /* input */
+    --left:170px;
+    --email:235px;
+    --pwd:185px;
+    --nombre:285px;
+
+    /* input:focus */
+    --leftC:180px;
+    --emailC:260px;
+    --pwdC:215px;
+    --nombreC:305px;
+
+    /* bóton */
+    --width:300px;
+    --height:2.5rem;
+    --boxshadow:4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+body,html{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+/* barra de navegación */
+nav{
+    display: flex;
+    justify-content: space-around;
+    gap: 20%;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100px;
+    position: fixed;
+    z-index: 1;
+    background: white;
+}
+nav div.usuario{
+    display: flex;
+    align-items: center;
+}
+nav div.usuario a{
+    color: #6545A1;
+}
+nav div img{
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+nav div.menu{
+    display: flex;
+    gap: 20%;
+}
+div.menu a{
+    color: #6545A1;
+}
+.iniciarUser input {
+    border: 2px solid #B19CD9;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.iniciarUser input:first-child{
+    background: white;
+    color: #B19CD9;
+}
+.iniciarUser input:first-child:hover{
+    color: white;
+    background: #B19CD9;
+    box-shadow: 2px 2px 4px #6545A1;
+}
+.iniciarUser input:first-child:active{
+    border-color: #6545A1;
+    background: #6545A1;
+    box-shadow: none;
+    color: white;
+}
+/* búton de comenzar en navegación */
+nav div input:last-child{
+    background: #B19CD9;
+    color: white;
+}
+nav div input:last-child:hover{
+    box-shadow: 2px 2px 4px #6545A1;
+}
+nav div input:last-child:active{
+    box-shadow: none;
+    background: #6545A1;
+    border-color: #6545A1;
+}
+/* login */
+.logIn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    padding-top: 140px;
+}
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 640px;
+    height: 530px;
+}
+.logIn h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+}
+.logIn h1 b{
+    color: #6545A1;
+}
+input[type="email"],input[type="password"],input[type="text"]{
+    width: 300px;
+    border:0;
+    border-bottom: 3px solid;
+    background: none;
+    height: 1.5rem;
+}
+.logIn label{
+    color: #6545A1;
+    
+}
+.logIn form{
+    position: relative;
+}
+.email{
+    font-size: 1.5rem;
+    position: absolute;
+    left: var(--left);
+    bottom: var(--email);
+    z-index: -1;
+}
+.pwd{
+    font-size: 1.5rem;
+    position: absolute;
+    left: var(--left);
+    bottom: var(--pwd);
+    z-index: -1;
+}
+.nombre{
+    font-size: 1.5rem;
+    position: absolute;
+    left: var(--left);
+    bottom: var(--nombre);
+    z-index: -1;
+}
+input:focus{
+    outline: none !important;
+    border-bottom: 3px solid #6545A1;
+}
+.active{
+    font-size: 1rem;
+    bottom: var(--emailC);
+    left: var(--leftC);
+    background: white;
+    font-weight: bold;
+    z-index: 0;
+}
+.active2{
+    font-size: 1rem;
+    bottom: var(--pwdC);
+    left: var(--leftC);
+    background: white;
+    font-weight: bold;
+    z-index: 0;
+}
+.active3{
+    font-size: 1rem;
+    bottom: var(--nombreC);
+    left: var(--leftC);
+    background: white;
+    font-weight: bold;
+    z-index: 0;
+}
+.btn{
+    opacity: 0;
+    animation: crazyInput 0.5s ease-in-out forwards;
+    animation-delay: var(--time);
+}
+@keyframes  crazyInput {
+    from{
+    }
+    to{
+        opacity: 1;
+    }
+}
+    /* enviar */
+.logIn input[type="submit"]{
+    margin-top: 30px;
+    color: #6545A1;
+    text-align: center;
+    font-size: 1rem;
+    border: 2px solid #6545A1;
+    background: #FFF;
+    box-shadow: var(--boxshadow);
+    width: var(--width);
+    height: var(--height);
+}
+.logIn input[type="submit"]:hover{
+    color: white;
+    background: #6545A1;
+    box-shadow: 1px 1px 3px 0px #6545A1;
+}
+.logIn input[type="submit"]:active{
+    color: #6545A1;
+    background: white;
+    box-shadow: none;
+}
+/* Continua con */
+.continua{
+    opacity: 0;
+    width: 640px;
+    height: 500px;
+    background: #DDCBFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+button{
+    opacity: 0;
+    width: var(--width);
+    height: var(--height);
+    background: white;
+    margin: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    animation: botonOpen 0.5s ease-in-out forwards;
+    animation-delay: var(--time);
+}
+@keyframes botonOpen {
+    from{
+        scale: 0.5;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        transform: rotate3d(1,0,0,1turn);
+        opacity: 1;
+    }
+}
+button:hover{
+    background: #D3D3D3;
+    box-shadow: var(--boxshadow);
+}
+button:active{
+    background: #000;
+    color: white;
+    box-shadow: none;
+}
+/* tienes dudas */
+.contacto{
+    height: 230px;
+    background: #D9D9D9;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: bold;
+}
+.contacto h1{
+    margin: 0 0 32px 0;
+    font-size: 2rem;
+}
+.contacto p{
+    font-size: 1rem;
+    margin: 24px 0;
+}
+.contacto input{
+    background: #000;
+    border-radius: 35px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+}
+/* footer */
+footer{
+    background: #000;
+    height: 400px;
+    color: white;
+}
+footer .elementos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.elementos div:first-child img{
+    width: 95px;
+    height: 95px;
+}
+.elementos div:first-child{
+    display: flex;
+    align-items: center;
+}
+.elementos div:nth-child(n+2) h2 {
+    margin: 100px 0 32px 0;
+}
+.elementos div:nth-child(n+2) ul{
+    list-style-type: none;
+    margin: 0 0 120px 0;
+    padding-inline-start: 0;
+}
+/* Sociales */
+.social a svg {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.5rem;
+    padding: 0;
+}
+/* linea horzontal */
+footer hr{
+    margin: 0.5rem;
+}
+/* avisos legales */
+.avisos{
+    display: flex;
+    justify-content: space-between;
+}
+.avisos pre{
+    margin: 0 0.5rem;
+    font-family: "Montserrat";
+}
+/* responsive */
+@media screen and (max-width: 1700px){
+    nav{
+        height: 50px;
+        padding: 10px 0;
+    }
+    nav div a{
+        font-size: 1rem;
+    }
+    nav div.iniciarUser input{
+        font-size: 1rem;
+        padding: 5px;
+    }
+}

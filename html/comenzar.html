@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/logIn.css">
+    <link rel="stylesheet" href="../css/comenzar.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/logIn.js"></script>
-    <title>Inicial Sesión</title>
+    <script src="../js/comenzar.js"></script>
+    <title>Iniciar Sesión</title>
 </head>
 <body>
     <!-- barra navegación -->
@@ -27,14 +27,16 @@
             <a href="">Social</a>
         </div>
         <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="" />
-            <input type="button" value="Comenzar" onclick="" />
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
+            <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
         </div>
     </nav>
     <!-- login -->
     <div class="logIn">
         <form>
-            <h1><b>ACCEDE</b> A TU CUENTA</h1>
+            <h1>Registro</h1>
+            <input type="text" class="btn" id="inputN" >
+            <label class="nombre btn" for="nombre">Nombre y Apellido</label>
             <input type="email" class="btn" id="inputC" >
             <label class="email btn" for="email">E-mail</label>
             <input type="password" class="btn" id="inputP">

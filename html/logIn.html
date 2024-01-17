@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/apoyo.css">
+    <link rel="stylesheet" href="../css/logIn.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/apoyo.js"></script>
-    <title>ejercicios de apoyo</title>
+    <script src="../js/logIn.js"></script>
+    <title>Iniciar Sesión</title>
 </head>
 <body>
     <!-- barra navegación -->
@@ -21,17 +21,45 @@
             <a href="index.html">Brain Hub</a>
         </div>
         <div class="menu">
-            <a href="recurso.html">Recursos</a>
-            <a href="apoyo.html">Apoyo</a>
-            <a href="apoyo.html">Terapeutas</a>
-            <a href="social.html">Social</a>
+            <a href="">Recursos</a>
+            <a href="">Apoyo</a>
+            <a href="">Terapeutas</a>
+            <a href="">Social</a>
         </div>
         <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='log.html'" />
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
             <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
         </div>
     </nav>
-    <!-- introducción principal -->
+    <!-- login -->
+    <div class="logIn">
+        <form>
+            <h1><b>ACCEDE</b> A TU CUENTA</h1>
+            <input type="email" class="btn" id="inputC" >
+            <label class="email btn" for="email">E-mail</label>
+            <input type="password" class="btn" id="inputP">
+            <label class="pwd btn" for="password">Contraseña</label>
+            <input type="submit" class="btn" value="Entre">
+        </form>
+        <div class="continua">
+            <h1>Continua <b>con</b></h1>
+            <button>
+                <i class='bx bxl-facebook-circle'></i>Facebook
+            </button>
+            <button>
+                <i class='bx bxl-twitter' ></i>Twitter
+            </button>
+            <button>
+                <i class='bx bxl-instagram' ></i>Instagram
+            </button>
+        </div>
+    </div>
+    <!-- contacto -->
+    <div class="contacto">
+        <h1>¿TIENES DUDAS?</h1>
+        <p>Nuestro equipo de soporte está disponible 24/7</p>
+        <input type="button" value="CONTACTO" onclick="" />
+    </div>
     <!-- footer -->
     <footer>
         <div class="elementos">
