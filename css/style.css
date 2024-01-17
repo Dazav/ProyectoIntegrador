@@ -68,7 +68,7 @@ div.menu a{
 }
 .iniciarUser input {
     border: 2px solid #B19CD9;
-    padding: 0.5rem;
+    padding: .5rem 1rem;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;

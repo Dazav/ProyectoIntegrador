@@ -5,3 +5,8 @@ $(document).ready(function () {
         b.style.setProperty("--delayTitulo", time+'s');
     });
 });
+$(document).ready(function () {
+    var widthPregunta=$(".pregunta").width();
+    var preguntaArray=document.getElementsByClassName("pregunta");
+    var index=0;
+});

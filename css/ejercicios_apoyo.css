@@ -99,7 +99,25 @@ b{
     animation: titulo-in 0.5s ease-in-out forwards;
     animation-delay: var(--delayTitulo);
 }
-
+.parte_preguntas{
+    display: flex;
+    justify-content: center;
+}
+.ventana{
+    height: 250px;
+    width: 600px;
+    border: 1px solid;
+}
+.preguntas{
+    border: 1px solid red;
+    height: 140px;
+    position: absolute;
+}
+.pregunta{
+    float: left;
+    height: 140px;
+    width: 600px;
+}
 @keyframes titulo-in {
     from{
         opacity: 0;
