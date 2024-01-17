@@ -9,4 +9,32 @@ $(document).ready(function () {
     var widthPregunta=$(".pregunta").width();
     var preguntaArray=document.getElementsByClassName("pregunta");
     var index=0;
+    $("#flecha2").on("click", function () {
+        index++;
+        $("#flecha1").css("color", "black");
+        $("#flecha1").prop("disabled", false);
+        $(".preguntas").animate({
+            left : -widthPregunta*index,
+        },"easeInOut");
+        if (index >= preguntaArray.length-1) {
+            $("#flecha2").css("color", "#D3D3D3");
+            $("#flecha1").css("color", "black");
+            $("#flecha2").prop("disabled", true);
+            $("#flecha1").prop("disabled", false);
+        }
+        console.log(index);
+    });
+    $("#flecha1").on("click", function () {
+        index--;
+        $("#flecha2").css("color", "black");
+        $("#flecha2").prop("disabled", false);
+        console.log(index+"/"+preguntaArray.length);
+        $(".preguntas").animate({"left": -widthPregunta*index},"easeInOut");
+        if (index <= 0) {
+            $("#flecha1").css("color", "#D3D3D3");
+            $("#flecha2").css("color", "black");
+            $("#flecha1").prop("disabled", true);
+            $("#flecha2").prop("disabled", false);
+        }
+    });
 });

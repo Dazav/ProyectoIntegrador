@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
-
+:root{
+    /* altura y ancho de preguntas */
+    --heightPregunta:400px;
+    --widthPregunta:600px;
+}
 body,html{
     border: 0;
     margin: 0;
@@ -99,25 +103,6 @@ b{
     animation: titulo-in 0.5s ease-in-out forwards;
     animation-delay: var(--delayTitulo);
 }
-.parte_preguntas{
-    display: flex;
-    justify-content: center;
-}
-.ventana{
-    height: 250px;
-    width: 600px;
-    border: 1px solid;
-}
-.preguntas{
-    border: 1px solid red;
-    height: 140px;
-    position: absolute;
-}
-.pregunta{
-    float: left;
-    height: 140px;
-    width: 600px;
-}
 @keyframes titulo-in {
     from{
         opacity: 0;
@@ -128,6 +113,53 @@ b{
         left: 0;
     }
 }
+/* parte de preguntas */
+.parte_preguntas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  /* button flecha */
+.parte_preguntas button{
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+.parte_preguntas i{
+    font-size: 3rem;
+}
+    /* animate de pregunta */
+.ventana{
+    height: var(--heightPregunta);
+    width: var(--widthPregunta);
+    overflow: hidden;
+    position: relative;
+}
+.ventana h2{
+    font-size: 2.5rem;
+    margin: 0;
+}
+.preguntas{
+    height: var(--heightPregunta);
+    position: absolute;
+}
+.pregunta{
+    float: left;
+    height: var(--heightPregunta);
+    width: var(--widthPregunta);
+    
+}
+ /* modifica estilo de texto */
+.pregunta h2{
+    font-size: 2.5rem;
+}
+.pregunta h3{
+    font-size: 1.5rem;
+}
+.pregunta p{
+    font-size: 1.5rem;
+}
+
 
 
 /* tienes dudas */
