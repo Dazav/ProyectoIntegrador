@@ -81,7 +81,7 @@ nav div input:last-child:active{
     border-color: #6545A1;
 }
 /* titulo */
-main{
+.forosTitulo{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +89,6 @@ main{
     padding-top: 140px;
     font-size: 2rem;
 }
-
 b{
     opacity: 0;
     position: relative;
@@ -108,7 +107,24 @@ b{
         left: 0;
     }
 }
-/*  */
+/* buscador */
+main{
+    display: flex;
+    justify-content: center;
+}
+main input{
+    height: 50px;
+    width: 1000px;
+    font-size: 2rem;
+    padding: 10px 1rem;
+}
+main i{
+    font-size: 3rem;
+    position: relative;
+    right: 4rem;
+    top: 1rem;
+    color: #757575;
+}
 /* tienes dudas */
 .contacto{
     height: 230px;
