@@ -47,10 +47,15 @@ $(document).ready(function () {
     //     var topApoyoMitad=$(".apoyoTitulo").height()/2;
             var time=0;
             
-            document.querySelectorAll(".otroEje").forEach(function (otroEje,index){
+            // document.querySelectorAll(".otroEje").forEach(function (otroEje,index){
+            //     time +=0.2;
+            //     otroEje.style.setProperty("--otroEje", time+'s');
+
+            // });
+            $('.otroEje').each( function (index,otroEje,) { 
                 time +=0.2;
-                otroEje.style.setProperty("--otroEje", time+'s');
-                // console.log(time);
+                 console.log(index,otroEje,time);
+            });
                 // $(".otroEje").animate({
                 //     top:0,
                 //     opacity:1
@@ -58,6 +63,5 @@ $(document).ready(function () {
                 //     delay: del,
                 //     duration: 2000
                 // });
-            });
     // });        
 });
