@@ -159,6 +159,13 @@ b{
 .pregunta p{
     font-size: 1.5rem;
 }
+/* hr  */
+hr{
+    background: #969090;
+    border: none;
+    height: 2px;
+    width: 80%;
+}
 /* Otro ejercicio */
 .parteOtro{
     display: grid;

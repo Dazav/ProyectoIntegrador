@@ -56,7 +56,7 @@ $(document).ready(function () {
         $("#flecha1").prop("disabled", false);
         $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
         console.log(widthComentario);
-        if (index >= comentarioArra.length-7) {
+        if (index >= 1) {
             $("#flecha2").css("color", "#D3D3D3");
             $("#flecha1").css("color", "white");
             $("#flecha2").prop("disabled", true);
