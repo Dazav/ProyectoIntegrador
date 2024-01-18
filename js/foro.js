@@ -8,12 +8,13 @@ $(document).ready(function () {
 // 
 $(document).ready(function () {
     var agitar="bx-tada";
-    $("input").focus(function () { 
+    $("input").mouseenter(function () { 
         $("i").addClass(agitar);
-    }).blur(function () { 
+    }).mouseleave(function () { 
         $("i").removeClass(agitar);
     });
-    $(selector).keypress(function (e) { 
+    // eventos de clic
+    $("i").on("click", function () {
         
     });
 });
