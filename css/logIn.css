@@ -2,12 +2,12 @@
 :root{
     /* input */
     --left:170px;
-    --email:260px;
-    --pwd:210px;
+    --email:280px;
+    --pwd:230px;
     /* input:focus */
     --leftC:180px;
-    --emailC:280px;
-    --pwdC:230px;
+    --emailC:300px;
+    --pwdC:250px;
     /* bóton */
     --width:300px;
     --height:2.5rem;

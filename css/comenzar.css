@@ -2,15 +2,15 @@
 :root{
     /* input */
     --left:170px;
-    --email:235px;
-    --pwd:185px;
-    --nombre:285px;
+    --email:255px;
+    --pwd:205px;
+    --nombre:305px;
 
     /* input:focus */
     --leftC:180px;
-    --emailC:260px;
-    --pwdC:215px;
-    --nombreC:305px;
+    --emailC:275px;
+    --pwdC:235px;
+    --nombreC:325px;
 
     /* bóton */
     --width:300px;
