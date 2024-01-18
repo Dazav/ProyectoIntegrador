@@ -23,11 +23,17 @@ $(document).ready(function () {
         console.log(contenido);
         $(".temaTitulo").each(function (index,titulo){
             var tituloContenido=$(titulo).text().trim();
-            console.log(tituloContenido);
-            if(contenido==tituloContenido){
-                console.log(true);
-            }else{
-                console.log(false);
+
+            if(contenido!=tituloContenido){
+                //1
+                $(".tema").eq(index).animate({ opacity: 0 }, function() {
+                    $(this).css("display", "none");
+                });
+            }
+            if(contenido==""){
+                $(".tema").animate({ opacity: 1 }, function() {
+                    $(this).css("display", "flex");
+                });
             };
         });
     });

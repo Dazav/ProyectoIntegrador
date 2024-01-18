@@ -153,17 +153,6 @@ b{
 center{
     padding: 70px 0;
 }
-.ventana{
-    display: grid;
-    justify-content: center;
-    border: 1px solid rgb(6, 222, 222);
-    /* overflow: hidden; */
-    width:var(--width-ventana) ;
-    height: var(--height-ventana);
-}
-.temas{
-    border: 1px solid salmon;
-}
 .tema{
     display: flex;
     justify-content: center;
