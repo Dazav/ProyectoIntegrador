@@ -170,7 +170,7 @@ hr{
 .parteOtro{
     display: grid;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     text-align: center;
 }
 .parteOtro h1{

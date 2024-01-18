@@ -113,12 +113,12 @@ b{
         left: 0;
     }
 }
-/* buscador */
-main{
+/* buscador de temas */
+.buscar{
     display: flex;
     justify-content: center;
 }
-main input{
+.buscar input{
     position: relative;
     height: 50px;
     width: 1000px;
@@ -127,7 +127,7 @@ main input{
     animation: input-up 1s ease-in-out forwards;
     top: 0;
 }
-main i{
+.buscar i{
     font-size: 3rem;
     position: relative;
     right: 4rem;
@@ -135,12 +135,46 @@ main i{
     color: var(--busca-normal);
     background: none;
 }
-main i:hover,.bx-tada{
+.buscar i:hover,.bx-tada{
     color: var(--busca-color-hover);
     cursor: pointer;
 }
-main i:active{
+.buscar i:active{
     color: var(--busca-color-active);
+}
+/* temas */
+main{
+    display: grid;
+    justify-content: center;
+    padding: 70px 0;
+}
+.ventana{
+    border: 1px solid darkslategray;
+    width: 800px;
+}
+.temas{
+    border: 1px solid salmon;
+}
+.tema{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgba(0,0,0,50%);
+    padding: 0 30px;
+    margin: 40px 0;
+    width: 800px;
+}
+.tema h1{
+    font-size: 2.5rem;
+}
+.descripcion{
+
+    margin: 2rem 0;
+}
+.imgAutor{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
 }
 /* tienes dudas */
 .contacto{
