@@ -217,13 +217,13 @@ nav div input:last-child:active{
     gap: 1.5rem;
 }
 /* animación de carta */
-.cartas div{
+.cartas .carta{
     /* border-radius: 5px; */
     width: 420px;
     height: 350px;
     padding: 0.5rem;
     background: #F2F2F2;
-    box-shadow: 2px 2px 4px rgb(0, 0, 0,50%);
+    border: 1px solid #D9D9D9;
     transition: 0.5s ease-in-out;
 }
 
@@ -319,11 +319,9 @@ nav div input:last-child:active{
     background-size: cover;
 }
 div.carta1 center div{
-    background-size: cover;
     background-image: url(../img/img3.png);
 }
 div.carta2 center div{
-    background-size: cover;
     background-image: url(../img/img4.png);
 }
 div.carta3 center div{
@@ -340,7 +338,7 @@ div.carta3 center div{
 .cartas div p{
     margin: 0 16px;
     height: 0;
-    overflow: auto;
+    overflow: hidden;
     color: #48A45A;
 }
 /* animación de parráfo de carta1 */
@@ -349,7 +347,7 @@ div.carta3 center div{
 }
 @keyframes textEsconder {
     from {
-        transform: var(--rotate3d);
+
         height: var(--parrafo1H);
     }
     to{
@@ -364,7 +362,7 @@ div.carta3 center div{
         height: var(--parrafo);
     }
     to{
-        transform: var(--rotate3d);
+
         height: var(--parrafo1H);
     }
 }
@@ -374,7 +372,7 @@ div.carta3 center div{
 }
 @keyframes textEsconder2 {
     from {
-        transform: var(--rotate3d);
+
         height: var(--parrafo2H);
     }
     to{
@@ -389,7 +387,7 @@ div.carta3 center div{
         height: var(--parrafo);
     }
     to{
-        transform: var(--rotate3d);
+
         height: var(--parrafo2H);
     }
 }
@@ -399,7 +397,7 @@ div.carta3 center div{
 }
 @keyframes textEsconder3 {
     from {
-        transform: var(--rotate3d);
+
         height: var(--parrafo3H);
     }
     to{
@@ -414,30 +412,20 @@ div.carta3 center div{
         height: var(--parrafo);
     }
     to{
-        transform: var(--rotate3d);
+
         height: var(--parrafo3H);
     }
 }
-/*  */
-.cartas div button{
-    color: #48A45A;
-    width: 90px;
+/* etiqueta a de cartas */
+.cartas div a{
+    color: #2E8B57;
     height:40px;
-    border: 2px solid #48A45A;
-    font-size: 24px;
+    border: none;
+    font-size: 16px;
     font-weight: normal;
-    margin: 16px;
-    cursor: pointer;
-}
-.cartas div button:hover{
-    color: white;
-    background: #48A45A;
-    box-shadow: var(--box-shadow);
-}
-.cartas div button:active{
-    background: white;
-    color: #48A45A;
-    box-shadow: none;
+    margin-left: 30px;
+    position: relative;
+    bottom: -60px;
 }
 /* Opiniones de Clientes */
 .opiniones{

@@ -62,7 +62,6 @@ $(document).ready(function () {
                 },{
                     duration: 1000
                 });
-                console.log(otroEje);
             }); 
         }
     });        
