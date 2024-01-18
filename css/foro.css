@@ -142,7 +142,7 @@ b{
 .buscar i:active{
     color: var(--busca-color-active);
 }
-/* temas */
+/* temas y una manera de buscarlo */
 main{
     display: grid;
     justify-content: center;
