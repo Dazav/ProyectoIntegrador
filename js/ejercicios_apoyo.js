@@ -58,7 +58,7 @@ $(document).ready(function () {
                     opacity:1,
                     top: "0"
                 },{
-                    duration: 500
+                    duration: 1000
                 });
                 console.log(otroEje);
             }); 
