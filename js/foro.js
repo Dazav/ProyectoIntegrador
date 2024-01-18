@@ -19,11 +19,15 @@ $(document).ready(function () {
     // buscar tema
     
     $("i").on("click", function () {
-        var contenido=$(".buscar").text().trim(); 
-        document.querySelectorAll(".temaTitulo").forEach(function (titulo,index){
+        var contenido=$("#buscarInput").val(); 
+        console.log(contenido);
+        $(".temaTitulo").each(function (index,titulo){
             var tituloContenido=$(titulo).text().trim();
+            console.log(tituloContenido);
             if(contenido==tituloContenido){
                 console.log(true);
+            }else{
+                console.log(false);
             };
         });
     });
