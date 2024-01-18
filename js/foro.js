@@ -13,12 +13,18 @@ $(document).ready(function () {
     }).mouseleave(function () { 
         $("i").removeClass(agitar);
     });
-    // eventos de clic
+});
+// 
+$(document).ready(function () {
+    // buscar tema
+    
     $("i").on("click", function () {
-        // $(this).addClass("bx-spin");
-        var contenido=$(".buscar").val();
-        if(contenido==$(".forosTitulo").text().trim()){
-            
-        };
+        var contenido=$(".buscar").text().trim(); 
+        document.querySelectorAll(".temaTitulo").forEach(function (titulo,index){
+            var tituloContenido=$(titulo).text().trim();
+            if(contenido==tituloContenido){
+                console.log(true);
+            };
+        });
     });
 });

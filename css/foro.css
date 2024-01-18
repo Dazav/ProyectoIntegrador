@@ -3,6 +3,13 @@
     --busca-normal:#757575;
     --busca-color-hover:#000;
     --busca-color-active:#2E8B57;
+    /* ventana y tema */
+    --padding-tema:30px;
+    --margin-tema:40px;
+    --width-tema:800px;
+    --height-tema:300px;
+    --width-ventana:900px;
+    --height-ventana:380px;
 }
 body,html{
     border: 0;
@@ -143,14 +150,16 @@ b{
     color: var(--busca-color-active);
 }
 /* temas y una manera de buscarlo */
-main{
-    display: grid;
-    justify-content: center;
+center{
     padding: 70px 0;
 }
 .ventana{
-    border: 1px solid darkslategray;
-    width: 800px;
+    display: grid;
+    justify-content: center;
+    border: 1px solid rgb(6, 222, 222);
+    /* overflow: hidden; */
+    width:var(--width-ventana) ;
+    height: var(--height-ventana);
 }
 .temas{
     border: 1px solid salmon;
@@ -160,9 +169,10 @@ main{
     justify-content: center;
     align-items: center;
     box-shadow: 2px 2px 4px rgba(0,0,0,50%);
-    padding: 0 30px;
-    margin: 40px 0;
-    width: 800px;
+    padding: 0 var(--padding-tema);
+    margin: var(--margin-tema) 0 ;
+    width: var(--width-tema);
+    height: var(--height-tema);
 }
 .tema h1{
     font-size: 2.5rem;
