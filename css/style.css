@@ -2,16 +2,15 @@
 :root{
     --cartaH:350px;
     --border: 2px solid;
-    --border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+    --border-image: linear-gradient(135deg,#D3D3D3,#6545A1);
     --border-image-slice: 1;
-    --box-shadow: 2px 2px 4px #5CB85C;
+    --box-shadow: 2px 2px 4px #6545A1;
     --scale: scale(0.95);
     --carta1H:480px;
     --carta2H:450px;
     --carta3H:420px;
     /* párrafo */
     --parrafo:0;
-    --rotate3d: rotate3d(1,0,0,20turn);
     --parrafo1H:134px;
     --parrafo2H:80px;
     --parrafo3H:76px;
@@ -307,6 +306,7 @@ nav div input:last-child:active{
         border: var(--border);
         border-image: var(--border-image);
         border-image-slice: var(--border-image-slice);
+        box-shadow: var(--box-shadow);
         height: var(--carta3H);
     }
 }
@@ -328,7 +328,7 @@ div.carta3 center div{
     background-image: url(../img/img5.png);
 }
 .cartas div h1{
-    color: #48A45A;
+    color: #6545A1;
     display: flex;
     justify-content: flex-start;
     margin: 1rem;
@@ -339,7 +339,7 @@ div.carta3 center div{
     margin: 0 16px;
     height: 0;
     overflow: hidden;
-    color: #48A45A;
+    color: #6545A1;
 }
 /* animación de parráfo de carta1 */
 .carta1 p{
@@ -426,6 +426,14 @@ div.carta3 center div{
     margin-left: 30px;
     position: relative;
     bottom: -60px;
+    text-decoration: none;
+}
+.cartas div a:hover{
+    text-decoration: underline;
+}
+.cartas div a:active{
+    bottom: -62px;
+    left: 2px;
 }
 /* Opiniones de Clientes */
 .opiniones{
