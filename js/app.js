@@ -20,29 +20,26 @@ document.addEventListener("DOMContentLoaded", function() {
 // animación de carta del recurso
 $(document).ready(function () {
     // 
-    $("#btn1").on("click", function () {
-        window.location.href = "";
-    });
-    // en el caso de clic la carta, cambiará la clase. 
-    $(".carta1").on("click", function () {
-        $(".carta1").toggleClass("active1"); 
+    // en el caso de entre la carta, se presenta la descripción
+    $(".carta1").mouseenter(function () {
+        $(".carta1").addClass("active1"); 
+    }).mouseleave(function () {
+        $(".carta1").removeClass("active1");
     });
 });
 $(document).ready(function () {
-    $("#btn2").on("click", function () {
-        window.location.href = "";
-    });
-    $(".carta2").on("click", function () {
-        $(".carta2").toggleClass("active2");
+    $(".carta2").mouseenter(function () {
+        $(".carta2").addClass("active2");
+    }).mouseleave(function () {
+        $(".carta2").removeClass("active2");
     });
 });
 $(document).ready(function () {
     // nevega a la página apoyo por bóton IR
-    $("#btn3").on("click", function () {
-        window.location.href = "apoyo.html";
-    });
-    $(".carta3").on("click", function () {
-        $(".carta3").toggleClass("active3");
+    $(".carta3").mouseenter(function () {
+        $(".carta3").addClass("active3");
+    }).mouseleave(function () { 
+        $(".carta3").removeClass("active3");
     });
 });
 //animacion de opiniones
