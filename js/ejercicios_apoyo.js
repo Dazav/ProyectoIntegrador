@@ -2,7 +2,7 @@
 $(document).ready(function () {
     var time=0;
     document.querySelectorAll("b").forEach(function (b,index){
-        time +=0.2;
+        time +=0.5;
         b.style.setProperty("--delayTitulo", time+'s');
     });
 });
@@ -24,7 +24,6 @@ $(document).ready(function () {
             $("#flecha2").prop("disabled", true);
             $("#flecha1").prop("disabled", false);
         }
-        console.log(index);
     });
     $("#flecha1").on("click", function () {
         index--;
@@ -42,26 +41,27 @@ $(document).ready(function () {
 });
 // animación de otros ejercicios
 $(document).ready(function () {
-    // $(window).scroll(function () { 
-    //     var scrollTop = $(document).scrollTop()
-    //     var topApoyoMitad=$(".apoyoTitulo").height()/2;
-            var time=0;
-            
-            // document.querySelectorAll(".otroEje").forEach(function (otroEje,index){
-            //     time +=0.2;
-            //     otroEje.style.setProperty("--otroEje", time+'s');
-
-            // });
-            $('.otroEje').each( function (index,otroEje,) { 
-                time +=0.2;
-                 console.log(index,otroEje,time);
-            });
-                // $(".otroEje").animate({
-                //     top:0,
-                //     opacity:1
-                // },{
-                //     delay: del,
-                //     duration: 2000
-                // });
-    // });        
+    //configurar estado inicial
+    $(".otroEje").css({
+        position: "relative",
+        opacity:0,
+        top: "-100px"
+    });
+    $(window).scroll(function () { 
+        var scrollTop = $(document).scrollTop()
+        var topApoyoMitad=$(".apoyoTitulo").height();
+        var time=500;
+        if (scrollTop > topApoyoMitad) {
+            $('.otroEje').each( function (index,otroEje) { 
+                time +=500;
+                $(otroEje).delay(time).animate({
+                    opacity:1,
+                    top: "0"
+                },{
+                    duration: 500
+                });
+                console.log(otroEje);
+            }); 
+        }
+    });        
 });

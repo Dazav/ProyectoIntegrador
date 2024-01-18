@@ -184,24 +184,6 @@ b{
     height: 200px;
     width: 200px;
 }
-/* animación de otro ejercicio */
-.otroEje{
-    position: relative;
-    opacity: 0;
-    animation: slipe 0.5s ease-in-out forwards;
-    animation-delay: var(--otroEje);
-}
-@keyframes slipe {
-    from{
-        opacity: 0;
-        scale: 1.25;
-        left: -10rem;
-    }
-    to{
-        opacity: 1;
-        left: 0;
-    }
-}
 /* tienes dudas */
 .contacto{
     height: 230px;
