@@ -142,7 +142,7 @@ b{
     color: var(--busca-normal);
     background: none;
 }
-.buscar i:hover,.bx-tada{
+i:hover{
     color: var(--busca-color-hover);
     cursor: pointer;
 }
