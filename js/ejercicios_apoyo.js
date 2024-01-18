@@ -45,7 +45,8 @@ $(document).ready(function () {
     $(".otroEje").css({
         position: "relative",
         opacity:0,
-        top: "-100px"
+        top: "-100px",
+        scale: 0.75
     });
     $(window).scroll(function () { 
         var scrollTop = $(document).scrollTop()
@@ -56,7 +57,8 @@ $(document).ready(function () {
                 time +=500;
                 $(otroEje).delay(time).animate({
                     opacity:1,
-                    top: "0"
+                    top: "0",
+                    scale:1
                 },{
                     duration: 1000
                 });
