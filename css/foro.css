@@ -82,18 +82,21 @@ nav div input:last-child:active{
 }
 /* titulo */
 main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
     padding-top: 140px;
+    font-size: 2rem;
 }
-main h1{
-    
-}
+
 b{
     opacity: 0;
     position: relative;
     left: 2rem;
     top: 2rem;
     animation: titulo-in 0.5s ease-in-out forwards;
-    animation-delay: var(--delayTitulo);
+    animation-delay: var(--delay);
 }
 @keyframes titulo-in {
     from{
