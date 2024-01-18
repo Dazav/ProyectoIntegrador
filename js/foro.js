@@ -15,6 +15,10 @@ $(document).ready(function () {
     });
     // eventos de clic
     $("i").on("click", function () {
-        
+        // $(this).addClass("bx-spin");
+        var contenido=$(".buscar").val();
+        if(contenido==$(".forosTitulo").text().trim()){
+            
+        };
     });
 });
