@@ -7,7 +7,7 @@
     --padding-tema:30px;
     --margin-tema:40px;
     --width-tema:800px;
-    --height-tema:300px;
+    --height-tema:200px;
     --width-ventana:900px;
     --height-ventana:380px;
 }
@@ -125,7 +125,7 @@ nav div input:last-child:active{
     justify-content: center;
     align-items: center;
     height: 350px;
-    padding-top: 140px;
+    padding-top: 70px;
     font-size: 2rem;
 }
 b{
@@ -150,23 +150,26 @@ b{
 .buscar{
     display: flex;
     justify-content: center;
+    font-size: 1.5rem;
+    left: -30px;
+    top: 10px;
 }
 .buscar input{
     position: relative;
-    height: 50px;
-    width: 1000px;
-    font-size: 2rem;
-    padding: 10px 1rem;
+    height: 1rem;
+    width: 800px;
+    font-size: 1rem;
+    padding: 10px;
     animation: input-up 1s ease-in-out forwards;
     top: 0;
 }
 .buscar i{
-    font-size: 3rem;
     position: relative;
-    right: 4rem;
-    top: 1rem;
     color: var(--busca-normal);
     background: none;
+    font-size: 1.5rem;
+    left: -30px;
+    top: 10px;
 }
 i:hover{
     color: var(--busca-color-hover);
@@ -189,9 +192,11 @@ center{
     margin: var(--margin-tema) 0 ;
     width: var(--width-tema);
     height: var(--height-tema);
+    cursor: pointer;
+    background: white;
 }
 .tema h1{
-    font-size: 2.5rem;
+    font-size: 20px;
 }
 .descripcion{
 
@@ -199,8 +204,15 @@ center{
 }
 .imgAutor{
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 140px;
+    width: 140px;
+}
+.temaActive{
+    width: 50vw;
+    height: 100vh;
+    transform:  rotate(0);
+    transform-origin: 0 0; 
+    transition: 0.5s ease-in-out;
 }
 /* tienes dudas */
 .contacto{
@@ -294,32 +306,5 @@ footer hr{
     nav div.iniciarUser input{
         font-size: 1rem;
         padding: 5px;
-    }
-}
-@media screen and (max-width: 1540px) {
-    .buscar input{
-        height: 1rem;
-        width: 800px;
-        font-size: 1rem;
-        padding: 10px;
-    }
-    .buscar i{
-        font-size: 1.5rem;
-        left: -30px;
-        top: 10px;
-    }
-    center .tema{
-        height: 200px;
-        margin: 0;
-        text-align: left;
-    }
-    center .tema h2{
-        font-size: 20px;
-    }
-    center .tema p{
-        font-size: 1rem;
-    }
-    center .tema img{
-        scale: 0.7;
     }
 }
