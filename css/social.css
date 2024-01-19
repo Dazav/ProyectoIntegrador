@@ -295,3 +295,30 @@ footer hr{
         padding: 5px;
     }
 }
+@media screen and (max-width: 1540px) {
+    .buscar input{
+        height: 1rem;
+        width: 800px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .buscar i{
+        font-size: 1.5rem;
+        left: -30px;
+        top: 10px;
+    }
+    center .tema{
+        height: 200px;
+        margin: 0;
+        text-align: left;
+    }
+    center .tema h2{
+        font-size: 20px;
+    }
+    center .tema p{
+        font-size: 1rem;
+    }
+    center .tema img{
+        scale: 0.7;
+    }
+}
