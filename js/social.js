@@ -54,14 +54,11 @@ $(document).ready(function () {
 
             if(contenido!=tituloContenido){
                 //1
-                $(".tema").eq(index).animate({ opacity: 0 }, function() {
-                    $(this).css("display", "none");
-                });
+                $(".tema").eq(index).css("display", "none");
+
             }
             if(contenido==""){
-                $(".tema").animate({ opacity: 1 }, function() {
-                    $(this).css("display", "flex");
-                });
+                $(".tema").css("display", "flex");
             };
         });
     });
