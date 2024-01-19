@@ -66,17 +66,19 @@ nav .menu ul{
     flex-direction: column;
     gap: 20px;
     opacity: 0;
-    background: white;
     transition: 0.5s ease-in-out;
     width: 250px;
     padding: 10px 20px;
     right: -60px;
     top: 2rem;
+    /* background: #757575; */
 }
 .menu ul li:hover>ul{
     opacity: 1;
     top: 3rem;
-
+}
+.menu ul li:hover ul li a{
+    /* color: white; */
 }
 .menu ul li:hover{
     border-bottom: 5px solid #B19CD9;
@@ -277,8 +279,16 @@ footer hr{
         height: 50px;
         padding: 10px 0;
     }
-    nav div a{
+    nav a,li{
         font-size: 1rem;
+    }
+    .menu ul ul{
+        right: -120px;
+        top: 1.5rem;
+    }
+    .menu ul li:hover>ul{
+        opacity: 1;
+        top: 2rem;
     }
     nav div.iniciarUser input{
         font-size: 1rem;
