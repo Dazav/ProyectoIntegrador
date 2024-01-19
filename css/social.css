@@ -180,6 +180,7 @@ center{
     padding: 70px 0;
 }
 .tema{
+    text-align: left;
     display: flex;
     justify-content: center;
     align-items: center;
