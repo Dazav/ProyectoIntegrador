@@ -27,9 +27,8 @@ nav{
     gap: 20%;
     align-items: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 100px;
+
+    height: 70px;
     position: fixed;
     z-index: 1;
     background: white;
@@ -47,22 +46,47 @@ nav div img{
     height: 2.5rem;
     margin-right: 1rem;
 }
-nav a{
+nav a,li{
+    color: #6545A1;
     text-decoration: none;
-    color:black;
     font-size: 1.5rem;
     font-weight: bolder;
+    cursor: pointer;
 }
-nav div.menu{
+    /*  menu de nav */
+nav .menu ul{
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
     display: flex;
+    position: relative;
     gap: 20%;
 }
-div.menu a{
-    color: #6545A1;
+.menu ul ul{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    background: white;
+    transition: 0.5s ease-in-out;
+    width: 250px;
+    padding: 10px 20px;
+    right: -60px;
+    top: 2rem;
 }
+.menu ul li:hover>ul{
+    opacity: 1;
+    top: 3rem;
+
+}
+.menu ul li:hover{
+    border-bottom: 5px solid #B19CD9;
+}
+/* boton de usuarios */
 .iniciarUser input {
     border: 2px solid #B19CD9;
-    padding: 0.5rem;
+    padding: .5rem 1rem;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
