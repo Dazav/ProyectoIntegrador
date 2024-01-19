@@ -51,7 +51,7 @@ $(document).ready(function () {
     $(window).scroll(function () { 
         var scrollTop = $(document).scrollTop()
         var topApoyoMitad=$(".apoyoTitulo").height();
-        var time=500;
+        var time=0;
         if (scrollTop > topApoyoMitad) {
             $('.otroEje').each( function (index,otroEje) { 
                 time +=500;

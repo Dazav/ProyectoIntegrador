@@ -14,10 +14,38 @@ $(document).ready(function () {
         $("i").removeClass(agitar);
     });
 });
-// 
+//animacion del tema
+$(document).ready(function () {
+    //configurar estado inicial
+    $(".tema").css({
+        position: "relative",
+        opacity:0,
+        bottom: "-100px",
+        right:"-50px",
+    });
+    $(window).scroll(function () { 
+        var scrollTop = $(document).scrollTop()
+        var topTitulo=$(".forosTitulo").height()/3;
+        var time=0;
+        if (scrollTop > topTitulo) {
+            $('.tema').each( function (index,tema) { 
+                time +=300;
+                $(tema).delay(time).animate({
+                    opacity:1,
+                    bottom: "0",
+                    right:"0"
+                },{
+                    duration: 500
+                });
+            }); 
+        }
+    });        
+});
+
+
+//
 $(document).ready(function () {
     // buscar tema
-    
     $("i").on("click", function () {
         var contenido=$("#buscarInput").val(); 
         console.log(contenido);
