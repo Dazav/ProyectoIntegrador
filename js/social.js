@@ -24,7 +24,7 @@ $(document).ready(function () {
         bottom: "20px",
         right:"-50px",
         transform: "rotateX(-20deg) rotateY(25deg)",
-        transformOrigin: "-20% -20%"
+        transformOrigin: "-20% 0"
     });
     //desplazarse el barra de deplazamiento del nevagador
     $(window).scroll(function () { 
@@ -42,7 +42,6 @@ $(document).ready(function () {
                 },500, function () {
                     $(this).css({
                         transformOrigin: "50% 0",
-                        // transform: "rotate(0)",
                         transition: "0.4s ease-in-out"
                     });
                 });
