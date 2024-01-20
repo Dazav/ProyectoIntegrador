@@ -52,25 +52,22 @@ $(document).ready(function () {
     //expandir la carta de tema por clic
     $(".tema").on("click", function () {
         $(this).css({
-            width: "50vw",
-            height: "100vh",
-            transform:  "rotate(0)",
+            height: "80vh",
+            transform:  "rotate(0) scale(0.95) ",
             transformOrigin: "0 0",
-            transition: "0.5s ease-in-out"
+            transition: "0.5s ease-in-out",
+            zIndex:1
         });
-        if ($(this).height()=="100vh") {
-            $(this).css({
+    });   
+    $(".tema").mouseleave(function () { 
+                $(this).css({
                 width: "800px",
                 height: "200px",
                 transform: "rotateX(-20deg) rotateY(25deg)",
                 transformOrigin: "50% 0",
                 transition: "0.5s ease-in-out"
             });
-        }
-    });
-
-        
-        // $(".tema").toggleClass("temaActive");       
+    });   
 });
 //buscador
 $(document).ready(function () {

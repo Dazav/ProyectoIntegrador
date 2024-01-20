@@ -207,13 +207,6 @@ center{
     height: 140px;
     width: 140px;
 }
-.temaActive{
-    width: 50vw;
-    height: 100vh;
-    transform:  rotate(0);
-    transform-origin: 0 0; 
-    transition: 0.5s ease-in-out;
-}
 /* tienes dudas */
 .contacto{
     height: 230px;
