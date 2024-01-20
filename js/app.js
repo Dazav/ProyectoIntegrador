@@ -45,13 +45,15 @@ $(document).ready(function () {
 //animacion de opiniones
 $(document).ready(function () {
     var widthComentario = $(".comentario").width();
+    var paddingRight= parseInt($(".comentario").css("padding-right"),10);
+    var marginRight = parseInt($(".comentario").css("margin-right"),10);
     var comentarioArra=document.getElementsByClassName("comentario");
     var index=0;
     $("#flecha2").on("click", function () {
         index++;
         $("#flecha1").css("color", "white");
         $("#flecha1").prop("disabled", false);
-        $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
+        $(".cartaList").animate({"left": -(widthComentario+(paddingRight+marginRight)*2)*index*4},"easeInOut");
         if (index >= comentarioArra.length/4-1) {
             $("#flecha2").css("color", "#D3D3D3");
             $("#flecha1").css("color", "white");
@@ -63,7 +65,7 @@ $(document).ready(function () {
         index--;
         $("#flecha2").css("color", "white");
         $("#flecha2").prop("disabled", false);
-        $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
+        $(".cartaList").animate({"left": -(widthComentario+(paddingRight+marginRight)*2)*index*4},"easeInOut");
         if (index < 1) {
             $("#flecha1").css("color", "#D3D3D3");
             $("#flecha2").css("color", "white");

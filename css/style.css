@@ -808,4 +808,37 @@ footer hr{
     .active3 p{
         animation: widthCambiar 0.5s ease-in-out forwards;
     }
+    /* comentarios responsive */
+    .tituloComentarios h1{
+        font-size: 2rem;
+    }
+    .outer{
+        width: 1000px;
+        height: 110px;
+    }
+    .comentario{
+        width: 200px;
+        height: 100px;
+    }
+    .comentario div:first-child img{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media screen and (max-width:1230px) {
+    /* comentarios responsive */
+    .tituloComentarios h1{
+        font-size: 2rem;
+    }
+    .outer{
+        width: 600px;
+        height: 110px;
+    }
+    .comentario{
+        width: 100px;
+        height: 100px;
+    }
+    .comentario div:first-child img{
+        display: none;
+    }
 }
