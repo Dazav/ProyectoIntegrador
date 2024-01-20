@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
 :root{
-    /* altura y ancho de preguntas */
-    --heightPregunta:400px;
-    --widthPregunta:600px;
+    --busca-normal:#757575;
+    --busca-color-hover:#000;
+    --busca-color-active:#2E8B57;
+    /* ventana y tema */
+    --padding-tema:30px;
+    --margin-tema:40px;
+    --width-tema:800px;
+    --height-tema:200px;
+    --width-ventana:900px;
+    --height-ventana:380px;
 }
 body,html{
     border: 0;
@@ -59,17 +66,19 @@ nav .menu ul{
     flex-direction: column;
     gap: 20px;
     opacity: 0;
-    background: white;
     transition: 0.5s ease-in-out;
     width: 250px;
     padding: 10px 20px;
     right: -60px;
     top: 2rem;
+    background: white;
 }
 .menu ul li:hover>ul{
     opacity: 1;
     top: 3rem;
-
+}
+.menu ul li:hover ul li a{
+    /* color: white; */
 }
 .menu ul li:hover{
     border-bottom: 5px solid #B19CD9;
@@ -97,7 +106,7 @@ nav .menu ul{
     box-shadow: none;
     color: white;
 }
-/* búton de comenzar en navegación */
+/* bóton de comenzar en navegación */
 nav div input:last-child{
     background: #B19CD9;
     color: white;
@@ -110,8 +119,8 @@ nav div input:last-child:active{
     background: #6545A1;
     border-color: #6545A1;
 }
-/* ejercicios de apoyo */
-.apoyoTitulo{
+/* titulo */
+.forosTitulo{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +134,7 @@ b{
     left: 2rem;
     top: 2rem;
     animation: titulo-in 0.5s ease-in-out forwards;
-    animation-delay: var(--delayTitulo);
+    animation-delay: var(--delay);
 }
 @keyframes titulo-in {
     from{
@@ -137,84 +146,112 @@ b{
         left: 0;
     }
 }
-/* parte de preguntas */
-.parte_preguntas{
+/* buscador de temas */
+.buscar{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    left: -30px;
+    top: 10px;
 }
-  /* button flecha */
-.parte_preguntas button{
-    border: 0;
+.buscar input{
+    position: relative;
+    height: 1rem;
+    width: 800px;
+    font-size: 1rem;
+    padding: 10px;
+    animation: input-up 1s ease-in-out forwards;
+    top: 0;
+}
+.buscar i{
+    position: relative;
+    color: var(--busca-normal);
     background: none;
+    font-size: 1.5rem;
+    left: -30px;
+    top: 10px;
+}
+i:hover{
+    color: var(--busca-color-hover);
     cursor: pointer;
 }
-.parte_preguntas i{
-    font-size: 3rem;
+.buscar i:active{
+    color: var(--busca-color-active);
 }
-    /* animate de pregunta */
-.ventana{
-    height: var(--heightPregunta);
-    width: var(--widthPregunta);
-    overflow: hidden;
-    position: relative;
+/* temas y una manera de buscarlo */
+center{
+    padding: 70px 0;
 }
-.ventana h2{
-    font-size: 2.5rem;
-    margin: 0;
-}
-.preguntas{
-    height: var(--heightPregunta);
-    position: absolute;
-}
-.pregunta{
-    float: left;
-    height: var(--heightPregunta);
-    width: var(--widthPregunta);
-    
-}
- /* modifica estilo de texto */
-.pregunta h2{
-    font-size: 2.5rem;
-}
-.pregunta h3{
-    font-size: 1.5rem;
-}
-.pregunta p{
-    font-size: 1.5rem;
-}
-/* hr  */
-hr{
-    background: #969090;
-    border: none;
-    height: 2px;
-    width: 80%;
-}
-/* Otro ejercicio */
-.parteOtro{
-    display: grid;
+.tema{
+    text-align: left;
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-}
-.parteOtro h1{
-    font-size: 2.5rem;
-}
-.otroEje{
-    display: flex;
-    width: 600px;
     box-shadow: 2px 2px 4px rgba(0,0,0,50%);
+    padding: 0 var(--padding-tema);
+    margin: var(--margin-tema) 0 ;
+    width: var(--width-tema);
+    height: var(--height-tema);
+    cursor: pointer;
+    background: white;
+}
+.tema h1{
+    font-size: 20px;
+}
+.descripcion{
+
     margin: 2rem 0;
 }
-.descripcionEje{
+.imgAutor{
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+}
+    /* artículo escondida */
+.descripcionClic{
+    display: none;
+    background: white;
+    padding: 3rem;
+    cursor: default;
+    box-shadow: 0px 0px 4px gray;
+    border: 1px solid;
+}
+.img_des{
+    width: 800px;
+    height: 300px;
+}
+.descripcionClic .responder{
+    padding: 5px 10px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.descripcionClic .responder .bx-share{
+    margin-left: 10px;
+    font-size: 1rem;
+}
+    /* comentario de artículo */
+.comentarios_arti{
+    margin: 50px 0;
+}
+.comentario_arti{
+    display: flex;
+    align-items: center;
     text-align: left;
-    padding: 1rem 0 1rem 3rem;
-    width: 400px;
+    box-shadow: 0 0 4px grey;
+    padding: 20px 30px;
+    margin: 30px 0;
 }
-.imgEje{
-    height: 200px;
-    width: 200px;
+.comentario_arti img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
 }
+.comentario_arti p,h2{
+    margin: 5px 0;
+}
+    /*  */
 /* tienes dudas */
 .contacto{
     height: 230px;
@@ -295,7 +332,15 @@ footer hr{
     nav a,li{
         font-size: 1rem;
     }
-    .iniciarUser input{
+    .menu ul ul{
+        right: -120px;
+        top: 1.5rem;
+    }
+    .menu ul li:hover>ul{
+        opacity: 1;
+        top: 2rem;
+    }
+    nav div.iniciarUser input{
         font-size: 1rem;
         padding: 5px;
     }

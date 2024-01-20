@@ -20,43 +20,43 @@ document.addEventListener("DOMContentLoaded", function() {
 // animación de carta del recurso
 $(document).ready(function () {
     // 
-    $("#btn1").on("click", function () {
-        window.location.href = "";
-    });
-    // en el caso de clic la carta, cambiará la clase. 
-    $(".carta1").on("click", function () {
-        $(".carta1").toggleClass("active1"); 
+    // en el caso de entre la carta, se presenta la descripción
+    $(".carta1").mouseenter(function () {
+        $(".carta1").addClass("active1"); 
+    }).mouseleave(function () {
+        $(".carta1").removeClass("active1");
     });
 });
 $(document).ready(function () {
-    $("#btn2").on("click", function () {
-        window.location.href = "";
-    });
-    $(".carta2").on("click", function () {
-        $(".carta2").toggleClass("active2");
+    $(".carta2").mouseenter(function () {
+        $(".carta2").addClass("active2");
+    }).mouseleave(function () {
+        $(".carta2").removeClass("active2");
     });
 });
 $(document).ready(function () {
     // nevega a la página apoyo por bóton IR
-    $("#btn3").on("click", function () {
-        window.location.href = "apoyo.html";
-    });
-    $(".carta3").on("click", function () {
-        $(".carta3").toggleClass("active3");
+    $(".carta3").mouseenter(function () {
+        $(".carta3").addClass("active3");
+    }).mouseleave(function () { 
+        $(".carta3").removeClass("active3");
     });
 });
 //animacion de opiniones
 $(document).ready(function () {
     var widthComentario = $(".comentario").width();
+    var paddingRight= parseInt($(".comentario").css("padding-right"),10);
+    var marginRight = parseInt($(".comentario").css("margin-right"),10);
     var comentarioArra=document.getElementsByClassName("comentario");
     var index=0;
     $("#flecha2").on("click", function () {
         index++;
         $("#flecha1").css("color", "white");
         $("#flecha1").prop("disabled", false);
-        $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
-        console.log(widthComentario);
-        if (index >= comentarioArra.length-7) {
+        // mover iziquierda longitud de 4 comentarios
+        $(".cartaList").animate({"left": -(widthComentario+(paddingRight+marginRight)*2)*index*4},"easeInOut");
+        //se para en el caso que longitud de mover es mayor que longitud de array de comentarios
+        if (index >= comentarioArra.length/4-1) {
             $("#flecha2").css("color", "#D3D3D3");
             $("#flecha1").css("color", "white");
             $("#flecha2").prop("disabled", true);
@@ -67,7 +67,8 @@ $(document).ready(function () {
         index--;
         $("#flecha2").css("color", "white");
         $("#flecha2").prop("disabled", false);
-        $(".cartaList").animate({"left": -(widthComentario+50)*index*4},"easeInOut");
+        $(".cartaList").animate({"left": -(widthComentario+(paddingRight+marginRight)*2)*index*4},"easeInOut");
+        //se para en el caso que se mueve en sitio primero.
         if (index < 1) {
             $("#flecha1").css("color", "#D3D3D3");
             $("#flecha2").css("color", "white");

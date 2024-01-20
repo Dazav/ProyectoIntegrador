@@ -2,16 +2,15 @@
 :root{
     --cartaH:350px;
     --border: 2px solid;
-    --border-image: linear-gradient(135deg,#D3D3D3,#2E8B57);
+    --border-image: linear-gradient(135deg,#D3D3D3,#6545A1);
     --border-image-slice: 1;
-    --box-shadow: 2px 2px 4px #5CB85C;
+    --box-shadow: 2px 2px 4px #6545A1;
     --scale: scale(0.95);
     --carta1H:480px;
     --carta2H:450px;
     --carta3H:420px;
     /* párrafo */
     --parrafo:0;
-    --rotate3d: rotate3d(1,0,0,20turn);
     --parrafo1H:134px;
     --parrafo2H:80px;
     --parrafo3H:76px;
@@ -33,9 +32,8 @@ nav{
     gap: 20%;
     align-items: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 100px;
+
+    height: 70px;
     position: fixed;
     z-index: 1;
     background: white;
@@ -53,19 +51,44 @@ nav div img{
     height: 2.5rem;
     margin-right: 1rem;
 }
-nav a{
+nav a,li{
+    color: #6545A1;
     text-decoration: none;
-    color:black;
     font-size: 1.5rem;
     font-weight: bolder;
+    cursor: pointer;
 }
-nav div.menu{
+    /*  menu de nav */
+nav .menu ul{
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
     display: flex;
+    position: relative;
     gap: 20%;
 }
-div.menu a{
-    color: #6545A1;
+.menu ul ul{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    background: white;
+    transition: 0.5s ease-in-out;
+    width: 250px;
+    padding: 10px 20px;
+    right: -60px;
+    top: 2rem;
 }
+.menu ul li:hover>ul{
+    opacity: 1;
+    top: 3rem;
+
+}
+.menu ul li:hover{
+    border-bottom: 5px solid #B19CD9;
+}
+/* boton de usuarios */
 .iniciarUser input {
     border: 2px solid #B19CD9;
     padding: .5rem 1rem;
@@ -107,7 +130,7 @@ nav div input:last-child:active{
     justify-content: center;
     font-weight: bolder;
     height: 750px;
-    padding-top: 140px;
+    padding-top: 100px;
 }
 .introduccion1 div{
     padding: 30px;
@@ -217,13 +240,13 @@ nav div input:last-child:active{
     gap: 1.5rem;
 }
 /* animación de carta */
-.cartas div{
+.cartas .carta{
     /* border-radius: 5px; */
     width: 420px;
     height: 350px;
     padding: 0.5rem;
     background: #F2F2F2;
-    box-shadow: 2px 2px 4px rgb(0, 0, 0,50%);
+    border: 1px solid #D9D9D9;
     transition: 0.5s ease-in-out;
 }
 
@@ -307,6 +330,7 @@ nav div input:last-child:active{
         border: var(--border);
         border-image: var(--border-image);
         border-image-slice: var(--border-image-slice);
+        box-shadow: var(--box-shadow);
         height: var(--carta3H);
     }
 }
@@ -319,18 +343,16 @@ nav div input:last-child:active{
     background-size: cover;
 }
 div.carta1 center div{
-    background-size: cover;
     background-image: url(../img/img3.png);
 }
 div.carta2 center div{
-    background-size: cover;
     background-image: url(../img/img4.png);
 }
 div.carta3 center div{
     background-image: url(../img/img5.png);
 }
 .cartas div h1{
-    color: #48A45A;
+    color: #6545A1;
     display: flex;
     justify-content: flex-start;
     margin: 1rem;
@@ -340,8 +362,8 @@ div.carta3 center div{
 .cartas div p{
     margin: 0 16px;
     height: 0;
-    overflow: auto;
-    color: #48A45A;
+    overflow: hidden;
+    color: #6545A1;
 }
 /* animación de parráfo de carta1 */
 .carta1 p{
@@ -349,7 +371,7 @@ div.carta3 center div{
 }
 @keyframes textEsconder {
     from {
-        transform: var(--rotate3d);
+
         height: var(--parrafo1H);
     }
     to{
@@ -364,7 +386,7 @@ div.carta3 center div{
         height: var(--parrafo);
     }
     to{
-        transform: var(--rotate3d);
+
         height: var(--parrafo1H);
     }
 }
@@ -374,7 +396,7 @@ div.carta3 center div{
 }
 @keyframes textEsconder2 {
     from {
-        transform: var(--rotate3d);
+
         height: var(--parrafo2H);
     }
     to{
@@ -389,7 +411,7 @@ div.carta3 center div{
         height: var(--parrafo);
     }
     to{
-        transform: var(--rotate3d);
+
         height: var(--parrafo2H);
     }
 }
@@ -399,7 +421,7 @@ div.carta3 center div{
 }
 @keyframes textEsconder3 {
     from {
-        transform: var(--rotate3d);
+
         height: var(--parrafo3H);
     }
     to{
@@ -414,30 +436,28 @@ div.carta3 center div{
         height: var(--parrafo);
     }
     to{
-        transform: var(--rotate3d);
+
         height: var(--parrafo3H);
     }
 }
-/*  */
-.cartas div button{
-    color: #48A45A;
-    width: 90px;
+/* etiqueta a de cartas */
+.cartas div a{
+    color: #2E8B57;
     height:40px;
-    border: 2px solid #48A45A;
-    font-size: 24px;
+    border: none;
+    font-size: 16px;
     font-weight: normal;
-    margin: 16px;
-    cursor: pointer;
+    margin-left: 30px;
+    position: relative;
+    bottom: -60px;
+    text-decoration: none;
 }
-.cartas div button:hover{
-    color: white;
-    background: #48A45A;
-    box-shadow: var(--box-shadow);
+.cartas div a:hover{
+    text-decoration: underline;
 }
-.cartas div button:active{
-    background: white;
-    color: #48A45A;
-    box-shadow: none;
+.cartas div a:active{
+    bottom: -62px;
+    left: 2px;
 }
 /* Opiniones de Clientes */
 .opiniones{
@@ -559,7 +579,6 @@ div.carta3 center div{
 /* footer */
 footer{
     background: #000;
-    height: 400px;
     color: white;
 }
 footer .elementos{
@@ -609,8 +628,16 @@ footer hr{
         height: 50px;
         padding: 10px 0;
     }
-    nav div a{
+    nav a,li{
         font-size: 1rem;
+    }
+    .menu ul ul{
+        right: -120px;
+        top: 1.5rem;
+    }
+    .menu ul li:hover>ul{
+        opacity: 1;
+        top: 2rem;
     }
     nav div.iniciarUser input{
         font-size: 1rem;
@@ -780,5 +807,55 @@ footer hr{
     }
     .active3 p{
         animation: widthCambiar 0.5s ease-in-out forwards;
+    }
+    /* comentarios responsive */
+    .tituloComentarios h1{
+        font-size: 2rem;
+    }
+    .outer{
+        width: 1000px;
+        height: 110px;
+    }
+    .comentario{
+        width: 200px;
+        height: 100px;
+    }
+    .comentario div:first-child img{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media screen and (max-width:1230px) {
+    /* comentarios responsive */
+    .tituloComentarios h1{
+        font-size: 2rem;
+    }
+    .outer{
+        width: 600px;
+        height: 110px;
+    }
+    .comentario{
+        width: 100px;
+        height: 100px;
+    }
+    .comentario div:last-child h4{
+        padding-left: 0;
+        font-size: 1rem;
+    }
+    .comentario div:last-child p{
+        padding-left: 0;
+        font-size: 0px;
+    }
+    .comentario div:last-child p:last-child{
+        font-size: 10px;
+    }
+    .comentario div:first-child img{
+        display: none;
+    }
+    .verMas{
+        justify-content: center;
+    }
+    .verMas div h4:first-child{
+        font-size: 0;
     }
 }
