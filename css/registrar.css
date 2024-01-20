@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body, input{
+    font-family: 'Montserrat';
+}
+main{
+    
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #DDCBFF;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* barra de navegación */
+nav{
+    display: flex;
+    justify-content: space-around;
+    gap: 20%;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100px;
+    position: fixed;
+    z-index: 1;
+    background: white;
+}
+nav div.usuario{
+    display: flex;
+    align-items: center;
+}
+nav div.usuario a{
+    color: #6545A1;
+}
+nav div img{
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+nav div.menu{
+    display: flex;
+    gap: 20%;
+}
+div.menu a{
+    color: #6545A1;
+}
+/* búton de comenzar en navegación */
+nav div input:last-child{
+    background: #B19CD9;
+    color: white;
+}
+nav div input:last-child:hover{
+    box-shadow: 2px 2px 4px #6545A1;
+}
+nav div input:last-child:active{
+    box-shadow: none;
+    background: #6545A1;
+    border-color: #6545A1;
+}
+/* login */
+.box{
+    position: relative;
+    width: 100%;
+    max-width: 1020px;
+    height: 640px;
+    background-color: white;
+    border-radius: 3.3rem;
+    box-sizing: 0 60px 40px -30px rgba(0, 0, 0, 0.30);
+    
+}
+
+.inner-box {
+    position:absolute;
+    width: calc(100% - 4.1rem);
+    height: calc(100% - 4.1rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.forms-wrap{
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.carousel{
+    position: absolute;
+    height: 100%;
+    width: 55%;
+    left: 45%;
+    top: 0;
+    background-color: #DDCBFF;
+    border-radius: 2rem;
+}
+
+/*formulario register */
+form{
+    max-width: 360px;
+    width: 100%;
+    margin: 0, 0, 0, 0  ;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+form.sign-up-form{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logos{
+    display: flex;
+    align-items: center;
+}
+.logos img{ 
+    width: 27px;
+    margin: 0.3rem;
+}
+
+.logos h4{
+    font-size: 1.1rem;
+    margin-top: -9px;
+    letter-spacing: -0.2px;
+    color: #151111;
+}
+
+.heading h2{
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: #151111;
+}
+
+.heading h6{
+ color: #bababa;
+ font-weight: 400;
+ font-size: .75rem;
+ display: inline;
+}
+
+.toggle{
+    color: #151111;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.toggle:hover{
+    color: purple;
+   
+}
+
+.input-wrap {
+    position: relative;
+    height: 37px;
+    margin-bottom: 2rem;
+    
+   
+}
+
+.input-field {
+    position: absolute;
+    width: 100%;   
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 1px solid #bbb;
+    padding: 0;
+    font-size: 0.95rem;
+    color: #151111;
+}
+
+label{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: #bbb;
+    pointer-events: none;
+    transition: 0.4s
+    
+}
+
+.input-field.active {
+    border-bottom-color: #151111;
+}
+
+.input-field.active + label {
+    font-size: 0.75rem;
+    top: -2px;
+}
+
+.sign-btn{
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+    
+    
+}
+
+.sign-btn:hover{
+    background-color: #8371fd;
+}
+
+.text{
+    color: #bbb;
+    font-size: 0.7;
+}
+
+.text a{
+    color: #bbb;
+    transition: 0.3s;
+}
+
+.text a:hover{
+    color: #8371fd;
+}
+
+
+/* tienes dudas */
+.contacto{
+    height: 230px;
+    background: #D9D9D9;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: bold;
+}
+.contacto h1{
+    margin: 0 0 32px 0;
+    font-size: 2rem;
+}
+.contacto p{
+    font-size: 1rem;
+    margin: 24px 0;
+}
+.contacto input{
+    background: #000;
+    border-radius: 35px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+}
+/* footer */
+footer{
+    background: #000;
+    height: 400px;
+    color: white;
+}
+footer .elementos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.elementos div:first-child img{
+    width: 95px;
+    height: 95px;
+}
+.elementos div:first-child{
+    display: flex;
+    align-items: center;
+}
+.elementos div:nth-child(n+2) h2 {
+    margin: 100px 0 32px 0;
+}
+.elementos div:nth-child(n+2) ul{
+    list-style-type: none;
+    margin: 0 0 120px 0;
+    padding-inline-start: 0;
+}
+/* Sociales */
+.social a svg {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.5rem;
+    padding: 0;
+}
+/* linea horzontal */
+footer hr{
+    margin: 0.5rem;
+}
+/* avisos legales */
+.avisos{
+    display: flex;
+    justify-content: space-between;
+}
+.avisos pre{
+    margin: 0 0.5rem;
+    font-family: "Montserrat";
+}
