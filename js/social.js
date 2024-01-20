@@ -50,23 +50,39 @@ $(document).ready(function () {
         }
     });
     //expandir la carta de tema por clic
+
     $(".tema").on("click", function () {
+        //expandir la carta de tema
         $(this).css({
             height: "80vh",
             transform:  "rotate(0) scale(0.95) ",
             transformOrigin: "0 0",
             transition: "0.5s ease-in-out",
-            zIndex:1
+            zIndex:100//cubrir tema actual arriba las cartas de temas no seleccionado
         });
-    });   
+        // encuentro la descripción, artículo escondido y imagen de autor de la tema que tomo clic actual
+        var descripcion=$(this).find(".descripcion");
+        var descripcionClic=$(this).find(".descripcionClic");
+        var imgAutor=$(this).find(".imgAutor");
+        $(descripcion).css("display", "none");
+        $(imgAutor).css("display", "none");
+        //aparecer la artículo escondida
+        $(descripcionClic).css("display", "block");
+    }); 
+    
     $(".tema").mouseleave(function () { 
                 $(this).css({
                 width: "800px",
                 height: "200px",
                 transform: "rotateX(-20deg) rotateY(25deg)",
                 transformOrigin: "50% 0",
-                transition: "0.5s ease-in-out"
+                transition: "0.5s ease-in-out",
+                zIndex:0
             });
+            $(".descripcion").css("display", "block");
+            $(".descripcionClic").css("display", "none");
+            $(".imgAutor").css("display", "block");
+
     });   
 });
 //buscador
