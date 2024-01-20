@@ -53,7 +53,9 @@ $(document).ready(function () {
         index++;
         $("#flecha1").css("color", "white");
         $("#flecha1").prop("disabled", false);
+        // mover iziquierda longitud de 4 comentarios
         $(".cartaList").animate({"left": -(widthComentario+(paddingRight+marginRight)*2)*index*4},"easeInOut");
+        //se para en el caso que longitud de mover es mayor que longitud de array de comentarios
         if (index >= comentarioArra.length/4-1) {
             $("#flecha2").css("color", "#D3D3D3");
             $("#flecha1").css("color", "white");
@@ -66,6 +68,7 @@ $(document).ready(function () {
         $("#flecha2").css("color", "white");
         $("#flecha2").prop("disabled", false);
         $(".cartaList").animate({"left": -(widthComentario+(paddingRight+marginRight)*2)*index*4},"easeInOut");
+        //se para en el caso que se mueve en sitio primero.
         if (index < 1) {
             $("#flecha1").css("color", "#D3D3D3");
             $("#flecha2").css("color", "white");
