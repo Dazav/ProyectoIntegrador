@@ -838,7 +838,24 @@ footer hr{
         width: 100px;
         height: 100px;
     }
+    .comentario div:last-child h4{
+        padding-left: 0;
+        font-size: 1rem;
+    }
+    .comentario div:last-child p{
+        padding-left: 0;
+        font-size: 0px;
+    }
+    .comentario div:last-child p:last-child{
+        font-size: 10px;
+    }
     .comentario div:first-child img{
         display: none;
+    }
+    .verMas{
+        justify-content: center;
+    }
+    .verMas div h4:first-child{
+        font-size: 0;
     }
 }
