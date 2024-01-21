@@ -15,7 +15,7 @@ main{
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    background-color: #DDCBFF;
+    background-color: rgb(248, 247, 245);
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -95,17 +95,8 @@ nav div input:last-child:active{
     transform: translate(-50%, -50%);
 }
 
-.forms-wrap{
-    position: absolute;
-    height: 100%;
-    width: 45%;
-    top: 0;
-    left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-}
 
+/*carusel de imagenes */
 .carousel{
     position: absolute;
     height: 100%;
@@ -114,6 +105,93 @@ nav div input:last-child:active{
     top: 0;
     background-color: #DDCBFF;
     border-radius: 2rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-bottom: 2rem;
+    overflow: hidden;
+    transition: .8s ease-in-out;
+}
+
+.images-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.image {
+    width: 100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+.img-1{
+    transform: translate(0, -50px);
+}
+
+.img-2{
+    transform: scale(0.4, 0.5);
+}
+
+.img-3{
+    transform: scale(0.3) rotate(-20deg);
+}
+
+.image.show {
+    opacity: 1;
+    transform: none;
+}
+
+.text-slider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+
+.text-wrap{
+    max-height: 2.2rem;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+   
+}
+
+.text-group{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(0);
+}
+
+.text-group h2{
+    line-height: 2.2rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.bullets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bullets span{
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: #aaa;
+    margin: 0 0.25rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bullets span.active{
+    width: 1.1rem;
+    background-color: #151111;
+    border-radius: 1rem;
 }
 
 /*formulario register */
@@ -127,6 +205,19 @@ form{
     justify-content: space-evenly;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    transition: opacity 0.02s 0.4s;
+}
+
+.forms-wrap{
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    transition: .8s ease-in-out;
 }
 
 form.sign-up-form{
@@ -206,6 +297,25 @@ label{
     pointer-events: none;
     transition: 0.4s
     
+}
+
+main.sign-up-mode form.sign-in-form {
+    opacity: 0;
+    pointer-events: none;
+}
+
+main.sign-up-mode form.sign-up-form {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+main.sign-up-mode .forms-wrap {
+    left: 60%;
+}
+
+main.sign-up-mode .carousel {
+    left: 0%;
 }
 
 .input-field.active {
