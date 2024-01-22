@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/logIn.js"></script>
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <!-- barra navegación -->
+    <nav>
+        <div class="usuario">
+            <img src="../img/logo.png" alt="" srcset="">
+            <a href="index.html">Brain Hub</a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="recurso.html">Recursos</a></li>
+                <li>
+                    Apoyo
+                    <ul>
+                        <li>
+                            <a href="grupo_apoyo.html">Grupo Apoyo</a>
+                        </li>
+                        <li>
+                            <a href="ejercicios_apoyo.html">Ejercicios de Apoyo</a>
+                        </li>
+                    </ul>   
+                </li>
+                <li><a href="terapeutas.html">Terapeutas</a></li>
+                <li><a href="social.html">Social</a></li>
+            </ul>
+        </div>
+        <div class="iniciarUser">
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
+            <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
+        </div>
+    </nav>
+
+    <div class="containerContacto">
+        <div class="imgContacto">
+            <img src="../img/logo.png" alt="">
+        </div>
+        <div class="form">
+            <form action="">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                <input type="submit" class="btn" value="Entre">
+            </form>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
