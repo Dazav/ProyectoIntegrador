@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
 :root{
-    --busca-normal:#757575;
-    --busca-color-hover:#000;
-    --busca-color-active:#2E8B57;
-    /* ventana y tema */
-    --padding-tema:30px;
-    --margin-tema:40px;
-    --width-tema:800px;
-    --height-tema:200px;
-    --width-ventana:900px;
-    --height-ventana:380px;
+    /* input */
+    --left:170px;
+    --email:280px;
+    --pwd:230px;
+    /* input:focus */
+    --leftC:180px;
+    --emailC:300px;
+    --pwdC:250px;
+    /* bóton */
+    --width:300px;
+    --height:2.5rem;
+    --boxshadow:4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 body,html{
     border: 0;
@@ -66,22 +68,37 @@ nav .menu ul{
     flex-direction: column;
     gap: 20px;
     opacity: 0;
+    background: white;
     transition: 0.5s ease-in-out;
     width: 250px;
     padding: 10px 20px;
     right: -60px;
     top: 2rem;
-    background: white;
 }
 .menu ul li:hover>ul{
     opacity: 1;
     top: 3rem;
-}
-.menu ul li:hover ul li a{
-    /* color: white; */
+
 }
 .menu ul li:hover{
     border-bottom: 5px solid #B19CD9;
+}
+
+/* Container contacto */
+.containerContacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 4em;
+}
+.imgContacto{
+    max-width: 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+.imgContacto img{
+    max-width: 50%;
+    margin: auto;
 }
 
 /* boton de usuarios */
@@ -107,7 +124,7 @@ nav .menu ul{
     box-shadow: none;
     color: white;
 }
-/* bóton de comenzar en navegación */
+/* búton de comenzar en navegación */
 nav div input:last-child{
     background: #B19CD9;
     color: white;
@@ -120,139 +137,163 @@ nav div input:last-child:active{
     background: #6545A1;
     border-color: #6545A1;
 }
-/* titulo */
-.forosTitulo{
+/* login */
+.logIn{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 800px;
     padding-top: 70px;
-    font-size: 2rem;
 }
-b{
-    opacity: 0;
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 640px;
+    height: 530px;
+}
+.logIn h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+}
+.logIn h1 b{
+    color: #6545A1;
+}
+input[type="email"],input[type="password"], input[type="text"]{
+    width: 300px;
+    border:0;
+    border-bottom: 3px solid;
+    background: none;
+    height: 1.5rem;
+}
+textarea{
+    width: 300px;
+    border: 3px solid;
+    background: none;
+}
+.logIn label{
+    color: #6545A1;
+    
+}
+.logIn form{
     position: relative;
-    left: 2rem;
-    top: 2rem;
-    animation: titulo-in 0.5s ease-in-out forwards;
-    animation-delay: var(--delay);
 }
-@keyframes titulo-in {
+.email{
+    font-size: 1.5rem;
+    position: absolute;
+    left: var(--left);
+    bottom: var(--email);
+    z-index: -1;
+}
+.pwd{
+    font-size: 1.5rem;
+    position: absolute;
+    left: var(--left);
+    bottom: var(--pwd);
+    z-index: -1;
+}
+input:focus{
+    outline: none !important;
+    border-bottom: 3px solid #6545A1;
+}
+.active{
+    font-size: 1rem;
+    bottom: var(--emailC);
+    left: var(--leftC);
+    background: white;
+    font-weight: bold;
+    z-index: 0;
+}
+.active2{
+    font-size: 1rem;
+    bottom: var(--pwdC);
+    left: var(--leftC);
+    background: white;
+    font-weight: bold;
+    z-index: 0;
+}
+.btn{
+    opacity: 0;
+    animation: crazyInput 0.5s ease-in-out forwards;
+    animation-delay: var(--time);
+}
+@keyframes  crazyInput {
     from{
-        opacity: 0;
     }
     to{
         opacity: 1;
-        top: 0;
-        left: 0;
     }
 }
-/* buscador de temas */
-.buscar{
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
-    left: -30px;
-    top: 10px;
-}
-.buscar input{
-    position: relative;
-    height: 1rem;
-    width: 800px;
+    /* enviar */
+input[type="submit"]{
+    margin-top: 30px;
+    color: #6545A1;
+    text-align: center;
     font-size: 1rem;
-    padding: 10px;
-    animation: input-up 1s ease-in-out forwards;
-    top: 0;
+    border: 2px solid #6545A1;
+    background: #FFF;
+    box-shadow: var(--boxshadow);
+    width: var(--width);
+    height: var(--height);
 }
-.buscar i{
-    position: relative;
-    color: var(--busca-normal);
-    background: none;
-    font-size: 1.5rem;
-    left: -30px;
-    top: 10px;
+input[type="submit"]:hover{
+    color: white;
+    background: #6545A1;
+    box-shadow: 1px 1px 3px 0px #6545A1;
 }
-i:hover{
-    color: var(--busca-color-hover);
-    cursor: pointer;
+input[type="submit"]:active{
+    color: #6545A1;
+    background: white;
+    box-shadow: none;
 }
-.buscar i:active{
-    color: var(--busca-color-active);
-}
-/* temas y una manera de buscarlo */
-center{
-    padding: 70px 0;
-}
-.tema{
-    text-align: left;
+/* Continua con */
+.continua{
+    opacity: 0;
+    width: 640px;
+    height: 500px;
+    background: #DDCBFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 4px rgba(0,0,0,50%);
-    padding: 0 var(--padding-tema);
-    margin: var(--margin-tema) 0 ;
-    width: var(--width-tema);
-    height: var(--height-tema);
-    cursor: pointer;
+    position: relative;
+}
+button{
+    opacity: 0;
+    width: var(--width);
+    height: var(--height);
     background: white;
-}
-.tema h1{
-    font-size: 20px;
-}
-.descripcion{
-
-    margin: 2rem 0;
-}
-.imgAutor{
-    border-radius: 50%;
-    height: 140px;
-    width: 140px;
-}
-    /* artículo escondida */
-.descripcionClic{
-    display: none;
-    background: white;
-    padding: 3rem;
-    cursor: default;
-    box-shadow: 0px 0px 4px gray;
-    border: 1px solid;
-}
-.img_des{
-    width: 800px;
-    height: 300px;
-}
-.descripcionClic .responder{
-    padding: 5px 10px;
-    border: none;
-    font-size: 1rem;
+    margin: 20px;
     cursor: pointer;
-}
-.descripcionClic .responder .bx-share{
-    margin-left: 10px;
     font-size: 1rem;
+    font-weight: bold;
+    animation: botonOpen 0.5s ease-in-out forwards;
+    animation-delay: var(--time);
 }
-    /* comentario de artículo */
-.comentarios_arti{
-    margin: 50px 0;
+@keyframes botonOpen {
+    from{
+        scale: 0.5;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        transform: rotate3d(1,0,0,1turn);
+        opacity: 1;
+    }
 }
-.comentario_arti{
-    display: flex;
-    align-items: center;
-    text-align: left;
-    box-shadow: 0 0 4px grey;
-    padding: 20px 30px;
-    margin: 30px 0;
+button:hover{
+    background: #D3D3D3;
+    box-shadow: var(--boxshadow);
 }
-.comentario_arti img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
+button:active{
+    background: #000;
+    color: white;
+    box-shadow: none;
 }
-.comentario_arti p,h2{
-    margin: 5px 0;
-}
-    /*  */
 /* tienes dudas */
 .contacto{
     height: 230px;
@@ -330,16 +371,8 @@ footer hr{
         height: 50px;
         padding: 10px 0;
     }
-    nav a,li{
+    nav div a{
         font-size: 1rem;
-    }
-    .menu ul ul{
-        right: -120px;
-        top: 1.5rem;
-    }
-    .menu ul li:hover>ul{
-        opacity: 1;
-        top: 2rem;
     }
     nav div.iniciarUser input{
         font-size: 1rem;
