@@ -84,9 +84,6 @@ $(document).ready(function () {
 
     });
     // responder desaparece y aparecer el formulario
-    $("form").submit(function (e) { 
-        e.preventDefault();
-    });
     $(".responder").click(function () { 
         var form=$(this).siblings("form");
         $(form).animate({
@@ -95,7 +92,7 @@ $(document).ready(function () {
         },500);
         $(this).css("display", "none")
     }); 
-    $(".enviar").click(function () { 
+    $("input:submit").click(function () { 
         //animacion de formulario
         var form=$(this).closest("form");
         $(form).animate({
@@ -105,6 +102,11 @@ $(document).ready(function () {
         //animacion de bóton repuesta
         var repuesta=$(this).closest("form").siblings(".responder");
         $(repuesta).css("display", "block")
+        //ajax
+        $("form").submit(function (e) { 
+            e.preventDefault();
+        });
+        
     });
 });
 //buscador
@@ -112,7 +114,6 @@ $(document).ready(function () {
     // buscar tema
     $("i").on("click", function () {
         var contenido=$("#buscarInput").val(); 
-        console.log(contenido);
         $(".temaTitulo").each(function (index,titulo){
             var tituloContenido=$(titulo).text().trim();
 
