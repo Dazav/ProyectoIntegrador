@@ -1,9 +1,9 @@
 //la deferencia de tiempo de aparecer el título
 $(document).ready(function () {
     var time=0;
-    document.querySelectorAll("b").forEach(function (b) {  
+    $("b").each(function () {  
         time += 0.2;
-        b.style.setProperty("--delay", time+"s");
+        $(this).css("--delay", time+"s");
     });
 });
 // animación hover de icon de buscador
@@ -82,14 +82,38 @@ $(document).ready(function () {
             $(".descripcionClic").css("display", "none");
             $(".imgAutor").css("display", "block");
 
-    });   
+    });
+    // responder desaparece y aparecer el formulario
+    $(".responder").click(function () { 
+        var form=$(this).siblings("form");
+        $(form).animate({
+            height: "300px",
+            opacity: "1"
+        },500);
+        $(this).css("display", "none")
+    }); 
+    $("input:submit").click(function () { 
+        //animacion de formulario
+        var form=$(this).closest("form");
+        $(form).animate({
+            height:"0",
+            opacity:"0"
+        },500);
+        //animacion de bóton repuesta
+        var repuesta=$(this).closest("form").siblings(".responder");
+        $(repuesta).css("display", "block")
+        //ajax
+        $("form").submit(function (e) { 
+            e.preventDefault();
+        });
+        
+    });
 });
 //buscador
 $(document).ready(function () {
     // buscar tema
     $("i").on("click", function () {
         var contenido=$("#buscarInput").val(); 
-        console.log(contenido);
         $(".temaTitulo").each(function (index,titulo){
             var tituloContenido=$(titulo).text().trim();
 
