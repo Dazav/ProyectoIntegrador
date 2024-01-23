@@ -1,9 +1,9 @@
 //la deferencia de tiempo de aparecer el título
 $(document).ready(function () {
     var time=0;
-    document.querySelectorAll("b").forEach(function (b) {  
+    $("b").each(function () {  
         time += 0.2;
-        b.style.setProperty("--delay", time+"s");
+        $(this).css("--delay", time+"s");
     });
 });
 // animación hover de icon de buscador
