@@ -102,22 +102,24 @@ $(document).ready(function () {
         //animacion de bóton repuesta
         var repuesta=$(this).closest("form").siblings(".responder");
         $(repuesta).css("display", "block")
-        //ajax
+        //agregar comentario introducido
         $(form).submit(function (e) { 
             e.preventDefault();
         
-            var formData=$(this).serialize();
-            console.log(formData);
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: formData,
-                dataType: "json",
-                success: function () {
-                    console.log("success");
-                    $(repuesta).append("<p>Éxito de Enviar</p>");
-                }
-            });
+            var nombre=$(form).find("input[type='text']").val();
+            var date=$(form).find("input[type='date']").val();
+            var textarea=$(form).find("textarea").val();
+            //agregar comentario introducido
+            var comentario=$(this).closest(".descripcionClic").find(".comentarios_arti")
+            $(comentario).append(
+            "<div class='comentario_arti'>"+
+                "<img src='../img/img7.png'>"+
+                "<div>"+
+                    "<h2>"+nombre+"</h2>"+
+                    "<p>"+textarea+"</p>"+
+                    "<p>"+date+"</p>"
+                    +"</div>"+
+            "</div>");
         });
     });
 });
@@ -125,9 +127,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     // buscar tema
     $("i").on("click", function () {
-        var contenido=$("#buscarInput").val(); 
+        var contenido=$("#buscarInput").val().toUpperCase(); 
         $(".temaTitulo").each(function (index,titulo){
-            var tituloContenido=$(titulo).text().trim();
+            var tituloContenido=$(titulo).text().trim().toUpperCase();
 
             if(contenido!=tituloContenido){
                 //1
