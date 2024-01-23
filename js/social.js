@@ -69,20 +69,43 @@ $(document).ready(function () {
         $(descripcionClic).css("display", "block");
     }); 
     
-    $(".tema").mouseleave(function () { 
-                $(this).css({
-                width: "800px",
-                height: "200px",
-                transform: "rotateX(-20deg) rotateY(25deg)",
-                transformOrigin: "50% 0",
-                transition: "0.5s ease-in-out",
-                zIndex:0
-            });
-            $(".descripcion").css("display", "block");
-            $(".descripcionClic").css("display", "none");
-            $(".imgAutor").css("display", "block");
+    // $(".tema").mouseleave(function () { 
+    //             $(this).css({
+    //             width: "800px",
+    //             height: "200px",
+    //             transform: "rotateX(-20deg) rotateY(25deg)",
+    //             transformOrigin: "50% 0",
+    //             transition: "0.5s ease-in-out",
+    //             zIndex:0
+    //         });
+    //         $(".descripcion").css("display", "block");
+    //         $(".descripcionClic").css("display", "none");
+    //         $(".imgAutor").css("display", "block");
 
-    });   
+    // });
+    // responder desaparece y aparecer el formulario
+    $("form").submit(function (e) { 
+        e.preventDefault();
+    });
+    $(".responder").click(function () { 
+        var form=$(this).siblings("form");
+        $(form).animate({
+            height: "300px",
+            opacity: "1"
+        },500);
+        $(this).css("display", "none")
+    }); 
+    $(".enviar").click(function () { 
+        //animacion de formulario
+        var form=$(this).closest("form");
+        $(form).animate({
+            height:"0",
+            opacity:"0"
+        },500);
+        //animacion de bóton repuesta
+        var repuesta=$(this).closest("form").siblings(".responder");
+        $(repuesta).css("display", "block")
+    });
 });
 //buscador
 $(document).ready(function () {

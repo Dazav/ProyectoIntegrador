@@ -221,15 +221,26 @@ center{
     width: 800px;
     height: 300px;
 }
-.descripcionClic .responder{
+ .responder{
     padding: 5px 10px;
     border: none;
     font-size: 1rem;
     cursor: pointer;
 }
-.descripcionClic .responder .bx-share{
+ .responder .bx-share{
     margin-left: 10px;
     font-size: 1rem;
+}
+.descripcionClic form{
+    margin-top: 2rem;
+    height: 0;
+    opacity: 0;
+}
+.descripcionClic textarea{
+    margin: 1rem;
+    width: 500px;
+    border: 1px solid;
+    padding: 0.5rem;
 }
     /* comentario de artículo */
 .comentarios_arti{
