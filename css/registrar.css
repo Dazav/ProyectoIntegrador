@@ -369,15 +369,15 @@ main.sign-up-mode .carousel {
     padding: 50px 20px;
   }
   .contact-div h2 {
-    font-size: 2em; /* Ajusta este valor según tu diseño */
+    font-size: 2em; 
     margin-bottom: 10px;
   }
   .contact-div p {
-    font-size: 1em; /* Ajusta este valor según tu diseño */
+    font-size: 1em; 
     margin-bottom: 20px;
   }
   .contact-button {
-    background-color: #333; /* Ajusta el color de fondo según tu diseño */
+    background-color: #333;
     color: white;
     border: none;
     padding: 10px 20px;
