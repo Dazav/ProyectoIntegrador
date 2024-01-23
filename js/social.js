@@ -103,10 +103,22 @@ $(document).ready(function () {
         var repuesta=$(this).closest("form").siblings(".responder");
         $(repuesta).css("display", "block")
         //ajax
-        $("form").submit(function (e) { 
+        $(form).submit(function (e) { 
             e.preventDefault();
-        });
         
+            var formData=$(this).serialize();
+            console.log(formData);
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: formData,
+                dataType: "json",
+                success: function () {
+                    console.log("success");
+                    $(repuesta).append("<p>Éxito de Enviar</p>");
+                }
+            });
+        });
     });
 });
 //buscador
