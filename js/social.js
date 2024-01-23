@@ -69,20 +69,20 @@ $(document).ready(function () {
         $(descripcionClic).css("display", "block");
     }); 
     
-    // $(".tema").mouseleave(function () { 
-    //             $(this).css({
-    //             width: "800px",
-    //             height: "200px",
-    //             transform: "rotateX(-20deg) rotateY(25deg)",
-    //             transformOrigin: "50% 0",
-    //             transition: "0.5s ease-in-out",
-    //             zIndex:0
-    //         });
-    //         $(".descripcion").css("display", "block");
-    //         $(".descripcionClic").css("display", "none");
-    //         $(".imgAutor").css("display", "block");
+    $(".tema").mouseleave(function () { 
+                $(this).css({
+                width: "800px",
+                height: "200px",
+                transform: "rotateX(-20deg) rotateY(25deg)",
+                transformOrigin: "50% 0",
+                transition: "0.5s ease-in-out",
+                zIndex:0
+            });
+            $(".descripcion").css("display", "block");
+            $(".descripcionClic").css("display", "none");
+            $(".imgAutor").css("display", "block");
 
-    // });
+    });
     // responder desaparece y aparecer el formulario
     $("form").submit(function (e) { 
         e.preventDefault();
