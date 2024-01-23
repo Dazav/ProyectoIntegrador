@@ -69,19 +69,33 @@ $(document).ready(function () {
         $(descripcionClic).css("display", "block");
     }); 
     
-    $(".tema").mouseleave(function () { 
-                $(this).css({
-                width: "800px",
-                height: "200px",
-                transform: "rotateX(-20deg) rotateY(25deg)",
-                transformOrigin: "50% 0",
-                transition: "0.5s ease-in-out",
-                zIndex:0
-            });
-            $(".descripcion").css("display", "block");
-            $(".descripcionClic").css("display", "none");
-            $(".imgAutor").css("display", "block");
+    // $(".tema").mouseleave(function () { 
+    //             $(this).css({
+    //             width: "800px",
+    //             height: "200px",
+    //             transform: "rotateX(-20deg) rotateY(25deg)",
+    //             transformOrigin: "50% 0",
+    //             transition: "0.5s ease-in-out",
+    //             zIndex:0
+    //         });
+    //         $(".descripcion").css("display", "block");
+    //         $(".descripcionClic").css("display", "none");
+    //         $(".imgAutor").css("display", "block");
 
+    // });
+    $(".bx-arrow-back").on("click",function () { 
+        var tema = $(this).closest(".tema");
+        tema.find(".descripcionClic").css("display", "none");
+        tema.css({
+            width: "800px",
+            height: "200px",
+            transform: "rotateX(-20deg) rotateY(25deg)",
+            transformOrigin: "50% 50%",
+            transition: "0.5s ease-in-out",
+            zIndex:0
+        })
+        tema.find(".descripcion").css("display", "block");
+        tema.find(".imgAutor").css("display", "block");
     });
     // responder desaparece y aparecer el formulario
     $(".responder").click(function () { 
