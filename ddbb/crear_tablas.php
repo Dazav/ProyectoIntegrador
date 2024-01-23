@@ -36,6 +36,8 @@
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
         );";
 
+        mysqli_query($conexion, $tabla_foro) or die("Error en tabla usuario");
+
         $tabla_respuestas = "CREATE TABLE respuestas(
             id INT AUTO_INCREMENT PRIMARY KEY,
             id_usuario INT,
@@ -44,12 +46,16 @@
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
         );";
 
+        mysqli_query($conexion, $tabla_respuestas) or die("Error en tabla usuario");
+
         $tabla_opiniones = "CREATE TABLE OPINIONES(
             id int auto_increment primary key,
             titulo varchar(255),
             descripcion varchar(255),
             foreign key (id_autor) references usuario(id)
         );";
+
+        mysqli_query($conexion, $tabla_opiniones) or die("Error en tabla usuario");
 
         $tabla_contacto = "CREATE TABLE CONTACTO(
             id INT PRIMARY KEY AUTO_INCREMENT,
@@ -58,6 +64,8 @@
             asunto VARCHAR(100),
             descripcion VARCHAR(200)
         );";
+
+        mysqli_query($conexion, $tabla_contacto) or die("Error en tabla usuario");
 
         $tabla_recursos = "CREATE TABLE recursos(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -69,4 +77,36 @@
             fecha_modificacion DATE DEFAULT(CURDATE),
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
         )";
+
+        mysqli_query($conexion, $tabla_recursos) or die("Error en tabla usuario");
+
+        $tabla_gruposApoyo = "CREATE TABLE GruposApoyo(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            organizador INT,
+            idioma VARCHAR(250),
+            tema VARCHAR(250),
+            fecha DATETIME,
+            FOREIGN KEY (organizador) REFERENCES usuario(id)
+        );";
+
+        mysqli_query($conexion, $tabla_gruposApoyo) or die("Error en tabla usuario");
+
+    }
+
+
+    // Conexio sin tener la base de datos
+    $conexion = getConexionsindb();
+    // Miramos is existe la base de datos
+    $result = mysqli_query($conexion, "SHOW DATABASES LIKE 'ambulatorio'");
+    // Si no existe, la creamos y creamos las tablas
+    if (!$result->num_rows > 0){
+        $db = "CREATE DATABASE ambulatorio";
+        mysqli_query($conexion, $db)or die("Error al crear la database");
+        mysqli_select_db($conexion, "ambulatorio");
+        crearTablas($conexion);
+        
+    }else{
+        // Si ya existe, pasamos tambien el crear tablas por si acaso ya existiese pero sin contenido
+        mysqli_select_db($conexion, "ambulatorio");
+        crearTablas($conexion);
     }
