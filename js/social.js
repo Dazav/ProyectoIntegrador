@@ -132,23 +132,34 @@ $(document).ready(function () {
         });
     });
 });
+
+//hacer un función del buscador
+function buscador() {  
+    // contenido introducido
+    var contenido=$("#buscarInput").val().toUpperCase(); 
+    //atravesar array de todas temas
+    $(".temaTitulo").each(function (index,titulo){
+        var tituloContenido=$(titulo).text().trim().toUpperCase();
+
+        if(contenido!=tituloContenido){
+            //1
+            $(".tema").eq(index).css("display", "none");
+
+        }
+        if(contenido==""){
+            $(".tema").css("display", "flex");
+        };
+    });
+}
 //buscador
 $(document).ready(function () {
     // buscar tema
-    $("i").on("click", function () {
-        var contenido=$("#buscarInput").val().toUpperCase(); 
-        $(".temaTitulo").each(function (index,titulo){
-            var tituloContenido=$(titulo).text().trim().toUpperCase();
-
-            if(contenido!=tituloContenido){
-                //1
-                $(".tema").eq(index).css("display", "none");
-
-            }
-            if(contenido==""){
-                $(".tema").css("display", "flex");
-            };
-        });
+    $(".bx-search-alt").on("click", function () {
+        buscador();
+    });
+    $("#buscarInput").on("keydown", function (e) {
+        if (e.which == 13) {
+            buscador();
+        }
     });
 });
-
