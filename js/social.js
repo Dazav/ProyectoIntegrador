@@ -50,9 +50,10 @@ $(document).ready(function () {
     });
     //expandir la carta de tema por clic
 
-    $(".tema").on("click", function () {
+    $(".descripcion").on("click", function () {
         //expandir la carta de tema
-        $(this).css({
+        var tema= $(this).closest(".tema");
+        $(tema).css({
             height: "80vh",
             transform:  "rotate(0) scale(0.95) ",
             transformOrigin: "0 0",
@@ -60,33 +61,19 @@ $(document).ready(function () {
             zIndex:100//cubrir tema actual arriba las cartas de temas no seleccionado
         });
         // encuentro la descripción, artículo escondido y imagen de autor de la tema que tomo clic actual
-        var descripcion=$(this).find(".descripcion");
-        var descripcionClic=$(this).find(".descripcionClic");
-        var imgAutor=$(this).find(".imgAutor");
-        $(descripcion).css("display", "none");
+        var descripcionClic=$(this).siblings(".descripcionClic");
+        var imgAutor=$(this).siblings(".imgAutor");
+        $(this).css("display", "none");
         $(imgAutor).css("display", "none");
         //aparecer la artículo escondida
         $(descripcionClic).css("display", "block");
     }); 
     
-    // $(".tema").mouseleave(function () { 
-    //             $(this).css({
-    //             width: "800px",
-    //             height: "200px",
-    //             transform: "rotateX(-20deg) rotateY(25deg)",
-    //             transformOrigin: "50% 0",
-    //             transition: "0.5s ease-in-out",
-    //             zIndex:0
-    //         });
-    //         $(".descripcion").css("display", "block");
-    //         $(".descripcionClic").css("display", "none");
-    //         $(".imgAutor").css("display", "block");
 
-    // });
     $(".bx-arrow-back").on("click",function () { 
         var tema = $(this).closest(".tema");
-        tema.find(".descripcionClic").css("display", "none");
-        tema.css({
+        $(tema).find(".descripcionClic").css("display", "none");
+        $(tema).css({
             width: "800px",
             height: "200px",
             transform: "rotateX(-20deg) rotateY(25deg)",
@@ -94,8 +81,8 @@ $(document).ready(function () {
             transition: "0.5s ease-in-out",
             zIndex:0
         })
-        tema.find(".descripcion").css("display", "block");
-        tema.find(".imgAutor").css("display", "block");
+        $(tema).find(".descripcion").css("display", "block");
+        $(tema).find(".imgAutor").css("display", "block");
     });
     // responder desaparece y aparecer el formulario
     $(".responder").click(function () { 
