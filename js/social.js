@@ -144,11 +144,10 @@ function buscador() {
         if(contenido!=tituloContenido){
             //1
             $(".tema").eq(index).css("display", "none");
-
         }
-        if(contenido==""){
-            $(".tema").css("display", "flex");
-        };
+        // if(contenido==""){
+        //     $(".tema").css("display", "flex");
+        // };
     });
 }
 //buscador
@@ -161,5 +160,9 @@ $(document).ready(function () {
         if (e.which == 13) {
             buscador();
         }
+    }).blur(function () { 
+        $(".tema").animate(500,function () {  
+            $(".tema").css("display", "flex");
+        });  
     });
 });
