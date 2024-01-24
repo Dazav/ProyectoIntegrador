@@ -263,6 +263,13 @@ center{
 .comentario_arti p,h2{
     margin: 5px 0;
 }
+    /* cerrar la carta */
+.bx-arrow-back{
+    font-size: 2rem;
+}
+.bx-fade-left{
+    font-weight: bolder;
+}
     /*  */
 /* tienes dudas */
 .contacto{

@@ -68,8 +68,16 @@ $(document).ready(function () {
         //aparecer la artículo escondida
         $(descripcionClic).css("display", "block");
     }); 
-    
-
+    //tocar marca de volver
+    $(".bx-arrow-back").hover(function(){
+        $(this).toggleClass("bx-fade-left");
+        $(this).css("font-weight", "bolder");
+    },
+    function () {  
+        $(this).toggleClass("bx-fade-left");
+        $(this).css("font-weight", "normal");
+    });
+    //clic marca de volver
     $(".bx-arrow-back").on("click",function () { 
         var tema = $(this).closest(".tema");
         $(tema).find(".descripcionClic").css("display", "none");
