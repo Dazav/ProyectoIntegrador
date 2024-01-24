@@ -160,9 +160,7 @@ $(document).ready(function () {
         if (e.which == 13) {
             buscador();
         }
-    }).blur(function () { 
-        $(".tema").animate(500,function () {  
-            $(".tema").css("display", "flex");
-        });  
+    }).blur(function () {  
+        $(".tema").css("display", "flex"); 
     });
 });
