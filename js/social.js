@@ -10,9 +10,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     var agitar="bx-tada";
     $("input").mouseenter(function () { 
-        $("i").addClass(agitar);
+        $(".bx-search-alt").addClass(agitar);
     }).mouseleave(function () { 
-        $("i").removeClass(agitar);
+        $(".bx-search-alt").removeClass(agitar);
     });
 });
 //animacion del tema
