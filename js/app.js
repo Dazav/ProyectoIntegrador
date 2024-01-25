@@ -9,12 +9,40 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('span').forEach(function(span,index){
         // cada 0.05s escribir una letra
         delay+=0.05;
-        // cambiar el color del palabra "psicológico" en el caso que escribir este
-        if (index>11 && index<24){
-            span.style.setProperty('color', '#48A45A');
-        }
         // colocar propiedad al animación
         span.style.setProperty('--delay', delay+'s');
+    });
+});
+//animación de scroll de introducción2
+$(document).ready(function () {
+    $(window).scroll(function () { 
+        var scrollTop = $(document).scrollTop();
+        var scrollStart = 0;
+        var scrollFin=$(".introduccion1").height()*2/3;
+        var scrollPorcentaje = (scrollTop - scrollStart)/(scrollFin - scrollStart)
+        $(".foto").css({
+            position: "relative",
+        });
+        if (scrollTop > scrollStart && scrollTop<=scrollFin) {
+            //animación de imagen en el caso que el barra bajando cada momento
+            $(".foto").css({
+                right: (95-scrollPorcentaje*100)+"%",
+                scale: scrollPorcentaje,
+                opacity: scrollPorcentaje
+            });
+        } 
+        // else if (scrollTop>scrollFin){
+        //     $(".contenido>p:first-child").html(
+        //         $(".contenido>p:first-child").text().replace(/\S/g, "<span>$&</span>")
+        //     );            
+        //     let time=0;
+        //     $(".contenido>span").each(function (index, element) {
+        //         // element == this
+        //         time+=0.05;
+        //         console.log(time);
+        //         element.style.setProperty("--timeContenido", time+"s");
+        //     });
+        // }
     });
 });
 // animación de carta del recurso

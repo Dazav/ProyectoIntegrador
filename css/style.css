@@ -218,9 +218,6 @@ nav div input:last-child:active{
     width: 500px;
     height: 400px;
 }
-.introduccion2 div:last-child p{
-    font-weight: normal;
-}
 /* linea horizontal */
 hr{
     height: 3px;
