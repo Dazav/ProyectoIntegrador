@@ -175,8 +175,7 @@ nav div input:last-child:active{
 }
 /* 1º imagen */
 .introduccion1 div:last-child img{
-    background: #000;
-    width: 600;
+    border-radius: 10%;
     height: 600px;
 }
 /* búton de comenzar ahora */
@@ -198,12 +197,12 @@ nav div input:last-child:active{
 }
 /* introducción 2 */
 .introduccion2{
-    background: #2E8B57;
+    background: white;
     display: flex;
     justify-content: center;
     gap: 5rem;
     font-weight: bolder;
-    color: white;
+    color: #6545A1;
 }
 .introduccion2 div {
     width: 630px;
@@ -211,7 +210,7 @@ nav div input:last-child:active{
     display: grid;
     align-content: center;
 }
-.introduccion2 div:first-child div{
+.introduccion2 div:first-child>div{
     background-image: url(../img/img2.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -221,6 +220,12 @@ nav div input:last-child:active{
 }
 .introduccion2 div:last-child p{
     font-weight: normal;
+}
+/* linea horizontal */
+hr{
+    height: 3px;
+    background: #6545A1;
+    width: 70%;
 }
 /* recurso */
 .recursos{
