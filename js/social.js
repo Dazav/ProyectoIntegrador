@@ -56,7 +56,7 @@ $(document).ready(function () {
         $(tema).css({
             height: "80vh",
             transform:  "rotate(0) scale(0.95) ",
-            transformOrigin: "0 0",
+            transformOrigin: "50% 50%",
             transition: "0.5s ease-in-out",
             zIndex:100//cubrir tema actual arriba las cartas de temas no seleccionado
         });
@@ -130,6 +130,16 @@ $(document).ready(function () {
                     +"</div>"+
             "</div>");
         });
+    });
+    // cerrar la respuesta 
+    $(".bx-x-circle").click(function () { 
+        var form=$(this).closest("form");
+        $(form).animate({
+            height:"0",
+            opacity:"0"
+        },500);
+        var repuesta=$(this).closest("form").siblings(".responder");
+        $(repuesta).css("display", "block")
     });
 });
 
