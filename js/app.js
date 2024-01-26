@@ -64,7 +64,7 @@ $(document).ready(function () {
                 });
             });
             // animación de linea horizontal
-            $("hr").css({
+            $(".introduccion2+hr").css({
                 width: scrollPorcentaje*70+"%",
                 opacity:scrollPorcentaje,
             });

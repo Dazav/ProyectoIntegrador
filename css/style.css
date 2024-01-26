@@ -267,7 +267,7 @@ nav div input:last-child:active{
     opacity: 0;
 }
 /* linea horizontal */
-hr{
+.introduccion2+hr{
     height: 3px;
     background: #6545A1;
     width: 0;
@@ -376,7 +376,7 @@ div.carta3>center div{
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: #4682B4;
+    background: #6545A1;
     height: 353px;
 }
 .tituloComentarios{
@@ -385,8 +385,6 @@ div.carta3>center div{
 .tituloComentarios h1{
     font-size: 48px;
     margin: 0 0 3rem 0;
-}
-.tituloComentarios h1 b{
     color: white;
 }
 .opiniones .comentarios{
@@ -514,14 +512,12 @@ footer .elementos{
     padding-inline-start: 0;
 }
 /* Sociales */
-.social a svg {
-    width: 1rem;
-    height: 1rem;
+.social a i {
     margin: 0.5rem;
     padding: 0;
 }
 /* linea horzontal */
-footer hr{
+footer>hr{
     margin: 0.5rem;
 }
 /* avisos legales */
