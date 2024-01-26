@@ -60,6 +60,7 @@ en el mercado</pre>
         </div>
         <div>
             <img src="../img/img1.png" alt="">
+            <div class="bg-verde"></div>
         </div>
     </div>
     <!-- introducción de ventaje -->

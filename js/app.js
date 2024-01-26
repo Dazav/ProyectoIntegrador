@@ -12,6 +12,16 @@ document.addEventListener("DOMContentLoaded", function() {
         // colocar propiedad al animación
         span.style.setProperty('--delay', delay+'s');
     });
+
+    // animación de imagenes
+    $(".introduccion1>div:last-child img").animate({
+        bottom:"0%",
+        opacity: 1,
+    },1000);
+    $(".introduccion1 .bg-verde").delay(500).animate({
+        opacity: 0.8,
+        scale:1
+    },1000);
 });
 //animación de scroll de introducción2
 $(document).ready(function () {
@@ -31,15 +41,21 @@ $(document).ready(function () {
         var scrollPorcentaje=(scrollTop-scrollStart)/(scrollFin-scrollStart);
         if (scrollTop > scrollStart && scrollPorcentaje<=1) {
             //animación de imagen en el caso que el barra bajando cada momento
-            $(".foto").animate({
-                right: "0",
+            $(".foto>div:first-child").animate({
+                left: "-2%",
+                bottom: "2%",
                 opacity: 1
-            },1000);
+            },500);
+            $(".foto>div:last-child").animate({
+                left: "2%",
+                bottom: "14%",
+                opacity: 0.7
+            },500);
             // animación de título
             $(".contenido>h1").animate({
                 top: "0",
                 opacity: 1
-            },1000);
+            },500);
             //animación de contenido
             $(".contenido p>span").each(function (index,span) {
                 time+=10;

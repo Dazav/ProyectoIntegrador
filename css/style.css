@@ -135,6 +135,7 @@ nav div input:last-child:active{
 }
 .introduccion1 div{
     padding: 30px;
+    width: 720px;
 }
 /* título */
 .introduccion1 #titulo{
@@ -174,9 +175,27 @@ nav div input:last-child:active{
     font-weight: bold;
 }
 /* 1º imagen */
-.introduccion1 div:last-child img{
+.introduccion1>div:last-child{
+    position: relative;
+}
+.introduccion1>div:last-child img{
+    position: relative;
     border-radius: 10%;
     height: 600px;
+    opacity: 0;
+    bottom: -10%;
+}
+.introduccion1 .bg-verde{
+    border-radius: 30px;
+    position: absolute;
+    width: 700px;
+    height: 400px;
+    background: #48A45A;
+    top: 15%;
+    left: -3%;
+    z-index: -1;
+    opacity: 0;
+    scale: 0.5;
 }
 /* búton de comenzar ahora */
 .introduccion1 div button{
@@ -210,19 +229,31 @@ nav div input:last-child:active{
     display: grid;
     align-content: center;
 }
-.introduccion2 .foto>div:first-child{
-    background-image: url(../img/img2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+.introduccion2 .foto>div{
     border-radius: 5%;
     width: 500px;
     height: 400px;
 }
-/* configurar el estado inicial de foto, título y contenido */
 .foto{
+    position: relative;
+}
+.foto>div:first-child{
+    background-image: url(../img/img2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+.foto>div:last-child{
+    background: #B19CD9;
+    position: absolute;
+    bottom: 16%;
+    opacity: 0;
+}
+/* configurar el estado inicial de foto, título y contenido */
+.foto>div:first-child{
     opacity: 0;
     position: relative;
-    right: 10%;
+    z-index: 1;
 }
 .contenido>h1{
     opacity: 0;
