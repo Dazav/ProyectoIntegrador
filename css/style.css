@@ -218,6 +218,20 @@ nav div input:last-child:active{
     width: 500px;
     height: 400px;
 }
+/* configurar el estado inicial de foto, título y contenido */
+.foto{
+    opacity: 0;
+    position: relative;
+    right: 10%;
+}
+.contenido>h1{
+    opacity: 0;
+    position: relative;
+    top: -10%;
+}
+.contenido p>span{
+    opacity: 0;
+}
 /* linea horizontal */
 hr{
     height: 3px;

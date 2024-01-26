@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     h1.innerHTML = h1.textContent.replace(/./g,"<span>$&</span>");
     // configurar delay inicial
     let delay =0;
-    document.querySelectorAll('span').forEach(function(span,index){
+    document.querySelectorAll('#titulo>span').forEach(function(span,index){
         // cada 0.05s escribir una letra
         delay+=0.05;
         // colocar propiedad al animación
@@ -15,34 +15,37 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 //animación de scroll de introducción2
 $(document).ready(function () {
+    //configurar el tiempo inicial
+    var time=0;
+    // dividir contenido en cada letra y guardar las letras en forma de etiqueta span.
+    $(".contenido>p").each(function (index, element) {
+        $(element).html(function () {  
+            return $(this).text().replace(/([^\s])/g,"<span>$&</span>");
+        });
+    });
+    // la barra se despalaza
     $(window).scroll(function () { 
         var scrollTop = $(document).scrollTop();
-        var scrollStart = 0;
-        var scrollFin=$(".introduccion1").height()*2/3;
-        var scrollPorcentaje = (scrollTop - scrollStart)/(scrollFin - scrollStart)
-        $(".foto").css({
-            position: "relative",
-        });
-        if (scrollTop > scrollStart && scrollTop<=scrollFin) {
+        var scrollPantalla=$(".introduccion1").height()*2/3;
+        if (scrollTop > scrollPantalla) {
             //animación de imagen en el caso que el barra bajando cada momento
-            $(".foto").css({
-                right: (95-scrollPorcentaje*100)+"%",
-                scale: scrollPorcentaje,
-                opacity: scrollPorcentaje
+            $(".foto").animate({
+                right: "0",
+                opacity: 1
+            },1000);
+            // animación de título
+            $(".contenido>h1").animate({
+                top: "0",
+                opacity: 1
+            },1000);
+            //animación de contenido
+            $(".contenido p>span").each(function (index,span) {
+                time+=10;
+                $(span).delay(time).animate({
+                    opacity: 1,
+                });
             });
-        } 
-        // else if (scrollTop>scrollFin){
-        //     $(".contenido>p:first-child").html(
-        //         $(".contenido>p:first-child").text().replace(/\S/g, "<span>$&</span>")
-        //     );            
-        //     let time=0;
-        //     $(".contenido>span").each(function (index, element) {
-        //         // element == this
-        //         time+=0.05;
-        //         console.log(time);
-        //         element.style.setProperty("--timeContenido", time+"s");
-        //     });
-        // }
+        }
     });
 });
 // animación de carta del recurso
