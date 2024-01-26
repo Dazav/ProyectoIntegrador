@@ -148,6 +148,7 @@ nav div input:last-child:active{
     height: 350px;
     padding-top: 70px;
     font-size: 2rem;
+    background-image: url(../img/bg-foro.png);
 }
 b{
     opacity: 0;
