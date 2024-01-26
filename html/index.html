@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
     include "../db/crear_tablas.php"
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,22 +24,16 @@
             <a href="index.html">Brain Hub</a>
         </div>
         <div class="menu">
-            <ul>
-                <li><a href="recurso.html">Recursos</a></li>
-                <li>
-                    Apoyo
-                    <ul>
-                        <li>
-                            <a href="grupo_apoyo.html">Grupo Apoyo</a>
-                        </li>
-                        <li>
-                            <a href="ejercicios_apoyo.html">Ejercicios de Apoyo</a>
-                        </li>
-                    </ul>   
-                </li>
-                <li><a href="terapeutas.html">Terapeutas</a></li>
-                <li><a href="social.html">Social</a></li>
-            </ul>
+            <button onclick="window.location.href='recursos.html'">Recursos</button>
+            <div class="dropdown">
+                Apoyo
+                <div class="dropdown-menu">
+                    <button>Grupo Apoyo</button>
+                    <button>Ejercicios de Apoyo</button>
+                </div>
+            </div>
+            <button onclick="window.location.href='terapeutas.html'">Terapeutas</button>
+            <button onclick="window.location.href='social.html'">Social</button>
         </div>
         <div class="iniciarUser">
             <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
