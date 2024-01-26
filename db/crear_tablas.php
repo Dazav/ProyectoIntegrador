@@ -5,6 +5,7 @@
         $tabla_usuario = "CREATE TABLE IF NOT EXISTS usuario(
             id int auto_increment primary key,
             nombre varchar(255),
+            apellidos varchar(255),
             pssword varchar(255),
             email varchar(255),
             nombreUser varchar(255),
@@ -203,7 +204,7 @@
              ('Gabriel Rodríguez', 'gabigoleador@gmail.com', 'Trastorno de Ansiedad por separación', 'Mis padres se separaron y tengo secuelas. Noto que tengo ansiedad en muchas situaciones y me gustaría corregirlo.'),
              ('Marta Díaz Gonzalez', 'martadiaz@gmail.com', 'Quiero ser terapeuta en vuestra web', 'He echado un vistazo a vuestra web y me gusta mucho vuestro sistema. Me encantaría poder ofrecer mis servicios ahí. Espero vuestra respuesta.'),
              ('David Martínez', 'davidm@gmail.com', 'Reembolso', 'Pagué el premium por un mes y no me gustó. Me gustaría obtener un reembolso.'),
-             ('Xavi Hernández', 'xavihernandez@gmail.com', 'Ansiedad general', 'Soy entrenador de fútbol y últimamente vamos muy flojos. Ya no sienten motivación y eso me afecta y me da ansiedad. ¿Podrían ponerme con vuestro mejor especialista?'),";
+             ('Xavi Hernández', 'xavihernandez@gmail.com', 'Ansiedad general', 'Soy entrenador de fútbol y últimamente vamos muy flojos. Ya no sienten motivación y eso me afecta y me da ansiedad. ¿Podrían ponerme con vuestro mejor especialista?')";
              mysqli_query($conexion, $insert1) or die("Error insert contacto");
          }
 
@@ -213,7 +214,7 @@
 
 
 
-    // Conexio sin tener la base de datos
+    // Conexion sin tener la base de datos
     $conexion = getConexionsindb();
     // Miramos is existe la base de datos
     $result = mysqli_query($conexion, "SHOW DATABASES LIKE 'brainhub'");
@@ -221,11 +222,11 @@
     if (!$result->num_rows > 0){
         $db = "CREATE DATABASE brainhub";
         mysqli_query($conexion, $db)or die("Error al crear la database");
-        mysqli_select_db($conexion, "brainhub");
+        mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");
         crearTablas($conexion);
         
     }else{
         // Si ya existe, pasamos tambien el crear tablas por si acaso ya existiese pero sin contenido
-        mysqli_select_db($conexion, "brainhub");
+        mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");
         //crearTablas($conexion);
     }
