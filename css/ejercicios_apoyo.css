@@ -21,8 +21,8 @@ nav{
 
     height: 70px;
     position: fixed;
-    z-index: 1;
-    background: white;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.708);
 }
 nav div.usuario{
     display: flex;
@@ -37,7 +37,7 @@ nav div img{
     height: 2.5rem;
     margin-right: 1rem;
 }
-nav a,li{
+nav a{
     color: #6545A1;
     text-decoration: none;
     font-size: 1.5rem;
@@ -45,42 +45,65 @@ nav a,li{
     cursor: pointer;
 }
     /*  menu de nav */
-nav .menu ul{
-    list-style: none;
-    padding-inline-start: 0;
-    margin: 0;
-    display: flex;
+.menu{
+    display: inline-flex;
+}
+.menu button,.dropdown{
+    width: 150px;
+    height: 70px;
+    border: 0;
+    background: none;
+    margin: 0 2rem;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #6545A1;
+}
+.dropdown{
+    display: inline-grid;
+    text-align: center;
+    align-items: center;
     position: relative;
-    gap: 20%;
 }
-.menu ul ul{
+.menu>button:hover,.dropdown:hover{
+    background: #6545A1;
+    cursor: pointer;
+    color: white;
+    box-shadow: inset 0 1px 2px 2px whitesmoke;
+}
+.dropdown-menu{
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    background: rgba(255, 255, 255, 0.671);
+    top: 50px;
     opacity: 0;
-    background: white;
-    transition: 0.5s ease-in-out;
-    width: 250px;
-    padding: 10px 20px;
-    right: -60px;
-    top: 2rem;
+    height: 0;
+    box-shadow: inset 0 1px 2px 2px #6545A1;
 }
-.menu ul li:hover>ul{
+.dropdown-menu>button{
+    color: #6545A1;
+    box-shadow: inset 0 1px 2px 2px whitesmoke;
+    margin: 0;
+    background: none;
+    cursor: pointer;
+}
+.dropdown-menu>button:hover{
+    color: white;
+    background: #6545A1;
+}
+.dropdown:hover .dropdown-menu{
+    height: auto;
     opacity: 1;
-    top: 3rem;
-
-}
-.menu ul li:hover{
-    border-bottom: 5px solid #B19CD9;
+    top:70px;
+    transition: 0.5s;
 }
 /* boton de usuarios */
 .iniciarUser input {
     border: 2px solid #B19CD9;
-    padding: .5rem 1rem;
+    padding: 5px 10px;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 1rem;
 }
 .iniciarUser input:first-child{
     background: white;
