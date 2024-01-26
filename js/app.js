@@ -74,27 +74,35 @@ $(document).ready(function () {
 // animación de carta del recurso
 $(document).ready(function () {
     // 
-    // en el caso de entre la carta, se presenta la descripción
-    $(".carta1").mouseenter(function () {
-        $(".carta1").addClass("active1"); 
-    }).mouseleave(function () {
-        $(".carta1").removeClass("active1");
+    // en el caso de clic bóton add, se presenta la descripción
+    $(".bx-plus-circle").click(function () {
+         var p=$(this).siblings("p");
+         var img=$(this).siblings("center").find("div");
+         if (!$(this).hasClass("bxs-plus-circle")) {
+            $(p).animate({
+                height: "140px",
+                opacity:1
+            },500);
+            $(img).animate({
+                height: "0px",
+                opacity:0
+            },500);
+            $(this).addClass("bxs-plus-circle");
+            toggle = true;
+         }else{
+            $(p).animate({
+                height: "0",
+                opacity:0
+            },500);
+            $(img).animate({
+                height: "170px",
+                opacity:1
+            },500);
+            $(this).removeClass("bxs-plus-circle");
+            toggle = false;
+         }
     });
-});
-$(document).ready(function () {
-    $(".carta2").mouseenter(function () {
-        $(".carta2").addClass("active2");
-    }).mouseleave(function () {
-        $(".carta2").removeClass("active2");
-    });
-});
-$(document).ready(function () {
-    // nevega a la página apoyo por bóton IR
-    $(".carta3").mouseenter(function () {
-        $(".carta3").addClass("active3");
-    }).mouseleave(function () { 
-        $(".carta3").removeClass("active3");
-    });
+    // 
 });
 //animacion de opiniones
 $(document).ready(function () {
