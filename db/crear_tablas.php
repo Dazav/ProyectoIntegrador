@@ -100,12 +100,12 @@
          $select = "SELECT * FROM usuario";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO usuario (nombre, pssword, email, nombreUser, imagen) VALUES
-             ('Ismael Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', 'ismaelmormor.png'),
-             ('Gabriel Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', 'gabigol.png'),
-             ('Ibai Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', 'ibaillanos.png'),
-             ('Wei Xu', 'we1', 'weixu@gmail.com', 'xuwei', 'xuwei.png'),
-             ('Santiago Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', 'santiagodaza.png')";
+             $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen) VALUES
+             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', 'ismaelmormor.png'),
+             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', 'gabigol.png'),
+             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', 'ibaillanos.png'),
+             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', 'xuwei.png'),
+             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', 'santiagodaza.png')";
              mysqli_query($conexion, $insert1) or die("Error insert usuario");
          }
 
@@ -199,8 +199,12 @@
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
              $insert1 = "INSERT INTO contacto (nombre, email, asunto, descripcion) VALUES
-             ('Ismael Moreno', 'ismaelmormor@gmail.com', 'Ansiedad general', '2024-01-23'),";
-             mysqli_query($conexion, $insert1) or die("Error insert recursos");
+             ('Ismael Moreno', 'ismaelmormor@gmail.com', 'Ansiedad general', 'Estoy con los exámenes y tengo ansiedad. Ayuda'),
+             ('Gabriel Rodríguez', 'gabigoleador@gmail.com', 'Trastorno de Ansiedad por separación', 'Mis padres se separaron y tengo secuelas. Noto que tengo ansiedad en muchas situaciones y me gustaría corregirlo.'),
+             ('Marta Díaz Gonzalez', 'martadiaz@gmail.com', 'Quiero ser terapeuta en vuestra web', 'He echado un vistazo a vuestra web y me gusta mucho vuestro sistema. Me encantaría poder ofrecer mis servicios ahí. Espero vuestra respuesta.'),
+             ('David Martínez', 'davidm@gmail.com', 'Reembolso', 'Pagué el premium por un mes y no me gustó. Me gustaría obtener un reembolso.'),
+             ('Xavi Hernández', 'xavihernandez@gmail.com', 'Ansiedad general', 'Soy entrenador de fútbol y últimamente vamos muy flojos. Ya no sienten motivación y eso me afecta y me da ansiedad. ¿Podrían ponerme con vuestro mejor especialista?'),";
+             mysqli_query($conexion, $insert1) or die("Error insert contacto");
          }
 
 
