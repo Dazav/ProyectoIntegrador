@@ -80,7 +80,7 @@ en el mercado</pre>
     <hr>
     <!-- recursos -->
     <div class="recursos">
-        <h1>Variedad de <b>recursos</b></h1>
+        <h1>Variedad de recursos</h1>
         <div class="cartas">
             <div class="carta1 responsiveCarta carta">
                 <center>

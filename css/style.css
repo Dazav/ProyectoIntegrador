@@ -35,7 +35,7 @@ nav{
 
     height: 70px;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     background: white;
 }
 nav div.usuario{
@@ -177,6 +177,8 @@ nav div input:last-child:active{
 /* 1º imagen */
 .introduccion1>div:last-child{
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .introduccion1>div:last-child img{
     position: relative;
@@ -192,7 +194,7 @@ nav div input:last-child:active{
     height: 400px;
     background: #48A45A;
     top: 15%;
-    left: -3%;
+    left: 1%;
     z-index: -1;
     opacity: 0;
     scale: 0.5;
@@ -248,6 +250,7 @@ nav div input:last-child:active{
     position: absolute;
     bottom: 16%;
     opacity: 0;
+    
 }
 /* configurar el estado inicial de foto, título y contenido */
 .foto>div:first-child{
@@ -279,9 +282,7 @@ hr{
     font-weight: bold;
     font-size: 3rem;
     margin: 0 0 3rem 0;
-}
-.recursos h1 b{
-    color: #48A45A;
+    color: #6545A1;
 }
 .cartas{
     display: flex;
@@ -706,9 +707,19 @@ footer hr{
     .introduccion1 ul li{
         font-size: 1rem;
     }
+    .introduccion1 div{
+        padding: 30px;
+        width: 500px;
+    }
     .introduccion1 div:last-child img{
-        width: 300px;
+        width: 400px;
+        height: 400px;
+    }
+    .introduccion1 .bg-verde{
+        width: 400px;
         height: 300px;
+        top: 10%;
+        left: 9%;
     }
     .introduccion1 div:first-child button{
         width: 200px;
@@ -726,6 +737,11 @@ footer hr{
     .introduccion2 .foto>div:first-child{
         width: 300px;
         height: 300px;
+    }
+    .foto>div:last-child{
+        width: 300px;
+        height: 300px;
+        top: 27%;
     }
     .introduccion2>div:last-child{
         width: 500px;
