@@ -26,8 +26,10 @@ $(document).ready(function () {
     // la barra se despalaza
     $(window).scroll(function () { 
         var scrollTop = $(document).scrollTop();
-        var scrollPantalla=$(".introduccion1").height()*2/3;
-        if (scrollTop > scrollPantalla) {
+        var scrollStart=$(".introduccion1").height()*2/3;
+        var scrollFin=$(".introduccion1").height();
+        var scrollPorcentaje=(scrollTop-scrollStart)/(scrollFin-scrollStart);
+        if (scrollTop > scrollStart && scrollPorcentaje<=1) {
             //animación de imagen en el caso que el barra bajando cada momento
             $(".foto").animate({
                 right: "0",
@@ -44,6 +46,11 @@ $(document).ready(function () {
                 $(span).delay(time).animate({
                     opacity: 1,
                 });
+            });
+            // animación de linea horizontal
+            $("hr").css({
+                width: scrollPorcentaje*70+"%",
+                opacity:scrollPorcentaje,
             });
         }
     });

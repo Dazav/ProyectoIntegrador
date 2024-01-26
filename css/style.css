@@ -204,13 +204,13 @@ nav div input:last-child:active{
     font-weight: bolder;
     color: #6545A1;
 }
-.introduccion2 div {
+.introduccion2>div {
     width: 630px;
     height: 600px;
     display: grid;
     align-content: center;
 }
-.introduccion2 div:first-child>div{
+.introduccion2 .foto>div:first-child{
     background-image: url(../img/img2.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -236,7 +236,8 @@ nav div input:last-child:active{
 hr{
     height: 3px;
     background: #6545A1;
-    width: 70%;
+    width: 0;
+    opacity: 0;
 }
 /* recurso */
 .recursos{
@@ -688,14 +689,14 @@ footer hr{
     .introduccion2{
         gap: 2.5rem;
     }
-    .introduccion2 div:first-child{
+    .introduccion2 .foto{
         width: 400px;
     }
-    .introduccion2 div:first-child div{
+    .introduccion2 .foto>div:first-child{
         width: 300px;
         height: 300px;
     }
-    .introduccion2 div:last-child{
+    .introduccion2>div:last-child{
         width: 500px;
     }
     .introduccion2 h1{

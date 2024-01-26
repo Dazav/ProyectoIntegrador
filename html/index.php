@@ -66,6 +66,7 @@ en el mercado</pre>
     <div class="introduccion2">
         <div class="foto">
             <div></div>
+            <div></div>
         </div>
         <div class="contenido">
             <h1>Psicólogos online experimentados, listos para ayudarte a construir una vida con mayor bienestar</h1>
