@@ -530,7 +530,7 @@ footer>hr{
     font-family: "Montserrat";
 }
 /* responsive */
-@media screen and (max-width: 1700px){
+@media screen and (max-width: 1723px){
     nav{
         height: 50px;
         padding: 10px 0;
@@ -551,7 +551,7 @@ footer>hr{
         padding: 5px;
     }
 }
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 1710px) {
     /* introducción 1º */
     .introduccion1{
         height: 550px;
