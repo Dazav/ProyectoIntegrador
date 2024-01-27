@@ -303,6 +303,9 @@ nav div input:last-child:active{
     box-shadow: 0 0 4px 1px rgb(199, 199, 199);
     position: relative;
 }
+.carta:hover{
+    box-shadow: 2px 2px 4px #B19CD9;
+}
 .carta div{
     margin-top: 10px;
     padding: 0;
