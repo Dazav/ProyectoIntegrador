@@ -10,14 +10,13 @@ body,html{
 nav{
     display: flex;
     justify-content: space-around;
-    gap: 20%;
     align-items: center;
     width: 100%;
 
     height: 70px;
     position: fixed;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.708);
+    background: rgba(255, 255, 255, 0.8);
 }
 nav div.usuario{
     display: flex;
@@ -61,25 +60,26 @@ nav a{
     position: relative;
 }
 .menu>button:hover,.dropdown:hover{
-    background: #6545A1;
+    background: rgb(226, 225, 225);
     cursor: pointer;
-    color: white;
-    box-shadow: inset 0 1px 2px 2px whitesmoke;
+    color: #6545A1;
+    box-shadow: inset 0 -5px 0px #6545A1;
 }
 .dropdown-menu{
     position: absolute;
-    background: rgba(255, 255, 255, 0.671);
+    background: rgba(226, 225, 225, 0.7);
     top: 50px;
     opacity: 0;
     height: 0;
-    box-shadow: inset 0 1px 2px 2px #6545A1;
+    box-shadow: inset 0 1px 0px 0px #6545A1;
+    box-shadow: 1px 1px 4px #B19CD9;
 }
 .dropdown-menu>button{
     color: #6545A1;
-    box-shadow: inset 0 1px 2px 2px whitesmoke;
     margin: 0;
     background: none;
     cursor: pointer;
+    font-size: 1rem;
 }
 .dropdown-menu>button:hover{
     color: white;
