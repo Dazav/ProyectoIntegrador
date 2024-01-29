@@ -236,7 +236,7 @@ hr+h1{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(to top,rgba(255, 255, 255, 0.8) ,rgba(255, 255, 255, 0.8)),url("../img/bg-ejercicio2.png");
+    background-image: linear-gradient(to top,rgba(255, 255, 255, 1) ,rgba(255, 255, 255, 0.8) 50%),url("../img/bg-ejercicio2.png");
     background: cover;
     background-repeat: no-repeat;
 }
