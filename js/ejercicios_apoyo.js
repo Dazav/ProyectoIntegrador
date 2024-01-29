@@ -42,26 +42,36 @@ $(document).ready(function () {
 // animación de otros ejercicios
 $(document).ready(function () {
     //configurar estado inicial
-    $(".otroEje").css({
-        position: "relative",
-        opacity:0,
-        top: "-100px",
-        scale: 0.75
-    });
+    // $(".otroEje").css({
+    //     position: "relative",
+    //     opacity:0,
+    //     top: "-100px",
+    //     scale: 0.75
+    // });
     $(window).scroll(function () { 
         var scrollTop = $(document).scrollTop()
-        var topApoyoMitad=$(".apoyoTitulo").height();
+        var topApoyoMitad=$(".apoyoTitulo").height()+$(".parte_preguntas").height()/2;
         var time=0;
         if (scrollTop > topApoyoMitad) {
             $('.otroEje').each( function (index,otroEje) { 
                 time +=500;
-                $(otroEje).delay(time).animate({
-                    opacity:1,
-                    top: "0",
-                    scale:1
-                },{
-                    duration: 1000
-                });
+                switch (index) {
+                    case 0:
+                        $(otroEje).delay(time).animate({
+                            opacity:1,
+                            left: "0",
+                        },1000);
+                    case 1:
+                        $(otroEje).delay(time).animate({
+                            opacity:1,
+                            right: "0",
+                        },1000);
+                    case 2:
+                        $(otroEje).delay(time).animate({
+                            opacity:1,
+                            bottom: "0",
+                        },1000);
+                }
             }); 
         }
     });        
