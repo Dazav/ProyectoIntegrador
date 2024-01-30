@@ -106,15 +106,20 @@ $(document).ready(function () {
 });
 // dejo el número de las estrellas a icono
 $(document).ready(function () {
+    // conseguir Dom de estrellas
     var parrafo=".comentario>div:last-child>p:last-child";
-    
+    // atravesar todos la parte de estrellas
     $(parrafo).each(function () { 
+        // se convierte en tipo de número
         var star=parseInt($(this).text());
+        // se vacia el contenido del este parte
         $(this).empty();
-        console.log(star);
+        // agregar icono por la cantidad de estrella y maximo es 5
         for (let i = 0; i < star; i++) {
             $(this).append("😀");      
         }
+        // Si el usuario no otorga 5 estrellas, agregaremos íconos de enojo en los espacios restantes.
+        //por ejemplo usuario pone 4 estrellas, en la página va a ser "😀😀😀😀😡" 
         if (star<5) {
             for (let i = 0; i < 5-star; i++) {
                 $(this).append("😡");
