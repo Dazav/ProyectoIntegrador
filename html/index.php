@@ -136,67 +136,6 @@ en el mercado</pre>
                                     </div>";
                             }
                         ?>
-                        <!-- <div class="comentario">
-                            <div>
-                                <img src="../img/ismaelmormor.png" alt="">
-                            </div>
-                            <div>
-                                <h4>Selena Brish</h4>
-                                <p>Profesionalidad y muy buena atención al paciente.</p>
-                                <p class="star">4</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img7.png" alt=""></div>
-                            <div>
-                                <h4>Elizabeth Rex </h4>
-                                <p>Servicio deficiente y atención al paciente poco satisfactoria.</p>
-                                <p>4</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img8.png" alt=""></div>
-                            <div>
-                                <h4>Oliver Jacob</h4>
-                                <p>Destaca por su profesionalidad y atención al paciente de alta calidad.</p>
-                                <p>3</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img9.png" alt=""></div>
-                            <div>
-                                <h4>Evan Gelia</h4>
-                                <p>Unas problemas de profesionalidad y atención al paciente insatisfactoria.</p>
-                                <p>2</p>
-                            </div>
-                        </div> -->
-                        <!-- 2º lista -->
-                        <!-- <div class="comentario">
-                            <div>
-                                <img src="../img/img10.png" alt="">
-                            </div>
-                            <div>
-                                <h4>Sakura Hash</h4>
-                                <p>Profesionalidad y muy buena atención al paciente.</p>
-                                <p>⭐⭐⭐⭐😒</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img11.png" alt=""></div>
-                            <div>
-                                <h4>Emi Misaki</h4>
-                                <p>Servicio deficiente y atención al paciente poco satisfactoria.</p>
-                                <p>😒😒😒😒😒</p>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <div><img src="../img/img12.png" alt=""></div>
-                            <div>
-                                <h4>Fiona Weber</h4>
-                                <p>Destaca por su profesionalidad y atención al paciente de alta calidad.</p>
-                                <p>⭐⭐⭐😒😒</p>
-                            </div>
-                        </div> -->
                         <!--  -->
                         <div class="comentario verMas">
                             <div>
