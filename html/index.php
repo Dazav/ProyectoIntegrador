@@ -131,7 +131,7 @@ en el mercado</pre>
                                         <div>
                                             <h4>{$opinion['nombre']} {$opinion['apellidos']}</h4>
                                             <p>{$opinion['comentario']}</p>
-                                            <p>{$opinion['star']}<i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
+                                            <p>{$opinion['star']}</p>
                                         </div>
                                     </div>";
                             }
