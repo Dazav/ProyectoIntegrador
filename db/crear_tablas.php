@@ -32,8 +32,11 @@
             titular VARCHAR(250),
             descripcion TEXT,
             img VARCHAR(100),
-            fecha_creacion DATE DEFAULT CURRENT_TIMESTAMP,
-            fecha_modificacion DATE DEFAULT CURRENT_TIMESTAMP,
+            -- fecha_creacion DATE DEFAULT CURRENT_TIMESTAMP,
+            -- fecha_modificacion DATE DEFAULT CURRENT_TIMESTAMP,
+            -- ya fix esto
+            fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
         );";
 
@@ -44,7 +47,9 @@
             id_usuario INT,
             id_foro INT,
             respuesta VARCHAR(250),
-            fecha DATE DEFAULT CURRENT_TIMESTAMP,
+            -- fecha DATE DEFAULT CURRENT_TIMESTAMP,
+            -- ya fix esto
+            fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id),
             FOREIGN KEY (id_foro) REFERENCES foro(id)
         );";
@@ -78,8 +83,11 @@
             titular VARCHAR(250),
             descripcion VARCHAR(250),
             img VARCHAR(100),
-            fecha_creacion DATE DEFAULT CURRENT_TIMESTAMP,
-            fecha_modificacion DATE DEFAULT CURRENT_TIMESTAMP,
+            -- fecha_creacion DATE DEFAULT CURRENT_TIMESTAMP,
+            -- fecha_modificacion DATE DEFAULT CURRENT_TIMESTAMP,
+            -- ya corregí esto
+            fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
         )";
 
@@ -102,11 +110,11 @@
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
              $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen) VALUES
-             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', 'ismaelmormor.png'),
-             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', 'gabigol.png'),
-             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', 'ibaillanos.png'),
-             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', 'xuwei.png'),
-             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', 'santiagodaza.png')";
+             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png'),
+             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', '../img/gabigol.png'),
+             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', '../img/ibaillanos.png'),
+             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', '../img/xuwei.png'),
+             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', '../img/santiagodaza.png')";
              mysqli_query($conexion, $insert1) or die("Error insert usuario");
          }
 
@@ -222,11 +230,12 @@
     if (!$result->num_rows > 0){
         $db = "CREATE DATABASE brainhub";
         mysqli_query($conexion, $db)or die("Error al crear la database");
+        $conexion=getConexion();//fix, agregar la funión conexión
         mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");
         crearTablas($conexion);
         
     }else{
         // Si ya existe, pasamos tambien el crear tablas por si acaso ya existiese pero sin contenido
         mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");
-        //crearTablas($conexion);
+        // crearTablas($conexion);
     }

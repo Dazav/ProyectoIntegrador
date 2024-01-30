@@ -104,6 +104,24 @@ $(document).ready(function () {
     });
     // 
 });
+// dejo el número de las estrellas a icono
+$(document).ready(function () {
+    var parrafo=".comentario>div:last-child>p:last-child";
+    
+    $(parrafo).each(function () { 
+        var star=parseInt($(this).text());
+        $(this).empty();
+        console.log(star);
+        for (let i = 0; i < star; i++) {
+            $(this).append("😀");      
+        }
+        if (star<5) {
+            for (let i = 0; i < 5-star; i++) {
+                $(this).append("😡");
+            }
+        }
+    }); 
+});
 //animacion de opiniones
 $(document).ready(function () {
     var widthComentario = $(".comentario").width();

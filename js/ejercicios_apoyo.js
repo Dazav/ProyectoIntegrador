@@ -41,13 +41,6 @@ $(document).ready(function () {
 });
 // animación de otros ejercicios
 $(document).ready(function () {
-    //configurar estado inicial
-    // $(".otroEje").css({
-    //     position: "relative",
-    //     opacity:0,
-    //     top: "-100px",
-    //     scale: 0.75
-    // });
     $(window).scroll(function () { 
         var scrollTop = $(document).scrollTop()
         var topApoyoMitad=$(".apoyoTitulo").height()+$(".parte_preguntas").height()/2;
@@ -75,4 +68,11 @@ $(document).ready(function () {
             }); 
         }
     });        
+});
+// clic bóton de carta
+$(document).ready(function () {
+    var pregunta = document.getElementById("preguntaOtra");
+    $(".bx-right-arrow-circle").click(function () { 
+        pregunta.scrollIntoView({ behavior: 'smooth' });
+    });
 });

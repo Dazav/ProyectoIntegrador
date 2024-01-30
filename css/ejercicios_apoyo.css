@@ -351,6 +351,11 @@ hr+h1{
     bottom: 20px;
     right: 20px;
 }
+/* pregunta de arriba */
+.preguntaOtra{
+    height: 100vh;
+    background: #000;
+}
 /* tienes dudas */
 .contacto{
     height: 230px;

@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
     include "../db/crear_tablas.php"
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,14 +117,33 @@ en el mercado</pre>
                 <div class="outer">
                     <div class="cartaList">
                         <!-- 1º lista -->
-                        <div class="comentario">
+                        <?php
+                            $select="SELECT DISTINCT u.nombre as nombre, u.apellidos as apellidos, u.Imagen as src, o.estrellas as star, o.descripcion as comentario
+                            FROM opiniones o
+                            INNER JOIN usuario u ON u.id=o.id_autor";
+                            $resulta=mysqli_query($conexion,$select);
+                            while ($opinion=$resulta->fetch_assoc()) {
+                                echo "
+                                    <div class='comentario'>
+                                        <div>
+                                            <img src='{$opinion['src']}'>
+                                        </div>
+                                        <div>
+                                            <h4>{$opinion['nombre']} {$opinion['apellidos']}</h4>
+                                            <p>{$opinion['comentario']}</p>
+                                            <p>{$opinion['star']}<i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
+                                        </div>
+                                    </div>";
+                            }
+                        ?>
+                        <!-- <div class="comentario">
                             <div>
-                                <img src="../img/img6.png" alt="">
+                                <img src="../img/ismaelmormor.png" alt="">
                             </div>
                             <div>
                                 <h4>Selena Brish</h4>
                                 <p>Profesionalidad y muy buena atención al paciente.</p>
-                                <p>⭐⭐⭐⭐⭐</p>
+                                <p class="star">4</p>
                             </div>
                         </div>
                         <div class="comentario">
@@ -132,7 +151,7 @@ en el mercado</pre>
                             <div>
                                 <h4>Elizabeth Rex </h4>
                                 <p>Servicio deficiente y atención al paciente poco satisfactoria.</p>
-                                <p>⭐⭐⭐😒😒</p>
+                                <p>4</p>
                             </div>
                         </div>
                         <div class="comentario">
@@ -140,7 +159,7 @@ en el mercado</pre>
                             <div>
                                 <h4>Oliver Jacob</h4>
                                 <p>Destaca por su profesionalidad y atención al paciente de alta calidad.</p>
-                                <p>⭐⭐⭐⭐⭐</p>
+                                <p>3</p>
                             </div>
                         </div>
                         <div class="comentario">
@@ -148,11 +167,11 @@ en el mercado</pre>
                             <div>
                                 <h4>Evan Gelia</h4>
                                 <p>Unas problemas de profesionalidad y atención al paciente insatisfactoria.</p>
-                                <p>⭐⭐😒😒😒</p>
+                                <p>2</p>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- 2º lista -->
-                        <div class="comentario">
+                        <!-- <div class="comentario">
                             <div>
                                 <img src="../img/img10.png" alt="">
                             </div>
@@ -177,7 +196,7 @@ en el mercado</pre>
                                 <p>Destaca por su profesionalidad y atención al paciente de alta calidad.</p>
                                 <p>⭐⭐⭐😒😒</p>
                             </div>
-                        </div>
+                        </div> -->
                         <!--  -->
                         <div class="comentario verMas">
                             <div>
