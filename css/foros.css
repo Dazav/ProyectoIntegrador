@@ -172,9 +172,11 @@ b{
 .buscar{
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
     left: -30px;
     top: 10px;
+    height: 20vh;
 }
 .buscar input{
     position: relative;
@@ -191,7 +193,7 @@ b{
     background: none;
     font-size: 1.5rem;
     left: -30px;
-    top: 10px;
+    top: 2px;
 }
 i:hover{
     color: var(--busca-color-hover);
@@ -201,97 +203,62 @@ i:hover{
     color: var(--busca-color-active);
 }
 /* temas y una manera de buscarlo */
-center{
-    padding: 70px 0;
+main{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/bg-foros.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.tema-bg{
+    margin: 20vh 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 4px var(--busca-normal);
+    padding: 20px 50px;
+    border-radius: 20px;
+    width: 900px;
+    /* height: 100vh; */
+    /* distancia relativa a la pantalla */
+    perspective: 200px;
 }
 .tema{
     text-align: left;
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     align-items: center;
-    box-shadow: 2px 2px 4px rgba(0,0,0,50%);
+    border-left: 10px solid #6545A1;
+    box-shadow: 2px 4px 4px 0px var(--busca-normal);
     padding: 0 var(--padding-tema);
-    margin: var(--margin-tema) 0 ;
+    margin-bottom: 2px;
     width: var(--width-tema);
-    height: var(--height-tema);
     cursor: pointer;
     background: white;
+    position: relative;
 }
-.tema h1{
+.tema:hover{animation: temaHover 100ms ease-out forwards;}
+@keyframes temaHover {
+    from{left:0}
+    to{left: -20px;}
+}
+.temaTitulo{
+    margin: 10px 0 0 0;
     font-size: 20px;
 }
-.descripcion{
-
-    margin: 2rem 0;
+.temaTitulo+p{
+    margin: 5px 0 10px 0;
 }
 .imgAutor{
+    position: absolute;
+    right: 30px;
     border-radius: 50%;
-    height: 140px;
-    width: 140px;
+    height: 50px;
+    width: 50px;
 }
-    /* artículo escondida */
-.descripcionClic{
-    display: none;
-    background: white;
-    padding: 3rem;
-    cursor: default;
-    box-shadow: 0px 0px 4px gray;
-    border: 1px solid;
-}
-.img_des{
-    width: 800px;
-    height: 300px;
-}
- .responder{
-    padding: 5px 10px;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-}
- .responder .bx-share{
-    margin-left: 10px;
-    font-size: 1rem;
-}
-.descripcionClic form{
-    margin-top: 2rem;
-    height: 0;
-    opacity: 0;
-}
-.descripcionClic textarea{
-    margin: 1rem;
-    width: 500px;
-    border: 1px solid;
-    padding: 0.5rem;
-}
-    /* comentario de artículo */
-.comentarios_arti{
-    margin: 50px 0;
-}
-.comentario_arti{
-    display: flex;
-    align-items: center;
-    text-align: left;
-    box-shadow: 0 0 4px grey;
-    padding: 20px 30px;
-    margin: 30px 0;
-}
-.comentario_arti img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-.comentario_arti p,h2{
-    margin: 5px 0;
-}
-    /* cerrar la carta */
-.bx-arrow-back{
-    font-size: 2rem;
-}
-.bx-fade-left{
-    font-weight: bolder;
-}
-    /*  */
+
 /* tienes dudas */
 .contacto{
     height: 230px;
