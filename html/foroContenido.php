@@ -1,3 +1,6 @@
+<?php
+    include("../db/crear_tablas.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,6 @@
+<?php
+    include("../db/crear_tablas.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,22 +57,29 @@
                 <a>El último</a>
                 <a>Mas antigua</a>
             </p>
-            <form class="tema" onclick="window.location.href='foroContenido.html'">
-                <div class="descripcion">
-                    <h2 class="temaTitulo">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h2>
-                    <p>12-12-2023</p>
-                </div>
-                <img class="imgAutor"  src="../img/autor1.png"/>
-                <input type="hidden" name="">
-            </form>
             
-            <div class="tema">
-                <div class="descripcion">
-                    <h2 class="temaTitulo">¿Alguien sabe si la terapia con masajes ayuda al mutismo?</h2>
-                    <p>12-10-2021</p>
-                </div>
-                <img class="imgAutor"  src="../img/autor2.png"/>
-            </div>
+                <?php
+                    $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
+                    FROM foro f
+                    INNER JOIN usuario us ON us.id=f.id_usuario";
+                    $resulta=mysqli_query($conexion,$select);
+                    while ($tema=$resulta->fetch_assoc()) {
+                        # code...
+                        echo "
+                        <form class='tema' method='post' onclick='window.location.href='foroContenido.html''>
+                            <div class='descripcion'>
+                                <h2 class='temaTitulo'>{$tema['titulo']}</h2>
+                                <p>{$tema['fecha']}</p>
+                            </div>
+                            <img class='imgAutor'  src='{$tema['img']}'/>
+                            <input type='hidden' name='{$tema['idForo']}'>
+                        </form>
+                        ";
+                    }
+                ?>
+
+            
+
             <div class="tema">
                 <div class="descripcion">
                     <h2 class="temaTitulo">¿Merece la pena pagar BrainHub?</h2>
