@@ -37,7 +37,7 @@
                 <!-- formularios -->
                 <div class="forms-wrap">
                     <!-- Formulario de login -->
-                <form action="index.html" autocomplete="off" class="sign-in-form">
+                <form action="" autocomplete="off" method="post" class="sign-in-form">
                     <div class="logos">
                         <img src="../img/logo.png" alt="Brainhub">
                         <h4>Brainhub</h4>
@@ -52,14 +52,14 @@
                     <div class="actual-form">
                         <div class="input-wrap"> 
                             <input type="text" 
-                            minlength="4" 
+                            minlength="2" 
                             class="input-field" 
                             autocomplete="off"
-                            required 
+                            required
                             />
                             <label>Name</label>
                         </div>
-
+                        <p class="error-nombre">Introducir nombre con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
                             <input 
                             type="password" 
@@ -70,6 +70,7 @@
                             />
                             <label>Password</label>
                         </div>
+                        <p class="error-pwd">Introducir contraseña sin simbólo con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
                         <input type="Submit" value="Sign in" class="sign-btn"/>
 
                         <p class="text">
@@ -79,7 +80,7 @@
                 </form>
                 
                 <!-- Formulario de registro -->
-                <form action="index.html" autocomplete="off" class="sign-up-form">
+                <form action="" autocomplete="off" class="sign-up-form" method="post">
                     <div class="logos">
                         <img src="../img/logo.png" alt="Brainhub">
                         <h4>Brainhub</h4>
@@ -94,14 +95,14 @@
                     <div class="actual-form">
                         <div class="input-wrap">
                             <input type="text" 
-                            minlength="4" 
+                            minlength="2" 
                             class="input-field" 
                             autocomplete="off"
                             required 
                             />
                             <label>Nombre</label>
                         </div>
-
+                        <p class="error-nombre">Introducir nombre con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
                             <input 
                             type="email" 
@@ -111,7 +112,7 @@
                             />
                             <label>Email</label>
                         </div>
-
+                        <p class="error-email">Introducir correo con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
                             <input 
                             type="password" 
@@ -122,6 +123,7 @@
                             />
                             <label>Contraseña</label>
                         </div>
+                        <p class="error-pwd">Introducir contraseña sin simbólo con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
                         <input type="Submit" value="Sign Un" class="sign-btn"/>
 
                         <p class="text">
