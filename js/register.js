@@ -91,7 +91,7 @@ $(document).ready(function () {
   });
   //valiación de contraseña
   $(pwd).on("input", function () {
-    comprobar(pwd,errorPwd,/^\w{8,14}$/,form);
+    comprobar(pwd,errorPwd,/^\S{8,14}$/,form);
   });
 
   //comprobar registro
@@ -111,7 +111,7 @@ $(document).ready(function () {
   });
   //valiación de contraseña
   $(pwd2).on("input", function () {
-    comprobar(pwd2,errorPwd2,/^\w{8,14}$/,form2);
+    comprobar(pwd2,errorPwd2,/^\S{8,14}$/,form2);
   });
   //valiación de correo
   $(correo2).on("input", function () {

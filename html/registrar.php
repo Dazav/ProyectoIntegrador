@@ -73,7 +73,7 @@
                             />
                             <label>Password</label>
                         </div>
-                        <p class="error-pwd">Introducir contraseña sin simbólo con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
+                        <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
                         <input type="Submit" value="Sign in" class="sign-btn"/>
 
                         <p class="text">
@@ -126,7 +126,7 @@
                             />
                             <label>Contraseña</label>
                         </div>
-                        <p class="error-pwd">Introducir contraseña sin simbólo con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
+                        <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
                         <input type="Submit" value="Sign Un" class="sign-btn"/>
 
                         <p class="text">
