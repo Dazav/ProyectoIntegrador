@@ -57,7 +57,6 @@
                 <a>El último</a>
                 <a>Mas antigua</a>
             </p>
-            
                 <?php
                     $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
                     FROM foro f
@@ -66,14 +65,14 @@
                     while ($tema=$resulta->fetch_assoc()) {
                         # code...
                         echo "
-                        <div class='tema' onclick=\"window.location.href='foroContenido.php'\">
+                        <form class='tema' action='foroContenido.php' method='post' >
                             <div class='descripcion'>
                                 <h2 class='temaTitulo'>{$tema['titulo']}</h2>
                                 <p>{$tema['fecha']}</p>
                             </div>
                             <img class='imgAutor'  src='{$tema['img']}'/>
                             <input type='hidden' name='{$tema['idForo']}'>
-                        </div>
+                        </form>
                         ";
                     }
                 ?>
