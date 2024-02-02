@@ -66,34 +66,17 @@
                     while ($tema=$resulta->fetch_assoc()) {
                         # code...
                         echo "
-                        <form class='tema' method='post' onclick='window.location.href='foroContenido.html''>
+                        <div class='tema' onclick=\"window.location.href='foroContenido.php'\">
                             <div class='descripcion'>
                                 <h2 class='temaTitulo'>{$tema['titulo']}</h2>
                                 <p>{$tema['fecha']}</p>
                             </div>
                             <img class='imgAutor'  src='{$tema['img']}'/>
                             <input type='hidden' name='{$tema['idForo']}'>
-                        </form>
+                        </div>
                         ";
                     }
                 ?>
-
-            
-
-            <div class="tema">
-                <div class="descripcion">
-                    <h2 class="temaTitulo">¿Merece la pena pagar BrainHub?</h2>
-                    <p>11-09-2000</p>
-                </div>
-                <img class="imgAutor"  src="../img/autor3.png"/>
-            </div>
-            <div class="tema">
-                <div class="descripcion">
-                    <h2 class="temaTitulo">¿Cómo se usan los ejercicios de apoyo?</h2>
-                    <p>01-01-2020</p>
-                </div>
-                <img class="imgAutor"  src="../img/autor4.png"/>
-            </div>
         </div>
     </main>
    <!-- contacto -->
