@@ -6,8 +6,8 @@ body,html{
     box-sizing: border-box;
     font-family: 'Montserrat';
 }
-/* barra de navegación */
-nav{
+/* barra de header */
+header{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -18,27 +18,27 @@ nav{
     z-index: 100;
     background: rgba(255, 255, 255, 0.8);
 }
-nav div.usuario{
+header div.usuario{
     display: flex;
     align-items: center;
 }
-nav div.usuario a{
+header div.usuario a{
     color: #6545A1;
 }
-nav div img{
+header div img{
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 1rem;
 }
-nav a{
+header a{
     color: #6545A1;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bolder;
     cursor: pointer;
 }
-    /*  menu de nav */
+    /*  menu de header */
 .menu{
     display: inline-flex;
 }
@@ -115,15 +115,15 @@ nav a{
     box-shadow: none;
     color: white;
 }
-/* búton de comenzar en navegación */
-nav div input:last-child{
+/* búton de comenzar en header */
+header div input:last-child{
     background: #B19CD9;
     color: white;
 }
-nav div input:last-child:hover{
+header div input:last-child:hover{
     box-shadow: 2px 2px 4px #6545A1;
 }
-nav div input:last-child:active{
+header div input:last-child:active{
     box-shadow: none;
     background: #6545A1;
     border-color: #6545A1;
@@ -537,11 +537,11 @@ footer>hr{
 }
 /* responsive */
 @media screen and (max-width: 1723px){
-    nav{
+    header{
         height: 50px;
         padding: 10px 0;
     }
-    nav a,li{
+    header a,li{
         font-size: 1rem;
     }
     .menu ul ul{
@@ -552,7 +552,7 @@ footer>hr{
         opacity: 1;
         top: 2rem;
     }
-    nav div.iniciarUser input{
+    header div.iniciarUser input{
         font-size: 1rem;
         padding: 5px;
     }
