@@ -54,10 +54,12 @@
         <div class="form">
             <form action="">
                 <h3>¿Tienes alguna pregunta o necesitas informar de un problema con un servicio?</h3>
-                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" class="nombre" name="nombre" placeholder="Nombre" required>
                 <p class="error-nombre">Introduce nombre con forma correcta</p>
                 <input type="email" name="email" placeholder="Email" required>
                 <p class="error-email">Introduce correo con forma correcta</p>
+                <input type="text" class="asunto" name="asunto" placeholder="Asunto" required>
+                <p class="error-asunto">No apunte asunto tan largo</p>
                 <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Descrpción"></textarea>
                 <p class="error-msg">CONTENIDO INTRODUCIDO CONTIENE PALABRA RACISTA,PEACE AND LOVE,PORFAVOR</p>
                 <input type="submit" class="btn" value="Entre">

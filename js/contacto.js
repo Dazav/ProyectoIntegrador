@@ -10,12 +10,14 @@ $(document).ready(function () {
 $(document).ready(function () {
     //comprobar login
   //conseguir dom de formulario,nombre,contraseña y mensaje de error
-  var nombre= $("input:text");
+  var nombre= $(".nombre");
   var email= $("input[type='email']");
   var msg= $("textarea");
+  var asunto= $(".asunto");
   var errorNombre= $(".error-nombre");
   var errorMail= $(".error-email");
   var errormsg= $(".error-msg");
+  var errorAsunto= $(".error-asunto");
   //función para estabelecer estilo CSS inicial de mensaje error
   function estadoInicial(error) { 
       $(error).css({
@@ -50,13 +52,18 @@ $(document).ready(function () {
    estadoInicial(errorNombre); 
    estadoInicial(errorMail);
    estadoInicial(errormsg);
+   estadoInicial(errorAsunto);
    //comprobación automática de nombre
   $(nombre).on("input", function () {
     comprobar(nombre,errorNombre,/^[a-zA-Z][a-z]*$/,false);
   });
-  //valiación de contraseña
+  //valiación de correo
   $(email).on("input", function () {
     comprobar(email,errorMail,/^\w+@+[a-z]+\.[a-z]{2,3}$/,false);
+  });
+   //valicación de asunto no demasiado largo
+   $(asunto).on("input", function () {
+    comprobar(asunto,errorAsunto,/^\D{1,38}$/,false);
   });
   //valicación de mensaje sin palabras racisma
   $(msg).on("input", function () {
