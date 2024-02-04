@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/logIn.js"></script>
+    <script src="../js/contacto.js"></script>
     <title>Iniciar Sesión</title>
 </head>
 <body>
@@ -45,22 +45,71 @@
             <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
         </div>
     </nav>
-
+    <!-- título de Contacto -->
+    <div class="contactoTitulo">
+        <h1><b>Contacto </b><b> con </b><b> Nosotros</b></h1>
+    </div>
     <div class="containerContacto">
-        <div class="imgContacto">
-            <img src="../img/logo.png" alt="">
-        </div>
+        <h2>Hola ¿cómo podemos ayudarte?</h2>
         <div class="form">
             <form action="">
+                <h3>¿Tienes alguna pregunta o necesitas informar de un problema con un servicio?</h3>
                 <input type="text" name="nombre" placeholder="Nombre" required>
+                <p class="error-nombre">Introduce nombre con forma correcta</p>
                 <input type="email" name="email" placeholder="Email" required>
-                <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                <p class="error-email">Introduce correo con forma correcta</p>
+                <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Descrpción"></textarea>
+                <p class="error-msg">CONTENIDO INTRODUCIDO CONTIENE PALABRA RACISMA</p>
                 <input type="submit" class="btn" value="Entre">
             </form>
         </div>
     </div>
 
-    
-
+    <!-- footer -->
+    <footer>
+        <div class="elementos">
+            <div>
+                <img src="../img/logo.png" alt="">
+                <h2>Brain Hub</h2>
+            </div>
+            <div>
+                <h2>Recursos</h2>
+                <ul>
+                    <li>Recursos de Ansiedad</li>
+                    <li>Técnicas Relajación</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Apoyo</h2>
+                <ul>
+                    <li>Herramientas</li>
+                    <li>Seguimiento y Progreso</li>
+                </ul>
+            </div>
+            <div class="social">
+                <h2>Social</h2>
+                <ul>
+                    <li>Grupos de Apoyo</li>
+                    <li>Foros de Comunidad</li>
+                    <li>
+                        <a href="">
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="avisos">
+            <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
+            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+        </div>
+    </footer>
 </body>
 </html>
