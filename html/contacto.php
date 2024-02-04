@@ -59,7 +59,7 @@
                 <input type="email" name="email" placeholder="Email" required>
                 <p class="error-email">Introduce correo con forma correcta</p>
                 <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Descrpción"></textarea>
-                <p class="error-msg">CONTENIDO INTRODUCIDO CONTIENE PALABRA RACISMA</p>
+                <p class="error-msg">CONTENIDO INTRODUCIDO CONTIENE PALABRA RACISTA</p>
                 <input type="submit" class="btn" value="Entre">
             </form>
         </div>

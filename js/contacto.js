@@ -60,6 +60,6 @@ $(document).ready(function () {
   });
   //valicación de mensaje sin palabras racisma
   $(msg).on("input", function () {
-    comprobar(msg,errormsg,/(\b[nN][iI][gG]{1,}[abc]\b|\bchink\b)/,true);
+    comprobar(msg,errormsg,/(\b[nN][iI][gG]{1,}[abc]{1,}\b|\bchin[kK]{1,}\b|\b[kK]{3}\b)/,true);
   });
 });
