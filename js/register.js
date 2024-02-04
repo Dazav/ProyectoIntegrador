@@ -53,7 +53,7 @@ $(document).ready(function () {
   var errorPwd= $(form).find(".error-pwd");
   //función para estabelecer estilo CSS inicial de mensaje error
   function estadoInicial(error) { 
-      $(error).css({display: 'none',
+      $(error).css({
       margin:"0",
       opacity: 0,
       position:"relative",
@@ -67,7 +67,6 @@ $(document).ready(function () {
       //valiación de contenido consegido de input introducido
       //se cambia estilo css en caso fallo
       $(input).css({borderColor:"red",color:"red"});
-      $(error).css("display", "block");
       $(error).animate({
         bottom: "30px",
         opacity: 1,
@@ -78,7 +77,7 @@ $(document).ready(function () {
       });
     } else{
       //si corregir la informaci'on introducido, cancelará advertencia
-      estadoInicial(error);
+      $(error).animate({bottom: "5px",opacity: 0,},100);
       $(input).css({borderColor:"black",color:"black"});
     }
    }
