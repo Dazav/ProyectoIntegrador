@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
 :root{
     --busca-normal:#757575;
-    --busca-color-hover:#000;
-    --busca-color-active:#2E8B57;
+    --busca-color-hover:#6545A1;
+    --busca-color-active:#B19CD9;
     /* ventana y tema */
     --padding-tema:30px;
     --margin-tema:40px;
@@ -228,6 +228,9 @@ main{
 }
 .tema{
     text-align: left;
+    text-decoration: none;
+    color: #6545A1;
+
     display: inline-flex;
     align-items: center;
     border-left: 10px solid #6545A1;
@@ -257,8 +260,80 @@ main{
     border-radius: 50%;
     height: 50px;
     width: 50px;
+    font-size: 50px;
 }
-
+.imgAutor>i:hover{
+    filter: drop-shadow(-1px 1px 1px #6545a1);
+}
+/* add tema */
+.bx-arrow-back{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #6545A1;
+    width: 32px;
+}
+.bx-arrow-back:hover{
+    filter: drop-shadow(1px 1px 1px #6545a1);
+}
+.add-tema{
+    height: 0;
+    opacity: 0;
+    width: var(--width-tema);
+    box-shadow: 2px 4px 4px 0px var(--busca-normal);
+    padding: var(--padding-tema);
+    border-top: 10px solid #6545A1;
+    display: grid;
+}
+.add-tema>textarea,.add-tema>input[type="text"]{
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px 0px var(--busca-normal) inset;
+    margin-bottom: 30px;
+    border: 0;
+    border-left: 3px solid #6545A1;
+    outline: 0;
+}
+.add-tema>label{
+    display: inline-flex;
+    justify-content: center;
+}
+input[type="file"]{
+    opacity: 0;
+    width: 0;
+}
+.bx-image-add{
+    font-size: 50px;
+    color: #6545A1;
+}
+.bx-image-add:hover{
+    filter: drop-shadow(1px 1px 1px #6545a1);
+}
+/* input título */
+.add-tema>input[type="text"]{
+    height: 30px;
+    font-size: 1.5rem;
+    color: #6545A1;
+}
+/* input contenido */
+.add-tema>textarea{
+    height: 300px;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    color: #6545A1;
+}
+.add-tema>input[type="submit"]{
+    border: 0;
+    font-size: 20px;
+    padding: 10px;
+    font-family: 'Montserrat';
+    border-radius: 5px;
+    color: white;
+    background: #6545A1;
+    cursor: pointer;
+}
+.add-tema>input[type="submit"]:hover{
+    box-shadow: 2px 2px 4px 0px var(--busca-color-active);
+}
 /* tienes dudas */
 .contacto{
     height: 230px;

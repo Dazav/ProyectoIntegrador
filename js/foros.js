@@ -80,3 +80,20 @@ $(document).ready(function () {
         $(".tema").css("display", "flex"); 
     });
 });
+// agregar artículo
+$(document).ready(function () {
+    $(".bx-add-to-queue").click(function () { 
+       $(".tema").css("display","none" );
+        $(".add-tema").css({
+            height: "auto",
+            opacity:1
+        });
+    });
+    $(".bx-arrow-back").click(function () { 
+        $(".add-tema").css({
+            height: "0",
+            opacity:0
+        });
+        $(".tema").css("display","flex" );
+    });
+});

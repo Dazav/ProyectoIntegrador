@@ -53,10 +53,10 @@
     <!-- need add php -->
     <main>
         <div class="tema-bg">
-            <p>
+            <!-- <p>
                 <a>El último</a>
                 <a>Mas antigua</a>
-            </p>
+            </p> -->
                 <?php
                     $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
                     FROM foro f
@@ -65,17 +65,49 @@
                     while ($tema=$resulta->fetch_assoc()) {
                         # code...
                         echo "
-                        <form class='tema' action='foroContenido.php' method='post' >
+                        <a class='tema' href='foroContenido.php?{$tema['idForo']}' >
                             <div class='descripcion'>
                                 <h2 class='temaTitulo'>{$tema['titulo']}</h2>
                                 <p>{$tema['fecha']}</p>
                             </div>
                             <img class='imgAutor'  src='{$tema['img']}'/>
-                            <input type='hidden' name='{$tema['idForo']}'>
-                        </form>
+                        </a>
                         ";
                     }
                 ?>
+                
+                <a class='tema' >
+                  <div class='descripcion'>
+                      <h2 class='temaTitulo'>Agrega tu título</h2>
+                      <p>También apunte tu artículo</p>
+                  </div>
+                  <div class='imgAutor'><i class='bx bx-add-to-queue'></i></div>
+                </a>
+
+                <?php
+                if ($_SERVER['REQUEST_METHOD']=='POST') {
+                  $titulo=$_POST["addTitulo"];
+                  $titulo=mysqli_escape_string($conexion,$titulo);
+                  $contenido=$_POST['addContenido'];
+                  $contenido=mysqli_escape_string($conexion,$contenido);
+                  $directorio_subido="img/";
+                  $img=$_FILES["addImg"]['name'];
+                  $imgTmp=$_FILES["addImg"]['tmp_name'];
+                  $ruta_completa=$directorio_subido . $img;
+                  move_uploaded_file($imgTmp,$ruta_completa);
+                  $img=mysqli_escape_string($conexion,$img);
+                  $insert="INSERT INTO foro(titular,descripcion,img)VALUES ($titulo,$contenido,$img)";
+                  mysqli_query($conexion,$insert);
+                };
+                ?>
+
+                <form class='add-tema' action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                  <i class='bx bx-arrow-back'></i>
+                  <label><input type="file" name="addImg" accept=".png,.jpg,.jpeg"><i class='bx bx-image-add' ></i></label>
+                  <input type="text" placeholder="Apunte título de artículo" name="addTitulo">
+                  <textarea name="addContenido" id="" placeholder="Apunte lo que quiera"></textarea>
+                  <input type="submit" value="Agregar tu artículo">
+                </form>
         </div>
     </main>
    <!-- contacto -->
