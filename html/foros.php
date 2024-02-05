@@ -1,5 +1,29 @@
 <?php
     include("../db/crear_tablas.php");
+    // añadir los datos de foros a bd
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
+      //está asignando a la variable "$titulo" el llave "addTitulo" obtiene del array 
+      $titulo=$_POST["addTitulo"];
+      //tomar la cadena "$titulo"
+      $titulo=mysqli_escape_string($conexion,$titulo);
+      $contenido=$_POST['addContenido'];
+      $contenido=mysqli_escape_string($conexion,$contenido);
+      //asignar directorio "../img/" a la variable
+      $directorio_subido="../img/";
+      // obtener nombre de imagen
+      $img=$_FILES["addImg"]['name'];
+      // propociona un ubicacion temporal que se almancener imagen subido
+      $imgTmp=$_FILES["addImg"]['tmp_name'];
+      //obtener directorio completo
+      $ruta_completa=$directorio_subido . $img;
+      // mover la imagen desde la ubicación temporal a la carpeta indicada
+      move_uploaded_file($imgTmp,$ruta_completa);
+      //tomar la cadena "$titulo" y la limpiar para que sea segura de usuario
+      $img=mysqli_escape_string($conexion,$img);
+      // insertar los datos a base de datos
+      $insert="INSERT INTO foro(titular,descripcion,img)VALUES ('$titulo','$contenido','$img')";
+      mysqli_query($conexion,$insert);
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +82,7 @@
                 <a>Mas antigua</a>
             </p> -->
                 <?php
+                // saca todas temas de autores de bd
                     $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
                     FROM foro f
                     INNER JOIN usuario us ON us.id=f.id_usuario";
@@ -75,7 +100,7 @@
                         ";
                     }
                 ?>
-                
+                <!-- propociona un enlace a formulario -->
                 <a class='tema' >
                   <div class='descripcion'>
                       <h2 class='temaTitulo'>Agrega tu título</h2>
@@ -84,24 +109,7 @@
                   <div class='imgAutor'><i class='bx bx-add-to-queue'></i></div>
                 </a>
 
-                <?php
-                if ($_SERVER['REQUEST_METHOD']=='POST') {
-                  $titulo=$_POST["addTitulo"];
-                  $titulo=mysqli_escape_string($conexion,$titulo);
-                  $contenido=$_POST['addContenido'];
-                  $contenido=mysqli_escape_string($conexion,$contenido);
-                  $directorio_subido="img/";
-                  $img=$_FILES["addImg"]['name'];
-                  $imgTmp=$_FILES["addImg"]['tmp_name'];
-                  $ruta_completa=$directorio_subido . $img;
-                  move_uploaded_file($imgTmp,$ruta_completa);
-                  $img=mysqli_escape_string($conexion,$img);
-                  $insert="INSERT INTO foro(titular,descripcion,img)VALUES ($titulo,$contenido,$img)";
-                  mysqli_query($conexion,$insert);
-                };
-                ?>
-
-                <form class='add-tema' action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                <form class='add-tema' action="<?php echo $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
                   <i class='bx bx-arrow-back'></i>
                   <label><input type="file" name="addImg" accept=".png,.jpg,.jpeg"><i class='bx bx-image-add' ></i></label>
                   <input type="text" placeholder="Apunte título de artículo" name="addTitulo">
