@@ -1,8 +1,9 @@
 <?php
     include("../db/crear_tablas.php");
+    session_start();
     // añadir los datos de tema nueva a bd
     if ($_SERVER['REQUEST_METHOD']=='POST') {
-      //está asignando a la variable "$titulo" el llave "addTitulo" obtiene del array 
+      //asignamos a la variable "$titulo" el llave "addTitulo" obtiene del array 
       $titulo=$_POST["addTitulo"];
       //tomar la cadena "$titulo"
       $titulo=mysqli_escape_string($conexion,$titulo);
@@ -83,10 +84,12 @@
             </p> -->
                 <?php
                 // saca todas temas de autores de bd
+                // combinamos tabla foro en usuarios
                     $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
                     FROM foro f
                     INNER JOIN usuario us ON us.id=f.id_usuario";
                     $resulta=mysqli_query($conexion,$select);
+                    // atravesamos todas temas y lo presentamos
                     while ($tema=$resulta->fetch_assoc()) {
                         # code...
                         echo "
