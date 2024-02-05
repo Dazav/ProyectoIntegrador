@@ -37,14 +37,14 @@ $(document).ready(function () {
       $(error).animate({
         bottom: "0px",
         opacity: 1,
-    },300);
+    },200);
     //evitar subir la formulario
       $("form").submit(function (e) {
         e.preventDefault();
       });
     } else{
       //si corregir la informaci'on introducido, cancelará advertencia
-      $(error).animate({bottom: "5px",opacity: 0,},300);
+      $(error).animate({bottom: "5px",opacity: 0,},200);
       $(input).css({borderColor:"#6545A1",color:"black"});
     }
    }
@@ -63,7 +63,7 @@ $(document).ready(function () {
   });
    //valicación de asunto no demasiado largo
    $(asunto).on("input", function () {
-    comprobar(asunto,errorAsunto,/^\D{1,38}$/,false);
+    comprobar(asunto,errorAsunto,/^\D{0,38}$/,false);
   });
   //valicación de mensaje sin palabras racisma
   $(msg).on("input", function () {
