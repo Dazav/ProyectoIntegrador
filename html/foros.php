@@ -1,6 +1,6 @@
 <?php
     include("../db/crear_tablas.php");
-    // añadir los datos de foros a bd
+    // añadir los datos de tema nueva a bd
     if ($_SERVER['REQUEST_METHOD']=='POST') {
       //está asignando a la variable "$titulo" el llave "addTitulo" obtiene del array 
       $titulo=$_POST["addTitulo"];
