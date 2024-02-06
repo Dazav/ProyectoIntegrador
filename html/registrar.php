@@ -2,6 +2,38 @@
   include "../db/crear_tablas.php";
 
   $mensaje = '';
+  $mensajeRegister = '';
+
+  if(isset($_POST['registro'])){
+
+    $user = $_POST['user-register'];
+    $email = $_POST['email-register'];
+    $password = $_POST['password-register'];
+
+    $conexion = getConexion();
+
+    $sql = "SELECT * FROM usuario WHERE nombreUser = '$user'";
+
+    $resultado = $conexion->query($sql);
+
+    if (($resultado->num_rows > 0)){
+      $mensajeRegister = "Este nombre de usuario ya está en uso. Prueba con otro";
+    }else{
+      $sql = "SELECT * FROM usuario WHERE email = '$email'";
+      $resultado = $conexion->query($sql);
+      if (($resultado->num_rows > 0)){
+        $mensajeRegister = "Este correo ya está registrado. Prueba a iniciar sesión";
+      }else{
+        $sql = "INSERT INTO usuario (nombreUser, email, pssword) VALUES ('$user', '$email', '$password')";
+        if (mysqli_query($conexion, $sql)) {
+            $mensajeRegister = "Hemos recibido tu respuesta, contactaremos lo antes posible.";
+        } else {
+            $mensajeRegister = "Ha habido un problema al enviar tu respuesta. Intétalo más tarde.";
+        }
+      }
+    }
+  }
+
   if(isset($_POST['Login'])){
       $email = $_POST['email-login'];
       $password = $_POST['password-login'];
@@ -19,8 +51,8 @@
       }else{
         $mensaje = "El email o la contraseña no son correctos";
       }
-
   }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,13 +115,12 @@
                             <input type="email" minlength="2" name="email-login" class="input-field" autocomplete="off" required/>
                             <label>Email</label>
                         </div>
-                        <p class="error-email">Introducir correo con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
+                        <p class="error-nombre">Introducir nombre con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
-                            <input 
-                            type="password" class="input-field" name="password-login" autocomplete="off" required/>
+                            <input type="password" class="input-field" name="password-login" autocomplete="off" required/>
                             <label>Password</label>
                         </div>
-                        <?php echo "<p color='red'>$mensaje</p><br>" ?>
+                        <?php echo "<p>$mensaje</p><br>" ?>
                         <input type="Submit" name="Login" value="Login" class="sign-btn"/>
 
                         <p class="text">
@@ -99,7 +130,7 @@
                 </form>
                 
                 <!-- Formulario de registro -->
-                <form action="registrar.php" autocomplete="off" class="sign-up-form" method="post">
+                <form action="registrar.php?mostrar=registro" method="post" autocomplete="off" class="sign-up-form">
                     <div class="logos">
                         <img src="../img/logo.png" alt="Brainhub">
                         <h4>Brainhub</h4>
@@ -113,42 +144,28 @@
 
                     <div class="actual-form">
                         <div class="input-wrap">
-                            <input type="text" 
-                            minlength="2" 
-                            class="input-field" 
-                            autocomplete="off"
-                            required 
-                            />
-                            <label>Nombre</label>
+                            <input type="text" name="user-register" minlength="2" class="input-field" autocomplete="off" required/>
+                            <label>Nombre de usuario</label>
                         </div>
                         <p class="error-nombre">Introducir nombre con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
-                            <input 
-                            type="email" 
-                            class="input-field" 
-                            autocomplete="off"
-                            required 
-                            />
+                            <input type="email" name="email-register" class="input-field" autocomplete="off" required/>
                             <label>Email</label>
                         </div>
                         <p class="error-email">Introducir correo con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
-                            <input 
-                            type="password" 
-                            minlength="4" 
-                            class="input-field" 
-                            autocomplete="off"
-                            required 
-                            />
+                            <input type="password" name="password-register" minlength="4" class="input-field" autocomplete="off" required/>
                             <label>Contraseña</label>
                         </div>
                         <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
-                        <input type="Submit" value="Sign Un" class="sign-btn"/>
+
+                        <?php echo "<p color='red' >$mensajeRegister</p>" ?>
+
+                        <input type="submit" name="registro" value="Registro" class="sign-btn"/>
 
                         <p class="text">
                            Al registrarme, Acepto los <a href="#">Terminos de servicio</a>
                            y la <a href="#">Politica de privacidad</a>
-
                         </p>
                     </div>
                 </form>

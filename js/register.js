@@ -20,6 +20,15 @@ toggle_btn.forEach((btn) => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const mostrar = urlParams.get('mostrar');
+
+  if (mostrar == 'registro') {
+      main.classList.add("sign-up-mode");
+  }
+});
+
 function moveSlider(){
   let index = this.dataset.value;
   
@@ -42,8 +51,14 @@ function toggleMenu() {
   var navLinks = document.querySelector('.nav-links');
   navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
 }
+
 // comprobar
 $(document).ready(function () {
+
+
+  isValid = true;
+
+
   //comprobar login
   //conseguir dom de formulario,nombre,contraseña y mensaje de error
   var form = $(".sign-in-form");
@@ -63,34 +78,47 @@ $(document).ready(function () {
    //función para comprobar la forma de contenido introducido si es permite
    function comprobar(input,error,condicion,form) {
     //input de introducir,msg de error,regular expresión para nombre,contraseña,correo etc 
+    
     if (!(condicion.test(input.val()))) {
+      isValid = false;
       //valiación de contenido consegido de input introducido
       //se cambia estilo css en caso fallo
       $(input).css({borderColor:"red",color:"red"});
       $(error).animate({
         bottom: "30px",
         opacity: 1,
-    },300);
-    //evitar subir la formulario
-      $(form).submit(function (e) {
-        e.preventDefault();
-      });
+      },300);
+    // //evitar subir la formulario
+      // $(form).submit(function (e) {
+      //   e.preventDefault();
+      // });
     } else{
+      isValid=true;
       //si corregir la informaci'on introducido, cancelará advertencia
       $(error).animate({bottom: "5px",opacity: 0,},100);
       $(input).css({borderColor:"black",color:"black"});
+      // $(form).submit(function (e) {
+        
+      // });
     }
+
    }
    //establece estilo css al principal
    estadoInicial(errorEmail);
 
    //comprobación automática de nombre
-  $(email).on("input", function () {
-    comprobar(email,errorEmail,/^\w+@+[a-z]+\.[a-z]{2,3}$/,form);
+  $(nombre).on("input", function () {
+    comprobar(nombre,errorNombre,/^[a-zA-Z][a-z]*$/,form);
   });
 
+  $(".sign-in-form").submit(function (e) {
+    if (!isValid) {
+      e.preventDefault(); // Evita el envío del formulario
+  }
+  });
 
   //comprobar registro
+  isValid = true;
   var form2 = $(".sign-up-form");
   var nombre2= $(form2).find("input:text");
   var correo2=$(form2).find("input[type='email']");
@@ -112,5 +140,12 @@ $(document).ready(function () {
   //valiación de correo
   $(correo2).on("input", function () {
     comprobar(correo2,errorCorreo2,/^\w+@+[a-z]+\.[a-z]{2,3}$/,form2);
+  });
+
+
+  $(".sign-up-form").submit(function (e) {
+    if (!isValid) {
+      e.preventDefault(); // Evita el envío del formulario
+  }
   });
 });
