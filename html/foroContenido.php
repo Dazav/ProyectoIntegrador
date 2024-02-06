@@ -14,20 +14,47 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/foroContenido.js"></script>
-    <title>Social</title>
+    <title>Foro contenidos</title>
 </head>
 <body>
+    <!-- barra navegación -->
+    <header>
+        <div class="usuario">
+            <img src="../img/logo.png" alt="" srcset="">
+            <a href="index.php">Brain Hub</a>
+        </div>
+        <div class="menu">
+            <button onclick="window.location.href='recursos.php'">Recursos</button>
+            <div class="dropdown">
+                Apoyo
+                <div class="dropdown-menu">
+                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
+                </div>
+            </div>
+            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+            <button onclick="window.location.href='foros.php'">Social</button>
+        </div>
+        <div class="iniciarUser">
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
+            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
+        </div>
+    </header>
     <div class="descripcionClic">
-        <div>
+        <div class="bg-contenido">
+            <img src="../img/tema1.png" alt="" class="img_des">
+        </div>
+        <main>
+            <div class="perfil-img">
+            </div>
             <i class='bx bx-arrow-back'></i>
             <h2>¿Cómo podemos saber cuando tendremos un ataque de pánico?</h2>
             <p>12-12-2023</p>
             <p>Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
-            <img src="../img/tema1.png" alt="" class="img_des">
             <button class="responder">
                 responder<i class='bx bx-share' ></i>
             </button>
-        </div>
+        </main>
         <div class="comentarios_arti">
             <form method="post">
                 Repuesta: <input type="text">
@@ -56,5 +83,57 @@
             </div>
         </div>
     </div>
+        <!-- contacto -->
+        <div class="contacto">
+        <h1>¿TIENES DUDAS?</h1>
+        <p>Nuestro equipo de soporte está disponible 24/7</p>
+        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.php'" />
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="elementos">
+            <div>
+                <img src="../img/logo.png" alt="">
+                <h2>Brain Hub</h2>
+            </div>
+            <div>
+                <h2>Recursos</h2>
+                <ul>
+                    <li>Recursos de Ansiedad</li>
+                    <li>Técnicas Relajación</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Apoyo</h2>
+                <ul>
+                    <li>Herramientas</li>
+                    <li>Seguimiento y Progreso</li>
+                </ul>
+            </div>
+            <div class="social">
+                <h2>Social</h2>
+                <ul>
+                    <li>Grupos de Apoyo</li>
+                    <li>Foros de Comunidad</li>
+                    <li>
+                        <a href="">
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="avisos">
+            <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
+            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+        </div>
+    </footer>
 </body>
 </html>
