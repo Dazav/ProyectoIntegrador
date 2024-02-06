@@ -120,7 +120,7 @@
                             <input type="password" class="input-field" name="password-login" autocomplete="off" required/>
                             <label>Password</label>
                         </div>
-                        <?php echo "<p>$mensaje</p><br>" ?>
+                        <?php echo "<p style='color:red;'>$mensaje</p><br>" ?>
                         <input type="Submit" name="Login" value="Login" class="sign-btn"/>
 
                         <p class="text">
@@ -159,7 +159,7 @@
                         </div>
                         <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
 
-                        <?php echo "<p color='red' >$mensajeRegister</p>" ?>
+                        <?php echo "<p style='color:red;' >$mensajeRegister</p>" ?>
 
                         <input type="submit" name="registro" value="Registro" class="sign-btn"/>
 
