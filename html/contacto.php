@@ -1,3 +1,30 @@
+
+<?php
+include "../db/conecta.php";
+$mensaje = '';
+if(isset($_POST['enviar'])){
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+    $asunto = $_POST['asunto'];
+    $mensaje = $_POST['mensaje'];
+
+
+    $conexion = getConexion();
+
+    $sql = "INSERT INTO contacto (nombre, email, asunto, descripcion) VALUES ('$nombre', '$email', '$asunto', '$mensaje')";
+
+    if (mysqli_query($conexion, $sql)) {
+        $mensaje = "Hemos recibido tu respuesta, contactaremos lo antes posible.";
+    } else {
+        $mensaje = "Ha habido un problema al enviar tu respuesta. Intétalo más tarde.";
+    }
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,17 +79,22 @@
     <div class="containerContacto">
         <h2>Hola ¿cómo podemos ayudarte?</h2>
         <div class="form">
-            <form action="">
+            <form action="contacto.php" method="post">
                 <h3>¿Tienes alguna pregunta o necesitas informar de un problema con un servicio?</h3>
                 <input type="text" class="nombre" name="nombre" placeholder="Nombre" required>
-                <p class="error-nombre">Introduce nombre con forma correcta</p>
+                <p class="error-nombre">Introduce un nombre correcto</p>
                 <input type="email" name="email" placeholder="Email" required>
-                <p class="error-email">Introduce correo con forma correcta</p>
+                <p class="error-email">Introduce un correo correcto</p>
                 <input type="text" class="asunto" name="asunto" placeholder="Asunto" required>
-                <p class="error-asunto">No apunte asunto tan largo</p>
+                <p class="error-asunto">El asunto tiene que ser más corto</p>
                 <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Descrpción"></textarea>
                 <p class="error-msg">CONTENIDO INTRODUCIDO CONTIENE PALABRA RACISTA,PEACE AND LOVE,PORFAVOR</p>
-                <input type="submit" class="btn" value="Entre">
+                <?php
+                    if(!empty($mensaje)){
+                        echo "<p class='mensaje-exito'>$mensaje</p>";
+                    }
+                ?>
+                <input type="submit" class="btn" name="enviar" value="Enviar">
             </form>
         </div>
     </div>

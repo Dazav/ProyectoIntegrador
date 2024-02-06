@@ -155,7 +155,7 @@ en el mercado</pre>
     <div class="contacto">
         <h1>¿TIENES DUDAS?</h1>
         <p>Nuestro equipo de soporte está disponible 24/7</p>
-        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.html'" />
+        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.php'" />
     </div>
     <!-- footer -->
     <footer>

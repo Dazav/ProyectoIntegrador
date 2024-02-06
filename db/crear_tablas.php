@@ -4,24 +4,24 @@
     function crearTablas($conexion){
         $tabla_usuario = "CREATE TABLE IF NOT EXISTS usuario(
             id int auto_increment primary key,
-            nombre varchar(255),
-            apellidos varchar(255),
-            pssword varchar(255),
-            email varchar(255),
-            nombreUser varchar(255),
-            imagen varchar(255)
+            nombre varchar(20),
+            apellidos varchar(50),
+            pssword varchar(20),
+            email varchar(50),
+            nombreUser varchar(20),
+            imagen varchar(50)
         );";
 
         mysqli_query($conexion, $tabla_usuario) or die("Error en tabla usuario");
 
         $tabla_terapeuta = "CREATE TABLE IF NOT EXISTS terapeuta(
             id INT AUTO_INCREMENT PRIMARY KEY,
-            nombre VARCHAR(200),
-            apellidos VARCHAR(200),
+            nombre VARCHAR(20),
+            apellidos VARCHAR(50),
             n_identificacion INT(6),
-            especializacion VARCHAR(200),
-            nacionalidad VARCHAR(100),
-            idiomas VARCHAR(200)
+            especializacion VARCHAR(50),
+            nacionalidad VARCHAR(20),
+            idiomas VARCHAR(50)
         );";
 
         mysqli_query($conexion, $tabla_terapeuta) or die("Error en tabla terapeuta");
@@ -31,10 +31,7 @@
             id_usuario INT,
             titular VARCHAR(250),
             descripcion TEXT,
-            img VARCHAR(100),
-            -- fecha_creacion DATE DEFAULT CURRENT_TIMESTAMP,
-            -- fecha_modificacion DATE DEFAULT CURRENT_TIMESTAMP,
-            -- ya fix esto
+            img VARCHAR(50),
             fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
@@ -47,8 +44,6 @@
             id_usuario INT,
             id_foro INT,
             respuesta VARCHAR(250),
-            -- fecha DATE DEFAULT CURRENT_TIMESTAMP,
-            -- ya fix esto
             fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id),
             FOREIGN KEY (id_foro) REFERENCES foro(id)
@@ -69,10 +64,10 @@
 
         $tabla_contacto = "CREATE TABLE IF NOT EXISTS contacto(
             id INT PRIMARY KEY AUTO_INCREMENT,
-            nombre VARCHAR(100),
-            email VARCHAR(200),
-            asunto VARCHAR(100),
-            descripcion VARCHAR(200)
+            nombre VARCHAR(20),
+            email VARCHAR(50),
+            asunto VARCHAR(80),
+            descripcion VARCHAR(250)
         );";
 
         mysqli_query($conexion, $tabla_contacto) or die("Error en tabla usuario");
@@ -82,10 +77,7 @@
             id_usuario INT,
             titular VARCHAR(250),
             descripcion VARCHAR(250),
-            img VARCHAR(100),
-            -- fecha_creacion DATE DEFAULT CURRENT_TIMESTAMP,
-            -- fecha_modificacion DATE DEFAULT CURRENT_TIMESTAMP,
-            -- ya corregí esto
+            img VARCHAR(50),
             fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
@@ -96,8 +88,8 @@
         $tabla_gruposApoyo = "CREATE TABLE IF NOT EXISTS GruposApoyo(
             id INT AUTO_INCREMENT PRIMARY KEY,
             organizador INT,
-            idioma VARCHAR(250),
-            tema VARCHAR(250),
+            idioma VARCHAR(20),
+            tema VARCHAR(100),
             fecha DATETIME,
             FOREIGN KEY (organizador) REFERENCES usuario(id)
         );";

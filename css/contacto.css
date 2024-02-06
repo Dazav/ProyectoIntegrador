@@ -359,6 +359,9 @@ input[type="submit"]:active{
     padding: 12px;
     width: 200px;
 }
+.mensaje-exito{
+    color: green;
+}
 /* footer */
 footer{
     background: #000;
