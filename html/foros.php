@@ -1,6 +1,8 @@
 <?php
     include("../db/crear_tablas.php");
     session_start();
+    //obtener el id de usuario de login
+    // $idUsuario=$_SESSION['id_usuario'];
     // añadir los datos de tema nueva a bd
     if ($_SERVER['REQUEST_METHOD']=='POST') {
       //asignamos a la variable "$titulo" el llave "addTitulo" obtiene del array 
@@ -49,20 +51,20 @@
             <a href="index.html">Brain Hub</a>
         </div>
         <div class="menu">
-            <button onclick="window.location.href='recursos.html'">Recursos</button>
+            <button onclick="window.location.href='recursos.php'">Recursos</button>
             <div class="dropdown">
                 Apoyo
                 <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.html'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.html'">Ejercicios de Apoyo</button>
+                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
                 </div>
             </div>
-            <button onclick="window.location.href='terapeutas.html'">Terapeutas</button>
-            <button onclick="window.location.href='social.html'">Social</button>
+            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+            <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
+            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php'" />
         </div>
     </nav>
     <!--  -->
