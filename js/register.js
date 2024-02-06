@@ -83,15 +83,11 @@ $(document).ready(function () {
    }
    //establece estilo css al principal
    estadoInicial(errorNombre); 
-   estadoInicial(errorPwd);
    //comprobación automática de nombre
   $(nombre).on("input", function () {
     comprobar(nombre,errorNombre,/^[a-zA-Z][a-z]*$/,form);
   });
-  //valiación de contraseña
-  $(pwd).on("input", function () {
-    comprobar(pwd,errorPwd,/^\S{8,14}$/,form);
-  });
+
 
   //comprobar registro
   var form2 = $(".sign-up-form");

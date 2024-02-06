@@ -1,5 +1,26 @@
 <?php
   include "../db/crear_tablas.php";
+
+  $mensaje = '';
+  if(isset($_POST['Login'])){
+      $email = $_POST['email-login'];
+      $password = $_POST['password-login'];
+
+      $conexion = getConexion();
+
+      $sql = "SELECT * FROM usuario WHERE email = '$email' AND pssword = '$password'";
+
+      $resultado = $conexion->query($sql);
+      if ($resultado->num_rows > 0) {
+        while ($fila = $resultado->fetch_assoc()) {
+          $id_usuario = $fila['id'];
+          header("Location: index.php");
+        }
+      }else{
+        $mensaje = "El email o la contraseña no son correctos";
+      }
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +40,7 @@
     <!-- barra navegación -->
     <nav class="navBar">
         <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
+            <!-- <img src="../img/logo.png" alt="" srcset=""> -->
             <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
@@ -45,7 +66,7 @@
                 <!-- formularios -->
                 <div class="forms-wrap">
                     <!-- Formulario de login -->
-                <form action="" autocomplete="off" method="post" class="sign-in-form">
+                <form action="registrar.php" autocomplete="off" method="post" class="sign-in-form">
                     <div class="logos">
                         <img src="../img/logo.png" alt="Brainhub">
                         <h4>Brainhub</h4>
@@ -59,27 +80,17 @@
                     
                     <div class="actual-form">
                         <div class="input-wrap"> 
-                            <input type="text" 
-                            minlength="2" 
-                            class="input-field" 
-                            autocomplete="off"
-                            required
-                            />
-                            <label>Name</label>
+                            <input type="email" minlength="2" name="email-login" class="input-field" autocomplete="off" required/>
+                            <label>Email</label>
                         </div>
                         <p class="error-nombre">Introducir nombre con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
                             <input 
-                            type="password" 
-                            minlength="4" 
-                            class="input-field" 
-                            autocomplete="off"
-                            required 
-                            />
+                            type="password" class="input-field" name="password-login" autocomplete="off" required/>
                             <label>Password</label>
                         </div>
-                        <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
-                        <input type="Submit" value="Sign in" class="sign-btn"/>
+                        <?php echo "<p>$mensaje</p><br>" ?>
+                        <input type="Submit" name="Login" value="Login" class="sign-btn"/>
 
                         <p class="text">
                             <a href="recurso.html">¿Olvidaste tu contraseña?</a>
@@ -88,7 +99,7 @@
                 </form>
                 
                 <!-- Formulario de registro -->
-                <form action="" autocomplete="off" class="sign-up-form" method="post">
+                <form action="registrar.php" autocomplete="off" class="sign-up-form" method="post">
                     <div class="logos">
                         <img src="../img/logo.png" alt="Brainhub">
                         <h4>Brainhub</h4>
