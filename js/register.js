@@ -108,7 +108,7 @@ $(document).ready(function () {
 
    //comprobación automática de nombre
   $(email).on("input", function () {
-    comprobar(nombre, errorNombre, /^\w+@+[a-z]+\.[a-z]{2,3}$/);
+    comprobar(email, errorEmail, /^\w+@+[a-z]+\.[a-z]{2,3}$/);
   });
 
   $(".sign-in-form").submit(function (e) {
