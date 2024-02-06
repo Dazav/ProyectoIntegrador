@@ -17,23 +17,28 @@
 </head>
 <body>
     <!-- barra navegación -->
-    <div class="navbar">
-        <div class="navbar-logo">
-          <img src="../img/logo.png" alt="Brain Hub" height="50"> 
-          <span>Brain Hub</span>
+    <nav class="navBar">
+        <div class="usuario">
+            <img src="../img/logo.png" alt="" srcset="">
+            <a href="index.php">Brain Hub</a>
         </div>
-        <div class="nav-links">
-          <a href="#recursos">Recursos</a>
-          <a href="#apoyo">Apoyo</a>
-          <a href="#terapeutas">Terapeutas</a>
+        <div class="menu">
+            <button onclick="window.location.href='recursos.php'">Recursos</button>
+            <div class="dropdown">
+                Apoyo
+                <div class="dropdown-menu">
+                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
+                </div>
+            </div>
+            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+            <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-        <div class="navbar-toggle" onclick="toggleMenu()">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+        <div class="iniciarUser">
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
+            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php'" />
         </div>
-      </div>
-      
+    </nav>
     <main>
         <div class="box">
             <div class="inner-box">

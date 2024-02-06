@@ -18,23 +18,23 @@
     <nav>
         <div class="usuario">
             <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.html">Brain Hub</a>
+            <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
-            <button onclick="window.location.href='recursos.html'">Recursos</button>
+            <button onclick="window.location.href='recursos.php'">Recursos</button>
             <div class="dropdown">
                 Apoyo
                 <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.html'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.html'">Ejercicios de Apoyo</button>
+                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
                 </div>
             </div>
-            <button onclick="window.location.href='terapeutas.html'">Terapeutas</button>
-            <button onclick="window.location.href='social.html'">Social</button>
+            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+            <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
+            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
+            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php'" />
         </div>
     </nav>
     <!-- login -->
