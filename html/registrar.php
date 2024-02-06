@@ -83,13 +83,13 @@
                             <input type="email" minlength="2" name="email-login" class="input-field" autocomplete="off" required/>
                             <label>Email</label>
                         </div>
-                        <p class="error-nombre">Introducir nombre con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
+                        <p class="error-email">Introducir correo con forma correcto<i class='bx bxs-error bx-burst' ></i></p>
                         <div class="input-wrap">
                             <input 
                             type="password" class="input-field" name="password-login" autocomplete="off" required/>
                             <label>Password</label>
                         </div>
-                        <?php echo "<p>$mensaje</p><br>" ?>
+                        <?php echo "<p color='red'>$mensaje</p><br>" ?>
                         <input type="Submit" name="Login" value="Login" class="sign-btn"/>
 
                         <p class="text">

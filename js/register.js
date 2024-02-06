@@ -47,10 +47,10 @@ $(document).ready(function () {
   //comprobar login
   //conseguir dom de formulario,nombre,contraseña y mensaje de error
   var form = $(".sign-in-form");
-  var nombre= $(form).find("input:text");
-  var pwd= $(form).find("input:password");
-  var errorNombre= $(form).find(".error-nombre");
-  var errorPwd= $(form).find(".error-pwd");
+  var email= $(form).find("input[type='email']");
+  // var pwd= $(form).find("input:password");
+  var errorEmail= $(form).find(".error-email");
+  // var errorPwd= $(form).find(".error-pwd");
   //función para estabelecer estilo CSS inicial de mensaje error
   function estadoInicial(error) { 
       $(error).css({
@@ -82,10 +82,11 @@ $(document).ready(function () {
     }
    }
    //establece estilo css al principal
-   estadoInicial(errorNombre); 
+   estadoInicial(errorEmail);
+
    //comprobación automática de nombre
-  $(nombre).on("input", function () {
-    comprobar(nombre,errorNombre,/^[a-zA-Z][a-z]*$/,form);
+  $(email).on("input", function () {
+    comprobar(email,errorEmail,/^\w+@+[a-z]+\.[a-z]{2,3}$/,form);
   });
 
 
