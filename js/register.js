@@ -76,7 +76,7 @@ $(document).ready(function () {
       color:"red"});
    }
    //función para comprobar la forma de contenido introducido si es permite
-   function comprobar(input,error,condicion,form) {
+   function comprobar(input,error,condicion) {
     //input de introducir,msg de error,regular expresión para nombre,contraseña,correo etc 
     
     if (!(condicion.test(input.val()))) {
@@ -107,15 +107,14 @@ $(document).ready(function () {
    estadoInicial(errorEmail);
 
    //comprobación automática de nombre
-  $(nombre).on("input", function () {
-    comprobar(nombre,errorNombre,/^[a-zA-Z][a-z]*$/,form);
+  $(email).on("input", function () {
+    comprobar(nombre, errorNombre, /^\w+@+[a-z]+\.[a-z]{2,3}$/);
   });
 
   $(".sign-in-form").submit(function (e) {
     if (!isValid) {
       e.preventDefault(); // Evita el envío del formulario
-  }
-  });
+  }});
 
   //comprobar registro
   isValid = true;
@@ -131,15 +130,15 @@ $(document).ready(function () {
   estadoInicial(errorCorreo2);
    //comprobación automática de nombre
   $(nombre2).on("input", function () {
-    comprobar(nombre2,errorNombre2,/^[a-zA-Z][a-z]*$/,form2);
+    comprobar(nombre2, errorNombre2,/^[a-zA-Z][a-z]*$/);
   });
   //valiación de contraseña
   $(pwd2).on("input", function () {
-    comprobar(pwd2,errorPwd2,/^\S{8,14}$/,form2);
+    comprobar(pwd2,errorPwd2,/^\S{8,14}$/);
   });
   //valiación de correo
   $(correo2).on("input", function () {
-    comprobar(correo2,errorCorreo2,/^\w+@+[a-z]+\.[a-z]{2,3}$/,form2);
+    comprobar(correo2,errorCorreo2,/^\w+@+[a-z]+\.[a-z]{2,3}$/);
   });
 
 
