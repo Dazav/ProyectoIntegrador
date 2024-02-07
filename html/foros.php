@@ -48,7 +48,7 @@
     <nav>
         <div class="usuario">
             <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.html">Brain Hub</a>
+            <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
             <button onclick="window.location.href='recursos.php'">Recursos</button>
@@ -80,10 +80,7 @@
     <!-- need add php -->
     <main>
         <div class="tema-bg">
-            <!-- <p>
-                <a>El último</a>
-                <a>Mas antigua</a>
-            </p> -->
+            <h1 style="color: #6545A1;">TEMAS</h1>
                 <?php
                 // saca todas temas de autores de bd
                 // combinamos tabla foro en usuarios
