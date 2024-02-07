@@ -44,7 +44,7 @@
     <!--  -->
     <div class="descripcionClic">
         <div>
-            <?php
+            <!-- <?php
             $select="SELECT f.img AS src
             FROM foro f
             WHERE f.id=1";
@@ -55,16 +55,16 @@
                         <img src='{$tema['src']}' class='img_des'>
                     </div>";
                 }
-            ?>
-            <!-- <div class="bg-contenido">
+            ?> -->
+            <div class="bg-contenido">
                 <img src="../img/tema1.png" alt="" class="img_des">
-            </div> -->
+            </div>
             <main>
                 <div class="perfil-img"></div>
                 <i class="bx bx-arrow-back"></i>
                 <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
                 <p>12-12-2023</p>
-                <p style="font-size: 20px;">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
+                <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
                 <button class="responder">
                     Responder
                 </button>

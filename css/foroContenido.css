@@ -166,7 +166,7 @@ main{
     background-image: url("../img/test.png");
     background-repeat: no-repeat;
     background-size: cover;
-    animation: 3s rotationPerfil linear infinite ;
+    animation: 50s rotationPerfil linear infinite ;
 }
 @keyframes rotationPerfil {
     0%{}
@@ -178,6 +178,22 @@ main{
 .bx-arrow-back:hover{
     cursor: pointer;
     filter: drop-shadow(0 1px 1px grey);
+}
+.articulo>span{
+    opacity: 0;
+    width: 0;
+    animation: contenidoIn 1s ease-in-out infinite;
+    animation-delay: var(--timeP);
+}
+@keyframes contenidoIn {
+    from{
+        transform: translateX(10px);
+    }
+    to{
+        transform: translateX(0);
+        width: auto;
+        opacity: 1;
+    }
 }
  .responder{
     background: white;

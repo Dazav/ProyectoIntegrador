@@ -5,6 +5,7 @@ $(document).ready(function () {
 
     // altitud de comentario
     var h=$(".comentario_arti").height()+60;
+    //animación de bóton del responder
     $(".comentarios_arti>form").css({
         height:"0px",
         opacity:0,
@@ -23,5 +24,18 @@ $(document).ready(function () {
             opacity: 0,
             top:"10px",
         },500);
+    });
+    
+});
+$(document).ready(function () {
+    //animación de contenido
+    $(".articulo").html(
+        $(".articulo").text().replace(/([^\s])/g,"<span>$&</span>")
+    );
+    let time=0;
+    $(".articulo>span").each(function () { 
+        time+=100;
+
+        this.style.setProperty('--timeP', time+'ms')
     });
 });
