@@ -41,11 +41,24 @@
         </div>
     </header>
     <!-- contenido y artículo -->
+    <!--  -->
     <div class="descripcionClic">
         <div>
-            <div class="bg-contenido">
+            <?php
+            $select="SELECT f.img AS src
+            FROM foro f
+            WHERE f.id=1";
+            $resulta=mysqli_query($conexion,$select);
+                while ($tema=$resulta->fetch_assoc()) {
+                    echo"
+                    <div class='bg-contenido'>
+                        <img src='{$tema['src']}' class='img_des'>
+                    </div>";
+                }
+            ?>
+            <!-- <div class="bg-contenido">
                 <img src="../img/tema1.png" alt="" class="img_des">
-            </div>
+            </div> -->
             <main>
                 <div class="perfil-img"></div>
                 <i class="bx bx-arrow-back"></i>

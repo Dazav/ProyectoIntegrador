@@ -163,19 +163,15 @@ main{
     border: 10px solid white;
     top: -80px;
     left: 100px;
-    
+    background-image: url("../img/test.png");
     background-repeat: no-repeat;
     background-size: cover;
-    animation: 5s rotationPerfil cubic-bezier(0,-0.5, 0.65,-0.37) infinite ;
+    animation: 3s rotationPerfil linear infinite ;
 }
 @keyframes rotationPerfil {
-    0%{background-image: url("../img/test.png");}
-    70%{
-        background-image: url("../img/test2.png");
-    }
+    0%{}
     100%{
         transform: rotate3d(0,0,1, 4turn);
-        background-image: url("../img/test3.png");
     }
 }
 .bx-arrow-back{position: absolute; top: 30px; font-size: 2rem;}

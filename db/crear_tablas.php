@@ -129,19 +129,19 @@
              $insert1 = "INSERT INTO foro (id_usuario, titular, descripcion, img) VALUES
              (1,
               '¿Cómo podemos saber cuando tendremos un ataque de pánico?', 'Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.',
-              'panico.jpg'),
+              '../img/tema1.png'),
               (2,
               '¿Alguien sabe si la terapia con masajes ayuda al mutismo?', 'He escuchado entre gente conocida que han ido a un fisio que les daba masajes en la zona del cuello y el pecho. Después de los masajes, se les curaba el mutismo!',
-              'masajes.jpg'),
+              '../img/masajes.jpg'),
               (3,
               '¿Merece la pena pagar BrainHub?', 'Eché un ojo a las ventajas, pero como no podemos ver los artículos de premium, ¿merece la pena?',
-              'premium.jpg'),
+              '../img/premium.jpg'),
               (4,
               '¿Cómo se usan los ejercicios de apoyo?', 'He estado intentando hacer ejercicios interactivos, pero parece que no llego a acceder al contenido. Alguien me ayuda?',
-              'ayuda_ej_apoyo.jpg'),
+              '../img/ayuda_ej_apoyo.jpg'),
               (5,
               '¿Por qué los gobiernos no dan ayudas?', 'Alguien sabe si dan alguna ayuda? Es que mirando por internet no encontré nada.',
-              'ayudas_gobiernos.jpg')
+              '../img/ayudas_gobiernos.jpg')
              ";
              mysqli_query($conexion, $insert1) or die("Error insert foro");
          }
