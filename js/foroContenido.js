@@ -34,7 +34,7 @@ $(document).ready(function () {
     );
     let time=0;
     $(".articulo>span").each(function () { 
-        time+=100;
+        time+=50;
 
         this.style.setProperty('--timeP', time+'ms')
     });
