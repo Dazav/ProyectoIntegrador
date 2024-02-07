@@ -76,8 +76,6 @@ $(document).ready(function () {
         if (e.which == 8 || e.which ==13) {
             buscador();
         }
-    }).blur(function () {  
-        $(".tema").css("display", "flex"); 
     });
 });
 // agregar artículo
