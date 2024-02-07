@@ -80,7 +80,7 @@ $(document).ready(function () {
 });
 // agregar artículo
 $(document).ready(function () {
-    $(".bx-add-to-queue").click(function () { 
+    $(".tema").click(function () { 
        $(".tema").css("display","none" );
         $(".add-tema").css({
             height: "auto",
