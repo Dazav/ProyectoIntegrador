@@ -76,13 +76,11 @@ $(document).ready(function () {
         if (e.which == 8 || e.which ==13) {
             buscador();
         }
-    }).blur(function () {  
-        $(".tema").css("display", "flex"); 
     });
 });
 // agregar artículo
 $(document).ready(function () {
-    $(".bx-add-to-queue").click(function () { 
+    $("#addtema").click(function () { 
        $(".tema").css("display","none" );
         $(".add-tema").css({
             height: "auto",
