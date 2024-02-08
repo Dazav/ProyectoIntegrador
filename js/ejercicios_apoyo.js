@@ -72,11 +72,42 @@ $(document).ready(function () {
 // clic bóton de carta
 $(document).ready(function () {
     var pregunta = document.getElementById("preguntaOtra");
-    $(".bx-right-arrow-circle").click(function () { 
+    $(".bxs-caret-down-circle").click(function () { 
         $(pregunta).css({
             height: "100vh",
         });
         pregunta.scrollIntoView({ behavior: 'smooth' });
-        $(".up-icon").css({display:"block"});
+
+        $(".up-icon").animate({
+            opacity:1,
+        },500,function () { 
+            $(".up-icon").css({
+                backgroundColor: "#E5DEF6",
+                transition: "1s"
+            });
+            $(".bx-caret-up-circle").animate({
+                bottom: "5px"
+            });
+            $(pregunta).addClass("active-bg");
+        });
+    });
+
+    // 
+    var carta=document.querySelector(".parteOtro");
+    $(".bx-caret-up-circle").click(function () { 
+
+        $(".bx-caret-up-circle").animate({
+            bottom: "55px",
+        },500,function () { 
+            carta.scrollIntoView({ behavior: 'smooth' });
+            $(pregunta).animate({height: "0"},1000);
+         });
+         $(".up-icon").css({
+            backgroundColor: "#ffffff",
+            transition: "1s"
+        });
+        $(".up-icon").animate({
+            opacity:0,
+        },500);
     });
 });

@@ -82,20 +82,20 @@
         <div class="otroEje carta1">
             <div class="descripcionEje">
                 <h2>Escala <br>De <br>Ansiedad</h2>
-                <i class='bx bx-right-arrow-circle'></i>
+                <i class='bx bxs-caret-down-circle' ></i>
             </div>
         </div>
         <div>
             <div class="otroEje carta2">
                 <div class="descripcionEje">
                     <h2>Evaluación <br>De <br>Estrés</h2>
-                    <i class='bx bx-right-arrow-circle' ></i>
+                    <i class='bx bxs-caret-down-circle' ></i>
                 </div>
             </div>
             <div class="otroEje carta3">
                 <div class="descripcionEje">
                     <h2>Reflexión sobre la Autoestima</h2>
-                    <i class='bx bx-right-arrow-circle' ></i>
+                    <i class='bx bxs-caret-down-circle' ></i>
                 </div>
             </div>
         </div>
