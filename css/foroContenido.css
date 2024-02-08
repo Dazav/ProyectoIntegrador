@@ -182,15 +182,14 @@ main{
 .articulo>span{
     opacity: 0;
     width: 0;
-    animation: contenidoIn 1s ease-in-out infinite;
+    animation: contenidoIn 0.1s ease-in-out forwards;
     animation-delay: var(--timeP);
 }
 @keyframes contenidoIn {
     from{
-        transform: translateX(10px);
+        width: 0;
     }
     to{
-        transform: translateX(0);
         width: auto;
         opacity: 1;
     }

@@ -177,17 +177,31 @@ b{
     left: -30px;
     top: 10px;
     height: 20vh;
+    perspective: 20px;
 }
-.buscar input{
+.buscar>input{
     position: relative;
     height: 1rem;
-    width: 800px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 10px;
-    animation: input-up 1s ease-in-out forwards;
     top: 0;
+    outline: none;
+    border: none;
+    border-bottom:3px solid transparent;
+    animation: buscador 2s ease-in-out forwards;
 }
-.buscar i{
+@keyframes buscador {
+    from{
+        opacity: 0;
+        width: 0px;
+    }
+    to{
+        opacity: 1;
+        border-bottom:3px solid #6545A1;
+        width: 800px;
+    }
+}
+.buscar>i{
     position: relative;
     color: var(--busca-normal);
     background: none;
@@ -222,7 +236,6 @@ main{
     padding: 20px 50px;
     border-radius: 20px;
     width: 900px;
-    /* height: 100vh; */
     /* distancia relativa a la pantalla */
     perspective: 200px;
 }
@@ -234,7 +247,8 @@ main{
     display: inline-flex;
     align-items: center;
     border-left: 10px solid #6545A1;
-    box-shadow: 2px 4px 4px 0px var(--busca-normal);
+    box-shadow: 2px 4px 4px 0px var(--busca-normal),
+                0px -0.5px 2px 0px var(--busca-normal);
     padding: 0 var(--padding-tema);
     margin-bottom: 2px;
     width: var(--width-tema);
@@ -275,6 +289,7 @@ main{
 .bx-arrow-back:hover{
     filter: drop-shadow(1px 1px 1px #6545a1);
 }
+/* formulario */
 .add-tema{
     height: 0;
     opacity: 0;
