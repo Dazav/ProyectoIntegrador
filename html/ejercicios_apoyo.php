@@ -102,7 +102,12 @@
     </div>
     <!--  -->
     <div class="preguntaOtra" id="preguntaOtra">
-
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="up-icon">
+            <i class='bx bx-caret-up-circle' ></i>
+        </div>
     </div>
     <!-- contacto -->
     <div class="contacto">

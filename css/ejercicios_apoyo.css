@@ -353,8 +353,26 @@ hr+h1{
 }
 /* pregunta de arriba */
 .preguntaOtra{
-    height: 100vh;
-    background: #000;
+    height: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.up-icon{
+    display: none;
+    box-shadow: inset 0px 0px 5px #848484;
+    background: whitesmoke;
+    border-radius: 40px;
+    width: 200px;
+    padding: 5px;
+}
+.bx-caret-up-circle{
+    background: white;
+    border-radius: 50%;
+    color: #6545A1;
+    font-size: 70px;
+    filter: drop-shadow(-1px -1px 1px #6545A1);
 }
 /* tienes dudas */
 .contacto{

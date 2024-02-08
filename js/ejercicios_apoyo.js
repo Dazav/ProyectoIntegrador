@@ -73,6 +73,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     var pregunta = document.getElementById("preguntaOtra");
     $(".bx-right-arrow-circle").click(function () { 
+        $(pregunta).css({
+            height: "100vh",
+        });
         pregunta.scrollIntoView({ behavior: 'smooth' });
+        $(".up-icon").css({display:"block"});
     });
 });
