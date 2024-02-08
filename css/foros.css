@@ -149,6 +149,7 @@ nav div input:last-child:active{
     padding-top: 70px;
     font-size: 2rem;
     background-image: url(../img/bg-foro.png);
+    color: #6545A1;
 }
 b{
     opacity: 0;
@@ -177,7 +178,6 @@ b{
     left: -30px;
     top: 10px;
     height: 20vh;
-    perspective: 20px;
 }
 .buscar>input{
     position: relative;
