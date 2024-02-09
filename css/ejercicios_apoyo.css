@@ -355,7 +355,9 @@ hr+h1{
 /* pregunta de arriba */
 .preguntaOtra{
     height: 0;
-    background: white;
+    background-image: url("../img/bg-ejercicio2.png");
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: flex-end;
