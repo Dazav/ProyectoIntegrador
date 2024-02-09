@@ -274,7 +274,7 @@ hr+h1{
     height: 350px;
     display: inline-flex;
     justify-content: center;
-    background-image: url("../img/imgEjeApoyo.png");
+    background-image: url("../img/imgEjeApoyo1.png");
     background-size: 100% 60%;
     margin-right: 10px;
 }
@@ -307,8 +307,8 @@ hr+h1{
     opacity: 0;
     width: 350px;
     height: 100px;
-    background-image: url("../img/imgEjeApoyo.png");
-    background-size: 40% 200px;
+    background-image: url("../img/imgEjeApoyo2.png");
+    background-size: 150px 100px;
     background-position-x: 210px;
 }
 .carta2>.descripcionEje{
@@ -333,7 +333,7 @@ hr+h1{
     width: 350px;
     height: 230px;
     margin-top: 20px;
-    background-image: url("../img/imgEjeApoyo.png");
+    background-image: url("../img/imgEjeApoyo3.png");
     background-size: 60% 230px;
 }
 .carta3>.descripcionEje{
