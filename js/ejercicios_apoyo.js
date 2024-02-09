@@ -75,6 +75,7 @@ $(document).ready(function () {
     $(".bxs-caret-down-circle").click(function () { 
         $(pregunta).css({
             height: "100vh",
+            opacity: 1,
         });
         pregunta.scrollIntoView({ behavior: 'smooth' });
 
@@ -82,7 +83,7 @@ $(document).ready(function () {
             opacity:1,
         },500,function () { 
             $(".up-icon").css({
-                backgroundColor: "#E5DEF6",
+                backgroundColor: "#969090",
                 transition: "1s"
             });
             $(".bx-caret-up-circle").animate({
@@ -100,7 +101,10 @@ $(document).ready(function () {
             bottom: "55px",
         },500,function () { 
             carta.scrollIntoView({ behavior: 'smooth' });
-            $(pregunta).animate({height: "0"},1000);
+            $(pregunta).animate({
+                height: "0",
+                opacity: 0,
+            },1000);
          });
          $(".up-icon").css({
             backgroundColor: "#ffffff",

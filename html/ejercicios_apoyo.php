@@ -102,9 +102,11 @@
     </div>
     <!--  -->
     <div class="preguntaOtra" id="preguntaOtra">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="contenido">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="up-icon">
             <i class='bx bx-caret-up-circle' ></i>
         </div>
