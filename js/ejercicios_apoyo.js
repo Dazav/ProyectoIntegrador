@@ -2,7 +2,7 @@
 $(document).ready(function () {
     var time=0;
     document.querySelectorAll("b").forEach(function (b){
-        time +=0.5;
+        time +=0.2;
         b.style.setProperty("--delayTitulo", time+'s');
     });
 });
