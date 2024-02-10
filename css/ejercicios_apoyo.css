@@ -359,7 +359,7 @@ main>h1{
 .preguntaOtra{
     height: 0;
     opacity: 0;
-    background-image: url("../img/bg-ejercicio2.png");
+    background-image: url("../img/bg-ejercicio3.png");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -381,7 +381,7 @@ main>h1{
     color: #6545A1;
     background-size: cover;
     background-attachment: fixed;
-
+    background-position: center;
 }
 .masPregunta{
     height: 0;
