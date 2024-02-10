@@ -15,98 +15,133 @@
 </head>
 <body>
     <!-- barra navegación -->
-    <nav>
-        <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.html">Brain Hub</a>
-        </div>
-        <div class="menu">
-            <button onclick="window.location.href='recursos.html'">Recursos</button>
-            <div class="dropdown">
-                Apoyo
-                <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.html'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.html'">Ejercicios de Apoyo</button>
-                </div>
+    <header>
+        <nav>
+            <div class="usuario">
+                <img src="../img/logo.png" alt="" srcset="">
+                <a href="index.html">Brain Hub</a>
             </div>
-            <button onclick="window.location.href='terapeutas.html'">Terapeutas</button>
-            <button onclick="window.location.href='social.html'">Social</button>
-        </div>
-        <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
-        </div>
-    </nav>
-    <!-- ejercios de apoyo -->
-    <!-- titulo -->
-    <div class="apoyoTitulo">
-        <h1><b>Ejercicios </b><b> de </b><b> Apoyo</b></h1>
-    </div>
-    <!-- preguntas -->
-    <div class="parte_preguntas">
-        <button disabled="disabled" id="flecha1">
-            <i class='bx bx-right-arrow-alt bx-flip-horizontal' ></i>
-        </button>
-        <div class="ventana">
-            <h2>Ejercicios de exposición</h2>
-            <form class="preguntas">
-                <div class="pregunta">
-                    <h3>¿Qué emociones has sentido con más frecuencia esta semana?</h3>
-                    <p><input type="radio" name="test1" id="">Alegría</p>
-                    <p><input type="radio" name="test1" id="">Tristeza</p>
-                    <p><input type="radio" name="test1" id="">Otro</p>
+            <div class="menu">
+                <button onclick="window.location.href='recursos.html'">Recursos</button>
+                <div class="dropdown">
+                    Apoyo
+                    <div class="dropdown-menu">
+                        <button onclick="window.location.href='grupo_apoyo.html'">Grupo Apoyo</button>
+                        <button onclick="window.location.href='ejercicios_apoyo.html'">Ejercicios de Apoyo</button>
+                    </div>
                 </div>
-                <div class="pregunta">
-                    <h3>¿Cuáles son las opciones de tratamiento que se discutieron para su condición?</h3>
-                    <p><input type="radio" name="test2" id="">Medicamentos</p>
-                    <p><input type="radio" name="test2" id="">Terapia física</p>
-                    <p><input type="radio" name="test2" id="">Cambios en el estilo de vida</p>
-                </div>
-                <div class="pregunta">
-                    <h3>¿Se discutieron posibles efectos secundarios de su tratamiento durante la exposición?</h3>
-                    <p><input type="radio" name="test3" id="">Sí</p>
-                    <p><input type="radio" name="test3" id="">No</p>
-                    <p><input type="radio" name="test3" id="">No estoy seguro/a</p>
-                </div>
-            </form>
+                <button onclick="window.location.href='terapeutas.html'">Terapeutas</button>
+                <button onclick="window.location.href='social.html'">Social</button>
+            </div>
+            <div class="iniciarUser">
+                <input type="button" value="Iniciar Sesión" onclick="window.location.href='logIn.html'" />
+                <input type="button" value="Comenzar" onclick="window.location.href='comenzar.html'" />
+            </div>
+        </nav>
+        <!-- ejercios de apoyo -->
+        <!-- titulo -->
+        <div class="apoyoTitulo">
+            <h1><b>Ejercicios </b><b> de </b><b> Apoyo</b></h1>
         </div>
-        <button id="flecha2">
-            <i class='bx bx-right-arrow-alt'></i>
-        </button>
-    </div>
+        <!-- preguntas -->
+        <div class="parte_preguntas">
+            <button disabled="disabled" id="flecha1">
+                <i class='bx bx-right-arrow-alt bx-flip-horizontal' ></i>
+            </button>
+            <div class="ventana">
+                <h2>Ejercicios de exposición</h2>
+                <form class="preguntas">
+                    <div class="pregunta">
+                        <h3>¿Qué emociones has sentido con más frecuencia esta semana?</h3>
+                        <p><input type="radio" name="test1" id="">Alegría</p>
+                        <p><input type="radio" name="test1" id="">Tristeza</p>
+                        <p><input type="radio" name="test1" id="">Otro</p>
+                    </div>
+                    <div class="pregunta">
+                        <h3>¿Cuáles son las opciones de tratamiento que se discutieron para su condición?</h3>
+                        <p><input type="radio" name="test2" id="">Medicamentos</p>
+                        <p><input type="radio" name="test2" id="">Terapia física</p>
+                        <p><input type="radio" name="test2" id="">Cambios en el estilo de vida</p>
+                    </div>
+                    <div class="pregunta">
+                        <h3>¿Se discutieron posibles efectos secundarios de su tratamiento durante la exposición?</h3>
+                        <p><input type="radio" name="test3" id="">Sí</p>
+                        <p><input type="radio" name="test3" id="">No</p>
+                        <p><input type="radio" name="test3" id="">No estoy seguro/a</p>
+                    </div>
+                </form>
+            </div>
+            <button id="flecha2">
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </header>
     <!--  -->
-    <hr>
-    <h1>Otro Ejercicio</h1>
+
     <!-- otros ejercicios -->
-    <div class="parteOtro">
-        <div class="otroEje carta1">
-            <div class="descripcionEje">
-                <h2>Escala <br>De <br>Ansiedad</h2>
-                <i class='bx bxs-caret-down-circle' ></i>
-            </div>
-        </div>
-        <div>
-            <div class="otroEje carta2">
+    <main>
+        <h1>Otros Ejercicios</h1>
+        <div class="parteOtro">
+            <div class="otroEje carta1">
                 <div class="descripcionEje">
-                    <h2>Evaluación <br>De <br>Estrés</h2>
+                    <h2>Escala <br>De <br>Ansiedad</h2>
                     <i class='bx bxs-caret-down-circle' ></i>
                 </div>
             </div>
-            <div class="otroEje carta3">
-                <div class="descripcionEje">
-                    <h2>Reflexión sobre la Autoestima</h2>
-                    <i class='bx bxs-caret-down-circle' ></i>
+            <div>
+                <div class="otroEje carta2">
+                    <div class="descripcionEje">
+                        <h2>Evaluación <br>De <br>Estrés</h2>
+                        <i class='bx bxs-caret-down-circle' ></i>
+                    </div>
+                </div>
+                <div class="otroEje carta3">
+                    <div class="descripcionEje">
+                        <h2>Reflexión sobre la Autoestima</h2>
+                        <i class='bx bxs-caret-down-circle' ></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <!--  -->
     <div class="preguntaOtra" id="preguntaOtra">
         <div class="contenido">
-            <div></div>
-            <div></div>
-            <div></div>
+            <form action="">
+                <div class="masPregunta">
+                    <h3>¿Has sentido que tu corazón late rápidamente o con fuerza sin motivo aparente?</h3>
+                    <p><input type="radio" name="test1" id="">Nunca</p>
+                    <p><input type="radio" name="test1" id="">En algunas ocasiones</p>
+                    <p><input type="radio" name="test1" id="">A menudo</p>
+                    <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
+                </div>
+            </form>
         </div>
+        <div class="contenido">
+            <form action="">
+                <div class="masPregunta">
+                    <h3>¿Has experimentado temblores o sacudidas en tu cuerpo sin razón evidente?</h3>
+                    <p><input type="radio" name="test1" id="">Nunca</p>
+                    <p><input type="radio" name="test1" id="">En algunas ocasiones</p>
+                    <p><input type="radio" name="test1" id="">A menudo</p>
+                    <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
+                </div>
+            </form>
+        </div>
+        <div class="contenido">
+            <form action="">
+                <div class="masPregunta">
+                    <h3>¿Has sentido tensión o nerviosismo la mayor parte del tiempo?</h3>
+                    <p><input type="radio" name="test1" id="">Nunca</p>
+                    <p><input type="radio" name="test1" id="">En algunas ocasiones</p>
+                    <p><input type="radio" name="test1" id="">A menudo</p>
+                    <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
+                </div>
+            </form>
+        </div>
+        <div class="cartaP">4</div>
+        <div class="cartaP">5</div>
+        <div class="cartaP">6</div>
         <div class="up-icon">
             <i class='bx bx-caret-up-circle' ></i>
         </div>

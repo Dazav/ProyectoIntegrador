@@ -69,7 +69,7 @@ $(document).ready(function () {
         }
     });        
 });
-// clic bóton de carta
+// despalazarse a otro página que se llama "pregunta de otro pagina"
 $(document).ready(function () {
     var pregunta = document.getElementById("preguntaOtra");
     $(".bxs-caret-down-circle").click(function () { 
@@ -78,7 +78,10 @@ $(document).ready(function () {
             opacity: 1,
         });
         pregunta.scrollIntoView({ behavior: 'smooth' });
-
+        $(".contenido").find(".masPregunta").css({
+            height:"0",
+            opacity: 0
+        });
         $(".up-icon").animate({
             opacity:1,
         },500,function () { 
@@ -92,13 +95,12 @@ $(document).ready(function () {
             $(pregunta).addClass("active-bg");
         });
     });
-
-    // 
-    var carta=document.querySelector(".parteOtro");
+    // volver a página Otro ejercicios
+    var carta=document.querySelector("main");
     $(".bx-caret-up-circle").click(function () { 
 
         $(".bx-caret-up-circle").animate({
-            bottom: "55px",
+            bottom: "60px",
         },500,function () { 
             carta.scrollIntoView({ behavior: 'smooth' });
             $(pregunta).animate({
@@ -113,5 +115,73 @@ $(document).ready(function () {
         $(".up-icon").animate({
             opacity:0,
         },500);
+        $(".contenido").animate({
+            height: "0",
+        });
+        $(".contenido").find(".masPregunta").css({
+            height:"0",
+            opacity: 0
+        });
     });
+// animación carta de otra pregunta de otro ejercicios
+    // basicamente realizar la animaci'on de carta después de clic a través de zindex mientras cada fondo cambiable corresponder a cada carta por foreach
+    // carta  0 1 2         0       1       2
+    // zindex 2 1 0  bottom b0      b1      b2
+    // zindex 0 2 1         b0+40   b1-20   b2-20
+    $(".cartaP").click(function () {
+        //para obtener bottom 
+        var widthT=$(pregunta).width();
+        var heightT=$(pregunta).height();
+        var widthC=$(".cartaP").width();
+        var heightC=$(".cartaP").height();
+        //obtener dom cartaP 
+        $(".cartaP").each(function (index, cartaP) { 
+            //conseguir la posici'on de carta
+            var position = $(cartaP).position();
+            var bottom = heightT-heightC-position.top;
+            var right = widthT-widthC-position.left;
+            var zindex=$(cartaP).css("z-index");
+            zindex++;
+            // colocar la tarjeta más delantera al final en clic proxima
+            if (zindex > 2) {
+                zindex=0;
+                bottom=bottom+40;
+                right=right+40;
+                $(cartaP).animate({
+                    zIndex: zindex,
+                    bottom: bottom,
+                    right: right,
+                    opacity: 0
+                },200,function(){
+                    $(cartaP).animate({
+                        opacity: 1
+                    })
+                });
+                $(".contenido").eq(index).animate({
+                    height: "100vh",
+                });
+                $(".contenido").eq(index).find(".masPregunta").animate({
+                    height: "auto",
+                    opacity: 1
+                });
+            }else{
+                //otras avanzarán
+                bottom=bottom-20;
+                right=right-20;
+                $(cartaP).animate({
+                    zIndex: zindex,
+                    bottom: bottom,
+                    right: right,
+                },200);
+                $(".contenido").eq(index).animate({
+                    height: "0",
+                });
+                $(".contenido").eq(index).find(".masPregunta").animate({
+                    height: "0",
+                    opacity: 0
+                });
+            }
+        });
+    });
+    
 });
