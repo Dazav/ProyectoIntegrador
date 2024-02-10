@@ -398,29 +398,29 @@ main>h1{
 }
 /* establecer los estilos de fondo */
 .preguntaOtra>div:nth-child(1){
-    background-image: url("/img/bg-ejercicioContenido1.png");
+    background-image: url("../img/bg-ejercicioContenido1.png");
 }
 .preguntaOtra>div:nth-child(2){
-    background-image: url("/img/bg-ejercicioContenido2.png");
+    background-image: url("../img/bg-ejercicioContenido2.png");
 }
 .preguntaOtra>div:nth-child(3){
-    background-image: url("/img/bg-ejercicioContenido3.png");
+    background-image: url("../img/bg-ejercicioContenido3.png");
 }
 /* establecer los estilos de tarjeta */
 .preguntaOtra>div:nth-child(4){
-    background-image: url("/img/bg-ejercicioContenido1.png");
+    background-image: url("../img/bg-ejercicioContenido1.png");
     right: 360px;
     bottom: 200px;
     z-index: 2;
 }
 .preguntaOtra>div:nth-child(5){
-    background-image: url("/img/bg-ejercicioContenido2.png");
+    background-image: url("../img/bg-ejercicioContenido2.png");
     right: 380px;
     bottom: 220px;
     z-index: 1;
 }
 .preguntaOtra>div:nth-child(6){
-    background-image: url("/img/bg-ejercicioContenido3.png");
+    background-image: url("../img/bg-ejercicioContenido3.png");
     right: 400px;
     bottom: 240px;
     z-index: 0;
