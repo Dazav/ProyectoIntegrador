@@ -376,13 +376,14 @@ main>h1{
     height: 0;
     color: #6545A1;
     background-size: cover;
-    /* background-attachment: fixed; */
 }
 .masPregunta{
-    width: 50vw;
+    width: 40vw;
     height: 0;
     opacity: 0;
-    padding-left: 100px;
+    margin: 100px 0 0 100px;
+    padding: 30px;
+
 }
 .masPregunta>h3{
     font-size: 3rem;

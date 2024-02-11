@@ -162,7 +162,7 @@ $(document).ready(function () {
                     height: "100vh",
                 },1000);
                 $(".contenido").eq(index).find(".masPregunta").animate({
-                    height: "auto",
+                    height: "100%",
                     opacity: 1
                 });
             }else{
