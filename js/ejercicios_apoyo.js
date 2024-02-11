@@ -141,6 +141,7 @@ $(document).ready(function () {
             var bottom = heightT-heightC-position.top;
             var right = widthT-widthC-position.left;
             var zindex=$(cartaP).css("z-index");
+            console.log(index);
             zindex++;
             // colocar la tarjeta más delantera al final en clic proxima
             if (zindex > 2) {
@@ -159,7 +160,7 @@ $(document).ready(function () {
                 });
                 $(".contenido").eq(index).animate({
                     height: "100vh",
-                });
+                },1000);
                 $(".contenido").eq(index).find(".masPregunta").animate({
                     height: "auto",
                     opacity: 1

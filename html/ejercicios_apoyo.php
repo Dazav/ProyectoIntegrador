@@ -139,9 +139,9 @@
                 </div>
             </form>
         </div>
-        <div class="cartaP">4</div>
-        <div class="cartaP">5</div>
-        <div class="cartaP">6</div>
+        <div class="cartaP"></div>
+        <div class="cartaP"></div>
+        <div class="cartaP"></div>
         <div class="up-icon">
             <i class='bx bx-caret-up-circle' ></i>
         </div>

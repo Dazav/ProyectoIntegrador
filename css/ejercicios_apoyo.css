@@ -363,8 +363,7 @@ main>h1{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    display: grid;
-    /* flex-direction: column; */
+    display: flex;
     justify-content: center;
     align-items: end;
     position: relative;
@@ -375,53 +374,63 @@ main>h1{
     position: absolute;
     width: 100%;
     height: 0;
-
-    /* display: none; */
-    /* test */
     color: #6545A1;
     background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    /* background-attachment: fixed; */
 }
 .masPregunta{
+    width: 50vw;
     height: 0;
     opacity: 0;
+    padding-left: 100px;
+}
+.masPregunta>h3{
     font-size: 3rem;
+}
+.masPregunta>p{
+    font-size: 2rem;
+    font-weight: bold;
 }
 .cartaP{
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 4px #848484;
+    border-radius: 10px;
+    filter: drop-shadow(1px 1px 1px #30224D);
     width: 200px;
     height: 300px;
     position: absolute;
     cursor: pointer;
 }
 /* establecer los estilos de fondo */
-.preguntaOtra>div:nth-child(1){
-    background-image: url("../img/bg-ejercicioContenido1.png");
+    .preguntaOtra>div:nth-child(1){
+    background-image: url("../img/bg-ejercicioC1.png");
 }
 .preguntaOtra>div:nth-child(2){
-    background-image: url("../img/bg-ejercicioContenido2.png");
+    background-image:url("../img/bg-ejercicioC2.png");
 }
 .preguntaOtra>div:nth-child(3){
-    background-image: url("../img/bg-ejercicioContenido3.png");
+    background-image: url("../img/bg-ejercicioC3.png");
 }
 /* establecer los estilos de tarjeta */
 .preguntaOtra>div:nth-child(4){
     background-image: url("../img/bg-ejercicioContenido1.png");
-    right: 360px;
+    right: 260px;
     bottom: 200px;
     z-index: 2;
 }
 .preguntaOtra>div:nth-child(5){
     background-image: url("../img/bg-ejercicioContenido2.png");
-    right: 380px;
+    background-position: 60%;
+    right: 280px;
     bottom: 220px;
     z-index: 1;
 }
 .preguntaOtra>div:nth-child(6){
     background-image: url("../img/bg-ejercicioContenido3.png");
-    right: 400px;
+    right: 300px;
     bottom: 240px;
     z-index: 0;
 }
