@@ -169,14 +169,23 @@ b{
         left: 0;
     }
 }
+/* main */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../img/bg-foros.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 /* buscador de temas */
 .buscar{
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    left: -30px;
-    top: 10px;
     height: 20vh;
 }
 .buscar>input{
@@ -187,7 +196,9 @@ b{
     top: 0;
     outline: none;
     border: none;
+    background: none;
     border-bottom:3px solid transparent;
+    color: #6545A1;
     animation: buscador 2s ease-in-out forwards;
 }
 @keyframes buscador {
@@ -217,17 +228,7 @@ i:hover{
     color: var(--busca-color-active);
 }
 /* temas y una manera de buscarlo */
-main{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../img/bg-foros.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 .tema-bg{
-    margin: 20vh 0;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
