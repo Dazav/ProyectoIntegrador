@@ -86,6 +86,7 @@
             </div>
             <button>10€/mes</button>
         </div>
+        <i class='bx bx-up-arrow-circle' ></i>
     </main>
 
     

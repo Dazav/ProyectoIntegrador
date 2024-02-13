@@ -373,6 +373,16 @@ main>div>div>li{
         opacity: 1;
     }
 }
+.bx-up-arrow-circle{
+    position: absolute;
+    font-size: 50px;
+    top: 10vh;
+    cursor: pointer;
+    color: #56b25B;
+}
+.bx-up-arrow-circle:hover{
+    filter: drop-shadow(0 0 2px #56b25B);
+}
 /* tienes dudas */
 .contacto{
     height: 230px;

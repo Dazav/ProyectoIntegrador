@@ -1,8 +1,18 @@
-// desplazarse a la p'agina de tarjetas
+
 $(document).ready(function () {
-    var main=document.getElementById('tarjetas');;
+    // desplazarse a la p'agina de tarjetas por bóton
+    var main=document.getElementById('tarjetas');
     $(".btnDes").click(function () { 
-        main.scrollIntoView({behavior: "smooth"});
+        // main.scrollIntoView({behavior: "smooth"});
+        $("html, body").animate({
+            scrollTop: $(main).offset().top
+          }, 10000);
+    });
+    // arriba a la p'agina de tarjetas por bóton
+    $(".bx-up-arrow-circle").click(function () { 
+        $("html, body").animate({
+            scrollTop: $(".desPlus").offset().top
+          }, 10000);
     });
 });
 //
