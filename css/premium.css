@@ -192,17 +192,19 @@ nav div input:last-child:active{
 /* titulo */
 .titulo{
     height: 220vh;
-}
-.titulo>div{
-    display: flex;
+    background-image: url("../img/bg-ejercicio.png");
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
     justify-content: center;
+    text-align: center;
 }
+
 .texto{
     position: sticky;
     top: 0;
     font-size: 56px;
     height: 40vh;
-    /* border: 1px solid; */
 }
 .texto>h1{
     color: #6545A1;
@@ -210,33 +212,166 @@ nav div input:last-child:active{
     margin-bottom: 0;
 }
 .intro{
-
     opacity: 0;
-    color: #9d91b6;
+    color: rgba(157, 145, 182);
     height: 60vh;
     font-size: 32px;
     font-weight: bold;
-    text-align: center;
-    text-wrap: balance;
-    /* test */
-    /* border: 1px solid; */
+    width: 1000px;
+}
+.intro:nth-child(2){
+    opacity: 1;
 }
 .intro>p{
     margin-top: 70px;
 }
 .last-intro{
-    color: #9d91b6;
+    background-image: url("../img/bg-ejercicio.png");
+    background-attachment: fixed;
+    background-size: cover;
+    color: rgba(157, 145, 182);
     height: 40vh;
     font-size: 32px;
     font-weight: bold;
     text-align: center;
     text-wrap: balance;
-    /* border: 1px solid; */
+}
+.last-intro>p{
+    opacity: 0;
+    margin: 0;
 }
 /* main */
 main{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
     height: 100vh;
     background: #30224D;
+    padding-top: 168px;
+    /* para 3d animación */
+    perspective: 1000px;
+}
+main>div{
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 10px solid  #6545A1;
+    width: 500px;
+    background: linear-gradient(316deg,#44306c,#6545A1);
+    color: #B19CD9;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}
+main>div>h1{
+    text-align: center;
+    font-size: 40px;
+}
+main>div>div{
+    height: 300px;
+}
+main>div>div>li{
+    margin:10px 40px ;
+    font-size: 30px;
+}
+.tarjeta2>button,.tarjeta2>button::after{
+    width: 200px;
+    height: 60px;
+    color: #56b25B;
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px;
+    border-radius: 12px;
+    border: 3px solid #56b25B;
+    background: none;
+    color: #56b25B;
+    position: relative;
+    cursor: pointer;
+}
+.tarjeta2>button:hover::after{
+    /* top right bottom left */
+    --parte-0:inset(50% 50% 50% 50%);
+    --parte-1:inset(60% 6px 0 0);
+    --parte-2:inset(50% -6px 0% 0);
+    --parte-3:inset(10% -5px 0% 0);
+    --parte-4:inset(20% 10px 0% 0);
+    --parte-5:inset(100% -6px 0% 0);
+    width: 174px;
+    height: 34px;
+    content: "10€/mes";
+    position: absolute;
+    /* corta este b'oton */
+    clip-path: var(--parte-0);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    animation: corta 1s linear infinite;
+    animation-timing-function: steps(1,end);
+}
+@keyframes corta {
+    0%{
+        clip-path: var(--parte-1);
+        transform: translate(-2px,5px);
+    }
+    10%{
+        clip-path: var(--parte-3);
+        transform: translate(2px,-2px);
+    }
+    20%{
+        clip-path: var(--parte-5);
+        transform: translate(-2px,2px);
+    }
+    30%{
+        clip-path: var(--parte-2);
+        transform: translate(1px,5px);
+    }
+    40%{
+        clip-path: var(--parte-3);
+        transform: translate(-2px,0px);
+    }
+    50%{
+        clip-path: var(--parte-5);
+        transform: translate(10px,-5px);
+    }
+    60%{
+        clip-path: var(--parte-4);
+        transform: translate(-5px,5px);
+    }
+    70%{
+        clip-path: var(--parte-2);
+        transform: translate(0px,1px);
+    }
+    80%{
+        clip-path: var(--parte-1);
+        transform: translate(0px,-1px);
+    }
+    90%{
+        clip-path: var(--parte-5);
+        transform: translate(3px,-2px);
+    }
+    100%{
+        clip-path: var(--parte-2);
+        transform: translate(2px,0px);
+    }
+}
+.tarjeta1{
+    height: 500px;
+}
+.tarjeta2{
+    height: 650px;
+}
+/* animación tarjeta */
+.tarjeta{opacity: 0;scale: 0;}
+.active{
+    animation: tarjetaEntra 1s ease-in-out forwards;
+}
+@keyframes tarjetaEntra {
+    0%{}
+    100%{
+        scale: 1;
+        opacity: 1;
+    }
 }
 /* tienes dudas */
 .contacto{

@@ -68,8 +68,24 @@
     </div>
     <!-- tarjeta -->
     <main id="tarjetas">
-        <div></div>
-        <div></div>
+        <div class="tarjeta1 tarjeta">
+            <h1>Servicio Gratis</h1>
+            <div>
+                <li>Recursos de acceso gratuito</li>
+                <li>Servicio de seguimiento</li>
+                <li>Contacto con terapeutas</li>
+            </div>
+
+        </div>
+        <div class="tarjeta2 tarjeta">
+            <h1>Servicio Premium</h1>
+            <div>
+                <li>Toda la biblioteca de recursos disponible</li>
+                <li>Todas las características desbloqueadas</li>
+                <li>Descuento en sesiones con terapeutas</li>
+            </div>
+            <button>10€/mes</button>
+        </div>
     </main>
 
     
