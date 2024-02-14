@@ -42,17 +42,21 @@
         <h1>Perfil de usuario</h1>
         <div class="informacion">
             <div>
-                <div class="bg-img"><img src="../img/test.png" alt=""></div>
+                <div class="bg-img">
+                    <img src="../img/autor4.png" alt="">
+                </div>
                 <div class="btn">
                     <button>Editar Perfil</button>
                 </div>
             </div>
-            <div>
-                <input type="text" placeholder="">
-                <input type="text" placeholder="">
-                <label for="">
-                    metodo de pago<input type="text">
-                </label>
+            <div class="infor-user">
+                <h3>Nombre:</h3>
+                <p>Andrea Monte</p>
+                <h3>Correo:</h3>
+                <p>andreamonte@valentine.es</p>
+                <h3>Metodo de pago:</h3>
+                <p>En efectivo<i class='bx bxs-credit-card-alt'></i></p>
+                <button onclick="window.location.href='premium.php'">Hazte premium</button>
             </div>
         </div>
     </main>
