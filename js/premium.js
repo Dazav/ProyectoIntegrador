@@ -6,13 +6,13 @@ $(document).ready(function () {
         // main.scrollIntoView({behavior: "smooth"});
         $("html, body").animate({
             scrollTop: $(main).offset().top
-          }, 10000);
+          }, 20000);
     });
     // arriba a la p'agina de tarjetas por bóton
     $(".bx-up-arrow-circle").click(function () { 
         $("html, body").animate({
             scrollTop: $(".desPlus").offset().top
-          }, 10000);
+          },4000);
     });
 });
 //
