@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../js/premium.js"></script>
     <title>ejercicios de apoyo</title>
 </head>
@@ -57,14 +58,14 @@
         </div>
         <div class="intro"></div>
         <div class="intro" id="intro1">
-            <p>Invertir en tu bienestar emocional nunca fue tan sencillo. Brain Hub se adapta a tus necesidades, brindándote opciones accesibles para tu cuidado mental.</p>
+            <p>Te ofrecemos un universo de posibilidades para cuidar tu salud mental.</p>
         </div>
         <div class="intro" id="intro2">
-            <p>Te ofrecemos un universo de posibilidades para cuidar tu salud mental.</p>
+            <p>Por un precio accesible de solo 10 euros, abrimos la puerta a un espacio donde cada recurso está diseñado pensando en ti. </p>
         </div>
     </div>
     <div class="last-intro">
-        <p>Por un precio accesible de solo 10 euros, abrimos la puerta a un espacio donde cada recurso está diseñado pensando en ti. </p>
+        <p>Invertir en tu bienestar emocional nunca fue tan sencillo. Brain Hub se adapta a tus necesidades, brindándote opciones accesibles para tu cuidado mental.</p>
     </div>
     <!-- tarjeta -->
     <main id="tarjetas">

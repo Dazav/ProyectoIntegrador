@@ -5,14 +5,22 @@ $(document).ready(function () {
     $(".btnDes").click(function () { 
         // main.scrollIntoView({behavior: "smooth"});
         $("html, body").animate({
-            scrollTop: $(main).offset().top
-          }, 20000);
+            scrollTop: $(".titulo").offset().top//llegar parte descripción y titulo
+          }, 2000,"easeInExpo",function () { 
+            $(this).animate({
+                scrollTop: $(".last-intro").offset().top
+            },15000,"linear" ,function () { 
+                $(this).animate({
+                    scrollTop: $(main).offset().top//llegar tarjeta
+                },2000, "easeOutCubic")
+            });
+        });
     });
     // arriba a la p'agina de tarjetas por bóton
     $(".bx-up-arrow-circle").click(function () { 
         $("html, body").animate({
             scrollTop: $(".desPlus").offset().top
-          },4000);
+          },4000,"easeInOutExpo");
     });
 });
 //
