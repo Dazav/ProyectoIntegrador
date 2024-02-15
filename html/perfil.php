@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../js/perfil.js"></script>
     <title>Perfil</title>
 </head>
@@ -59,6 +60,23 @@
                 <button onclick="window.location.href='premium.php'">Hazte premium</button>
             </div>
         </div>
+        <!-- editar perfil -->
+        <form class="editar">
+            <i class='bx bx-x'></i>
+            <label for="nombre">nombre</label>
+            <input type="text" value="Andrea Monte">
+            <label for="email">correo</label>
+            <input type="email" value="andreamonte@valentine.es">
+            <label for="direccion">dirección</label>
+            <input type="text" value="Avenida Portugal, 28940">
+            <label for="provincia">provincia</label>
+            <input type="text" value="Madrid">
+            <label for="password">contraseña</label>
+            <input type="password" name="" id="">
+            <label for="new password">contraseña nueva</label>
+            <input type="password" name="" id="">
+            <input type="submit" value="Guardar">
+        </form>
     </main>
     <!-- footer -->
     <footer>
