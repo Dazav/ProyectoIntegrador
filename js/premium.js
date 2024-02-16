@@ -39,6 +39,7 @@ $(document).ready(function () {
         }else if(scroll>scrollEnd2 && scroll<scrollEnd3) {
             $("#intro2").css("opacity", (1-4*(scroll-scrollEnd2)/($(".texto").height())));
             $(".last-intro>p").css("opacity", ((scroll-scrollEnd2+20)/(scrollEnd2-scrollEnd)));
+            $(".texto").css({scale:1-(scroll-scrollEnd2)/(scrollEnd2-scrollEnd)})
         }
         // animación carta
         var scrollTopPre =scrollTop+$(".titulo").height();
