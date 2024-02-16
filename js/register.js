@@ -114,7 +114,8 @@ $(document).ready(function () {
   $(".sign-in-form").submit(function (e) {
     if (!isValid) {
       e.preventDefault(); // Evita el envío del formulario
-  }});
+  }
+});
 
   //comprobar registro
   isValid = true;
@@ -147,4 +148,13 @@ $(document).ready(function () {
       e.preventDefault(); // Evita el envío del formulario
   }
   });
+
+// 
+  if ($("#msg-error").length>0) {
+    $(".usr-circulo").animate({
+      scale:1,
+      opacity:1
+    });
+  }
 });
+

@@ -23,56 +23,136 @@ main{
 }
 
 
-/* barra de navegación */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow: hidden;
-    background-color: #fff; /* Color de fondo */
-    padding: 10px 20px;
+/* barra de header */
+nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-  }
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-  }
-  .navbar-logo img {
-    margin-right: 10px;
-  }
-  .nav-links {
-    display: flex;
-  }
-  .nav-links a {
-    color: #800080; /* Color del texto de los enlaces */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .nav-links a:hover {
-    background-color: #ddd; /* Color de fondo al pasar el mouse */
-    color: black;
-  }
-  .nav-links a.active {
-    background-color: #666; /* Color de fondo para el enlace activo */
-    color: white;
-  }
-  .navbar-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #800080;
-    margin: 3px 0;
-    transition: 0.4s;
-  }
+    width: 100%;
 
+    height: 70px;
+    position: fixed;
+    z-index: 100;
+    background: white;
+}
+nav div.usuario{
+    display: flex;
+    align-items: center;
+}
+nav div.usuario a{
+    color: #6545A1;
+}
+nav div img{
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+nav a{
+    color: #6545A1;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+    /*  menu de nav */
+.menu{
+    display: inline-flex;
+}
+.menu button,.dropdown{
+    width: 150px;
+    height: 70px;
+    border: 0;
+    background: none;
+    margin: 0 2rem;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #6545A1;
+}
+.dropdown{
+    display: inline-grid;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+.menu>button:hover,.dropdown:hover{
+    filter: drop-shadow(1px 1px 0.5px #6545A1);
+    cursor: pointer;
+    color: #6545A1;
+    box-shadow: inset 0 -5px 0px #6545A1;
+}
+.dropdown:hover .dropdown-menu{
+    height: auto;
+    opacity: 1;
+    top:70px;
+    transition: 0.3s;
+    box-shadow: 1px 1px 2px #B19CD9,-1px 0px 2px;
+}
+.dropdown-menu{
+    position: absolute;
+    background: white;
+    top: 50px;
+    opacity: 0;
+    height: 0;
+}
+.dropdown-menu>button{
+    color: #6545A1;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.dropdown-menu>button:hover{
+    color: #6545A1;
+    border-left: 3px solid #6545A1;
+    filter: drop-shadow(1px 1px 0.5px #6545A1);
+}
+/* boton de usuarios */
+.iniciarUser input {
+    border: 2px solid #B19CD9;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+.iniciarUser input:first-child{
+    background: white;
+    color: #B19CD9;
+}
+.iniciarUser input:first-child:hover{
+    color: white;
+    background: #B19CD9;
+    box-shadow: 2px 2px 4px #6545A1;
+}
+.iniciarUser input:first-child:active{
+    border-color: #6545A1;
+    background: #6545A1;
+    box-shadow: none;
+    color: white;
+}
+/* búton de comenzar en nav */
+nav div input:last-child{
+    background: #B19CD9;
+    color: white;
+}
+nav div input:last-child:hover{
+    box-shadow: 2px 2px 4px #6545A1;
+}
+nav div input:last-child:active{
+    box-shadow: none;
+    background: #6545A1;
+    border-color: #6545A1;
+}
+/* enlace a perfil */
+.usr-circulo{
+    scale: 0;
+    opacity: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #6545A1;
+}
 /* login */
 .box{
     position: relative;

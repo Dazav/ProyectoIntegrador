@@ -46,7 +46,7 @@
       if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
           $id_usuario = $fila['id'];
-          header("Location: index.php");
+          // header("Location: index.php");
         }
       }else{
         $mensaje = "El email o la contraseña no son correctos";
@@ -70,7 +70,7 @@
 </head>
 <body>
     <!-- barra navegación -->
-    <nav class="navBar">
+    <nav>
         <div class="usuario">
             <!-- <img src="../img/logo.png" alt="" srcset=""> -->
             <a href="index.php">Brain Hub</a>
@@ -91,6 +91,25 @@
             <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
             <input type="button" value="Comenzar" onclick="window.location.href='registrar.php'" />
         </div>
+        <?php
+        if(isset($_POST['Login'])){
+          $email = $_POST['email-login'];
+          $password = $_POST['password-login'];
+          $sql = "SELECT imagen AS img, id AS id
+          FROM usuario
+          WHERE email = '$email' AND pssword = '$password'";
+    
+          $resultado = $conexion->query($sql);
+          if ($resultado->num_rows > 0) {
+            while ($user = $resultado->fetch_assoc()) {
+              echo "<a href='perfil.php'>
+                      <img src='{$user['img']}' class='usr-circulo'>
+                    </a>";
+              echo "<input type='hidden' value='{$user['id']}' >";
+            }
+          }
+        }
+        ?>
     </nav>
     <main>
         <div class="box">
@@ -120,7 +139,7 @@
                             <input type="password" class="input-field" name="password-login" autocomplete="off" required/>
                             <label>Password</label>
                         </div>
-                        <?php echo "<p style='color:red;'>$mensaje</p><br>" ?>
+                        <?php echo "<p id='msg-error' style='color:red;'>$mensaje</p><br>" ?>
                         <input type="Submit" name="Login" value="Login" class="sign-btn"/>
 
                         <p class="text">
@@ -159,7 +178,7 @@
                         </div>
                         <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst' ></i></p>
 
-                        <?php echo "<p style='color:red;' >$mensajeRegister</p>" ?>
+                        <?php echo "<p style='color:red;'>$mensajeRegister</p>" ?>
 
                         <input type="submit" name="registro" value="Registro" class="sign-btn"/>
 
@@ -199,7 +218,7 @@
     <div class="contact-div">
         <h2>¿Tienes dudas?</h2>
         <p>Nuestro equipo de soporte está disponible 24/7</p>
-        <input type="button" value="CONTACTO" class="contact-button" onclick="window.location.href='contacto.html'" />
+        <input type="button" value="CONTACTO" class="contact-button" onclick="window.location.href='contacto.php'" />
       </div>
     <!-- footer -->
     <footer class="footer">
