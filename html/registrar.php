@@ -108,6 +108,8 @@
               echo "<input type='hidden' value='{$user['id']}' >";
             }
           }
+        }else {
+          echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
         }
         ?>
     </nav>
