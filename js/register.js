@@ -149,12 +149,25 @@ $(document).ready(function () {
   }
   });
 
-// 
+// aparece foto de perfil
   if ($("#msg-error").length>0) {
     $(".usr-circulo").animate({
       scale:1,
       opacity:1
-    });
+    },2000);
+    $(".iniciarUser").animate({
+      scale:0,
+      opacity:0
+    },2000);
+  }else{
+    $(".usr-circulo").animate({
+      scale:0,
+      opacity:0
+    },2000);
+    $(".iniciarUser").animate({
+      scale:1,
+      opacity:1
+    },2000);
   }
 });
 
