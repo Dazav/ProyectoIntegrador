@@ -77,6 +77,24 @@
             <input type="password" name="" id="">
             <input type="submit" value="Guardar">
         </form>
+        <!-- cambio de met'odo de pago -->
+        <form class="pago">
+            <i class='bx bx-x'></i>
+            <div class="card-border"></div>
+            <img src="../img/logo.png" alt="">
+            <hr>
+            <input type="text" class="tarjeta" pattern="\d{16}" maxlength="16" minlength="16" placeholder="xxxx xxxx xxxx xxxx">
+            <input type="text" class="nombre" placeholder="nombre">
+            <fieldset>
+                <input type="date" placeholder="dd/mm/yy">
+            <input type="text" placeholder="CVV" pattern="\d{3}" maxlength="3" minlength="3">
+            </fieldset>
+            <div class="btn-pago">
+                <i class='bx bx-credit-card'></i>
+                <i class='bx bxl-paypal' ></i>
+            </div>
+            <input type="submit" value="Guardar">
+        </form>
     </main>
     <!-- footer -->
     <footer>

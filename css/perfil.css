@@ -150,7 +150,7 @@ main>h1{
     display: flex;
     border-right: 10px solid #6545A1;
     box-shadow: 0 0 4px #818181;
-    position: relative;
+
 }
 .informacion>div:first-child{
     flex-grow: 3;
@@ -264,7 +264,7 @@ main>h1{
     height: 0;
     position: absolute;
     top: 100px;
-    background: #c3c3c3ad;
+    background: #d7d7d7ad;
     backdrop-filter: blur(10px);
     border-radius: 12px;
     box-shadow: 0 0 5px #626262;
@@ -273,6 +273,7 @@ main>h1{
     align-items: center;
     padding: 50px 0;
     color: #6545A1;
+    z-index: -1;
 }
 .editar>label{
     text-align: left;
@@ -286,9 +287,115 @@ main>h1{
     padding: 10px;
 }
 .editar>input[type="submit"]{
+    color: white;
+    background: #6545A1;
+    cursor: pointer;
     margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
-.bx-x{
+.editar>input[type="submit"]:hover{
+    box-shadow:1px 1px 4px #626262;
+}
+.editar>input[type="submit"]:active{
+    color: #6545A1;
+    border: 3px solid #6545A1;
+    background: #ffff;
+    box-shadow: none;
+}
+.editar>.bx-x{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+/* cambio de pago */
+.pago{
+    opacity: 0;
+    width: 600px;
+    height: 350px;
+    padding-bottom: 20px;
+    position: absolute;
+    bottom: 270px;
+    right: 0;
+    background: #9292927a;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px #363636;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: #6545A1;
+    z-index: -1;
+}
+.card-border{
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 20px;
+    background: #6545A1;
+    width: 100%;
+    height: 20%;
+}
+.pago>hr{
+    margin-bottom: 10px;
+    background: #6545A1;
+    width: 100%;
+    height: 20px;
+}
+.pago>img{
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 2px 1px #30224D);
+    border: 3px solid #6545A1;
+    border-radius: 50%;
+}
+.pago>input,.pago>fieldset>input{
+    width: 100px;
+    height: 40px;
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px 20px;
+}
+.pago>input[type="text"],.pago>fieldset>input{
+    box-shadow: inset 0 0 3px #000;
+}
+.pago>.tarjeta{
+    width: 400px;
+}
+.pago>.nombre{
+    width: 300px;
+}
+.btn-pago{
+    font-size: 30px;
+    margin-left: 30px;
+}
+.pago>input[type="submit"]{
+    margin: none;
+    color: white;
+    background: #6545A1;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+}
+.pago>input[type="submit"]:hover{
+    box-shadow:1px 1px 4px #30224D;
+}
+.pago>input[type="submit"]:active{
+    color: #6545A1;
+    background: #ffff;
+    box-shadow: none;
+}
+.pago>.bx-x{
+    color: white;
     position: absolute;
     right: 10px;
     top: 10px;
