@@ -19,7 +19,7 @@ $(document).ready(function () {
     // arriba a la p'agina de tarjetas por bóton
     $(".bx-up-arrow-circle").click(function () { 
         $("html, body").animate({
-            scrollTop: $(".desPlus").offset().top
+            scrollTop: 0
           },4000,"easeInOutExpo");
     });
 });
