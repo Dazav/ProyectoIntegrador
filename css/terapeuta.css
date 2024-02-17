@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+body,html{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+/* barra de header */
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    z-index: 100;
+    background: white;
+}
+header div.usuario{
+    display: flex;
+    align-items: center;
+}
+header div.usuario a{
+    color: #6545A1;
+}
+header div img{
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+header a{
+    color: #6545A1;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+    /*  menu de header */
+.menu{
+    display: inline-flex;
+}
+.menu button,.dropdown{
+    width: 150px;
+    height: 70px;
+    border: 0;
+    background: none;
+    margin: 0 2rem;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #6545A1;
+}
+.dropdown{
+    display: inline-grid;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+.menu>button:hover,.dropdown:hover{
+    filter: drop-shadow(1px 1px 0.5px #6545A1);
+    cursor: pointer;
+    color: #6545A1;
+    box-shadow: inset 0 -5px 0px #6545A1;
+}
+.dropdown:hover .dropdown-menu{
+    height: auto;
+    opacity: 1;
+    top:70px;
+    transition: 0.3s;
+    box-shadow: 1px 1px 2px #B19CD9,-1px 0px 2px;
+}
+.dropdown-menu{
+    position: absolute;
+    background: white;
+    top: 50px;
+    opacity: 0;
+    height: 0;
+}
+.dropdown-menu>button{
+    color: #6545A1;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.dropdown-menu>button:hover{
+    color: #6545A1;
+    border-left: 3px solid #6545A1;
+    filter: drop-shadow(1px 1px 0.5px #6545A1);
+}
+/* boton de usuarios */
+.iniciarUser input {
+    border: 2px solid #B19CD9;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+.iniciarUser input:first-child{
+    background: white;
+    color: #B19CD9;
+}
+.iniciarUser input:first-child:hover{
+    color: white;
+    background: #B19CD9;
+    box-shadow: 2px 2px 4px #6545A1;
+}
+.iniciarUser input:first-child:active{
+    border-color: #6545A1;
+    background: #6545A1;
+    box-shadow: none;
+    color: white;
+}
+/* búton de comenzar en header */
+header div input:last-child{
+    background: #B19CD9;
+    color: white;
+}
+header div input:last-child:hover{
+    box-shadow: 2px 2px 4px #6545A1;
+}
+header div input:last-child:active{
+    box-shadow: none;
+    background: #6545A1;
+    border-color: #6545A1;
+}
+/* main */
+main{
+    text-align: center;
+}
+.titulo{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.titulo>h1{
+    color: #6545A1;
+    font-size: 80px;
+    margin: 0;
+    opacity: 0;
+    letter-spacing: 5px;
+    animation: textIn 2s ease-in-out forwards;
+}
+@keyframes textIn {
+    0%{}
+    100%{
+    letter-spacing: 0;
+    opacity: 1;
+    }
+}
+.titulo>p{
+    width: 450px;
+    opacity: 1;
+    letter-spacing: 1px;
+    color: #B19CD9;
+    font-size: 20px;
+
+}
+/* Buscador */
+.califica{
+    width: 100%;
+    height: 10vh;
+    background: #6545A1;
+    color: #ffff;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bx-search{
+    position: relative;
+    left: 950px;
+    font-size: 30px;
+    color: #B19CD9;
+}
+.bx-menu{
+    cursor: pointer;
+    z-index: 100;
+}
+.selecciones{
+    display: flex;
+}
+select{
+    height: 50px;
+    /* width: 150px; */
+    margin: 0;
+    padding: 0%;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: bold;
+    border: 0;
+    margin-right: 10px;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: #ffff;
+}
+select:hover{
+    box-shadow:inset 0 -5px  #ffff;
+}
+.buscador{
+    width: 40vw;
+    height: 50px;
+    border-radius: 30px;
+    outline: none;
+    font-size: 30px;
+    color: #6545A1;
+    border: 3px solid #6545A1;;
+    padding: 0 20px;
+}
+/* contenido */
+.contenido{
+    height: 90vh;
+    background-image: url(../img/bg-terapeuta2.png);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    position: relative;
+}
+
+/* nav bar */
+aside{
+    width: 20%;
+    left: -20%;
+    top: 0;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background: #ffff;
+    position: absolute;
+    color: #6545A1;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 2px 0px 2px #868686;
+}
+aside>div{
+    display: grid;
+    width: 100%;
+}
+aside>div>label{
+    font-size: 24px;
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+aside>div>label>input{
+    cursor: pointer;
+    scale: 1.5;
+    margin: 0 10px;
+}
+aside>hr{
+    width: 80%;
+    height: 2px;
+    background: #6545A1;
+}
+aside>img{
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0px 10px 2px #B19CD9);
+}
+.bx-x{
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+/* section */
+section{
+    width: 100%;
+    height: 100%;
+    background: #ffffffa1;
+}
+.tarjeta-tera{
+    background: #D9D9D9;
+    display: inline-flex;
+    width: 800px;
+
+}
+.infor1{
+    flex-grow: 4;
+}
+.infor1 h3{margin: 0;}
+.infor1>div{display: flex;}
+.img-des{
+    text-align: start;
+}
+.img-tera,.img-tera>img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.img-tera{position: relative;}
+.img-tera>img:first-child{
+    border: 10px solid #ffff;
+}
+.img-tera>img:last-child{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    border: 5px solid #ffff;
+}
+.infor2{
+    flex-grow: 1;
+}
+/* horario disponible */
+table{
+    overflow: scroll;
+    border: 1px solid;
+}
+td{border: 1px solid;}
+/* tienes dudas */
+.contacto{
+    height: 230px;
+    background: #D9D9D9;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: bold;
+}
+.contacto h1{
+    margin: 0 0 32px 0;
+    font-size: 2rem;
+}
+.contacto p{
+    font-size: 1rem;
+    margin: 24px 0;
+}
+.contacto input{
+    background: #000;
+    border-radius: 35px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+    cursor: pointer;
+}
+/* footer */
+footer{
+    background: #000;
+    color: white;
+}
+footer .elementos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.elementos div:first-child img{
+    width: 95px;
+    height: 95px;
+}
+.elementos div:first-child{
+    display: flex;
+    align-items: center;
+}
+.elementos div:nth-child(n+2) h2 {
+    margin: 100px 0 32px 0;
+}
+.elementos div:nth-child(n+2) ul{
+    list-style-type: none;
+    margin: 0 0 120px 0;
+    padding-inline-start: 0;
+}
+/* Sociales */
+.social a i {
+    margin: 0.5rem;
+    padding: 0;
+}
+/* linea horzontal */
+footer>hr{
+    margin: 0.5rem;
+}
+/* avisos legales */
+.avisos{
+    display: flex;
+    justify-content: space-between;
+}
+.avisos pre{
+    margin: 0 0.5rem;
+    font-family: "Montserrat";
+}
