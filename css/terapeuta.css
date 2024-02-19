@@ -286,7 +286,7 @@ section{
 .scrollbar{
     width: 1200px;
     overflow-y: scroll;
-    height: 450px;
+    height: 800px;
     /* scroll suave*/
     scroll-snap-type: y mandatory;
 }
