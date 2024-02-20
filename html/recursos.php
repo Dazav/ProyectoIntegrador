@@ -89,6 +89,51 @@
           </div>
         </section>
     </main>
+    <!--  -->
+    <main class="segundo-parte">
+      <h2>TÉCNICAS DE RELAJACIÓN</h2>
+      <hr>
+      <section>
+        <div class="tema-ansiedad">
+          <div class="tema1">
+            <div>
+              <h3>Ejercicios de exposición gradual</h3>
+              <a href="">
+                ver detalle<i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+            <img src="../img/tema-an1.png" alt="">
+          </div>
+          <div class="tema2">
+            <img src="../img/tema-an2.png" alt="">
+            <div>
+              <h3>Técnicas de relajación</h3>
+              <a href="">
+                ver detalle<i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </div>
+          <div class="tema3">
+            <img src="../img/tema-an3.png" alt="" srcset="">
+            <div>
+              <h3>Ejercicio de atención plena </h3>
+              <a href="">
+                ver detalle<i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </div>
+          <div class="tema4">
+            <img src="../img/tema-an4.png" alt="" srcset="">
+            <div>
+              <h3>Ejercicios de apoyo</h3>
+              <a href="">
+                ver detalle<i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
    <!-- contacto -->
    <div class="contact-div">
     <h2>¿Tienes dudas?</h2>

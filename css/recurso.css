@@ -175,6 +175,9 @@ nav div input:last-child:active{
 main{
     padding: 60px 80px;
     height: 150vh;
+    background-image: linear-gradient(to bottom,#fff,#ffffff68),url("../img/bg-recurso2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 /* titulo de temas */
 main>h2{
@@ -205,6 +208,8 @@ main>hr{
     height: 5px;
     background-color: #6545A1;
     animation: hrIn 3s ease-in-out forwards;
+    outline: none;
+    border: none;
 }
 @keyframes hrIn {
     0%{}
@@ -218,9 +223,6 @@ section{
     justify-content: center;
     align-items: center;
     height: 80%;
-    /* background-image: url("../img/bg-recurso.png"); */
-    background-size: cover;
-    background-attachment: fixed;
 }
 .tema-ansiedad{
     display: grid;
@@ -230,16 +232,19 @@ section{
 }
 .tema-ansiedad>div{
     border-radius: 10px;
-    box-shadow: 0 0 4px #00000025;
+    box-shadow: 0 0 5px #000000ac;
     color: #6545A1;
     opacity: 0;
     cursor: pointer;
+    backdrop-filter: blur(5px);
+    background: #ffffffb9;
+    scale: 1;
 }
-.tema-ansiedad>div:hover{
+/* .tema-ansiedad>div:hover{
     transition: 0.5s;
     scale: 0.95;  
     box-shadow: 0 0 10px #6545A1;
-}
+} */
 .tema-ansiedad>div div{
     padding: 0 10px;
 }
@@ -296,6 +301,11 @@ section{
     object-fit: cover;
     height: 200px;
     border-top-left-radius: 10px;
+}
+/* main segundo */
+.segundo-parte{
+    background-attachment: fixed;
+    box-shadow: 0 3px 5px #555 inset;
 }
 /* tienes dudas */
 .contacto{

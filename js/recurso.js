@@ -16,18 +16,7 @@ $(document).ready(function () {
     $(".tema-ansiedad>div").each(function (index, tema) {
         // element == this
         tiempo+=500;
-        $(tema).hover(function () {
-                // over
-                $(this).animate({ 
-                    scale: 0.95, 
-                    boxShadow: "0 0 10px #6545A1"},200);
-            }, function () {
-                // out
-                $(this).animate({ 
-                    scale: 1, 
-                    boxShadow: "0 0 10px #00000025"},200);
-            }
-        );
+        //animación de aparecer division 
         switch (index) {
             case 0:
             $(tema).css({
@@ -38,6 +27,32 @@ $(document).ready(function () {
                 opacity:1,
                 right:"0px"
             },1000);
+            //hover
+            $(tema).hover(function () {
+                // over
+                $(this).animate({ scale: 0.95},200,function () {
+                        $(this).css({
+                            boxShadow: "0 0 10px #6545A1",
+                        });
+                        $(".tema4,.tema2,.tema3").css({
+                            transition: "0.5s",
+                            filter: "grayscale(100%)",
+                        });
+                      });
+                
+            }, function () {
+                // out
+                $(this).animate({scale: 1},200,function () {
+                        $(this).css({
+                            boxShadow: "0 0 10px #00000025",
+                        });
+                        $(".tema4,.tema2,.tema3").css({
+                            transition: "0.5s",
+                            filter: "grayscale(0)"
+                        });
+                      });
+            }
+        );
             break;
             case 1:
                 $(tema).css({
@@ -48,6 +63,32 @@ $(document).ready(function () {
                     opacity:1,
                     left:"0px"
                 },1000);
+                // animación de hover
+                $(tema).hover(function () {
+                    // over
+                    $(this).animate({scale: 0.95},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #6545A1",
+                            });
+                            $(".tema1,.tema3,.tema4").css({
+                                transition: "0.5s",
+                                filter: "grayscale(100%)",
+                            });
+                          });
+                    
+                }, function () {
+                    // out
+                    $(this).animate({scale: 1},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #00000025",
+                            });
+                            $(".tema1,.tema3,.tema4").css({
+                                transition: "0.5s",
+                                filter: "none"
+                            });
+                          });
+                }
+            );
             break;
             case 2:
                 $(tema).css({
@@ -58,6 +99,34 @@ $(document).ready(function () {
                     opacity:1,
                     right:"0px"
                 },1000);
+                // hover
+                $(tema).hover(function () {
+                    // over
+                    $(this).animate({ 
+                        scale: 0.95, 
+                        },200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #6545A1",
+                            });
+                            $(".tema1,.tema2,.tema4").css({
+                                transition: "0.5s",
+                                filter: "grayscale(100%)",
+                            });
+                          });
+                    
+                }, function () {
+                    // out
+                    $(this).animate({scale: 1},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #00000025",
+                            });
+                            $(".tema1,.tema2,.tema4").css({
+                                transition: "0.5s",
+                                filter: "none"
+                            });
+                          });
+                }
+            );
             break;
             case 3:
                 $(tema).css({
@@ -68,6 +137,32 @@ $(document).ready(function () {
                     opacity:1,
                     left:"0px"
                 },1000);
+                // hover
+                $(tema).hover(function () {
+                    // over
+                    $(this).animate({scale: 0.95},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #6545A1",
+                            });
+                            $(".tema1,.tema2,.tema3").css({
+                                transition: "0.5s",
+                                filter: "grayscale(100%)",
+                            });
+                          });
+                    
+                }, function () {
+                    // out
+                    $(this).animate({scale: 1},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #00000025",
+                            });
+                            $(".tema1,.tema2,.tema3").css({
+                                transition: "0.5s",
+                                filter: "none"
+                            });
+                          });
+                }
+            );
             break;
         }
 
