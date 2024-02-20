@@ -1,7 +1,7 @@
 <?php
 include "../db/conecta.php";
 
-header('Content-Type: application/json'); // Solo si vas a devolver JSON
+header('Content-Type: application/json');
 
 // Asegúrate de sanitizar y validar los datos de entrada
 $nombre = $_POST['nombre'];
