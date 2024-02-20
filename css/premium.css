@@ -143,6 +143,104 @@ nav div input:last-child:active{
     border-color: #5CB85C;
     color: #5CB85C;
 }
+/* ejercicios de apoyo */
+.desPlus{
+    background: #30224D;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.desPlus>img{
+    position: absolute;
+    right: 0;
+    height: 70vh;
+    width: 70vw;
+}
+.des{
+    position: absolute;
+    color: #DDCBFF;
+    width: 30vw;
+    height: 60vh;
+    background: linear-gradient(to right, #30224D,#44306de4);
+    border-radius: 30px;
+    left: 10vw;
+    padding: 0 40px;
+}
+.des>h1{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bolder;
+}
+.des>li{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.btnDes{
+    height: 80px;
+    width: 350px;
+    border-radius: 12px;
+    border: 0px;
+    background: #6545A1;
+    margin-top: 70px;
+    cursor: pointer;
+}
+.btnDes>p{
+    color: white;
+    font-size: 30px;
+    margin: 20px 0;
+}
+/* titulo */
+.titulo{
+    height: 220vh;
+    background-image: url("../img/bg-ejercicio.png");
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.texto{
+    position: sticky;
+    top: 0;
+    font-size: 56px;
+    height: 40vh;
+}
+.texto>h1{
+    color: #6545A1;
+    margin-top: 20vh;
+    margin-bottom: 0;
+}
+.intro{
+    opacity: 0;
+    color: rgba(157, 145, 182);
+    height: 60vh;
+    font-size: 32px;
+    font-weight: bold;
+    width: 1000px;
+}
+.intro:nth-child(2){
+    opacity: 1;
+}
+.intro>p{
+    margin-top: 70px;
+}
+.last-intro{
+    background-image: url("../img/bg-ejercicio.png");
+    background-attachment: fixed;
+    background-size: cover;
+    color: rgba(157, 145, 182);
+    height: 60vh;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    text-wrap: balance;
+}
+.last-intro>p{
+    opacity: 0;
+    margin: 0;
+}
 /* main */
 main{
     display: flex;
