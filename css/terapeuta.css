@@ -179,12 +179,6 @@ main{
     justify-content: space-between;
     align-items: center;
 }
-.bx-search{
-    position: relative;
-    left: 950px;
-    font-size: 30px;
-    color: #B19CD9;
-}
 .bx-menu{
     cursor: pointer;
     z-index: 100;
@@ -210,6 +204,13 @@ select{
 select:hover{
     box-shadow:inset 0 -5px  #ffff;
 }
+/* buscador */
+.buscar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 .buscador{
     width: 40vw;
     height: 50px;
@@ -219,6 +220,12 @@ select:hover{
     color: #6545A1;
     border: 3px solid #6545A1;;
     padding: 0 20px;
+}
+.bx-search{
+    position: absolute;
+    font-size: 30px;
+    color: #B19CD9;
+    right: 20px;
 }
 /* contenido */
 .contenido{

@@ -46,8 +46,10 @@
         </div>
         <div class="califica">
             <i class='bx bx-menu'></i>
-            <i class='bx bx-search'></i>
-            <input class="buscador" type="text">
+            <div class="buscar">
+                <input class="buscador" type="text">
+                <i class='bx bx-search'></i>
+            </div>
             <div class="selecciones">
                 <select name="" id="">
                     <option value="defecto">Duración</option>
