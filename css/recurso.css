@@ -27,6 +27,8 @@ nav{
 
     height: 70px;
     background: white;
+    position: fixed;
+    z-index: 1000;
 }
 nav div.usuario{
     display: flex;
@@ -176,10 +178,11 @@ nav div input:last-child:active{
 /* main */
 main{
     padding: 60px 80px;
-    height: 150vh;
+    height: 100vh;
     background-image: linear-gradient(to bottom,#fff,#ffffff68),url("../img/bg-recurso2.png");
     background-size: cover;
     background-repeat: no-repeat;
+
 }
 /* titulo de temas */
 main>h2{
@@ -224,12 +227,13 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 90%;
+    scroll-snap-align: center; 
 }
 .tema-ansiedad{
     display: grid;
     grid-template-columns: repeat(5,200px) ;
-    grid-template-rows: 430px 400px;
+    grid-template-rows: 300px 350px;
     gap: 20px;
 }
 .tema-ansiedad>div{
@@ -242,11 +246,6 @@ section{
     background: #ffffffb9;
     scale: 1;
 }
-/* .tema-ansiedad>div:hover{
-    transition: 0.5s;
-    scale: 0.95;  
-    box-shadow: 0 0 10px #6545A1;
-} */
 .tema-ansiedad>div div{
     padding: 0 10px;
 }
@@ -289,7 +288,7 @@ section{
 .tema3>img{
     border-top-right-radius: 10px;
     object-fit: cover;
-    height: 200px;
+    height: 150px;
 }
 /* tema4 */
 .tema4{
@@ -301,7 +300,7 @@ section{
 }
 .tema4>img{
     object-fit: cover;
-    height: 200px;
+    height: 150px;
     border-top-left-radius: 10px;
 }
 /* main segundo */
