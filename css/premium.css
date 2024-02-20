@@ -28,6 +28,8 @@ nav{
 
     height: 70px;
     background: white;
+    position: relative;
+    z-index: 1000;
 }
 nav div.usuario{
     display: flex;
