@@ -1,30 +1,4 @@
 
-<?php
-include "../db/conecta.php";
-$mensaje = '';
-if(isset($_POST['enviar'])){
-    $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
-    $asunto = $_POST['asunto'];
-    $mensaje = $_POST['mensaje'];
-
-
-    $conexion = getConexion();
-
-    $sql = "INSERT INTO contacto (nombre, email, asunto, descripcion) VALUES ('$nombre', '$email', '$asunto', '$mensaje')";
-
-    if (mysqli_query($conexion, $sql)) {
-        $mensaje = "Hemos recibido tu respuesta, contactaremos lo antes posible.";
-    } else {
-        $mensaje = "Ha habido un problema al enviar tu respuesta. Intétalo más tarde.";
-    }
-
-}
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +53,7 @@ if(isset($_POST['enviar'])){
     <div class="containerContacto">
         <h2>Hola ¿cómo podemos ayudarte?</h2>
         <div class="form">
-            <form action="contacto.php" method="post">
+            <form id="formularioContacto" method="post">
                 <h3>¿Tienes alguna pregunta o necesitas informar de un problema con un servicio?</h3>
                 <input type="text" class="nombre" name="nombre" placeholder="Nombre" required>
                 <p class="error-nombre">Introduce un nombre correcto</p>
@@ -89,11 +63,7 @@ if(isset($_POST['enviar'])){
                 <p class="error-asunto">El asunto tiene que ser más corto</p>
                 <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Descrpción"></textarea>
                 <p class="error-msg">CONTENIDO INTRODUCIDO CONTIENE PALABRA RACISTA,PEACE AND LOVE,PORFAVOR</p>
-                <?php
-                    if(!empty($mensaje)){
-                        echo "<p class='mensaje-exito'>$mensaje</p>";
-                    }
-                ?>
+                <div id="mensajeRespuesta"></div>
                 <input type="submit" class="btn" name="enviar" value="Enviar">
             </form>
         </div>
@@ -146,4 +116,36 @@ if(isset($_POST['enviar'])){
         </div>
     </footer>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('formularioContacto');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Previene la recarga de la página por el envío del formulario
+    console.log("Se presionó el form");
+    // Crea un objeto FormData con los datos del formulario
+    var formData = new FormData(form);
+
+    // Usa fetch para enviar los datos al servidor
+    fetch('procesarContacto.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Manejo de la respuesta del servidor
+        var mensajeRespuesta = document.getElementById('mensajeRespuesta');
+        mensajeRespuesta.innerText = data.mensaje;
+        mensajeRespuesta.className = 'mensaje-exito';
+    })
+    .catch(error => {
+      // Manejo de errores de la petición
+        var mensajeRespuesta = document.getElementById('mensajeRespuesta');
+        mensajeRespuesta.innerText = 'Error al enviar el formulario: ' + error;
+        mensajeRespuesta.className = 'mensaje-error';
+    });
+    console.log("Se completó el fetch");
+  });
+});
+</script>
 </html>

@@ -70,3 +70,6 @@ $(document).ready(function () {
     comprobar(msg,errormsg,/(\b[nN][iI][gG]{1,}[abc]{1,}\b|\bchin[kK]{1,}\b|\b[kK]{3}\b)/,true);
   });
 });
+
+
+
