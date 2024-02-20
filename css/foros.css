@@ -28,7 +28,7 @@ nav{
     height: 70px;
     position: fixed;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.8);
+    background: white;
 }
 nav div.usuario{
     display: flex;
@@ -70,42 +70,44 @@ nav a{
     text-align: center;
     align-items: center;
     position: relative;
+    z-index: 1000;
 }
 .menu>button:hover,.dropdown:hover{
-    background: rgb(226, 225, 225);
+    filter: drop-shadow(1px 1px 0.5px #6545A1);
     cursor: pointer;
     color: #6545A1;
     box-shadow: inset 0 -5px 0px #6545A1;
-}
-.dropdown-menu{
-    position: absolute;
-    background: rgba(226, 225, 225, 0.7);
-    top: 50px;
-    opacity: 0;
-    height: 0;
-    box-shadow: inset 0 1px 0px 0px #6545A1;
-    box-shadow: 1px 1px 4px #B19CD9;
-}
-.dropdown-menu>button{
-    color: #6545A1;
-    margin: 0;
-    background: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-.dropdown-menu>button:hover{
-    color: white;
-    background: #6545A1;
 }
 .dropdown:hover .dropdown-menu{
     height: auto;
     opacity: 1;
     top:70px;
-    transition: 0.5s;
+    transition: 0.3s;
+    box-shadow: 1px 1px 2px #B19CD9,-1px 0px 2px;
+    visibility: visible;
+}
+.dropdown-menu{
+    position: absolute;
+    background: white;
+    top: 50px;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+}
+.dropdown-menu>button{
+    color: #6545A1;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.dropdown-menu>button:hover{
+    color: #6545A1;
+    border-left: 3px solid #6545A1;
+    filter: drop-shadow(1px 1px 0.5px #6545A1);
 }
 /* boton de usuarios */
 .iniciarUser input {
-    border: 2px solid #B19CD9;
+    border-radius: 12px;
     padding: 5px 10px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -113,13 +115,14 @@ nav a{
     margin-left: 1rem;
 }
 .iniciarUser input:first-child{
+    border: 3px solid #6545A1;
     background: white;
-    color: #B19CD9;
+    color: #6545A1;
 }
 .iniciarUser input:first-child:hover{
     color: white;
-    background: #B19CD9;
-    box-shadow: 2px 2px 4px #6545A1;
+    background: #6545A1;
+    box-shadow: 2px 2px 4px #B19CD9;
 }
 .iniciarUser input:first-child:active{
     border-color: #6545A1;
@@ -127,18 +130,20 @@ nav a{
     box-shadow: none;
     color: white;
 }
-/* búton de comenzar en navegación */
+/* búton de comenzar en nav */
 nav div input:last-child{
-    background: #B19CD9;
+    background: #5CB85C;
     color: white;
+    border: 3px solid #5CB85C;
 }
 nav div input:last-child:hover{
-    box-shadow: 2px 2px 4px #6545A1;
+    box-shadow: 2px 2px 4px #1e3b1e;
 }
 nav div input:last-child:active{
     box-shadow: none;
-    background: #6545A1;
-    border-color: #6545A1;
+    background: #ffff;
+    border-color: #5CB85C;
+    color: #5CB85C;
 }
 /* titulo */
 .forosTitulo{

@@ -88,6 +88,7 @@ nav a{
     top:70px;
     transition: 0.3s;
     box-shadow: 1px 1px 2px #B19CD9,-1px 0px 2px;
+    visibility: visible;
 }
 .dropdown-menu{
     position: absolute;
@@ -95,6 +96,7 @@ nav a{
     top: 50px;
     opacity: 0;
     height: 0;
+    visibility: hidden;
 }
 .dropdown-menu>button{
     color: #6545A1;
@@ -109,7 +111,7 @@ nav a{
 }
 /* boton de usuarios */
 .iniciarUser input {
-    border: 2px solid #B19CD9;
+    border-radius: 12px;
     padding: 5px 10px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -117,13 +119,14 @@ nav a{
     margin-left: 1rem;
 }
 .iniciarUser input:first-child{
+    border: 3px solid #6545A1;
     background: white;
-    color: #B19CD9;
+    color: #6545A1;
 }
 .iniciarUser input:first-child:hover{
     color: white;
-    background: #B19CD9;
-    box-shadow: 2px 2px 4px #6545A1;
+    background: #6545A1;
+    box-shadow: 2px 2px 4px #B19CD9;
 }
 .iniciarUser input:first-child:active{
     border-color: #6545A1;
@@ -133,16 +136,18 @@ nav a{
 }
 /* búton de comenzar en nav */
 nav div input:last-child{
-    background: #B19CD9;
+    background: #5CB85C;
     color: white;
+    border: 3px solid #5CB85C;
 }
 nav div input:last-child:hover{
-    box-shadow: 2px 2px 4px #6545A1;
+    box-shadow: 2px 2px 4px #1e3b1e;
 }
 nav div input:last-child:active{
     box-shadow: none;
-    background: #6545A1;
-    border-color: #6545A1;
+    background: #ffff;
+    border-color: #5CB85C;
+    color: #5CB85C;
 }
 /* enlace a perfil */
 .usr-circulo{

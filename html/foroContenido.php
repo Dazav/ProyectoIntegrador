@@ -18,7 +18,7 @@
 </head>
 <body>
     <!-- barra navegación -->
-    <header>
+    <nav>
         <div class="usuario">
             <img src="../img/logo.png" alt="" srcset="">
             <a href="index.php">Brain Hub</a>
@@ -39,7 +39,7 @@
             <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
             <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
         </div>
-    </header>
+    </nav>
     <!-- contenido y artículo -->
     <!--  -->
     <div class="descripcionClic">

@@ -6,8 +6,8 @@
     box-sizing: border-box;
     font-family: 'Montserrat';
 }
-/* barra de header */
-header{
+/* barra de nav */
+nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -16,27 +16,27 @@ header{
     height: 70px;
     background: white;
 }
-header div.usuario{
+nav div.usuario{
     display: flex;
     align-items: center;
 }
-header div.usuario a{
+nav div.usuario a{
     color: #6545A1;
 }
-header div img{
+nav div img{
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 1rem;
 }
-header a{
+nav a{
     color: #6545A1;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bolder;
     cursor: pointer;
 }
-    /*  menu de header */
+    /*  menu de nav */
 .menu{
     display: inline-flex;
 }
@@ -69,6 +69,7 @@ header a{
     top:70px;
     transition: 0.3s;
     box-shadow: 1px 1px 2px #B19CD9,-1px 0px 2px;
+    visibility: visible;
 }
 .dropdown-menu{
     position: absolute;
@@ -76,6 +77,7 @@ header a{
     top: 50px;
     opacity: 0;
     height: 0;
+    visibility: hidden;
 }
 .dropdown-menu>button{
     color: #6545A1;
@@ -113,16 +115,16 @@ header a{
     box-shadow: none;
     color: white;
 }
-/* búton de comenzar en header */
-header div input:last-child{
+/* búton de comenzar en nav */
+nav div input:last-child{
     background: #5CB85C;
     color: white;
     border: 3px solid #5CB85C;
 }
-header div input:last-child:hover{
+nav div input:last-child:hover{
     box-shadow: 2px 2px 4px #1e3b1e;
 }
-header div input:last-child:active{
+nav div input:last-child:active{
     box-shadow: none;
     background: #ffff;
     border-color: #5CB85C;

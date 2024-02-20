@@ -88,7 +88,7 @@ include "../db/crear_tablas.php";
     </div>
     <div class="iniciarUser">
       <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
-      <input type="button" value="Comenzar" onclick="window.location.href='registrar.php'" />
+      <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
     </div>
     <?php
     if (isset($_POST['Login'])) {
