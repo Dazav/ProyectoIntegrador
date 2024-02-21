@@ -309,6 +309,7 @@ section{
 /* margin de conjunto de carta 2 y carta3 */
 /* carta 2 */
 .carta2{
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -339,6 +340,7 @@ section{
 }
 /* carta3 */
 .carta3{
+    position: relative;
     bottom: -50px;
     opacity: 0;
     grid-column: 3/5;
