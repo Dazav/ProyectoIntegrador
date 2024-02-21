@@ -216,48 +216,58 @@ include "../db/crear_tablas.php";
         </div>
   </main>
   <!-- contacto -->
-  <div class="contact-div">
-    <h2>¿Tienes dudas?</h2>
-    <p>Nuestro equipo de soporte está disponible 24/7</p>
-    <input type="button" value="CONTACTO" class="contact-button" onclick="window.location.href='contacto.php'" />
-  </div>
+  <div class="contacto">
+        <h1>¿TIENES DUDAS?</h1>
+        <p>Nuestro equipo de soporte está disponible 24/7</p>
+        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.php'" />
+    </div>
   <!-- footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3>Recursos</h3>
-        <ul>
-          <li>Recursos de Ansiedad</li>
-          <li>Técnicas Relajación</li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Apoyo</h3>
-        <ul>
-          <li>Herramientas</li>
-          <li>Seguimiento y Progreso</li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Social</h3>
-        <ul>
-          <li>Grupos de Apoyo</li>
-          <li>Foros de Comunidad</li>
-        </ul>
-        <div class="footer-social-media">
-          <!-- Asumiendo que tienes imágenes de iconos sociales en tu servidor -->
-          <a href="https://www.facebook.com"><img src="../img/facebook.png" alt="Facebook"></a>
-          <a href="https://www.twitter.com"><img src="../img/twitter.png" alt="Twitter"></a>
-          <a href="https://www.instagram.com"><img src="../img/instagram.png" alt="Instagram"></a>
+  <footer>
+    <div class="elementos">
+        <div>
+            <img src="../img/logo.png" alt="">
+            <h2>Brain Hub</h2>
         </div>
-      </div>
+        <div>
+            <h2>Recursos</h2>
+            <ul>
+                <li>Recursos de Ansiedad</li>
+                <li>Técnicas Relajación</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Apoyo</h2>
+            <ul>
+                <li>Herramientas</li>
+                <li>Seguimiento y Progreso</li>
+            </ul>
+        </div>
+        <div class="social">
+            <h2>Social</h2>
+            <ul>
+                <li>Grupos de Apoyo</li>
+                <li>Foros de Comunidad</li>
+                <li>
+                    <a href="">
+                        <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                    </a>
+                    <a href="">
+                        <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                    </a>
+                    <a href="">
+                        <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="enlaces-adicionales">
-      <a href="#politicaprivacidad">Política de Privacidad</a>
-      <a href="#terminosuso">Términos de Uso</a>
-      <a href="#configuracioncookies">Configuración de Cookies</a>
+    <hr>
+    <div class="avisos">
+        <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
+        <pre>Contacto   Centro de Ayuda   Preferencias</pre>
     </div>
-  </footer>
+</footer>
+  <!-- fetch -->
   <script src="../js/register.js"></script>
 </body>
 <script>

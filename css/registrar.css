@@ -446,85 +446,76 @@ main.sign-up-mode .carousel {
 }
 
 
-/* contacto */
-.contact-div {
-    background-color: #858484;
-    color: white;
+/* tienes dudas */
+.contacto{
+    height: 230px;
+    background: #D9D9D9;
     text-align: center;
-    padding: 50px 20px;
-  }
-  .contact-div h2 {
-    font-size: 2em; 
-    margin-bottom: 10px;
-  }
-  .contact-div p {
-    font-size: 1em; 
-    margin-bottom: 20px;
-  }
-  .contact-button {
-    background-color: #333;
+    padding-top: 70px;
+    font-weight: bold;
+}
+.contacto h1{
+    margin: 0 0 32px 0;
+    font-size: 2rem;
+}
+.contacto p{
+    font-size: 1rem;
+    margin: 24px 0;
+}
+.contacto input{
+    background: #000;
+    border-radius: 35px;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .contact-button:hover {
-    background-color: #555; /
-  }
+}
 /* footer */
-.footer {
-    background-color: #000;
+footer{
+    background: #000;
     color: white;
-    text-align: center;
-    padding: 20px 0;
-  }
-  .footer-container {
+}
+footer .elementos{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
-  }
-  .footer-column {
-    margin: 10px;
-    flex: 1;
-    min-width: 150px;
-  }
-  .footer-column h3 {
-    margin-bottom: 10px;
-  }
-  .footer-column ul {
-    list-style: none;
+    align-items: center;
+}
+.elementos div:first-child img{
+    width: 95px;
+    height: 95px;
+}
+.elementos div:first-child{
+    display: flex;
+    align-items: center;
+}
+.elementos div:nth-child(n+2) h2 {
+    margin: 100px 0 32px 0;
+}
+.elementos div:nth-child(n+2) ul{
+    list-style-type: none;
+    margin: 0 0 120px 0;
+    padding-inline-start: 0;
+}
+/* Sociales */
+.social a i {
+    margin: 0.5rem;
     padding: 0;
-  }
-  .footer-column ul li {
-    margin-bottom: 5px;
-  }
-  .footer-social-media {
-    margin-top: 10px;
-  }
-  .footer-social-media img {
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-  }
+}
 /* linea horzontal */
-footer hr{
+footer>hr{
     margin: 0.5rem;
 }
 /* avisos legales */
-.enlaces-adicionales {
-    background-color: #000000;
-    padding: 10px;
-    text-align: center;
+.avisos{
+    display: flex;
+    justify-content: space-between;
 }
-
-.enlaces-adicionales a {
-    margin: 0 10px;
-    color: #8d8989;
-    text-decoration: none;
+.avisos pre{
+    margin: 0 0.5rem;
+    font-family: "Montserrat";
 }
-
 /* responsiveness*/
 @media (max-width: 850px) {
     .box {
