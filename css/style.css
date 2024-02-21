@@ -177,10 +177,6 @@ nav div input:last-child:active{
 .introduccion1 div:first-child ul li{
     padding-bottom: 1.5rem;
 }
-.introduccion1 div:first-child ul li span{
-    color: #48A45A;
-    font-weight: bold;
-}
 /* 1º imagen */
 .introduccion1>div:last-child{
     position: relative;
@@ -199,7 +195,7 @@ nav div input:last-child:active{
     position: absolute;
     width: 700px;
     height: 400px;
-    background: #48A45A;
+    background: #B19CD9;
     top: 15%;
     left: 1%;
     z-index: -1;
