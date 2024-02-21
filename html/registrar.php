@@ -246,9 +246,9 @@ include "../db/crear_tablas.php";
         </ul>
         <div class="footer-social-media">
           <!-- Asumiendo que tienes imágenes de iconos sociales en tu servidor -->
-          <a href="https://www.facebook.com"><img src="facebook-icon.png" alt="Facebook"></a>
-          <a href="https://www.twitter.com"><img src="twitter-icon.png" alt="Twitter"></a>
-          <a href="https://www.instagram.com"><img src="instagram-icon.png" alt="Instagram"></a>
+          <a href="https://www.facebook.com"><img src="../img/facebook.png" alt="Facebook"></a>
+          <a href="https://www.twitter.com"><img src="../img/twitter.png" alt="Twitter"></a>
+          <a href="https://www.instagram.com"><img src="../img/instagram.png" alt="Instagram"></a>
         </div>
       </div>
     </div>
