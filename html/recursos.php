@@ -46,7 +46,7 @@
     </div>
     
     <!-- need add php -->
-    <main>
+    <main class="primera-parte">
         <h2>RECURSOS DE ANSIEDAD</h2>
         <hr>
         <section>
@@ -63,7 +63,7 @@
             <div class="tema2">
               <img src="../img/tema-an2.png" alt="">
               <div>
-                <h3>Técnicas de relajación</h3>
+                <h3>Tabla de síntomas</h3>
                 <a href="">
                   ver detalle<i class='bx bx-right-arrow-alt'></i>
                 </a>
@@ -95,41 +95,26 @@
       <h2>TÉCNICAS DE RELAJACIÓN</h2>
       <hr>
       <section>
-        <div class="tema-ansiedad">
-          <div class="tema1">
+        <div class="tema-relajacion">
+          <div class="tema">
+            <img src="../img/inspirar.png" alt="">
             <div>
-              <h3>Ejercicios de exposición gradual</h3>
-              <a href="">
-                ver detalle<i class='bx bx-right-arrow-alt'></i>
-              </a>
-            </div>
-            <img src="../img/tema-an1.png" alt="">
-          </div>
-          <div class="tema2">
-            <img src="../img/tema-an2.png" alt="">
-            <div>
-              <h3>Técnicas de relajación</h3>
-              <a href="">
-                ver detalle<i class='bx bx-right-arrow-alt'></i>
-              </a>
+              <h3>Inspirar</h3>
+              <i class='bx bx-right-arrow-circle'></i>
             </div>
           </div>
-          <div class="tema3">
-            <img src="../img/tema-an3.png" alt="" srcset="">
+          <div class="tema">
+            <img src="../img/expirar.png" alt="">
             <div>
-              <h3>Ejercicio de atención plena </h3>
-              <a href="">
-                ver detalle<i class='bx bx-right-arrow-alt'></i>
-              </a>
+              <h3>Expirar</h3>
+              <i class='bx bx-right-arrow-circle'></i>
             </div>
           </div>
-          <div class="tema4">
-            <img src="../img/tema-an4.png" alt="" srcset="">
+          <div class="tema">
+            <img src="../img/silencio.png" alt="">
             <div>
-              <h3>Ejercicios de apoyo</h3>
-              <a href="">
-                ver detalle<i class='bx bx-right-arrow-alt'></i>
-              </a>
+              <h3>Meditamos en silencio</h3>
+              <i class='bx bx-right-arrow-circle'></i>
             </div>
           </div>
         </div>
