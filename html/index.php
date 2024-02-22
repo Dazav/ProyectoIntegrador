@@ -19,6 +19,7 @@
 <body>
     <!-- barra navegación -->
     <nav>
+        <i class='bx bx-menu'></i>
         <div class="usuario">
             <img src="../img/logo.png" alt="" srcset="">
             <a href="index.php">Brain Hub</a>
