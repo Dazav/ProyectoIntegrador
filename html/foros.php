@@ -2,30 +2,32 @@
     include("../db/crear_tablas.php");
     session_start();
     //obtener el id de usuario de login
-    // $idUsuario=$_SESSION['id_usuario'];
+    $id=$_SESSION["id"];
+
     // añadir los datos de tema nueva a bd
     if ($_SERVER['REQUEST_METHOD']=='POST') {
-      //asignamos a la variable "$titulo" el llave "addTitulo" obtiene del array 
-      $titulo=$_POST["addTitulo"];
-      //tomar la cadena "$titulo"
-      $titulo=mysqli_escape_string($conexion,$titulo);
-      $contenido=$_POST['addContenido'];
-      $contenido=mysqli_escape_string($conexion,$contenido);
-      //asignar directorio "../img/" a la variable
-      $directorio_subido="../img/";
-      // obtener nombre de imagen
-      $img=$_FILES["addImg"]['name'];
-      // propociona un ubicacion temporal que se almancener imagen subido
-      $imgTmp=$_FILES["addImg"]['tmp_name'];
-      //obtener directorio completo
-      $ruta_completa=$directorio_subido . $img;
-      // mover la imagen desde la ubicación temporal a la carpeta indicada
-      move_uploaded_file($imgTmp,$ruta_completa);
-      //tomar la cadena "$titulo" y la limpiar para que sea segura de usuario
-      $img=mysqli_escape_string($conexion,$img);
-      // insertar los datos a base de datos
-      $insert="INSERT INTO foro(titular,descripcion,img)VALUES ('$titulo','$contenido','$img')";
-      mysqli_query($conexion,$insert);
+        // id usuario
+        $idUser=$id;
+        //asignamos a la variable "$titulo" el llave "addTitulo" obtiene del array 
+        $titulo=$_POST["addTitulo"];
+        $titulo=mysqli_escape_string($conexion,$titulo);
+        $contenido=$_POST['addContenido'];
+        $contenido=mysqli_escape_string($conexion,$contenido);
+        //asignar directorio "../img/" a la variable
+        $directorio_subido="../img/";
+        // obtener nombre de imagen
+        $img=$_FILES["addImg"]['name'];
+        // propociona un ubicacion temporal que se almancener imagen subido
+        $imgTmp=$_FILES["addImg"]['tmp_name'];
+        //obtener directorio completo
+        $ruta_completa=$directorio_subido . $img;
+        // mover la imagen desde la ubicación temporal a la carpeta indicada
+        move_uploaded_file($imgTmp,$ruta_completa);
+        //tomar la cadena "$titulo" y la limpiar para que sea segura de usuario
+        $img=mysqli_escape_string($conexion,$ruta_completa);
+        // insertar los datos a base de datos
+        $insert="INSERT INTO foro(id_usuario,titular,descripcion,img)VALUES ($idUser,'$titulo','$contenido','$img')";
+        mysqli_query($conexion,$insert);
     };
 ?>
 <!DOCTYPE html>
@@ -95,7 +97,7 @@
                   while ($tema=$resulta->fetch_assoc()) {
                       # code...
                       echo "
-                      <a class='tema' href='foroContenido.php?{$tema['idForo']}' >
+                      <a class='tema' href='foroContenido.php?idForo={$tema['idForo']}' >
                           <div class='descripcion'>
                               <h2 class='temaTitulo'>{$tema['titulo']}</h2>
                               <p>{$tema['fecha']}</p>

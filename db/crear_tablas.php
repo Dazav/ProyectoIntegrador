@@ -9,7 +9,8 @@
             pssword varchar(20),
             email varchar(50),
             nombreUser varchar(20),
-            imagen varchar(50)
+            imagen varchar(50),
+            premium int(1) DEFAULT 0
         );";
 
         mysqli_query($conexion, $tabla_usuario) or die("Error en tabla usuario");
@@ -38,6 +39,18 @@
         );";
 
         mysqli_query($conexion, $tabla_foro) or die("Error en tabla usuario");
+
+        // tabla de pago
+        $tabla_pago = "CREATE TABLE IF NOT EXISTS pago(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            id_usuario INT,
+            metodo VARCHAR(50),
+            num_tarjeta VARCHAR(19),
+            fecha_valida DATE,
+            cvv INT(3),
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+        );";
+        mysqli_query($conexion,$tabla_pago) or die("Error en tabla pago");
 
         $tabla_respuestas = "CREATE TABLE IF NOT EXISTS respuestas(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -101,12 +114,12 @@
          $select = "SELECT * FROM usuario";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen) VALUES
-             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png'),
-             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', '../img/gabigol.png'),
-             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', '../img/ibaillanos.png'),
-             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', '../img/xuwei.png'),
-             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', '../img/santiagodaza.png')";
+             $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen,premium) VALUES
+             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png',0),
+             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', '../img/gabigol.png',1),
+             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', '../img/ibaillanos.png',1),
+             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', '../img/xuwei.png',1),
+             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', '../img/santiagodaza.png',0)";
              mysqli_query($conexion, $insert1) or die("Error insert usuario");
          }
 
@@ -121,6 +134,18 @@
              ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English')
              ";
              mysqli_query($conexion, $insert1) or die("Error insert terapeuta");
+         }
+         //inserta datos
+         $select="SELECT * FROM pago";
+         $result=mysqli_query($conexion, $select);
+         if ($result->num_rows== 0) {
+            $insert1="INSERT INTO pago(id_usuario, metodo,num_tarjeta,fecha_valida,cvv) VALUES
+            (1,'tarjeta credito','5790-2428-9091-4585','2026-03-04',123),
+            (2,'tarjeta credito','5790-2428-9091-4585','2026-03-04',892),
+            (3,'paypal','5340-2678-3821-4325','2024-11-12',229),
+            (4,'tarjeta credito','5790-2428-9091-4585','2024-10-10',781),
+            (5,'paypal','2320-2428-9091-4585','2040-06-07',123)";
+            mysqli_query($conexion, $insert1)  or die("Error insert pago");
          }
 
          $select = "SELECT * FROM foro";
@@ -225,7 +250,6 @@
         $conexion=getConexion();//fix, agregar la funión conexión
         mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");
         crearTablas($conexion);
-        
     }else{
         // Si ya existe, pasamos tambien el crear tablas por si acaso ya existiese pero sin contenido
         mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");

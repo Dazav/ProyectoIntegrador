@@ -1,3 +1,44 @@
+<?php
+include "../db/crear_tablas.php";
+session_start();
+$id=$_SESSION["id"];
+if (isset($_POST["modificar"])) {
+    //obtener imagen de perfil que modificar
+    $dir_subido="../img/";
+    $img=$_FILES["addImg"]["name"];
+    $tmp=$_FILES["addImg"]["tmp_name"];
+    $ruta=$dir_subido . $img;
+    move_uploaded_file($tmp,$ruta);
+    $img=mysqli_escape_string($conexion,$ruta);
+    // conseguir nombre,apellidos,correo,contraseña
+    $nombre=$_POST["nombre"];
+    $apellidos=$_POST["apellidos"];
+    $email=$_POST["email"];
+    $pwd=$_POST["pwd"];
+    $nombre=mysqli_escape_string($conexion,$nombre);
+    $apellidos=mysqli_escape_string($conexion,$apellidos);
+    $email=mysqli_escape_string($conexion,$email);
+    //actualizar usuario
+    $update="UPDATE usuario 
+    SET nombre='$nombre', email='$email',apellidos='$apellidos',pssword=$pwd,imagen='$img'
+    WHERE id=$id";
+    mysqli_query($conexion,$update);
+}
+if (isset($_POST["modifiCard"])) {
+    $numTarjeta=$_POST["num-tarjeta"];
+    $fecha=$_POST["fecha"];
+    $cvv=$_POST["cvv"];
+    $metodo=$_POST["metodo"];
+    $numTarjeta=mysqli_escape_string($conexion,$numTarjeta);
+    $fecha=mysqli_escape_string($conexion,$fecha);
+    $metodo=mysqli_escape_string($conexion,$metodo);
+    // actualizar nombre de título de tarjeta
+    $update="UPDATE pago
+    SET num_tajeta='$numTarjeta',metodo='$metodo',cvv=$cvv,fecha_valida='$fecha'
+    WHERE id_usuario=$id";
+    mysqli_query($conexion,$update);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,38 +85,66 @@
         <div class="informacion">
             <div>
                 <div class="bg-img">
-                    <img src="../img/autor4.png" alt="">
+                    <?php
+                    $select="SELECT * FROM usuario WHERE id=$id";
+                    $result=mysqli_query($conexion,$select,);
+                    while ($user=$result->fetch_assoc()) {
+                        echo "<img src='{$user['imagen']}'>";
+                    }
+                    ?>
                 </div>
                 <div class="btn">
                     <button>Editar Perfil</button>
                 </div>
             </div>
             <div class="infor-user">
-                <h3>Nombre:</h3>
-                <p>Andrea Monte</p>
-                <h3>Correo:</h3>
-                <p>andreamonte@valentine.es</p>
-                <h3>Metodo de pago:</h3>
-                <p>En efectivo<i class='bx bxs-credit-card-alt'></i></p>
+                <?php
+                    $select="SELECT nombre AS nombre, email AS email, metodo AS metodo
+                    FROM usuario us
+                    INNER JOIN pago p ON us.id=p.id_usuario
+                    WHERE us.id=$id";
+                    $result=mysqli_query($conexion,$select);
+                    while ($user=$result->fetch_assoc()) {
+                        echo "
+                            <h3>Nombre:</h3>
+                            <p>{$user["nombre"]}</p>
+                            <h3>Correo:</h3>
+                            <p>{$user["email"]}</p>
+                            <h3>Metodo de pago:</h3>
+                            <p>{$user['metodo']}<i class='bx bxs-credit-card-alt'></i></p>
+                        ";
+                    }
+                ?>
+                
+                
                 <button onclick="window.location.href='premium.php'">Hazte premium</button>
             </div>
         </div>
         <!-- editar perfil -->
-        <form class="editar">
+        <form class="editar" method="post" enctype="multipart/form-data">
             <i class='bx bx-x'></i>
-            <label for="nombre">nombre</label>
-            <input type="text" value="Andrea Monte">
-            <label for="email">correo</label>
-            <input type="email" value="andreamonte@valentine.es">
-            <label for="direccion">dirección</label>
-            <input type="text" value="Avenida Portugal, 28940">
-            <label for="provincia">provincia</label>
-            <input type="text" value="Madrid">
-            <label for="password">contraseña</label>
-            <input type="password" name="" id="">
-            <label for="new password">contraseña nueva</label>
-            <input type="password" name="" id="">
-            <input type="submit" value="Guardar">
+            <label class="addImg">
+                <input type="file" name="addImg" accept=".png,.jpg,.jpeg">
+                <i class='bx bx-image-add' ></i>
+            </label>
+            <?php
+                $select="SELECT * FROM usuario WHERE id=$id";
+                $result=mysqli_query($conexion,$select);
+                while ($user=$result->fetch_assoc()) {
+                    # code...
+                    echo "
+                    <label for='nombre'>nombre</label>
+                    <input type='text' name='nombre' value='{$user['nombre']}'>
+                    <label for='apellidos'>apellidos</label>
+                    <input type='text' name='apellidos' value='{$user['apellidos']}'>
+                    <label for='email'>correo</label>
+                    <input type='email' name='email' value='{$user['email']}'>
+                    <label for='new password'>contraseña nueva</label>
+                    <input type='password' name='pwd' id=''>
+                    ";
+                }
+            ?>
+            <input type="submit" value="Guardar" name="modificar">
         </form>
         <!-- cambio de met'odo de pago -->
         <form class="pago">
@@ -83,17 +152,29 @@
             <div class="card-border"></div>
             <img src="../img/logo.png" alt="">
             <hr>
-            <input type="text" class="tarjeta" pattern="\d{16}" maxlength="16" minlength="16" placeholder="xxxx xxxx xxxx xxxx">
-            <input type="text" class="nombre" placeholder="nombre">
-            <fieldset>
-                <input type="date" placeholder="dd/mm/yy">
-            <input type="text" placeholder="CVV" pattern="\d{3}" maxlength="3" minlength="3">
-            </fieldset>
+            <?php
+                $select="SELECT p.num_tarjeta AS tarjeta, us.nombre AS nombre,p.fecha_valida AS fecha,p.cvv AS cvv,p.metodo AS metodo
+                FROM usuario us
+                INNER JOIN pago p ON p.id_usuario=us.id
+                WHERE us.id=$id";
+                $result=mysqli_query($conexion,$select);
+                if ($user=$result->fetch_assoc()) {
+                    echo "
+                    <input type='text' name='num-tarjeta' value='{$user['tarjeta']}' class='tarjeta'  maxlength='19' minlength='19' placeholder='xxxx-xxxx-xxxx-xxxx'>
+                    <p name='nombre'  class='nombre' >Nombre de título: {$user['nombre']}</p>
+                    <fieldset>
+                        <input type='date' name='fecha' value='{$user['fecha']}' placeholder='dd/mm/yy'>
+                        <input type='text' name='cvv' value='{$user['cvv']}' placeholder='CVV' pattern='\d{3}' maxlength='3' minlength='3'>
+                        <input type='text' name='metodo' value='{$user['metodo']}' id='metodo' placeholder='metodo de pago' >
+                    </fieldset>
+                    ";
+                }
+            ?>
             <div class="btn-pago">
                 <i class='bx bx-credit-card'></i>
                 <i class='bx bxl-paypal' ></i>
             </div>
-            <input type="submit" value="Guardar">
+            <input type="submit" value="Guardar" name="modifCard">
         </form>
     </main>
     <!-- footer -->

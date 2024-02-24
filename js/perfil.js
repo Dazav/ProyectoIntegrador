@@ -47,3 +47,14 @@ $(document).ready(function () {
         $(this).toggleClass("bxs-x-circle");
     });
 });
+// metodos de pago
+$(document).ready(function () {
+    // click icon de tarjeta para modificar metódo de pago a tarjeta credito
+    $(".bx-credit-card").click(function () { 
+        $("#metodo").val("tarjeta credito");
+    });
+    // click icon de paypal para modificar metódo de pago a paypal
+    $(".bxl-paypal").click(function () { 
+        $("#metodo").val("paypal");
+    });
+});

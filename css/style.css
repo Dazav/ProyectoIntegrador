@@ -151,6 +151,13 @@ nav a{
     border-color: #5CB85C;
     color: #5CB85C;
 }
+/* icon de inicar sesion */
+.usr-circulo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #6545A1;
+}
 /* introducción principal */
 .introduccion1{
     display: flex;

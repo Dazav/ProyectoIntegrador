@@ -1,5 +1,20 @@
 <?php
     include("../db/crear_tablas.php");
+    session_start();
+    //conseguir id y id de foro
+    $id=$_SESSION['id'];
+    if (isset($_GET["idForo"])) {
+        # code...
+        $idForo=$_GET['idForo'];
+    }
+    // 
+    if (isset($_POST["enviar"])) {
+        # code...
+        $rep=$_POST["respuesta"];
+        $rep=mysqli_escape_string($conexion,$rep);
+        $insert="INSERT INTO respuestas(id_usuario,id_foro,respuesta) VALUES ($id,$idForo,'$rep')";
+        mysqli_query($conexion,$insert);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,10 +59,10 @@
     <!--  -->
     <div class="descripcionClic">
         <div>
-            <!-- <?php
+            <?php
             $select="SELECT f.img AS src
             FROM foro f
-            WHERE f.id=1";
+            WHERE f.id=$idForo";
             $resulta=mysqli_query($conexion,$select);
                 while ($tema=$resulta->fetch_assoc()) {
                     echo"
@@ -55,31 +70,92 @@
                         <img src='{$tema['src']}' class='img_des'>
                     </div>";
                 }
-            ?> -->
-            <div class="bg-contenido">
+            ?> 
+            <!-- <div class="bg-contenido">
                 <img src="../img/tema1.png" alt="" class="img_des">
-            </div>
+            </div> -->
             <main>
-                <div class="perfil-img"></div>
+                <div class="perfil-img">
+                <?php
+                // imagen de autor
+                   $select="SELECT us.imagen AS src
+                   FROM foro f
+                   INNER JOIN usuario us ON us.id = f.id_usuario
+                   WHERE f.id=$idForo";
+                   $resulta=mysqli_query($conexion,$select);
+                       while ($tema=$resulta->fetch_assoc()) {
+                           echo"
+                            <img src='{$tema['src']}'>";
+                       } 
+                ?>
+                <!-- <img src="../img/autor2.png" alt=""> -->
+                </div>
                 <i class="bx bx-arrow-back"></i>
-                <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
+                <?php
+                   $select="SELECT *
+                   FROM foro
+                   WHERE id=$idForo";
+                   $resulta=mysqli_query($conexion,$select);
+                       while ($tema=$resulta->fetch_assoc()) {
+                           echo"
+                            <h1 style='font-size: 40px;'>{$tema['titular']}</h1>
+                            <p>{$tema['fecha_creacion']}</p>
+                            <p style='font-size: 20px;' class='articulo'>{$tema['descripcion']}</p>";
+                       } 
+                ?>
+                <!-- <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
                 <p>12-12-2023</p>
-                <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
+                <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p> -->
                 <button class="responder">
                     Responder
                 </button>
                 <h2>Repuesta</h2>
                 <div class="comentarios_arti">
                     <form method="post" class="comentario_arti">
-                        <img src="../img/autor4.png" alt="">
-                        <div>
+                        <?php
+                            $select="SELECT * FROM usuario WHERE id=$id";
+                            $resulta=mysqli_query($conexion,$select);
+                            while ($user=$resulta->fetch_assoc()) {
+                                # code...
+                                echo "<img src='{$user['imagen']}'>
+                                <div>
+                                    <h2>{$user['nombre']} {$user['apellidos']}</h2>
+                                    <input name='respuesta' type='text'>
+                                    <input name='cancelar' type='button' value='Cancelar'>
+                                    <input name='enviar' type='submit' value='Enviar'>
+                                </div>
+                                ";
+                            }
+                        ?>
+                        <!-- <img src="../img/autor4.png" alt=""> -->
+                        <!-- <div>
                             <h2>{nombre}</h2>
                             <input type="text">
                             <input type="button" value="Cancelar">
                             <input type="submit" value="Enviar">
-                        </div>
+                        </div> -->
                     </form>
-                    <div class="comentario_arti">
+                    <?php
+                        $select="SELECT us.imagen AS img, r.respuesta AS res , us.apellidos AS ap,us.nombre AS nombre
+                        FROM respuestas r
+                        INNER JOIN usuario us ON us.id = r.id_usuario
+                        INNER JOIN foro f ON f.id = r.id_foro
+                        WHERE r.id_foro=$idForo";
+                        $resulta=mysqli_query($conexion,$select);
+                        while ($user=$resulta->fetch_assoc()) {
+                            # code...
+                            echo "
+                            <div class='comentario_arti'>
+                                <img src='{$user['img']}'>
+                                <div>
+                                    <h2>{$user['nombre']} {$user['ap']}</h2>
+                                    <p>{$user['res']}</p>
+                                </div>
+                            </div>
+                            ";
+                        }
+                    ?>
+                    <!-- <div class="comentario_arti">
                         <img src="../img/autor1.png" alt="">
                         <div>
                             <h2>Elizabeth Rex</h2>
@@ -99,7 +175,7 @@
                             <h2>Evan Gelia</h2>
                             <p>I don like this 😡</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </main>
         </div>

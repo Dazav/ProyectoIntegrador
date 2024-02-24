@@ -288,6 +288,15 @@ main>h1{
     font-size: 16px;
     padding: 10px;
 }
+.addImg{display: flex;justify-content: center;}
+.addImg>input[type="file"]{display: none;}
+.bx-image-add{
+    width: 35px;
+    height: 35px;
+    font-size: 35px;
+    filter: drop-shadow( 1px 1px 1px #6545A1);
+    cursor: pointer;
+}
 .editar>input[type="submit"]{
     color: white;
     background: #6545A1;
@@ -355,7 +364,7 @@ main>h1{
     border: 3px solid #6545A1;
     border-radius: 50%;
 }
-.pago>input,.pago>fieldset>input{
+.pago>input,.pago>p,.pago>fieldset>input{
     width: 100px;
     height: 40px;
     outline: none;
@@ -377,6 +386,7 @@ main>h1{
     font-size: 30px;
     margin-left: 30px;
 }
+.btn-pago>.bx{cursor: pointer;}
 .pago>input[type="submit"]{
     margin: none;
     color: white;
@@ -387,6 +397,7 @@ main>h1{
     position: absolute;
     right: 40px;
     bottom: 30px;
+    cursor: pointer;
 }
 .pago>input[type="submit"]:hover{
     box-shadow:1px 1px 4px #30224D;

@@ -1,6 +1,5 @@
 <?php
 include "../db/crear_tablas.php";
-
 // if(isset($_POST['registro'])){
 
 //   $user = $_POST['user-register'];
