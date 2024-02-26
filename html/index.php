@@ -25,23 +25,26 @@
 <body>
     <!-- barra navegación -->
     <nav>
-        <i class='bx bx-menu'></i>
-        <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.php">Brain Hub</a>
-        </div>
-        <div class="menu">
-            <button onclick="window.location.href='recursos.php'">Recursos</button>
-            <div class="dropdown">
-                Apoyo
-                <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
-                </div>
+            <div class="usuario">
+                <!-- Botón de menú para móviles -->
+                <button class="menu-mobile">☰</button>
+                    <img src="../img/logo.png" alt="">
+                <a href="index.php">Brain Hub</a>
+            
             </div>
-            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
-            <button onclick="window.location.href='foros.php'">Social</button>
-        </div>
+            
+             <div class="menu">
+                <button onclick="window.location.href='recursos.php'">Recursos</button>
+                <div class="dropdown">
+                    Apoyo
+                    <div class="dropdown-menu">
+                        <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                        <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
+                    </div>
+                </div>
+                <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+                <button onclick="window.location.href='foros.php'">Social</button>
+            </div>
         
         <?php
             if(isset($_SESSION["id"])){

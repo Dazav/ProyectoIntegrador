@@ -61,7 +61,7 @@ nav a{
     height: 70px;
     border: 0;
     background: none;
-    margin: 0 2rem;
+    margin-left: 110px;
     font-family: 'Montserrat';
     font-size: 1.5rem;
     font-weight: bolder;
@@ -553,12 +553,6 @@ footer hr{
 .menu-mobile {
     display: none;
 
-}
-
-.menu,
-.iniciarUser {
-    /* Estilos base para el menú y los botones de inicio de sesión/comenzar */
-    /* Asegúrate de no tener 'display: none;' aquí si quieres que se muestren en PC */
 }
 
 /* Estilos para dispositivos móviles */
