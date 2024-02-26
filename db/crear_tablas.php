@@ -9,7 +9,8 @@
             pssword varchar(20),
             email varchar(50),
             nombreUser varchar(20),
-            imagen varchar(50)
+            imagen varchar(50),
+            premium int(1) DEFAULT 0
         );";
 
         mysqli_query($conexion, $tabla_usuario) or die("Error en tabla usuario");
@@ -21,10 +22,23 @@
             n_identificacion INT(6),
             especializacion VARCHAR(50),
             nacionalidad VARCHAR(20),
-            idiomas VARCHAR(50)
+            idiomas VARCHAR(50),
+            sexo VARCHAR(50),
+            img_perfil VARCHAR(100),
+            img_nac VARCHAR(100)
         );";
 
         mysqli_query($conexion, $tabla_terapeuta) or die("Error en tabla terapeuta");
+
+        $tabla_cita="CREATE TABLE IF NOT EXISTS cita(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            id_terapeuta INT,
+            id_usuario INT,
+            fecha_disponible datetime,
+            FOREIGN KEY (id_terapeuta) REFERENCES terapeuta(id),
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id),            
+        );";
+        mysqli_query($conexion,$tabla_cita);
 
         $tabla_foro = "CREATE TABLE IF NOT EXISTS foro(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,6 +52,18 @@
         );";
 
         mysqli_query($conexion, $tabla_foro) or die("Error en tabla usuario");
+
+        // tabla de pago
+        $tabla_pago = "CREATE TABLE IF NOT EXISTS pago(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            id_usuario INT,
+            metodo VARCHAR(50),
+            num_tarjeta VARCHAR(19),
+            fecha_valida DATE,
+            cvv INT(3),
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+        );";
+        mysqli_query($conexion,$tabla_pago) or die("Error en tabla pago");
 
         $tabla_respuestas = "CREATE TABLE IF NOT EXISTS respuestas(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -101,26 +127,50 @@
          $select = "SELECT * FROM usuario";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen) VALUES
-             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png'),
-             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', '../img/gabigol.png'),
-             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', '../img/ibaillanos.png'),
-             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', '../img/xuwei.png'),
-             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', '../img/santiagodaza.png')";
+             $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen,premium) VALUES
+             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png',0),
+             ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', '../img/gabigol.png',1),
+             ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', '../img/ibaillanos.png',1),
+             ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', '../img/xuwei.png',1),
+             ('Santiago', 'Daza', 'd4z4', 'santiagodaza@gmail.com', 'santiagodaza', '../img/santiagodaza.png',0)";
              mysqli_query($conexion, $insert1) or die("Error insert usuario");
          }
 
          $select = "SELECT * FROM terapeuta";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas) VALUES
-             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English'),
-             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch'),
-             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский'),
-             ('Mario', 'Vaquerizo Ruiz', '707234', 'Ansiedad', 'Española', 'Español, English'),
-             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English')
+             $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas,sexo,img_perfil,img_nac) VALUES
+             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English','mujer','../img/tera1.png','../img/es.png'),
+             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch','hombre','../img/tera2.png','../img/ger.png'),
+             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский','hombre','../img/tera3.png','../img/us.png'),
+             ('Xin', 'Zhao', '707234', 'Ansiedad', 'Chino', '中文, English,Español','hombre','../img/tera3.png','../img/cn.png'),
+             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English','mujer','../img/tera4.png','../img/fr.png')
              ";
              mysqli_query($conexion, $insert1) or die("Error insert terapeuta");
+         }
+        //  inserta datos de cita
+        $select="SELECT * FROM cita";
+        $result=mysqli_query($conexion, $select);       
+        if($result->num_rows==0){
+            $insert1="INSERT INTO cita(id_terapeuta,id_usuario,fecha_disponible) VALUES
+            (2,1,'2024-02-27 8:00'),
+            (3,2,'2024-02-28 9:00'),
+            (1,3,'2024-02-27 13:00'),
+            (5,4,'2024-02-26 14:00'),
+            (4,5,'2024-02-26 8:00')";
+            mysqli_query($conexion, $insert1)  or die("Error insert pago");
+        }
+         //inserta datos
+         $select="SELECT * FROM pago";
+         $result=mysqli_query($conexion, $select);
+         if ($result->num_rows== 0) {
+            $insert1="INSERT INTO pago(id_usuario, metodo,num_tarjeta,fecha_valida,cvv) VALUES
+            (1,'tarjeta credito','5790-2428-9091-4585','2026-03-04',123),
+            (2,'tarjeta credito','5790-2428-9091-4585','2026-03-04',892),
+            (3,'paypal','5340-2678-3821-4325','2024-11-12',229),
+            (4,'tarjeta credito','5790-2428-9091-4585','2024-10-10',781),
+            (5,'paypal','2320-2428-9091-4585','2040-06-07',123)";
+            mysqli_query($conexion, $insert1)  or die("Error insert pago");
          }
 
          $select = "SELECT * FROM foro";
@@ -225,7 +275,6 @@
         $conexion=getConexion();//fix, agregar la funión conexión
         mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");
         crearTablas($conexion);
-        
     }else{
         // Si ya existe, pasamos tambien el crear tablas por si acaso ya existiese pero sin contenido
         mysqli_select_db($conexion, "brainhub")or die("Error al conectar con la db");

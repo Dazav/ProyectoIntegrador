@@ -162,3 +162,9 @@ $(document).ready(function () {
         }
     });
 });
+// 
+$(document).ready(function () {
+    $(".bx-menu").click(function () { 
+        $("nav,.menu,.iniciarUser").toggleClass("resp-active");
+    });
+});

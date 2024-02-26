@@ -2,31 +2,7 @@
     include("../db/crear_tablas.php");
     session_start();
     //obtener el id de usuario de login
-    // $idUsuario=$_SESSION['id_usuario'];
-    // añadir los datos de tema nueva a bd
-    if ($_SERVER['REQUEST_METHOD']=='POST') {
-      //asignamos a la variable "$titulo" el llave "addTitulo" obtiene del array 
-      $titulo=$_POST["addTitulo"];
-      //tomar la cadena "$titulo"
-      $titulo=mysqli_escape_string($conexion,$titulo);
-      $contenido=$_POST['addContenido'];
-      $contenido=mysqli_escape_string($conexion,$contenido);
-      //asignar directorio "../img/" a la variable
-      $directorio_subido="../img/";
-      // obtener nombre de imagen
-      $img=$_FILES["addImg"]['name'];
-      // propociona un ubicacion temporal que se almancener imagen subido
-      $imgTmp=$_FILES["addImg"]['tmp_name'];
-      //obtener directorio completo
-      $ruta_completa=$directorio_subido . $img;
-      // mover la imagen desde la ubicación temporal a la carpeta indicada
-      move_uploaded_file($imgTmp,$ruta_completa);
-      //tomar la cadena "$titulo" y la limpiar para que sea segura de usuario
-      $img=mysqli_escape_string($conexion,$img);
-      // insertar los datos a base de datos
-      $insert="INSERT INTO foro(titular,descripcion,img)VALUES ('$titulo','$contenido','$img')";
-      mysqli_query($conexion,$insert);
-    };
+    $id=$_SESSION["id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +71,7 @@
                   while ($tema=$resulta->fetch_assoc()) {
                       # code...
                       echo "
-                      <a class='tema' href='foroContenido.php?{$tema['idForo']}' >
+                      <a class='tema' href='foroContenido.php?idForo={$tema['idForo']}' >
                           <div class='descripcion'>
                               <h2 class='temaTitulo'>{$tema['titulo']}</h2>
                               <p>{$tema['fecha']}</p>
@@ -114,12 +90,13 @@
                 <div class='imgAutor'><i class='bx bx-add-to-queue'></i></div>
               </a>
 
-              <form class='add-tema' action="<?php echo $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
+              <form class='add-tema' id="add-tema" method="post" enctype="multipart/form-data">
                 <i class='bx bx-arrow-back'></i>
-                <label><input type="file" name="addImg" accept=".png,.jpg,.jpeg"><i class='bx bx-image-add' ></i></label>
+                <label><input type="file" name="addImg" id="addImg" accept=".png,.jpg,.jpeg"><i class='bx bx-image-add' ></i></label>
                 <input type="text" placeholder="Apunte título de artículo" name="addTitulo">
                 <textarea name="addContenido" id="" placeholder="Apunte lo que quiera"></textarea>
                 <input type="submit" value="Agregar tu artículo">
+                <p></p>
               </form>
       </div>
     </main>
@@ -176,4 +153,37 @@
   </div>
 </footer>
 </body>
+<script type="text/javascript">
+    // jquery fetch de formulario de crear tema
+$(document).ready(function () {
+    $("#add-tema").submit(function () { 
+        // e.preventDefault();//previene para no cargar la página
+        //crea objeto FormData con los datos de formulario
+        var formData=new FormData(this);
+        // var img=document.getElementById("addImg");
+        // formData.append('image', img);
+        //enviar formData a servidor
+        fetch("procesarForo.php",{
+            method: "POST",
+            body: formData
+        }).then(function (response){
+            //response no es ok, alanza error
+            if (!response.ok) {
+            throw new Error("Error en la solicitud: " + response.statusText);
+            }
+            return response.json()//guardar response en forma json
+        }).then(function (data) { 
+            //manejar las repuesta de servidor
+            if(data.status=="success") {
+                $("#add-tema>p").css({color:"green"}).text("Ha ido bien");
+            }else{
+                $("#add-tema>p").css({color:"red"}).text("Ha ido fallado");
+            }
+        }).catch(function (error) {  
+            //errores de la petición
+            $("#add-tema>p").css({color:"red"}).text("ERROR AL ENVIAR EL FORMULARIO"+error);
+        });
+    });
+});
+</script>
 </html>

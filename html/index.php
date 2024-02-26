@@ -1,5 +1,11 @@
 <?php
-    include "../db/crear_tablas.php"
+    include "../db/crear_tablas.php";
+    session_start();
+    if (isset($_SESSION["id"])) {
+        # code...
+        $id_user=$_SESSION["id"];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +25,7 @@
 <body>
     <!-- barra navegación -->
     <nav>
+        <i class='bx bx-menu'></i>
         <div class="usuario">
             <img src="../img/logo.png" alt="" srcset="">
             <a href="index.php">Brain Hub</a>
@@ -35,10 +42,29 @@
             <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-        <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
-        </div>
+        
+        <?php
+            if(isset($_SESSION["id"])){
+                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id_user";
+                $resulta=mysqli_query($conexion,$select);
+                if ($resulta->num_rows>0) {
+                    while ($user=$resulta->fetch_assoc()) {
+                        echo "<a href='perfil.php'>
+                              <img src='{$user['img']}' class='usr-circulo'>
+                            </a>";
+                    }
+                }else {
+                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+                }
+            }else{
+                echo "
+                <div class='iniciarUser'>
+                    <input type='button' value='Iniciar Sesión' onclick='window.location.href='registrar.php'' />
+                    <input type='button' value='Comenzar' onclick='window.location.href='registrar.php?mostrar=registro'' />
+                </div>
+                ";
+            }
+        ?>
     </nav>
     <!-- introducción principal -->
     <div class="introduccion1">

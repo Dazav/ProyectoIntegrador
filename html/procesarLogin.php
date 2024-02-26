@@ -1,5 +1,9 @@
 <?php
 include "../db/conecta.php";
+// session
+session_start();
+// 
+
 header('Content-Type: application/json');
 $email = $_POST['email-login'];
 $password = $_POST['password-login'];
@@ -12,6 +16,7 @@ $resultado = $conexion->query($sql);
 if ($resultado->num_rows > 0) {
   while ($fila = $resultado->fetch_assoc()) {
     $id_usuario = $fila['id'];
+    $_SESSION["id"]=$id_usuario;
     echo json_encode(['success' => true, 'mensaje' => "Inicio de sesión exitoso.", 'redirect' => 'index.php']);
     
   }

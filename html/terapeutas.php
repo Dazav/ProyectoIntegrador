@@ -1,3 +1,7 @@
+<?php
+include '../db/crear_tablas.php';
+$id=$_SESSION['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -274,41 +278,103 @@
                                 </tr>
                             </table>
                             <div>
+                                <?php
+                                // conseguir la fecha de cita
+                                $select="SELECT c.fecha_disponible AS fecha
+                                FROM cita c
+                                INNER JOIN terapeuta tp ON c.id_terapeuta = tp.id
+                                INNER JOIN usuario us ON c.id_usuario=us.id
+                                WHERE us.id=$id";
+                                $resulta=mysqli_query($conexion,$select);
+                                while ($cita=$resulta->fetch_assoc()) {
+                                    echo"<input type='hidden' value='{$cita['fecha']}'>";
+                                }
+                                ?>
                                 <table>
                                     <tr>
-                                        <td>8:00</td>
-                                        <td>8:00</td>
-                                        <td>8:00</td>
+                                        <?php
+                                            //mostrar
+                                            $hoy=date('Y-m-d 8:00:00');
+                                            $tomorrow=date('Y-m-d 8:00:00', strtotime('+1 day'));
+                                            $tomorrow_pasado=date('Y-m-d 8:00:00', strtotime('+2 day'));
+                                            echo"
+                                            <td datetime='$hoy'>8:00</td>
+                                            <td datetime='$tomorrow'>8:00</td>
+                                            <td datetime='$tomorrow_pasado'>8:00</td>  
+                                            ";
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>9:00</td>
-                                        <td>9:00</td>
-                                        <td>9:00</td>
+                                        <?php
+                                         $hoy=date('Y-m-d 9:00');
+                                         $tomorrow=date('Y-m-d 9:00', strtotime('+1 day'));
+                                         $tomorrow_pasado=date('Y-m-d 9:00', strtotime('+2 day'));
+                                         echo"
+                                         <td datetime='$hoy'>9:00</td>
+                                         <td datetime='$tomorrow'>9:00</td>
+                                         <td datetime='$tomorrow_pasado'>9:00</td>  
+                                         "; 
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>10:00</td>
-                                        <td>10:00</td>
-                                        <td>10:00</td>
+                                        <?php
+                                         $hoy=date('Y-m-d 10:00');
+                                         $tomorrow=date('Y-m-d 10:00', strtotime('+1 day'));
+                                         $tomorrow_pasado=date('Y-m-d 10:00', strtotime('+2 day'));
+                                         echo"
+                                         <td datetime='$hoy'>10:00</td>
+                                         <td datetime='$tomorrow'>10:00</td>
+                                         <td datetime='$tomorrow_pasado'>10:00</td>  
+                                         ";
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>11:00</td>
-                                        <td>11:00</td>
-                                        <td>11:00</td>
+                                        <?php
+                                         $hoy=date('Y-m-d 11:00');
+                                         $tomorrow=date('Y-m-d 11:00', strtotime('+1 day'));
+                                         $tomorrow_pasado=date('Y-m-d 11:00', strtotime('+2 day'));
+                                         echo"
+                                         <td datetime='$hoy'>11:00</td>
+                                         <td datetime='$tomorrow'>11:00</td>
+                                         <td datetime='$tomorrow_pasado'>11:00</td>  
+                                         ";
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>12:00</td>
-                                        <td>12:00</td>
-                                        <td>12:00</td>
+                                        <?php
+                                         $hoy=date('Y-m-d 12:00');
+                                         $tomorrow=date('Y-m-d 12:00', strtotime('+1 day'));
+                                         $tomorrow_pasado=date('Y-m-d 12:00', strtotime('+2 day'));
+                                         echo"
+                                         <td datetime='$hoy'>12:00</td>
+                                         <td datetime='$tomorrow'>12:00</td>
+                                         <td datetime='$tomorrow_pasado'>12:00</td>  
+                                         ";
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>13:00</td>
-                                        <td>13:00</td>
-                                        <td>13:00</td>
+                                        <?php
+                                         $hoy=date('Y-m-d 13:00');
+                                         $tomorrow=date('Y-m-d 13:00', strtotime('+1 day'));
+                                         $tomorrow_pasado=date('Y-m-d 13:00', strtotime('+2 day'));
+                                         echo"
+                                         <td datetime='$hoy'>13:00</td>
+                                         <td datetime='$tomorrow'>13:00</td>
+                                         <td datetime='$tomorrow_pasado'>13:00</td>  
+                                         ";
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>14:00</td>
-                                        <td>14:00</td>
-                                        <td>14:00</td>
+                                        <?php
+                                         $hoy=date('Y-m-d 14:00');
+                                         $tomorrow=date('Y-m-d 14:00', strtotime('+1 day'));
+                                         $tomorrow_pasado=date('Y-m-d 14:00', strtotime('+2 day'));
+                                         echo"
+                                         <td datetime='$hoy'>14:00</td>
+                                         <td datetime='$tomorrow'>14:00</td>
+                                         <td datetime='$tomorrow_pasado'>14:00</td>  
+                                         ";
+                                        ?>
                                     </tr>
                                 </table>
                             </div>
@@ -372,4 +438,7 @@
         </div>
     </footer>
 </body>
+<script>
+    
+</script>
 </html>
