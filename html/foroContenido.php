@@ -50,10 +50,28 @@
             <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-        <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
-        </div>
+        <?php
+            if(isset($_SESSION["id"])){
+                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
+                $resulta=mysqli_query($conexion,$select);
+                if ($resulta->num_rows>0) {
+                    while ($user=$resulta->fetch_assoc()) {
+                        echo "<a href='perfil.php'>
+                              <img src='{$user['img']}' class='usr-circulo'>
+                            </a>";
+                    }
+                }else {
+                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+                }
+            }else{
+                echo "
+                <div class='iniciarUser'>
+                    <input type='button' value='Iniciar Sesión' onclick='window.location.href='registrar.php'' />
+                    <input type='button' value='Comenzar' onclick='window.location.href='registrar.php?mostrar=registro'' />
+                </div>
+                ";
+            }
+        ?>
     </nav>
     <!-- contenido y artículo -->
     <!--  -->

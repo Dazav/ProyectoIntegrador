@@ -25,7 +25,8 @@
             idiomas VARCHAR(50),
             sexo VARCHAR(50),
             img_perfil VARCHAR(100),
-            img_nac VARCHAR(100)
+            img_nac VARCHAR(100),
+            disponibilidad TEXT
         );";
 
         mysqli_query($conexion, $tabla_terapeuta) or die("Error en tabla terapeuta");
@@ -36,7 +37,7 @@
             id_usuario INT,
             fecha_disponible datetime,
             FOREIGN KEY (id_terapeuta) REFERENCES terapeuta(id),
-            FOREIGN KEY (id_usuario) REFERENCES usuario(id),            
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id)           
         );";
         mysqli_query($conexion,$tabla_cita);
 
@@ -139,12 +140,12 @@
          $select = "SELECT * FROM terapeuta";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas,sexo,img_perfil,img_nac) VALUES
-             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English','mujer','../img/tera1.png','../img/es.png'),
-             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch','hombre','../img/tera2.png','../img/ger.png'),
-             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский','hombre','../img/tera3.png','../img/us.png'),
-             ('Xin', 'Zhao', '707234', 'Ansiedad', 'Chino', '中文, English,Español','hombre','../img/tera3.png','../img/cn.png'),
-             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English','mujer','../img/tera4.png','../img/fr.png')
+             $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas,sexo,img_perfil,img_nac, disponibilidad) VALUES
+             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English','mujer','../img/tera1.png','../img/es.png', '14:00,15:00,18:00,19:00,20:00'),
+             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch','hombre','../img/tera2.png','../img/ger.png', '12:00,13:00,17:00,19:00,20:00'),
+             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский','hombre','../img/tera3.png','../img/us.png', '00:00,12:00,19:00,22:00,23:00'),
+             ('Xin', 'Zhao', '707234', 'Ansiedad', 'Chino', '中文, English,Español','hombre','../img/tera3.png','../img/cn.png', '14:00,15:00,18:00,19:00,20:00'),
+             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English','mujer','../img/tera4.png','../img/fr.png', '14:00,15:00,18:00,19:00,20:00')
              ";
              mysqli_query($conexion, $insert1) or die("Error insert terapeuta");
          }
