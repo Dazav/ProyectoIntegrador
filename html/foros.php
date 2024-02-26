@@ -20,29 +20,29 @@
     <title>Social</title>
 </head>
 <body>
-    <!-- barra navegación -->
-    <nav>
-        <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.php">Brain Hub</a>
-        </div>
-        <div class="menu">
-            <button onclick="window.location.href='recursos.php'">Recursos</button>
-            <div class="dropdown">
-                Apoyo
-                <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
-                </div>
+        <!-- barra navegación -->
+        <nav>
+            <div class="usuario">
+                <img src="../img/logo.png" alt="" srcset="">
+                <a href="index.php">Brain Hub</a>
             </div>
-            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
-            <button onclick="window.location.href='foros.php'">Social</button>
-        </div>
-        <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
-        </div>
-    </nav>
+            <div class="menu">
+                <button onclick="window.location.href='recursos.php'">Recursos</button>
+                <div class="dropdown">
+                    Apoyo
+                    <div class="dropdown-menu">
+                        <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                        <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
+                    </div>
+                </div>
+                <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+                <button onclick="window.location.href='foros.php'">Social</button>
+            </div>
+            <div class="iniciarUser">
+                <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
+                <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
+            </div>
+        </nav>
     <!--  -->
     <div class="forosTitulo">
         <h1>
