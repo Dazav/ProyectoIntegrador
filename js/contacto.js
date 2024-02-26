@@ -65,7 +65,7 @@ $(document).ready(function () {
    $(asunto).on("input", function () {
     comprobar(asunto,errorAsunto,/^\D{0,38}$/,false);
   });
-  //valicación de mensaje sin palabras racisma
+  //valicación de mensaje sin palabras racista
   $(msg).on("input", function () {
     comprobar(msg,errormsg,/(\b[nN][iI][gG]{1,}[abc]{1,}\b|\bchin[kK]{1,}\b|\b[kK]{3}\b)/,true);
   });

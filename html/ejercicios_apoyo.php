@@ -18,10 +18,14 @@
     <header>
         <nav>
             <div class="usuario">
-                <img src="../img/logo.png" alt="" srcset="">
+                <!-- Botón de menú para móviles -->
+                <button class="menu-mobile">☰</button>
+                    <img src="../img/logo.png" alt="">
                 <a href="index.php">Brain Hub</a>
+            
             </div>
-            <div class="menu">
+            
+             <div class="menu">
                 <button onclick="window.location.href='recursos.php'">Recursos</button>
                 <div class="dropdown">
                     Apoyo
@@ -200,5 +204,6 @@
             <pre>Contacto   Centro de Ayuda   Preferencias</pre>
         </div>
     </footer>
+    
 </body>
 </html>
