@@ -22,10 +22,23 @@
             n_identificacion INT(6),
             especializacion VARCHAR(50),
             nacionalidad VARCHAR(20),
-            idiomas VARCHAR(50)
+            idiomas VARCHAR(50),
+            sexo VARCHAR(50),
+            img_perfil VARCHAR(100),
+            img_nac VARCHAR(100)
         );";
 
         mysqli_query($conexion, $tabla_terapeuta) or die("Error en tabla terapeuta");
+
+        $tabla_cita="CREATE TABLE IF NOT EXISTS cita(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            id_terapeuta INT,
+            id_usuario INT,
+            fecha_disponible datetime,
+            FOREIGN KEY (id_terapeuta) REFERENCES terapeuta(id),
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id),            
+        );";
+        mysqli_query($conexion,$tabla_cita);
 
         $tabla_foro = "CREATE TABLE IF NOT EXISTS foro(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -126,15 +139,27 @@
          $select = "SELECT * FROM terapeuta";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas) VALUES
-             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English'),
-             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch'),
-             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский'),
-             ('Mario', 'Vaquerizo Ruiz', '707234', 'Ansiedad', 'Española', 'Español, English'),
-             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English')
+             $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas,sexo,img_perfil,img_nac) VALUES
+             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English','mujer','../img/tera1.png','../img/es.png'),
+             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch','hombre','../img/tera2.png','../img/ger.png'),
+             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский','hombre','../img/tera3.png','../img/us.png'),
+             ('Xin', 'Zhao', '707234', 'Ansiedad', 'Chino', '中文, English,Español','hombre','../img/tera3.png','../img/cn.png'),
+             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English','mujer','../img/tera4.png','../img/fr.png')
              ";
              mysqli_query($conexion, $insert1) or die("Error insert terapeuta");
          }
+        //  inserta datos de cita
+        $select="SELECT * FROM cita";
+        $result=mysqli_query($conexion, $select);       
+        if($result->num_rows==0){
+            $insert1="INSERT INTO cita(id_terapeuta,id_usuario,fecha_disponible) VALUES
+            (2,1,'2024-02-27 8:00'),
+            (3,2,'2024-02-28 9:00'),
+            (1,3,'2024-02-27 13:00'),
+            (5,4,'2024-02-26 14:00'),
+            (4,5,'2024-02-26 8:00')";
+            mysqli_query($conexion, $insert1)  or die("Error insert pago");
+        }
          //inserta datos
          $select="SELECT * FROM pago";
          $result=mysqli_query($conexion, $select);
