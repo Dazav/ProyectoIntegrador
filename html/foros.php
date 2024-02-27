@@ -63,10 +63,12 @@
               <?php
               // saca todas temas de autores de bd
               // combinamos tabla foro en usuarios
-                  $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
-                  FROM foro f
-                  INNER JOIN usuario us ON us.id=f.id_usuario";
-                  $resulta=mysqli_query($conexion,$select);
+              $select="SELECT f.id AS idForo,f.titular AS titulo,f.fecha_creacion AS fecha,us.imagen AS img
+              FROM foro f
+              INNER JOIN usuario us ON us.id=f.id_usuario";
+              $stmt = $conexion->prepare($select);
+              $stmt->execute();
+              $resulta = $stmt->get_result();
                   // atravesamos todas temas y lo presentamos
                   while ($tema=$resulta->fetch_assoc()) {
                       # code...

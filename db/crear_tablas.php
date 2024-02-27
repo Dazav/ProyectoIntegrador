@@ -36,9 +36,9 @@
             id_usuario INT,
             fecha_disponible datetime,
             FOREIGN KEY (id_terapeuta) REFERENCES terapeuta(id),
-            FOREIGN KEY (id_usuario) REFERENCES usuario(id),            
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id)           
         );";
-        mysqli_query($conexion,$tabla_cita);
+        mysqli_query($conexion,$tabla_cita) or die("error en la tabla cita");
 
         $tabla_foro = "CREATE TABLE IF NOT EXISTS foro(
             id INT AUTO_INCREMENT PRIMARY KEY,

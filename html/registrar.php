@@ -1,54 +1,5 @@
 <?php
 include "../db/crear_tablas.php";
-// if(isset($_POST['registro'])){
-
-//   $user = $_POST['user-register'];
-//   $email = $_POST['email-register'];
-//   $password = $_POST['password-register'];
-
-//   $conexion = getConexion();
-
-//   $sql = "SELECT * FROM usuario WHERE nombreUser = '$user'";
-
-//   $resultado = $conexion->query($sql);
-
-//   if (($resultado->num_rows > 0)){
-//     $mensajeRegister = "Este nombre de usuario ya está en uso. Prueba con otro";
-//   }else{
-//     $sql = "SELECT * FROM usuario WHERE email = '$email'";
-//     $resultado = $conexion->query($sql);
-//     if (($resultado->num_rows > 0)){
-//       $mensajeRegister = "Este correo ya está registrado. Prueba a iniciar sesión";
-//     }else{
-//       $sql = "INSERT INTO usuario (nombreUser, email, pssword) VALUES ('$user', '$email', '$password')";
-//       if (mysqli_query($conexion, $sql)) {
-//           $mensajeRegister = "Hemos recibido tu respuesta, contactaremos lo antes posible.";
-//       } else {
-//           $mensajeRegister = "Ha habido un problema al enviar tu respuesta. Intétalo más tarde.";
-//       }
-//     }
-//   }
-// }
-
-// if(isset($_POST['Login'])){
-//     $email = $_POST['email-login'];
-//     $password = $_POST['password-login'];
-
-//     $conexion = getConexion();
-
-//     $sql = "SELECT * FROM usuario WHERE email = '$email' AND pssword = '$password'";
-
-//     $resultado = $conexion->query($sql);
-//     if ($resultado->num_rows > 0) {
-//       while ($fila = $resultado->fetch_assoc()) {
-//         $id_usuario = $fila['id'];
-//         // header("Location: index.php");
-//       }
-//     }else{
-//       $mensaje = "El email o la contraseña no son correctos";
-//     }
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

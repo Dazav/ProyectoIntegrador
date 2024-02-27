@@ -10,16 +10,25 @@ $password = $_POST['password-login'];
 
 $conexion = getConexion();
 
-$sql = "SELECT * FROM usuario WHERE email = '$email' AND pssword = '$password'";
-
+// Consulta el usuario por su email
+$sql = "SELECT id, pssword FROM usuario WHERE email = '$email'";
 $resultado = $conexion->query($sql);
+
 if ($resultado->num_rows > 0) {
-  while ($fila = $resultado->fetch_assoc()) {
-    $id_usuario = $fila['id'];
-    $_SESSION["id"]=$id_usuario;
+  $fila = $resultado->fetch_assoc();
+  $hashed_password = $fila['pssword'];
+  
+  // Verifica si la contraseña proporcionada coincide con el hash almacenado
+  if (password_verify($password, $hashed_password)) {
+    // Si coincide, establece la sesión y redirige
+    $_SESSION["id"] = $fila['id'];
     echo json_encode(['success' => true, 'mensaje' => "Inicio de sesión exitoso.", 'redirect' => 'index.php']);
-    
-  }
-}else{
+  } else {
+    // Si no coincide, muestra un mensaje de error
     echo json_encode(['success' => false, 'mensaje' => "Error en el inicio de sesión."]);
+  }
+} else {
+  // Si el usuario no existe, muestra un mensaje de error
+  echo json_encode(['success' => false, 'mensaje' => "Error en el inicio de sesión."]);
 }
+?>
