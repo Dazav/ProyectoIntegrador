@@ -5,9 +5,13 @@ session_start();
 // 
 
 header('Content-Type: application/json');
-$email = $_POST['email-login'];
-$password = $_POST['password-login'];
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+// $email = $_POST['email-login'];
+// $password = $_POST['password-login'];
 
+$email = 'lokojo@gmail.com ';
+$password = '12345678';
 $conexion = getConexion();
 
 // Consulta el usuario por su email

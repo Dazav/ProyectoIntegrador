@@ -1,8 +1,7 @@
 <?php
 include "../db/conecta.php"; // Incluye el archivo de conexión a la base de datos
 header('Content-Type: application/json');
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+
 $user = $_POST['user-register']; // Obtiene el nombre de usuario desde el formulario
 $email = $_POST['email-register']; // Obtiene el correo electrónico desde el formulario
 $password = $_POST['password-register']; // Obtiene la contraseña desde el formulario
