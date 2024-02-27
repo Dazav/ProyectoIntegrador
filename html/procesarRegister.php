@@ -1,16 +1,14 @@
 <?php
 include "../db/conecta.php"; // Incluye el archivo de conexión a la base de datos
 header('Content-Type: application/json');
-
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 $user = $_POST['user-register']; // Obtiene el nombre de usuario desde el formulario
 $email = $_POST['email-register']; // Obtiene el correo electrónico desde el formulario
 $password = $_POST['password-register']; // Obtiene la contraseña desde el formulario
-ini_set('display_errrors', 0);
-error_reporting(E_ALL);
 
 // Hash de la contraseña
-$hashed_password = password_hash($password, PASSWORD_DEFAULT); // Hashea la contraseña usando el algoritmo por defecto
-echo $hashed_password;
+$password = password_hash($password, PASSWORD_DEFAULT); // Hashea la contraseña usando el algoritmo por defecto
 $conexion = getConexion(); // Obtiene la conexión a la base de datos
 
 // Consulta SQL para verificar si el nombre de usuario ya está en uso
@@ -34,9 +32,9 @@ if ($resultado->num_rows > 0) {
         echo json_encode(['success' => false, 'mensaje' => "Este correo ya está registrado. Prueba a iniciar sesión"]);
     } else {
         // Consulta SQL para insertar el nuevo usuario con contraseña hasheada
-        $sql = "INSERT INTO usuario (nombreUser, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO usuario (nombreUser, email, pssword) VALUES (?, ?, ?)";
         $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("sss", $user, $email, $hashed_password);
+        $stmt->bind_param("sss", $user, $email, $password);
         
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'mensaje' => "Se ha registrado exitosamente. Inicie sesión."]);

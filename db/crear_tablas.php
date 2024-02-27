@@ -6,7 +6,7 @@
             id int auto_increment primary key,
             nombre varchar(20),
             apellidos varchar(50),
-            pssword varchar(20),
+            pssword varchar(100),
             email varchar(50),
             nombreUser varchar(20),
             imagen varchar(50),
