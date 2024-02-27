@@ -129,7 +129,7 @@
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
              $insert1 = "INSERT INTO usuario (nombre, apellidos, pssword, email, nombreUser, imagen,premium) VALUES
-             ('Ismael', 'Moreno', '1234', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png',0),
+             ('Ismael', 'Moreno', '$2y$10$0Jo4dTvk5XjyYNIXWiFt.uO3mpo5qjJfuHVYt6R3VG8Z1ETdDU7F', 'ismaelmormor@gmail.com', 'ismaelmormor', '../img/ismaelmormor.png',0),
              ('Gabriel', 'Rodríguez', '3343', 'gabir@gmail.com', 'gabigol', '../img/gabigol.png',1),
              ('Ibai', 'Llanos', 'llan0s', 'ibaillanos@gmail.com', 'ibaillanos', '../img/ibaillanos.png',1),
              ('Wei', 'Xu', 'we1', 'weixu@gmail.com', 'xuwei', '../img/xuwei.png',1),

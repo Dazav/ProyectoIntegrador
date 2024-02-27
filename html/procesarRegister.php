@@ -5,7 +5,6 @@ header('Content-Type: application/json');
 $user = $_POST['user-register']; // Obtiene el nombre de usuario desde el formulario
 $email = $_POST['email-register']; // Obtiene el correo electrónico desde el formulario
 $password = $_POST['password-register']; // Obtiene la contraseña desde el formulario
-
 // Hash de la contraseña
 $password = password_hash($password, PASSWORD_DEFAULT); // Hashea la contraseña usando el algoritmo por defecto
 $conexion = getConexion(); // Obtiene la conexión a la base de datos
