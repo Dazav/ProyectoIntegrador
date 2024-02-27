@@ -8,11 +8,9 @@ header('Content-Type: application/json');
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-// $email = $_POST['email-login'];
-// $password = $_POST['password-login'];
+$email = $_POST['email-login'];
+$password = $_POST['password-login'];
 
-$email = 'eresnoob@gmail.com';
-$password = '12345678';
 $conexion = getConexion();
 // Consulta el usuario por su email
 $sql = "SELECT * FROM usuario WHERE email = ?";
