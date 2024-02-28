@@ -3,7 +3,7 @@
 function getConexion(){
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "brainhub";
 
     // Crear conexión
@@ -14,7 +14,7 @@ function getConexion(){
 function getConexionsindb(){
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
 
     // Crear conexión
     $conexion = mysqli_connect($servername, $username, $password) or die("Error de conexión");

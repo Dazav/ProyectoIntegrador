@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+body,html{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+.gruposTitulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    padding-top: 70px;
+    font-size: 2rem;
+    background-image: url(../img/bg-recurso.png);
+    background-size: cover;
+    background-position: center;
+    color: #6545A1;
+}
+
+/* main */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../img/bg-grupo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* buscador de temas */
+.buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 20vh;
+}
+.buscar>input{
+    position: relative;
+    height: 1rem;
+    font-size: 1.5rem;
+    padding: 10px;
+    top: 0;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom:3px solid transparent;
+    color: #6545A1;
+    animation: buscador 2s ease-in-out forwards;
+}
+@keyframes buscador {
+    from{
+        opacity: 0;
+        width: 0px;
+    }
+    to{
+        opacity: 1;
+        border-bottom:3px solid #6545A1;
+        width: 800px;
+    }
+}
+.buscar>i{
+    position: relative;
+    color: var(--busca-normal);
+    background: none;
+    font-size: 1.5rem;
+    left: -30px;
+    top: 2px;
+}
+i:hover{
+    color: var(--busca-color-hover);
+    cursor: pointer;
+}
+.buscar i:active{
+    color: var(--busca-color-active);
+}

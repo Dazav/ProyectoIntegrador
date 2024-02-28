@@ -8,6 +8,7 @@ $id=$_SESSION['id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/terapeuta.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,10 +45,6 @@ $id=$_SESSION['id'];
     </nav>
     <!-- main -->
     <main>
-        <div class="titulo">
-            <h1>Brain Hub</h1>
-            <p>organiza hoy tu primera cita con un psicólogo en línea de forma fácil, segura y privada</p>
-        </div>
         <div class="califica">
             <i class='bx bx-menu'></i>
             <div class="buscar">

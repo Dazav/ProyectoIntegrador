@@ -1,6 +1,6 @@
 //animación de hover button
 $(document).ready(function () {
-    $(".btn>button").hover(function () {
+    $("#editar").hover(function () {
             // over
             $(".bg-img>img").addClass("active");
         }, function () {
@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 // animación de editar
 $(document).ready(function () {
-    $(".btn>button").click(function () { 
+    $("#editar").click(function () { 
         $(".editar").css({zIndex:"100"}).animate({
             height: "600px",
             top: "150px",

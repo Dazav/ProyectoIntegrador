@@ -44,71 +44,7 @@ nav a{
     cursor: pointer;
 }
 
-/*  menu de nav */
-.menu{
-    display: inline-flex;
-}
-.menu-mobile {
-    display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #6545A1;
-}
-/* Estilos base que se aplican a todas las vistas */
-.menu-mobile {
-    display: none;
-}
-.menu button,.dropdown {
-    width: 150px;
-    height: 70px;
-    border: 0;
-    background: none;
-    font-family: 'Montserrat';
-    font-size: 1.5rem;
-    font-weight: bolder;
-    color: #6545A1;
-}
-.dropdown{
-    display: inline-grid;
-    text-align: center;
-    align-items: center;
-    position: relative;
-    z-index: 1000;
-}
-.menu>button:hover,.dropdown:hover{
-    filter: drop-shadow(1px 1px 0.5px #6545A1);
-    cursor: pointer;
-    color: #6545A1;
-    box-shadow: inset 0 -5px 0px #6545A1;
-}
-.dropdown:hover .dropdown-menu{
-    height: auto;
-    opacity: 1;
-    top:70px;
-    transition: 0.3s;
-    box-shadow: 1px 1px 2px #B19CD9,-1px 0px 2px;
-    visibility: visible;
-}
-.dropdown-menu{
-    position: absolute;
-    background: white;
-    top: 50px;
-    opacity: 0;
-    height: 0;
-    visibility: hidden;
-}
-.dropdown-menu>button{
-    color: #6545A1;
-    margin: 0;
-    cursor: pointer;
-    font-size: 1rem;
-}
-.dropdown-menu>button:hover{
-    color: #6545A1;
-    border-left: 3px solid #6545A1;
-    filter: drop-shadow(1px 1px 0.5px #6545A1);
-}
+
 /* boton de usuarios */
 .iniciarUser input {
     border-radius: 12px;
@@ -714,66 +650,6 @@ footer>hr{
         font-size: 0;
     }
 }
-/* navbar */
-@media (max-width: 768px) {
-    /* Solo se muestra el botón del menú en móviles */
-    .menu-mobile {
-        display: block;
-    }
-    /* Los elementos del menú están ocultos por defecto en móviles */
-    .menu,
-    .iniciarUser {
-        display: none;
-    }
-
-    /* Estilos para cuando el menú está activo en móviles */
-    .menu.active,
-    .iniciarUser.active {
-        display: block;
-        background-color: white; /* Fondo blanco para el menu desplegable */
-        position: absolute; /* Posicionamiento absoluto para superponerse sobre el contenido */
-        width: 100%; /* El menu ocupará todo el ancho */
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Sombra para destacar el menú */
-        z-index: 1000; 
-        top: 70px; /* para que se muestre debajo de tu barra de navegación */
-    }
-
-    /* Estilos para los botones dentro del menú móvil */
-    .menu button, 
-    .iniciarUser input,
-    .dropdown{
-        display: block;
-        width: 100%; /* Los botones ocuparán todo el ancho del menú desplegable */
-        margin: 0; /* Elimina cualquier margen que puedan tener */
-        box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-    }
-
-    .dropdown{
-        padding-top: 1rem;
-    }
-
-    .dropdown-menu{
-        left: 27%;
-    }
-}
-
-@media (min-width: 769px) {
-    /* Asegúrate de que el menú y los botones de inicio de sesión/comenzar se muestren */
-    .menu,
-    .iniciarUser {
-        display: flex; /* O el valor que sea adecuado para tu diseño en PC */
-        /* Restablece cualquier otro estilo que pueda haber sido modificado por la vista móvil */
-    }
-
-    /* Restablece estilos para los botones que podrían haber sido modificados en la vista móvil */
-    .menu button,
-    .iniciarUser input {
-        display: inline-block; /* O el display que corresponda para tu diseño en PC */
-        width: auto; /* Restablece el ancho */
-        margin: 0 10px; 
-        box-sizing: border-box;
-    }
-}
 
 @media screen and (max-width:500px) {
 
@@ -786,6 +662,7 @@ footer>hr{
     }
 
     .introduccion1>div{
+        margin-top: 70px;
         width: 80%;
         padding: 0;
     }
@@ -795,6 +672,7 @@ footer>hr{
         width: 0;
     }
     .introduccion1 #titulo{
+        
         font-size: 1.5rem;
     }
     .introduccion1 div:first-child ul{
