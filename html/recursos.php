@@ -54,7 +54,7 @@
             <div class="tema1">
               <div>
                 <h3>Ejercicios de exposición gradual</h3>
-                <a href="">
+                <a href="recursosContenido.php?id_recurso=1">
                   ver detalle<i class='bx bx-right-arrow-alt'></i>
                 </a>
               </div>

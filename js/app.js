@@ -1,3 +1,12 @@
+//solver problema de bóton que no puede navegar
+$(document).ready(function () {
+    $("#iniciar").click(function () { 
+        window.location.href="registrar.php";
+    });
+    $("#comenzar").click(function () { 
+        window.location.href="registrar.php?mostrar=registro";
+    });
+});
 // presentar el título como mágina de escribir
 document.addEventListener("DOMContentLoaded", function() {
     // conseguir id de título

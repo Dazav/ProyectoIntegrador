@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/premium.css">
+    <link rel="stylesheet" href="../css/recursosContenido.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,8 +11,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="../js/premium.js"></script>
-    <title>ejercicios de apoyo</title>
+    <script src="../js/recursosContenido.js"></script>
+    <title>Recursos Contenidos</title>
 </head>
 <body>
     <!-- barra navegación -->
@@ -38,63 +38,24 @@
             <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
         </div>
     </nav>
-    
-    <div class="desPlus">
-        <img src="../img/bg-plus.png" alt="">
-        <div class="des">
-            <h1>Brain Hub Plus</h1>
-            <li>Acceso Prioritario a Profesionales Expertos</li><br>
-            <li>Sesiones Ilimitadas</li><br>
-            <li>Seguimiento Continuo</li>
-            <button class="btnDes">
-                <p>Prueba gratis</p>
-            </button>
-        </div>
-    </div>
-    <!-- titulo -->
-    <div class="titulo">
-        <div class="texto">
-            <h1>Brain Hub</h1>
-        </div>
-        <div class="intro"></div>
-        <div class="intro" id="intro1">
-            <p>Te ofrecemos un universo de posibilidades para cuidar tu salud mental.</p>
-        </div>
-        <div class="intro" id="intro2">
-            <p>Por un precio accesible de solo 10 euros, abrimos la puerta a un espacio donde cada recurso está diseñado pensando en ti. </p>
-        </div>
-    </div>
-    <div class="last-intro">
-        <p>Invertir en tu bienestar emocional nunca fue tan sencillo. Brain Hub se adapta a tus necesidades, brindándote opciones accesibles para tu cuidado mental.</p>
-    </div>
-    <!-- tarjeta -->
-    <main id="tarjetas">
-        <div class="tarjeta1 tarjeta">
-            <h1>Servicio Gratis</h1>
-            <div>
-                <li>Recursos de acceso gratuito</li>
-                <li>Servicio de seguimiento</li>
-                <li>Contacto con terapeutas</li>
+    <!-- contenido y artículo -->
+    <!--  -->
+    <div class="descripcionClic">
+        <main>
+            <i class="bx bx-arrow-back"></i>
+            <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
+            <p>12-12-2023 Wei Xu</p>
+            <div class='bg-contenido'>
+                <img src="../img/recursos-contenido1.png" class="img_des">
             </div>
-
-        </div>
-        <div class="tarjeta2 tarjeta">
-            <h1>Servicio Premium</h1>
-            <div>
-                <li>Toda la biblioteca de recursos disponible</li>
-                <li>Todas las características desbloqueadas</li>
-                <li>Descuento en sesiones con terapeutas</li>
-            </div>
-            <button onclick="window.location.href='pago.php'">10€/mes</button>
-        </div>
-        <i class='bx bx-up-arrow-circle' ></i>
-    </main>
-
-    
-    <div class="contacto">
+            <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
+        </main>
+    </div>
+        <!-- contacto -->
+        <div class="contacto">
         <h1>¿TIENES DUDAS?</h1>
         <p>Nuestro equipo de soporte está disponible 24/7</p>
-        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.html'" />
+        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.php'" />
     </div>
     <!-- footer -->
     <footer>
@@ -123,7 +84,7 @@
                     <li>Grupos de Apoyo</li>
                     <li>Foros de Comunidad</li>
                     <li>
-                    <a href="">
+                        <a href="">
                             <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
                         </a>
                         <a href="">
