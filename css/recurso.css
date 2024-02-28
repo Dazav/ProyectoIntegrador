@@ -18,7 +18,12 @@ body,html{
     box-sizing: border-box;
     font-family: 'Montserrat';
 }
-
+a{
+    text-decoration: none;
+}
+a:active{
+    color: #6545A1;
+}
 /* titulo */
 .forosTitulo{
     display: flex;
