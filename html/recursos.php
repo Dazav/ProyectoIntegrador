@@ -55,7 +55,7 @@
             <div class="tema1">
               <div>
                 <h3>Ejercicios de exposición gradual</h3>
-                <a href="">
+                <a href="recursosContenido.php?id_recurso=1">
                   ver detalle<i class='bx bx-right-arrow-alt'></i>
                 </a>
               </div>
@@ -97,27 +97,33 @@
       <hr>
       <section>
         <div class="tema-relajacion">
-          <div class="tema">
-            <img src="../img/inspirar.png" alt="">
-            <div>
-              <h3>Inspirar</h3>
-              <i class='bx bx-right-arrow-circle'></i>
+          <a href="relajacion.php?id_relaja=1">
+            <div class="tema">
+              <img src="../img/inspirar.png" alt="">
+              <div>
+                <h3>Inspirar</h3>
+                <i class='bx bx-right-arrow-circle'></i>
+              </div>
             </div>
-          </div>
-          <div class="tema">
-            <img src="../img/expirar.png" alt="">
-            <div>
-              <h3>Expirar</h3>
-              <i class='bx bx-right-arrow-circle'></i>
+          </a>
+          <a href="relajacion.php?id_relaja=2">
+            <div class="tema">
+              <img src="../img/expirar.png" alt="">
+              <div>
+                <h3>Expirar</h3>
+                <i class='bx bx-right-arrow-circle'></i>
+              </div>
             </div>
-          </div>
-          <div class="tema">
-            <img src="../img/silencio.png" alt="">
-            <div>
-              <h3>Meditamos en silencio</h3>
-              <i class='bx bx-right-arrow-circle'></i>
+          </a>
+          <a href="relajacion.php?id_relaja=3">
+            <div class="tema">
+              <img src="../img/silencio.png" alt="">
+              <div>
+                <h3>Meditamos en silencio</h3>
+                <i class='bx bx-right-arrow-circle'></i>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
   </main>

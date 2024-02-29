@@ -8,11 +8,11 @@
 }
 /* main */
 main{
-    height: 93vh;
+    height: 100vh;
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
+    padding-top: 70px;
     align-items: center;
 }
 main>h1{

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/premium.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/pago.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="../js/premium.js"></script>
-    <title>ejercicios de apoyo</title>
+    <script src="../js/pago.js"></script>
+    <title>Pago</title>
 </head>
 <body>
     <!-- barra navegación -->
@@ -39,63 +39,47 @@
             <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
         </div>
     </nav>
-    
-    <div class="desPlus">
-        <img src="../img/bg-plus.png" alt="">
-        <div class="des">
-            <h1>Brain Hub Plus</h1>
-            <li>Acceso Prioritario a Profesionales Expertos</li><br>
-            <li>Sesiones Ilimitadas</li><br>
-            <li>Seguimiento Continuo</li>
-            <button class="btnDes">
-                <p>Prueba gratis</p>
-            </button>
-        </div>
-    </div>
-    <!-- titulo -->
-    <div class="titulo">
-        <div class="texto">
-            <h1>Brain Hub</h1>
-        </div>
-        <div class="intro"></div>
-        <div class="intro" id="intro1">
-            <p>Te ofrecemos un universo de posibilidades para cuidar tu salud mental.</p>
-        </div>
-        <div class="intro" id="intro2">
-            <p>Por un precio accesible de solo 10 euros, abrimos la puerta a un espacio donde cada recurso está diseñado pensando en ti. </p>
-        </div>
-    </div>
-    <div class="last-intro">
-        <p>Invertir en tu bienestar emocional nunca fue tan sencillo. Brain Hub se adapta a tus necesidades, brindándote opciones accesibles para tu cuidado mental.</p>
-    </div>
-    <!-- tarjeta -->
-    <main id="tarjetas">
-        <div class="tarjeta1 tarjeta">
-            <h1>Servicio Gratis</h1>
-            <div>
-                <li>Recursos de acceso gratuito</li>
-                <li>Servicio de seguimiento</li>
-                <li>Contacto con terapeutas</li>
+    <!-- parte de pago -->
+    <form class="pago">
+        <!-- detalle -->
+        <section>
+            <div class="detalle">
+                <legend>Detalles del Pago</legend>
+                <fieldset>
+                    <label >Nombre<input type="text"></label>
+                    <label >Apellido<input type="text"></label>
+                    <label class="tarjeta">Tarjeta<input type="text" name="" id=""></label>
+                    <label >País<input type="text"></label>
+                </fieldset>
             </div>
-
-        </div>
-        <div class="tarjeta2 tarjeta">
-            <h1>Servicio Premium</h1>
+        </section>
+        <!-- pedido -->
+        <div class="pedido">
+            <h1>Tu Pedido</h1>
             <div>
-                <li>Toda la biblioteca de recursos disponible</li>
-                <li>Todas las características desbloqueadas</li>
-                <li>Descuento en sesiones con terapeutas</li>
+                <p>Nombre y Apellidos</p>
+                <p>Ana</p>
             </div>
-            <button onclick="window.location.href='pago.php'">10€/mes</button>
+            <div>
+                <input id="elegir" type="checkbox" name="" id="">
+                <p>Premium</p>
+                <p id="cantidad">0</p>
+                <p>10€</p>
+            </div>
+            <div class="pago-last">
+                <input type="submit" value="Pagar">
+                <div>
+                    <p>Totla: 10€</p>
+                    <input type="checkbox" name="" id="" required>Aceptas Terminos y Condiciones
+                </div>
+            </div>
         </div>
-        <i class='bx bx-up-arrow-circle' ></i>
-    </main>
-
-    
+    </form>
+    <!-- contacto -->
     <div class="contacto">
         <h1>¿TIENES DUDAS?</h1>
         <p>Nuestro equipo de soporte está disponible 24/7</p>
-        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.html'" />
+        <input type="button" value="CONTACTO" onclick="window.location.href='contacto.php'" />
     </div>
     <!-- footer -->
     <footer>
@@ -124,7 +108,7 @@
                     <li>Grupos de Apoyo</li>
                     <li>Foros de Comunidad</li>
                     <li>
-                    <a href="">
+                        <a href="">
                             <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
                         </a>
                         <a href="">
