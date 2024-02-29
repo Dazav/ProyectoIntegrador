@@ -14,13 +14,13 @@ body,html{
     height: 350px;
     padding-top: 70px;
     font-size: 2rem;
-    background-image: url(../img/group2.jpg);
+    background-image: url(../img/grupos3.jpg);
     background-size: cover;
     background-position: center;
     color: #6545A1;
 }
 /* Animacion titulos */
-b{
+.gruposTitulo b{
     opacity: 0;
     position: relative;
     left: 2rem;
@@ -44,7 +44,7 @@ main{
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-image: url("../img/bg-grupo.jpg");
+    background: var(--Morado, #B19CD9);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -96,4 +96,62 @@ i:hover{
 }
 .buscar i:active{
     color: var(--busca-color-active);
+}
+
+/* aca estan los grupos */
+.contenedor-grupos {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #cfb9f8 0%, rgba(255, 255, 255, 0.00) 100%);
+    padding-left: 130px;
+    padding-right: 200px;
+    gap: 30px;
+}
+
+/* el div de cada grupo */
+.grupo-de-apoyo {
+    background: #FFF;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    width: 120%;
+}
+
+.grupo-de-apoyo img{
+    border-radius: 190px;
+}
+
+.grupo-info p {
+    margin: 5px 0;
+}
+.grupo-accion{
+    flex:1;
+    width: auto;
+}
+.grupo-imagen{
+    width: auto;
+    flex:1;
+}
+
+.grupo-info{
+    width: auto;
+    flex:2;
+}
+
+.grupo-accion button {
+    padding: 10px 20px;
+    margin-top: 10vh;
+    background-color: #ffffff;
+    color: #B19CD9;
+    border: 3px solid ;
+    border-radius: 20px;
+    cursor: pointer;
+    
+}
+
+.grupo-accion button:hover {
+    background-color: #B19CD9;
+    color: white;
 }

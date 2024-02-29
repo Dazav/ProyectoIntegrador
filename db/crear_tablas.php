@@ -123,6 +123,15 @@
 
         mysqli_query($conexion, $tabla_gruposApoyo) or die("Error en tabla usuario");
 
+        $tabla_grupoInscripcion = "CREATE TABLE IF NOT EXISTS inscripcion_grupo (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            id_usuario INT,
+            id_grupo INT,
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id),
+            FOREIGN KEY (id_grupo) REFERENCES GruposApoyo(id)
+        );";
+
+        mysqli_query($conexion,  $tabla_grupoInscripcion) or die("Error en tabla inscripcion");
         // INSERTAR DATOS
 
          $select = "SELECT * FROM usuario";
@@ -258,6 +267,8 @@
              ('Xavi Hernández', 'xavihernandez@gmail.com', 'Ansiedad general', 'Soy entrenador de fútbol y últimamente vamos muy flojos. Ya no sienten motivación y eso me afecta y me da ansiedad. ¿Podrían ponerme con vuestro mejor especialista?')";
              mysqli_query($conexion, $insert1) or die("Error insert contacto");
          }
+
+         
 
 
     }   
