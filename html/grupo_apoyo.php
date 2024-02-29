@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="../js/grupo.js"></script>
     <title>Grupos de apoyo</title>
 </head>
 <body>
@@ -62,13 +62,13 @@
    <!-- titulo -->
     <div class="gruposTitulo">
         <h1>
-            Grupos de apoyo
+           <b>Grupos</b> <b>de</b> <b>apoyo</b>
         </h1>
     </div>
             <!-- main  -->
     <main>
     <div class="buscar">
-          <input type="text" id="buscarInput" placeholder="Buscar un tema existente"/>
+          <input type="text" id="buscarInput" placeholder="Buscar un grupo"/>
           <i class='bx bx-search-alt' ></i>
       </div>
     </main>
