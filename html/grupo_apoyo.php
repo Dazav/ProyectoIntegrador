@@ -1,8 +1,11 @@
 <?php
-// Incluye tu archivo de conexión a la base de datos
+// Incluye el archivo de conexión a la base de datos
 include("../db/conecta.php");
 // Obtener la conexión a la base de datos
 $conexion = getConexion();
+session_start();
+//obtener el id de usuario de login
+$id=$_SESSION["id"];
 
 // Verificar si la conexión fue exitosa
 if ($conexion) {
@@ -130,8 +133,10 @@ if ($conexion) {
                             </p>
                         </div>
                         <div class="grupo-accion">
-                            <button onclick="location.href='inscripcion.php?id=<?php echo $grupo['id']; ?>'">Apuntarse
-                                ahora</button>
+                        <form action="inscribir_grupo.php" method="post">
+                        <input type="hidden" name="id_grupo" value="<?php echo $grupo['id']; ?>">
+                          <button type="submit">Apuntarse ahora</button>
+                         </form>
                         </div>
                     </div>
                 <?php endforeach; ?>

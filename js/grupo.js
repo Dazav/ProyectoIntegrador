@@ -78,3 +78,25 @@ $(document).ready(function () {
         }
     });
 });
+
+
+$(document).ready(function() {
+    $('.formulario-inscripcion button').click(function(e) {
+        var form = $(this).closest('form'); // Encuentra el formulario más cercano
+        $.ajax({
+            url: 'procesarInscripcion.php', // La URL del script PHP que procesa la inscripción
+            type: 'POST', // Método HTTP
+            data: form.serialize(), // Serializa los datos del formulario
+            success: function(response) {
+                // Aquí manejas la respuesta exitosa
+                alert(response.mensaje); // Muestra un mensaje con la respuesta
+                // Puedes hacer más cosas aquí, como actualizar partes de tu página según sea necesario.
+            },
+            error: function(xhr, status, error) {
+                // Manejo de error
+                alert("Error al inscribirse.");
+            }
+        });
+    });
+});
+

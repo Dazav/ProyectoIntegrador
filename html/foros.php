@@ -102,7 +102,7 @@
                       ";
                   }
               ?>
-              <!-- propociona un enlace a formulario -->
+              
               <a class='tema' id="addtema">
                 <div class='descripcion'>
                     <h2 class='temaTitulo'>Agrega tu título</h2>
