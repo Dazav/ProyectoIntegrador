@@ -22,7 +22,7 @@ $stmt->bind_param("issi",$id,$titulo,$desc,$numStar);
 // verificar si está insertado
 if ($stmt->execute()) {
     $response= array('status' =>'succes', 'messaje' =>'Datos insertado con éxitos');
-    echo json_encode($response);
+    echo json_encode($response['messaje']);
 } else {
     $response= array('status' =>'error', 'messaje' =>'Error '.mysqli_error($conexion));
     echo json_encode($response);

@@ -160,6 +160,13 @@ fieldset>span{
     border-radius: 5px;
     cursor: pointer;
 }
+.enviar:hover{box-shadow: 0 0 5px #B19CD9;}
+.enviar:active{
+    background: none;
+    color: #6541A6;
+    border: 2px solid #6541A6;
+    box-shadow: none;
+}
 /* opinion de usuarios */
 .opinion{
     display: flex;

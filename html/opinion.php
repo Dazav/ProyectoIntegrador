@@ -215,20 +215,13 @@
 <script>
     $(".enviar").click(function (e) {
         e.preventDefault(); 
-        var tituloValue = $("#titulo").val().toString();
-        var descValue = $("#desc").val().toString();
-        var numStarValue = $("#numStar").text();
-
-        console.log("Titulo:", tituloValue);
-        console.log("Desc:", descValue);
-        console.log("NumStar:", numStarValue);
         $.ajax({
         type: "POST",
         url: "procesarOpinion.php",
         data: {
-            titulo: tituloValue,
-            desc: descValue,
-            numStar: numStarValue
+            titulo: $("#titulo").val(),
+            desc: $("#desc").val(),
+            numStar: $("#numStar").text()
         },
         dataType: "JSON",
         success: function (response) {
