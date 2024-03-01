@@ -155,6 +155,7 @@ fieldset>span{
     width: 100px;
     height: 30px;
     border-radius: 5px;
+    cursor: pointer;
 }
 /* opinion de usuarios */
 .opinion{

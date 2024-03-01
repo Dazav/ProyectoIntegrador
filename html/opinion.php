@@ -109,8 +109,8 @@
                                 ";
                             }
                             ?>
-                            <input type="text" placeholder="Apunte título">
-                            <input type="text" placeholder="Apunte tu opinion">
+                            <input type="text" placeholder="Apunte título" id="titulo">
+                            <input type="text" placeholder="Apunte tu opinion" id="desc">
                         </div>
                         <div class="estrellas">
                             <input type="radio" name="" id="">
@@ -119,7 +119,7 @@
                             <input type="radio" name="" id="">
                             <input type="radio" name="" id="">
                         </div>
-                        <span>0</span>
+                        <span id="numStar">0</span>
                         <i class='bx bx-revision'></i>
                     </fieldset>
                     <input type="submit" class="enviar">
@@ -212,14 +212,24 @@
     </main>
 </body>
 <script>
-    $.ajax({
-        type: "GET",
+    $(".enviar").click(function (e) {
+        e.preventDefault(); 
+        $.ajax({
+        type: "POST",
         url: "procesarOpinion.php",
-        data: "",
-        dataType: "dataType",
+        data: {
+            titulo: $("#titulo").val().toString(),
+            desc:$("#desc").val().toString(),
+            numStar: $("#numStar").text()
+        },
+        dataType: "JSON",
         success: function (response) {
-            
+            alert(response);
+        },
+        error: function (xhr, status, error){
+            alert(xhr.responseText);
         }
+    }); 
     });
 </script>
 </html>
