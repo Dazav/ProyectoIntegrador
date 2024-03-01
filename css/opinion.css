@@ -54,7 +54,10 @@ header p,header h1,header h3{
 }
 /* main 1º */
 main{
-    background: #cecece;
+    background-image: url("../img/bg-op.png");
+    background-size: cover;
+    background-attachment: fixed;
+
     height: auto;
     display: flex;
     justify-content: center;
@@ -162,6 +165,11 @@ fieldset>span{
     display: flex;
     align-items: start;
     gap: 30px;
+    opacity: 0;
+    animation: opIn 2s ease-in-out forwards;
+}
+@keyframes opIn {
+    100%{opacity: 1;}
 }
 /* main 2º */
 .detalle{

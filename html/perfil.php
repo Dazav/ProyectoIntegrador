@@ -20,7 +20,7 @@ if (isset($_POST["modificar"])) {
     $email=mysqli_escape_string($conexion,$email);
     //actualizar usuario
     $update="UPDATE usuario 
-    SET nombre='$nombre', email='$email',apellidos='$apellidos',pssword=$pwd,imagen='$img'
+    SET nombre='$nombre', email='$email',apellidos='$apellidos',pssword='$pwd',imagen='$img'
     WHERE id=$id";
     mysqli_query($conexion,$update);
 }
@@ -142,11 +142,11 @@ if (isset($_POST["modifiCard"])) {
                     <input type='text' name='apellidos' value='{$user['apellidos']}'>
                     <label for='email'>correo</label>
                     <input type='email' name='email' value='{$user['email']}'>
-                    <label for='new password'>contraseña nueva</label>
-                    <input type='password' name='pwd' id=''>
                     ";
                 }
             ?>
+            <label for="new password">contraseña nueva</label>
+            <input type="password" name="pwd" id="">
             <input type="submit" value="Guardar" name="modificar">
         </form>
         <!-- cambio de met'odo de pago -->

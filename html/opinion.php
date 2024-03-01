@@ -210,17 +210,70 @@
             </div>
         </section>
     </main>
+    <!-- footer -->
+    <footer>
+        <div class="elementos">
+            <div>
+                <img src="../img/logo.png" alt="">
+                <h2>Brain Hub</h2>
+            </div>
+            <div>
+                <h2>Recursos</h2>
+                <ul>
+                    <li>Recursos de Ansiedad</li>
+                    <li>Técnicas Relajación</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Apoyo</h2>
+                <ul>
+                    <li>Herramientas</li>
+                    <li>Seguimiento y Progreso</li>
+                </ul>
+            </div>
+            <div class="social">
+                <h2>Social</h2>
+                <ul>
+                    <li>Grupos de Apoyo</li>
+                    <li>Foros de Comunidad</li>
+                    <li>
+                        <a href="">
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="avisos">
+            <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
+            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+        </div>
+    </footer>
 </body>
 <script>
     $(".enviar").click(function (e) {
         e.preventDefault(); 
+        var tituloValue = $("#titulo").val().toString();
+        var descValue = $("#desc").val().toString();
+        var numStarValue = $("#numStar").text();
+
+        console.log("Titulo:", tituloValue);
+        console.log("Desc:", descValue);
+        console.log("NumStar:", numStarValue);
         $.ajax({
         type: "POST",
         url: "procesarOpinion.php",
         data: {
-            titulo: $("#titulo").val().toString(),
-            desc:$("#desc").val().toString(),
-            numStar: $("#numStar").text()
+            titulo: tituloValue,
+            desc: descValue,
+            numStar: numStarValue
         },
         dataType: "JSON",
         success: function (response) {

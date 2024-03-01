@@ -28,7 +28,7 @@ $(document).ready(function () {
         // estrella de cada opinion
          sumaStar+=estrella;
          //calcula promedio
-        var promedio=sumaStar/contar;
+        var promedio=(sumaStar/contar).toFixed(2);//queda 2 decimales
         // inserta promedio a la que necesita
         $(".promedio-star").text(promedio+" ");
         for (let i = 0; i < promedio; i++) {
