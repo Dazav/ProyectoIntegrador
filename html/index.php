@@ -169,7 +169,7 @@ en el mercado</pre>
                         <div class="comentario verMas">
                             <div>
                                 <h4>Ve más comentarios de cuentas</h4>
-                                <h4><a href="">Ver Más</a></h4>
+                                <h4><a href="opinion.php">Ver Más</a></h4>
                             </div>
                         </div>
                     </div>

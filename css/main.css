@@ -191,7 +191,13 @@ nav div input:last-child:active{
     border-left: 3px solid #6545A1;
     filter: drop-shadow(1px 1px 0.5px #6545A1);
 }
-
+/* icon de inicar sesion */
+.usr-circulo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #6545A1;
+}
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
     /* Solo se muestra el botón del menú en móviles */
