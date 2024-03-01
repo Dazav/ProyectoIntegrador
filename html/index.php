@@ -48,16 +48,18 @@
         
         <?php
             if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
+                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id AND imagen !=''";
                 $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {
+                if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
                     while ($user=$resulta->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
                     }
                 }else {
-                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+                    echo "<a href='perfil.php'>
+                    <img src='../img/defecto.png' class='usr-circulo'>
+                    </a>";
                 }
             }else{
                 echo "

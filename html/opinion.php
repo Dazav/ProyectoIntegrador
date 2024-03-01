@@ -21,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../js/opinion.js"></script>
+    <script src="../js/main.js"></script>
     <title>Opiniones</title>
 </head>
 <body>
@@ -145,52 +146,6 @@
                         ";
                     }
                 ?>
-                <!-- <div class="opinion">
-                    <img src="../img/autor2.png" alt="">
-                    <div>
-                        <p style="color: #B19CD9;">Nombre</p>
-                        <h1>El mejor servicio</h1>
-                        <p>Me encantó el servicio de todos los terapeutas.</p>
-                        <div class="star-cada"></div>
-                        <input type="hidden" name="" value="5" >
-                    </div>
-                </div>
-                <div class="opinion">
-                    <img src="../img/autor2.png" alt="">
-                    <div>
-                        <p style="color: #B19CD9;">Nombre</p>
-                        <h1>Se lo regalé a mi primito</h1>
-                        <p>Me encanta que se puedan regalar sesiones. Ayudó mucho a mi primo de 6 años con mutismo.</p>
-                        <div class="star-cada">
-                            
-                        </div>
-                        <input type="hidden" name="" value="4" >
-                    </div>
-                </div>
-                <div class="opinion">
-                    <img src="../img/autor2.png" alt="">
-                    <div>
-                        <p style="color: #B19CD9;">Nombre</p>
-                        <h1>El mejor servicio</h1>
-                        <p>Me encantó el servicio de todos los terapeutas.</p>
-                        <div class="star-cada">
-                            
-                        </div>
-                        <input type="hidden" name="" value="3" >
-                    </div>
-                </div>
-                <div class="opinion">
-                    <img src="../img/autor2.png" alt="">
-                    <div>
-                        <p style="color: #B19CD9;">Nombre</p>
-                        <h1>Se lo regalé a mi primito</h1>
-                        <p>Me encanta que se puedan regalar sesiones. Ayudó mucho a mi primo de 6 años con mutismo.</p>
-                        <div class="star-cada">
-                            
-                        </div>
-                        <input type="hidden" name="" value="4" >
-                    </div>
-                </div> -->
             </section>
         </aside>
         <section class="sidebar">

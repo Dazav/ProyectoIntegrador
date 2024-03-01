@@ -60,8 +60,9 @@ main>h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
-.btn>button{
+#editar,#logout{
     border: 3px solid #6545A1;
     width: 200px;
     height: 50px;
@@ -72,7 +73,7 @@ main>h1{
     background:none;
     cursor: pointer;
 }
-.btn>button:hover{filter: drop-shadow(1px 1px 1px #6545A1);}
+#editar:hover,#logout:hover{filter: drop-shadow(1px 1px 1px #6545A1);}
 /* informaci'on de usuario */
 .informacion>div:last-child{
     flex-grow: 3;

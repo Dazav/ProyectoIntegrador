@@ -1,12 +1,4 @@
-//solver problema de bóton que no puede navegar
-$(document).ready(function () {
-    $("#iniciar").click(function () { 
-        window.location.href="registrar.php";
-    });
-    $("#comenzar").click(function () { 
-        window.location.href="registrar.php?mostrar=registro";
-    });
-});
+
 // contar las opiniones y calcular promedio de cantidad estrellas
 $(document).ready(function () {
     // Contar las opiniones

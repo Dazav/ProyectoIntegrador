@@ -64,8 +64,8 @@
             }else{
                 echo "
                 <div class='iniciarUser'>
-                    <input type='button' value='Iniciar Sesión' onclick='window.location.href='registrar.php'' />
-                    <input type='button' value='Comenzar' onclick='window.location.href='registrar.php?mostrar=registro'' />
+                    <input type='button' value='Iniciar Sesión' />
+                    <input type='button' value='Comenzar' />
                 </div>
                 ";
             }

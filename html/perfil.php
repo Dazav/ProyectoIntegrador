@@ -1,7 +1,10 @@
 <?php
 include "../db/crear_tablas.php";
 session_start();
-$id=$_SESSION["id"];
+if (isset($_SESSION["id"])) {
+    # code...
+    $id=$_SESSION["id"];
+}
 if (isset($_POST["modificar"])) {
     //obtener imagen de perfil que modificar
     $dir_subido="../img/";
@@ -87,16 +90,20 @@ if (isset($_POST["modifiCard"])) {
             <div>
                 <div class="bg-img">
                     <?php
-                    $select="SELECT * FROM usuario WHERE id=$id";
-                    $result=mysqli_query($conexion,$select,);
-                    while ($user=$result->fetch_assoc()) {
-                        echo "<img src='{$user['imagen']}'>";
+                    $select="SELECT * FROM usuario WHERE id=$id AND imagen != '' ";
+                    $result=mysqli_query($conexion,$select);
+                    if ($result->num_rows>0) {
+                        while ($user=$result->fetch_assoc()) {
+                            echo "<img src='{$user['imagen']}'>";
+                        }
+                    }else {
+                        echo "<img src='../img/defecto.png'>";
                     }
                     ?>
                 </div>
                 <div class="btn">
                     <button id="editar">Editar Perfil</button>
-                    <a href="logout.php"><button>Cerrar Sesión</button></a>
+                    <button id="logout">Cerrar Sesión</button>
                 </div>
 
             </div>
@@ -118,8 +125,6 @@ if (isset($_POST["modifiCard"])) {
                         ";
                     }
                 ?>
-                
-                
                 <button onclick="window.location.href='premium.php'">Hazte premium</button>
             </div>
         </div>
@@ -136,16 +141,16 @@ if (isset($_POST["modifiCard"])) {
                 while ($user=$result->fetch_assoc()) {
                     # code...
                     echo "
-                    <label for='nombre'>nombre</label>
+                    <label>nombre</label>
                     <input type='text' name='nombre' value='{$user['nombre']}'>
-                    <label for='apellidos'>apellidos</label>
+                    <label>apellidos</label>
                     <input type='text' name='apellidos' value='{$user['apellidos']}'>
-                    <label for='email'>correo</label>
+                    <label>correo</label>
                     <input type='email' name='email' value='{$user['email']}'>
                     ";
                 }
             ?>
-            <label for="new password">contraseña nueva</label>
+            <label>contraseña nueva</label>
             <input type="password" name="pwd" id="">
             <input type="submit" value="Guardar" name="modificar">
         </form>
