@@ -1,11 +1,11 @@
 <?php
-    include "../db/crear_tablas.php";
+  include "../db/conecta.php";
+  $conexion = getConexion();
     session_start();
     if (isset($_SESSION["id"])) {
         # code...
         $id=$_SESSION["id"];
     }
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">

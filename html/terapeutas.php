@@ -1,6 +1,11 @@
 <?php
-include '../db/crear_tablas.php';
-$id=$_SESSION['id'];
+  include "../db/conecta.php";
+  $conexion = getConexion();
+    session_start();
+    if (isset($_SESSION["id"])) {
+        # code...
+        $id=$_SESSION["id"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +43,28 @@ $id=$_SESSION['id'];
             <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-        <div class="iniciarUser">
-            <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
-            <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
-        </div>
+        <?php
+            if(isset($_SESSION["id"])){
+                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
+                $resulta=mysqli_query($conexion,$select);
+                if ($resulta->num_rows>0) {
+                    while ($user=$resulta->fetch_assoc()) {
+                        echo "<a href='perfil.php'>
+                              <img src='{$user['img']}' class='usr-circulo'>
+                            </a>";
+                    }
+                }else {
+                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+                }
+            }else{
+                echo "
+                <div class='iniciarUser'>
+                    <input type='button' value='Iniciar Sesión' id='iniciar' />
+                    <input type='button' value='Comenzar' id='comenzar' />
+                </div>
+                ";
+            }
+        ?>
     </nav>
     <!-- main -->
     <main>
@@ -277,15 +300,15 @@ $id=$_SESSION['id'];
                             <div>
                                 <?php
                                 // conseguir la fecha de cita
-                                $select="SELECT c.fecha_disponible AS fecha
-                                FROM cita c
-                                INNER JOIN terapeuta tp ON c.id_terapeuta = tp.id
-                                INNER JOIN usuario us ON c.id_usuario=us.id
-                                WHERE us.id=$id";
-                                $resulta=mysqli_query($conexion,$select);
-                                while ($cita=$resulta->fetch_assoc()) {
-                                    echo"<input type='hidden' value='{$cita['fecha']}'>";
-                                }
+                                // $select="SELECT c.fecha_disponible AS fecha
+                                // FROM cita c
+                                // INNER JOIN terapeuta tp ON c.id_terapeuta = tp.id 
+                                // INNER JOIN usuario us ON c.id_usuario=us.id 
+                                // WHERE us.id=$id";
+                                // $resulta=mysqli_query($conexion,$select);
+                                // while ($cita=$resulta->fetch_assoc()) {
+                                //     echo"<input type='hidden' value='{$cita['fecha']}'>";
+                                // }
                                 ?>
                                 <table>
                                     <tr>
