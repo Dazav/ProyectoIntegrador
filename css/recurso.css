@@ -328,25 +328,60 @@ footer>hr{
     font-family: "Montserrat";
 }
 
-/* responsive */
-@media screen and (max-width: 1700px){
-    nav{
-        height: 50px;
-        padding: 10px 0;
+/* Estilos base (ya existentes en tu CSS) */
+@media (max-width: 767px) {
+    .tema-ansiedad {
+        grid-template-columns: repeat(2, 1fr);
     }
-    nav a,li{
-        font-size: 1rem;
+    
+    .tema-ansiedad>div {
+        /* Se pueden ajustar padding, margin, etc., aquí si es necesario */
     }
-    .menu ul ul{
-        right: -120px;
-        top: 1.5rem;
+    
+    .tema1, .tema2, .tema3, .tema4 {
+        grid-column: span 2; /* Hace que cada tema ocupe el ancho completo */
     }
-    .menu ul li:hover>ul{
-        opacity: 1;
-        top: 2rem;
+    
+    /* Otros estilos responsivos aquí */
+}
+
+/* Mejoras específicas para la segunda parte y ajustes generales */
+@media (max-width: 767px) {
+    main {
+        padding: 20px; /* Reduce el padding en dispositivos pequeños */
     }
-    nav div.iniciarUser input{
-        font-size: 1rem;
-        padding: 5px;
+    
+    .tema-relajacion {
+        display: grid;
+        grid-template-columns: 1fr; /* Acomoda los temas en una sola columna */
+        gap: 20px;
+    }
+    
+    .tema {
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        width: 100%; /* Asegura que el tema use todo el ancho disponible */
+    }
+    
+    .tema>img {
+        height: 200px; /* Ajusta la altura de las imágenes para mantener la proporción */
+    }
+    
+    .tema>div h3 {
+        font-size: 24px; /* Reduce el tamaño del texto para una mejor lectura */
+    }
+    
+    /* Ajusta el tamaño de los íconos si es necesario */
+    .bx {
+        font-size: 20px; /* Ajusta según necesidad */
+    }
+    
+    /* Reducción de márgenes y paddings en general para optimizar el espacio */
+    section, .tema-ansiedad>div div, .tema>div {
+        padding: 10px;
+    }
+    
+    /* Ajustar el tamaño de fuente de los títulos y textos para mejorar la legibilidad */
+    h2, h3 {
+        font-size: 20px; /* Ajustar según sea necesario */
     }
 }

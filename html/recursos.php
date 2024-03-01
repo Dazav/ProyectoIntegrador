@@ -22,15 +22,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../js/recurso.js"></script>
+    <script src="../js/main.js"></script>
+    
     <title>Recurso</title>
 </head>
 <body>
     <!-- barra navegación -->
     <nav>
         <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.php">Brain Hub</a>
+                <!-- Botón de menú para móviles -->
+                <button class="menu-mobile">☰</button>
+                    <img src="../img/logo.png" alt="">
+                <a href="index.php">Brain Hub</a>
         </div>
+
         <div class="menu">
             <button onclick="window.location.href='recursos.php'">Recursos</button>
             <div class="dropdown">

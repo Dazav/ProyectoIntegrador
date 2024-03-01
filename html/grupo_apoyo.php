@@ -104,45 +104,48 @@ if ($conexion) {
             <input type="text" id="buscarInput" placeholder="Buscar un grupo" />
             <i class='bx bx-search-alt'></i>
         </div>
-    <!-- main  -->
-    <main>
-        <div class="contenedor-grupos">
-            <br>
-            <div class="contenedor-grupos">
-                <?php foreach ($grupos as $grupo): ?>
-                    <div class="grupo-de-apoyo">
-                        <div class="grupo-imagen">
-                            <!-- Muestra la imagen del organizador usando la ruta de la base de datos -->
-                            <img src="<?php echo htmlspecialchars($grupo['imagen_organizador']); ?>" alt="Organizador">
-                            <div class="grupo-idioma">
-                                <?php echo htmlspecialchars($grupo['idioma']); ?>
-                            </div>
-                        </div>
-                        <div class="grupo-info">
-                            <p class="grupo-organizador">Organizado por:
-                                <?php echo htmlspecialchars($grupo['organizador']); ?>
-                            </p>
-                            <p class="grupo-tema">Tema:
-                                <?php echo htmlspecialchars($grupo['tema']); ?>
-                            </p>
-                            <p class="grupo-fecha">Fecha:
-                                <?php echo htmlspecialchars($grupo['fecha']); ?>
-                            </p>
-                            <p class="grupo-participantes">Participantes:
-                                <?php echo htmlspecialchars($grupo['participantes']); ?>
-                            </p>
-                        </div>
-                        <div class="grupo-accion">
-                        <form action="inscribir_grupo.php" method="post">
-                        <input type="hidden" name="id_grupo" value="<?php echo $grupo['id']; ?>">
-                          <button type="submit">Apuntarse ahora</button>
-                         </form>
+        <main>
+    <div class="contenedor-grupos">
+        <div class="grupos-wrapper">
+            <?php foreach ($grupos as $grupo): ?>
+                <div class="grupo-de-apoyo">
+                    <div class="grupo-imagen">
+                        <!-- Muestra la imagen del organizador usando la ruta de la base de datos -->
+                        <img src="<?php echo htmlspecialchars($grupo['imagen_organizador']); ?>" alt="Organizador">
+                        <div class="grupo-idioma">
+                            <?php echo htmlspecialchars($grupo['idioma']); ?>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                    <div class="grupo-info">
+                        <p class="grupo-organizador"><b>Organizado por:</b>
+                            <?php echo htmlspecialchars($grupo['organizador']); ?>
+                        </p>
+                        <p class="grupo-tema">Tema:
+                            <?php echo htmlspecialchars($grupo['tema']); ?>
+                        </p>
+                        <p class="grupo-fecha">Fecha:
+                            <?php echo htmlspecialchars($grupo['fecha']); ?>
+                        </p>
+                        <p class="grupo-participantes">Participantes:
+                            <?php echo htmlspecialchars($grupo['participantes']); ?>
+                        </p>
+                    </div>
+                    <div class="grupo-accion">
+                        <form action="inscribir_grupo.php" method="post">
+                            <input type="hidden" name="id_grupo" value="<?php echo $grupo['id']; ?>">
+                            <button type="submit">Apuntarse ahora</button>
+                        </form>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-        </div>
-    </main>
+    </div>
+    <div class="contenedor-botones">
+    <button class="anterior">Anterior</button>
+    <button class="siguiente">Siguiente</button>
+</div>
+</main>
+
     <!-- contacto -->
     <div class="contacto">
         <h1>¿TIENES DUDAS?</h1>

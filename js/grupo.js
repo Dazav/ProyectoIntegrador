@@ -100,3 +100,46 @@ $(document).ready(function() {
     });
 });
 
+//carusel,
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.grupos-wrapper');
+    const slides = document.querySelectorAll('.grupo-de-apoyo');
+    const prevBtn = document.querySelector('.anterior');
+    const nextBtn = document.querySelector('.siguiente');
+    let counter = 0;
+    const slideWidth = slides[0].clientWidth;
+
+    nextBtn.addEventListener('click', () => {
+        if (counter >= slides.length - 1) return;
+        counter++;
+        slider.style.transition = 'transform 0.4s ease-in-out';
+        slider.style.transform = `translateX(${-slideWidth * counter}px)`;
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (counter <= 0) return;
+        counter--;
+        slider.style.transition = 'transform 0.4s ease-in-out';
+        slider.style.transform = `translateX(${-slideWidth * counter}px)`;
+    });
+});
+
+$(document).ready(function () {
+    $(".bx-menu").click(function () { 
+        $("nav,.menu,.iniciarUser").toggleClass("resp-active");
+    });
+});
+
+// Definir toggleMenu en el ámbito global
+
+$(document).ready(function() {
+    // Asigna el evento click al botón de menú usando jQuery
+    $('.menu-mobile').click(function() {
+        // Alterna las clases 'active' para los elementos del menú y del botón de inicio de sesión
+        $('.menu').toggleClass('active');
+        $('.iniciarUser').toggleClass('active');
+    });
+});
+
+
+

@@ -48,6 +48,7 @@ main{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding: 20px;
 }
 
 /* buscador de temas */
@@ -103,21 +104,26 @@ i:hover{
     display: flex;
     flex-direction: column;
     background: linear-gradient(180deg, #cfb9f8 0%, rgba(255, 255, 255, 0.00) 100%);
-    padding-left: 130px;
-    padding-right: 200px;
-    gap: 30px;
+    padding-left: 300px;
+    padding-right: 300px;
+
     padding-bottom: 20px;
 }
 
 /* el div de cada grupo */
 .grupo-de-apoyo {
+    margin: 10px;
+    font-size: large;
     background: #FFF;
     border-radius: 30px;
     border: 1px solid #ccc;
     padding: 15px;
     display: flex;
     align-items: center;
-    width: 120%;
+    width: 130%;
+    position: relative;
+    right: 5vw;
+    box-shadow: 0 0 4px gray;
 }
 
 .grupo-de-apoyo img{
@@ -155,4 +161,130 @@ i:hover{
 .grupo-accion button:hover {
     background-color: #B19CD9;
     color: white;
+}
+
+/* Estilo para el contenedor de los botones */
+.contenedor-botones {
+    text-align: center; /* Alinea los botones horizontalmente */
+}
+
+/* Estilos para los botones de anterior y siguiente */
+.anterior,
+.siguiente {
+    display: inline-block;
+    background-color: #B19CD9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+.anterior:hover,
+.siguiente:hover {
+    background-color:white;
+    color: #B19CD9;
+}
+
+/* Ajusta los estilos de los botones en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .anterior,
+    .siguiente {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    /* Estilos para dispositivos con ancho máximo de 768px (tabletas y móviles) */
+    .contenedor-grupos {
+      padding-left: 10px; /* Reducimos el padding izquierdo */
+      padding-right: 10px; /* Reducimos el padding derecho */
+    }
+  
+    .buscar {
+      height: auto; /* Altura automática */
+      margin-bottom: 10px; /* Reducimos el margen inferior */
+    }
+  
+    .buscar > input {
+      max-width: 100%; /* Ancho máximo del input */
+      width: 100%; /* Forzamos el ancho al 100% */
+      margin-right: 10px; /* Añadimos margen derecho */
+    }
+  
+    .grupo-de-apoyo {
+      flex-direction: column; /* Cambiamos la dirección del flex a columna */
+      width: 100%; /* Forzamos el ancho al 100% */
+      padding: 20px; /* Añadimos padding */
+    }
+  
+    .grupo-de-apoyo img {
+      margin-right: 0; /* Quitamos el margen derecho */
+      margin-bottom: 20px; /* Añadimos margen inferior */
+    }
+  
+    .grupo-accion button {
+      margin-top: 20px; /* Ajustamos el margen superior */
+    }
+  }
+/* Estilos para dispositivos móviles de el carusel */
+@media (max-width: 768px) {
+    main{
+        background-color: white;
+        height: 80vh;
+    }
+    .contenedor-grupos {
+        margin-top: 10px;
+        overflow-x: auto; /* Permitir desplazamiento horizontal */
+        padding-bottom: 20px; /* Añadir un poco de espacio en la parte inferior para los botones */
+        width: 98vw;
+        background-color: white;
+        background: white;
+    }
+
+    .grupos-wrapper {
+     transition: transform 0.5s ease-in-out;
+        display: flex;
+        flex-wrap: nowrap; /* Asegurar que los grupos no se envuelvan */
+        gap: 10px; /* Espacio entre cada grupo de apoyo */
+    }
+
+    .grupo-de-apoyo {
+        flex: 0 0 auto; /* Evitar que los grupos cambien de tamaño */
+        margin: 0;
+        width: calc(100% - 10px); /* Ancho de cada grupo de apoyo, incluyendo el espacio entre ellos */
+        box-shadow: none;
+        border: 0;
+    }
+
+    .botones-carrusel {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .contenedor-botones{
+        margin-top: 40px;
+    }
+}
+
+/* Estilos para pantallas más grandes del carusel */
+@media (min-width: 769px) {
+    .contenedor-grupos {
+        display: flex;
+        flex-wrap: wrap; /* Permitir que los elementos se envuelvan en múltiples filas */
+        justify-content: center; /* Centrar los elementos */
+        gap: 20px; /* Espacio entre cada grupo de apoyo */
+    }
+
+    .grupo-de-apoyo {
+        flex: 0 0 calc(33.33% - 20px); /* Ancho de cada grupo de apoyo en pantallas grandes */
+    }
+    .anterior, .siguiente{
+        display: none;
+    }
 }
