@@ -4,7 +4,6 @@ nav{
     justify-content: space-around;
     align-items: center;
     width: 100%;
-
     height: 70px;
     background: white;
     position: fixed;
@@ -191,6 +190,92 @@ nav div input:last-child:active{
     border-left: 3px solid #6545A1;
     filter: drop-shadow(1px 1px 0.5px #6545A1);
 }
+ /* contacto */
+ .contacto{
+    padding-top: 10px;
+    height: auto;
+}
+.contacto h1{
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+.contacto p{
+    margin: 5px 0;
+    font-size: 0.8rem;
+}
+.contacto>input{
+    scale: 0.5;
+}
+/* footer */
+footer{
+    background: #000;
+    color: white;
+}
+footer .elementos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.elementos div:first-child img{
+    width: 95px;
+    height: 95px;
+}
+.elementos div:first-child{
+    display: flex;
+    align-items: center;
+}
+.elementos div:nth-child(n+2) h2 {
+    margin: 100px 0 32px 0;
+}
+.elementos div:nth-child(n+2) ul{
+    list-style-type: none;
+    margin: 0 0 120px 0;
+    padding-inline-start: 0;
+}
+/* tienes dudas */
+.contacto{
+    height: 230px;
+    background: #D9D9D9;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: bold;
+}
+.contacto h1{
+    margin: 0 0 32px 0;
+    font-size: 2rem;
+}
+.contacto p{
+    font-size: 1rem;
+    margin: 24px 0;
+}
+.contacto input{
+    background: #000;
+    border-radius: 35px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+    cursor: pointer;
+}
+/* Sociales */
+.social a i {
+    margin: 0.5rem;
+    padding: 0;
+}
+/* linea horzontal */
+footer>hr{
+    margin: 0.5rem;
+}
+/* avisos legales */
+.avisos{
+    display: flex;
+    justify-content: space-between;
+}
+.avisos pre{
+    margin: 0 0.5rem;
+    font-family: "Montserrat";
+}
 /* icon de inicar sesion */
 .usr-circulo{
     height: 50px;
@@ -258,5 +343,45 @@ nav div input:last-child:active{
         width: auto; /* Restablece el ancho */
         margin: 0 10px; /* Ajusta el margen como sea necesario */
         box-sizing: border-box;
+    }
+}
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .buscar{
+        margin: 10px;
+        margin-top: 50px;
+    }
+    footer .elementos {
+        flex-direction: column; /* Cambia la dirección del flex a columna */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    .elementos div {
+        text-align: center; /* Centra el texto dentro de los div */
+        margin-bottom: 20px; /* Añade espacio entre los elementos */
+    }
+
+    .elementos div:first-child img {
+        width: 70px; /* Redimensiona el logo */
+        height: 70px;
+    }
+
+    .elementos div:nth-child(n+2) h2 {
+        margin: 20px 0; /* Ajusta el margen del título */
+        font-size: 1.2rem; /* Ajusta el tamaño del título */
+    }
+
+    .elementos div:nth-child(n+2) ul {
+        margin-bottom: 20px; /* Añade espacio entre las listas */
+    }
+
+    .social a i {
+        font-size: 1.5rem; /* Ajusta el tamaño de los iconos sociales */
+    }
+    .avisos pre {
+        white-space: pre-wrap; /* Rompe las líneas largas */
+        word-wrap: break-word; /* Divide palabras largas */
+        font-size: 0.8rem; /* Reduzca el tamaño de fuente */
+        margin: 5px 0; /* Ajusta el margen */
     }
 }

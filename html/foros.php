@@ -1,8 +1,11 @@
 <?php
-    include("../db/crear_tablas.php");
+  include "../db/conecta.php";
+  $conexion = getConexion();
     session_start();
-    //obtener el id de usuario de login
-    $id=$_SESSION["id"];
+    if (isset($_SESSION["id"])) {
+        # code...
+        $id=$_SESSION["id"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +105,7 @@
                       ";
                   }
               ?>
-              <!-- propociona un enlace a formulario -->
+              
               <a class='tema' id="addtema">
                 <div class='descripcion'>
                     <h2 class='temaTitulo'>Agrega tu título</h2>

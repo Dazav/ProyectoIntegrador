@@ -96,7 +96,7 @@ if (isset($_POST["modifiCard"])) {
                 </div>
                 <div class="btn">
                     <button id="editar">Editar Perfil</button>
-                    <button>Cerrar Sesión</button>
+                    <a href="logout.php"><button>Cerrar Sesión</button></a>
                 </div>
 
             </div>

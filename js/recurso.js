@@ -1,3 +1,11 @@
+$(document).ready(function () {
+    $("#iniciar").click(function () { 
+        window.location.href="registrar.php";
+    });
+    $("#comenzar").click(function () { 
+        window.location.href="registrar.php?mostrar=registro";
+    });
+});
 //animacion títulos
 $(document).ready(function () {
     $("main>h2").html(function () { 
