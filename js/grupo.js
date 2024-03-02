@@ -141,5 +141,40 @@ $(document).ready(function() {
     });
 });
 
+//fetch 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn-inscribir').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Previene la acción por defecto del botón
+            const idGrupo = this.getAttribute('data-id-grupo');
 
+            fetch('inscribir_grupo.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id_grupo=' + idGrupo,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    // Cambiar el texto y color del botón
+                    this.innerText = '¡Te has apuntado!';
+                    this.style.backgroundColor = 'green';
+                    // Opcionalmente, deshabilitar el botón para evitar múltiples inscripciones
+                    this.disabled = true;
 
+                    // Actualizar el número de participantes
+                    const participantesElement = document.querySelector(`.num-participantes[data-id-grupo="${idGrupo}"]`);
+                    let numParticipantes = parseInt(participantesElement.innerText);
+                    participantesElement.innerText = numParticipantes + 1; // Incrementa el número de participantes
+                } else {
+                    alert(data.mensaje); // Muestra el mensaje de error
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    });
+});
