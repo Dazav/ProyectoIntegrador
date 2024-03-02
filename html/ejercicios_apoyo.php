@@ -1,3 +1,12 @@
+<?php
+  include "../db/conecta.php";
+  $conexion = getConexion();
+    session_start();
+    if (isset($_SESSION["id"])) {
+        # code...
+        $id=$_SESSION["id"];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,49 +24,49 @@
     <title>ejercicios de apoyo</title>
 </head>
 <body>
-    <!-- barra navegación -->
     <header>
-         <!-- barra navegación -->
-    <nav>
-            <div class="usuario">
+   <!-- barra navegación -->
+   <nav>
+        <div class="usuario">
                 <!-- Botón de menú para móviles -->
                 <button class="menu-mobile">☰</button>
                     <img src="../img/logo.png" alt="">
                 <a href="index.php">Brain Hub</a>
-            
-            </div>
-            
-             <div class="menu">
-                <button onclick="window.location.href='recursos.php'">Recursos</button>
-                <div class="dropdown">
-                    Apoyo
-                    <div class="dropdown-menu">
-                        <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
-                        <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
-                    </div>
+        </div>
+
+        <div class="menu">
+            <button onclick="window.location.href='recursos.php'">Recursos</button>
+            <div class="dropdown">
+                Apoyo
+                <div class="dropdown-menu">
+                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
                 </div>
-                <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
-                <button onclick="window.location.href='foros.php'">Social</button>
             </div>
+            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+            <button onclick="window.location.href='foros.php'">Social</button>
+        </div>
         
         <?php
             if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id_user";
+                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id AND imagen !=''";
                 $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {
+                if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
                     while ($user=$resulta->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
                     }
                 }else {
-                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+                    echo "<a href='perfil.php'>
+                    <img src='../img/defecto.png' class='usr-circulo'>
+                    </a>";
                 }
             }else{
                 echo "
                 <div class='iniciarUser'>
-                    <input type='button' value='Iniciar Sesión' onclick='window.location.href='registrar.php'' />
-                    <input type='button' value='Comenzar' onclick='window.location.href='registrar.php?mostrar=registro'' />
+                    <input type='button' value='Iniciar Sesión' id='iniciar' />
+                    <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
             }
