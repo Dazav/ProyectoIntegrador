@@ -101,9 +101,9 @@ if ($conexion) {
         </h1>
     </div>
     <div class="buscar">
-            <input type="text" id="buscarInput" placeholder="Buscar un grupo" />
-            <i class='bx bx-search-alt'></i>
-        </div>
+    <input type="text" id="buscarInput" placeholder="Buscar un grupo" />
+    <i class='bx bx-search-alt'></i>
+</div>
         <main>
     <div class="contenedor-grupos">
         <div class="grupos-wrapper">

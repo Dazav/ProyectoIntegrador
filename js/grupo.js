@@ -178,3 +178,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+//hacer un función del buscador
+function buscador() {  
+    // contenido introducido
+    var contenido=$("#buscarInput").val().toUpperCase(); 
+    // restablecer estilos de todos los grupos
+    $(".grupo-de-apoyo").css("display", "flex"); 
+    //atravesar array de todos los grupos
+    $(".grupo-tema").each(function (index,tema){
+        var temaContenido=$(tema).text().trim().toUpperCase();
+        //buscar la letra de contenido introducido si está en el tema de los grupos,esconder todas las resultas que no concuerden
+        if(temaContenido.indexOf(contenido)==-1){
+            //cada index indica cada grupo
+            $(".grupo-de-apoyo").eq(index).css("display", "none");
+        }
+    });
+}
+//buscador
+$(document).ready(function () {
+    // buscar tema
+    $(".bx-search-alt").on("click", function () {
+        buscador();
+    });
+    //buscar tema existante en cada momento
+    $("#buscarInput").on("input", function (){
+        buscador();
+    }).keydown(function (e) {
+        //13 es código de tecla "intro" sobre evento de keyDown,8 es el código de tecla "borrar"
+        if (e.which == 8 || e.which ==13) {
+            buscador();
+        }
+    });
+});

@@ -329,10 +329,10 @@ footer>hr{
 }
 
 @media (min-width: 769px) {
-    /* Asegúrate de que el menú y los botones de inicio de sesión/comenzar se muestren */
+    
     .menu,
     .iniciarUser {
-        display: flex; /* O el valor que sea adecuado para tu diseño en PC */
+        display: flex;
         /* Restablece cualquier otro estilo que pueda haber sido modificado por la vista móvil */
     }
 
