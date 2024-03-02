@@ -181,7 +181,7 @@
     // jquery fetch de formulario de crear tema
 $(document).ready(function () {
     $("#add-tema").submit(function () { 
-        // e.preventDefault();//previene para no cargar la página
+        e.preventDefault();//previene para no cargar la página
         //crea objeto FormData con los datos de formulario
         var formData=new FormData(this);
         // var img=document.getElementById("addImg");

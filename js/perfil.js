@@ -1,6 +1,13 @@
+//cerrar sesión
+$(document).ready(function () {
+    $("#logout").click(function () { 
+        //conecta logout.php
+        window.location.href="logout.php";
+    }); 
+});
 //animación de hover button
 $(document).ready(function () {
-    $("#editar").hover(function () {
+    $("#editar,#logout").hover(function () {
             // over
             $(".bg-img>img").addClass("active");
         }, function () {

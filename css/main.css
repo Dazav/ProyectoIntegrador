@@ -276,7 +276,13 @@ footer>hr{
     margin: 0 0.5rem;
     font-family: "Montserrat";
 }
-
+/* icon de inicar sesion */
+.usr-circulo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #6545A1;
+}
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
     /* Solo se muestra el botón del menú en móviles */

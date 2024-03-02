@@ -43,27 +43,6 @@ error_reporting(E_ALL);
       <input type="button" value="Iniciar Sesión" onclick="window.location.href='registrar.php'" />
       <input type="button" value="Comenzar" onclick="window.location.href='registrar.php?mostrar=registro'" />
     </div>
-    <?php
-    if (isset($_POST['Login'])) {
-      $email = $_POST['email-login'];
-      $password = $_POST['password-login'];
-      $sql = "SELECT imagen AS img, id AS id
-          FROM usuario
-          WHERE email = '$email' AND pssword = '$password'";
-
-      $resultado = $conexion->query($sql);
-      if ($resultado->num_rows > 0) {
-        while ($user = $resultado->fetch_assoc()) {
-          echo "<a href='perfil.php'>
-                      <img src='{$user['img']}' class='usr-circulo'>
-                    </a>";
-          echo "<input type='hidden' value='{$user['id']}' >";
-        }
-      }
-    } else {
-      echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
-    }
-    ?>
   </nav>
   <main>
     <div class="box">
