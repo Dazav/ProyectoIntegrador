@@ -144,6 +144,7 @@
         $tabla_pregunta="CREATE TABLE IF NOT EXISTS pregunta(
             id INT AUTO_INCREMENT PRIMARY KEY,
             id_ejercicio INT,
+            n_pregunta INT,
             pregunta VARCHAR(255),
             seleccionA VARCHAR(255),
             seleccionB VARCHAR(255),
@@ -316,19 +317,19 @@
         $select = "SELECT * FROM pregunta";
         $result = $conexion->query($select);
         if ($result->num_rows == 0) {
-            $insert1 = "INSERT INTO pregunta (id_ejercicio,pregunta,seleccionA,seleccionB,seleccionC) VALUES
-            (1,'¿Qué emociones has sentido con más frecuencia esta semana?','Alegría','Tristeza','Otro'),
-            (1,'¿Cuáles son las opciones de tratamiento que se discutieron para su condición?', 'Medicamentos', 'Terapia física', 'Cambios en el estilo de vida'),
-            (1, '¿Se discutieron posibles efectos secundarios de su tratamiento durante la exposición?', 'Sí', 'No', 'No estoy seguro/a'),
-            (2, '¿Has sentido que tu corazón late rápidamente o con fuerza sin motivo aparente?', 'Nunca', 'En algunas ocasiones', 'A menudo'),
-            (2, '¿Has sentido tensión o nerviosismo la mayor parte del tiempo?', 'Nunca', 'En algunas ocasiones', 'A menudo'),
-            (2, '¿Has experimentado temblores o sacudidas en tu cuerpo sin razón evidente?', 'Nunca', 'En algunas ocasiones', 'A menudo'),
-            (3, '¿Con qué frecuencia te has sentido abrumado/a por las demandas de tu vida cotidiana en la última semana?', 'Nunca', 'A veces', 'Frecuentemente'),
-            (3, '¿Cómo calificarías tu nivel de irritabilidad o impaciencia debido al estrés en los últimos días?', 'No he estado irritable o impaciente', 'He estado ligeramente irritable o impaciente', 'He estado muy irritable o impaciente'),
-            (3, '¿En qué medida el estrés ha afectado tu capacidad para concentrarte en el trabajo o en otras tareas importantes recientemente?', 'No ha tenido efecto', 'Ha tenido un efecto moderado', 'Ha tenido un efecto significativo'),
-            (4, '¿Con qué frecuencia te sientes satisfecho/a con tus logros personales?', 'Nunca me siento satisfecho/a', 'A veces me siento satisfecho/a', 'A menudo me siento satisfecho/a'),
-            (4, '¿Cómo te afecta la crítica de los demás?', 'Me siento profundamente herido/a y dudo de mi valía', 'Me afecta temporalmente pero luego lo supero', 'La considero constructiva y no afecta mi autoestima'),
-            (4, '¿Te sientes cómodo/a expresando tus necesidades y deseos a los demás?', 'Nunca me siento cómodo/a', 'Solo en situaciones con personas de confianza', 'Siempre me siento cómodo/a y lo hago abiertamente')";
+            $insert1 = "INSERT INTO pregunta (id_ejercicio,n_pregunta,pregunta,seleccionA,seleccionB,seleccionC) VALUES
+            (1,1,'¿Qué emociones has sentido con más frecuencia esta semana?','Alegría','Tristeza','Otro'),
+            (1,2,'¿Cuáles son las opciones de tratamiento que se discutieron para su condición?', 'Medicamentos', 'Terapia física', 'Cambios en el estilo de vida'),
+            (1,3, '¿Se discutieron posibles efectos secundarios de su tratamiento durante la exposición?', 'Sí', 'No', 'No estoy seguro/a'),
+            (2,1, '¿Has sentido que tu corazón late rápidamente o con fuerza sin motivo aparente?', 'Nunca', 'En algunas ocasiones', 'A menudo'),
+            (2,2, '¿Has sentido tensión o nerviosismo la mayor parte del tiempo?', 'Nunca', 'En algunas ocasiones', 'A menudo'),
+            (2,3, '¿Has experimentado temblores o sacudidas en tu cuerpo sin razón evidente?', 'Nunca', 'En algunas ocasiones', 'A menudo'),
+            (3,1, '¿Con qué frecuencia te has sentido abrumado/a por las demandas de tu vida cotidiana en la última semana?', 'Nunca', 'A veces', 'Frecuentemente'),
+            (3,2,'¿Cómo calificarías tu nivel de irritabilidad o impaciencia debido al estrés en los últimos días?', 'No he estado irritable o impaciente', 'He estado ligeramente irritable o impaciente', 'He estado muy irritable o impaciente'),
+            (3,3, '¿En qué medida el estrés ha afectado tu capacidad para concentrarte en el trabajo o en otras tareas importantes recientemente?', 'No ha tenido efecto', 'Ha tenido un efecto moderado', 'Ha tenido un efecto significativo'),
+            (4,1, '¿Con qué frecuencia te sientes satisfecho/a con tus logros personales?', 'Nunca me siento satisfecho/a', 'A veces me siento satisfecho/a', 'A menudo me siento satisfecho/a'),
+            (4,2, '¿Cómo te afecta la crítica de los demás?', 'Me siento profundamente herido/a y dudo de mi valía', 'Me afecta temporalmente pero luego lo supero', 'La considero constructiva y no afecta mi autoestima'),
+            (4,3, '¿Te sientes cómodo/a expresando tus necesidades y deseos a los demás?', 'Nunca me siento cómodo/a', 'Solo en situaciones con personas de confianza', 'Siempre me siento cómodo/a y lo hago abiertamente')";
             mysqli_query($conexion, $insert1) or die("Error insert contacto");
         }
         //respuestas que usuario ha elegido
@@ -338,29 +339,20 @@
             $insert1="INSERT INTO respuestaEjercicio(id_usuario,id_ejercicio,id_pregunta,respuesta) VALUES
             -- usuario 1 que termina todos 4 ejercicios
             (1,1,1,'Alegría'),(1, 1, 2, 'Terapia física'),(1, 1, 3, 'No'),
-            (1, 2, 1, 'En algunas ocasiones'),(1, 2, 2, 'En algunas ocasiones'),(1, 2, 3, 'En algunas ocasiones'),
-            (1, 3, 1, 'A veces'),(1, 3, 2, 'He estado muy irritable o impaciente'),(1, 3, 3, 'No ha tenido efecto'),
-            (1, 4, 1, 'A veces me siento satisfecho/a'),(1, 4, 2, 'Me afecta temporalmente pero luego lo supero'),(1, 4, 3, 'Siempre me siento cómodo/a y lo hago abiertamente'),
+            (1, 2, 4, 'En algunas ocasiones'),(1, 2, 5, 'En algunas ocasiones'),(1, 2, 6, 'En algunas ocasiones'),
+            (1, 3, 7, 'A veces'),(1, 3, 8, 'He estado muy irritable o impaciente'),(1, 3, 9, 'No ha tenido efecto'),
+            (1, 4, 10, 'A veces me siento satisfecho/a'),(1, 4, 11, 'Me afecta temporalmente pero luego lo supero'),(1, 4, 12, 'Siempre me siento cómodo/a y lo hago abiertamente'),
             -- usuario 2 que termina todos 4 ejercicios
             (2,1,1,'Tristeza'),(2, 1, 2, 'Medicamentos'),(2, 1, 3, 'No estoy seguro/a'),
-            (2, 2, 1, 'A menudo'),(2, 2, 2, 'En algunas ocasiones'),(2, 2, 3, 'Nunca'),
-            (2, 3, 1, 'Nunca'),(2, 3, 2, 'He estado muy irritable o impaciente'),(2, 3, 3, 'Ha tenido un efecto significativo'),
-            (2, 4, 1, 'A menudo me siento satisfecho/a'),(2, 4, 2, 'Me afecta temporalmente pero luego lo supero'),(2, 4, 3, 'Siempre me siento cómodo/a y lo hago abiertamente'),
+            (2, 2, 4, 'A menudo'),(2, 2, 5, 'En algunas ocasiones'),(2, 2, 6, 'Nunca'),
+            (2, 3, 7, 'Nunca'),(2, 3, 8, 'He estado muy irritable o impaciente'),(2, 3, 9, 'Ha tenido un efecto significativo'),
+            (2, 4, 10, 'A menudo me siento satisfecho/a'),(2, 4, 11, 'Me afecta temporalmente pero luego lo supero'),(2, 4, 12, 'Siempre me siento cómodo/a y lo hago abiertamente'),
             -- usuario 3 que termina todos 4 ejercicios
             (3,1,1,'Otro'),(3, 1, 2, 'Cambios en el estilo de vida'),(3, 1, 3, 'Sí'),
-            (3, 2, 1, 'A menudo'),(3, 2, 2, 'En algunas ocasiones'),(3, 2, 3, 'Nunca'),
-            (3, 3, 1, 'Nunca'),(3, 3, 2, 'He estado muy irritable o impaciente'),(3, 3, 3, 'Ha tenido un efecto significativo'),
-            (3, 4, 1, 'A menudo me siento satisfecho/a'),(3, 4, 2, 'Me afecta temporalmente pero luego lo supero'),(3, 4, 3, 'Siempre me siento cómodo/a y lo hago abiertamente'),
-            -- usuario 4 que termina todos 4 ejercicios
-            (4,1,1,'Alegría'),(4, 1, 2, 'Terapia física'),(4, 1, 3, 'No'),
-            (4, 2, 1, 'A menudo'),(4, 2, 2, 'En algunas ocasiones'),(4, 2, 3, 'Nunca'),
-            (4, 3, 1, 'Nunca'),(4, 3, 2, 'He estado muy irritable o impaciente'),(4, 3, 3, 'Ha tenido un efecto significativo'),
-            (4, 4, 1, 'A menudo me siento satisfecho/a'),(4, 4, 2, 'Me afecta temporalmente pero luego lo supero'),(4, 4, 3, 'Siempre me siento cómodo/a y lo hago abiertamente'),
-            -- usuario 5 que termina todos 4 ejercicios
-            (5,1,1,'Otra'),(5, 1, 2, 'Medicamentos'),(5, 1, 3, 'No'),
-            (5, 2, 1, 'A menudo'),(5, 2, 2, 'En algunas ocasiones'),(5, 2, 3, 'Nunca'),
-            (5, 3, 1, 'Nunca'),(5, 3, 2, 'He estado muy irritable o impaciente'),(5, 3, 3, 'Ha tenido un efecto significativo'),
-            (5, 4, 1, 'A menudo me siento satisfecho/a'),(5, 4, 2, 'La considero constructiva y no afecta mi autoestima'),(5, 4, 3, 'Solo en situaciones con personas de confianza')";
+            (3, 2, 4, 'A menudo'),(3, 2, 5, 'En algunas ocasiones'),(3, 2, 6, 'Nunca'),
+            (3, 3, 7, 'Nunca'),(3, 3, 8, 'He estado muy irritable o impaciente'),(3, 3, 9, 'Ha tenido un efecto significativo'),
+            (3, 4, 10, 'A menudo me siento satisfecho/a'),(3, 4, 11, 'Me afecta temporalmente pero luego lo supero'),(3, 4, 12, 'Siempre me siento cómodo/a y lo hago abiertamente')
+            ";
             mysqli_query($conexion, $insert1) or die("Error insert respuestas elegida de usuario ");
         }
 

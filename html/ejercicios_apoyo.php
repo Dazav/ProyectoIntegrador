@@ -1,3 +1,16 @@
+<?php
+    include "../db/crear_tablas.php";
+    session_start();
+    if (isset($_SESSION["id"])) {
+        # code...
+        $id=$_SESSION["id"];
+    }
+    // if (isset($_SESSION["id_eje"])) {
+    //     # code...
+    //     $id_eje=$_SESSION["id_eje"];
+    // }
+    // var_dump($id_eje);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +25,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/ejercicios_apoyo.js"></script>
+    <script src="../js/main.js"></script>
     <title>ejercicios de apoyo</title>
 </head>
 <body>
@@ -41,26 +55,28 @@
             </div>
         
         <?php
-            if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id_user";
-                $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {
-                    while ($user=$resulta->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
-                              <img src='{$user['img']}' class='usr-circulo'>
-                            </a>";
-                    }
-                }else {
-                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+        if(isset($_SESSION["id"])){
+            $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id AND imagen !=''";
+            $resulta=mysqli_query($conexion,$select);
+            if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                while ($user=$resulta->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
+                            <img src='{$user['img']}' class='usr-circulo'>
+                        </a>";
                 }
-            }else{
-                echo "
-                <div class='iniciarUser'>
-                    <input type='button' value='Iniciar Sesión' onclick='window.location.href='registrar.php'' />
-                    <input type='button' value='Comenzar' onclick='window.location.href='registrar.php?mostrar=registro'' />
-                </div>
-                ";
+            }else {
+                echo "<a href='perfil.php'>
+                <img src='../img/defecto.png' class='usr-circulo'>
+                </a>";
             }
+        }else{
+            echo "
+            <div class='iniciarUser'>
+                <input type='button' value='Iniciar Sesión' id='iniciar' />
+                <input type='button' value='Comenzar' id='comenzar' />
+            </div>
+            ";
+        }
         ?>
     </nav>
         <!-- ejercios de apoyo -->
@@ -76,7 +92,41 @@
             <div class="ventana">
                 <h2>Ejercicios de exposición</h2>
                 <form class="preguntas">
-                    <div class="pregunta">
+                    <?php
+                    $select="SELECT p.pregunta AS p, p.seleccionA AS a, p.seleccionB AS b, p.seleccionC AS c 
+                    FROM pregunta p
+                    INNER JOIN ejercicio eje ON eje.id=p.id_ejercicio
+                    WHERE  p.id_ejercicio=1 AND p.n_pregunta<3";
+                    $resulta=mysqli_query($conexion,$select);
+                    while ($pregunta=$resulta->fetch_assoc()) {
+                        echo " 
+                        <div class='pregunta'>
+                        <h3>{$pregunta['p']}</h3>
+                        <p><input type='radio' name='' id=''>{$pregunta['a']}</p>
+                        <p><input type='radio' name='' id=''>{$pregunta['b']}</p>
+                        <p><input type='radio' name='' id=''>{$pregunta['c']}</p>
+                        </div>
+                        ";
+                    }
+                    // agrega un bóton enivar en la ultima pregunta
+                    $select="SELECT p.pregunta AS p, p.seleccionA AS a, p.seleccionB AS b, p.seleccionC AS c 
+                    FROM pregunta p
+                    INNER JOIN ejercicio eje ON eje.id=p.id_ejercicio
+                    WHERE  p.id_ejercicio=1 AND p.n_pregunta=3";
+                    $resulta=mysqli_query($conexion,$select);
+                    while ($pregunta=$resulta->fetch_assoc()) {
+                        echo " 
+                        <div class='pregunta'>
+                        <h3>{$pregunta['p']}</h3>
+                        <p><input type='radio' name='' id=''>{$pregunta['a']}</p>
+                        <p><input type='radio' name='' id=''>{$pregunta['b']}</p>
+                        <p><input type='radio' name='' id=''>{$pregunta['c']}</p>
+                        <input type='submit' name='' id='' value='Enviar'>
+                        </div>
+                        ";
+                    }
+                    ?>
+                    <!-- <div class="pregunta">
                         <h3>¿Qué emociones has sentido con más frecuencia esta semana?</h3>
                         <p><input type="radio" name="test1" id="">Alegría</p>
                         <p><input type="radio" name="test1" id="">Tristeza</p>
@@ -93,7 +143,7 @@
                         <p><input type="radio" name="test3" id="">Sí</p>
                         <p><input type="radio" name="test3" id="">No</p>
                         <p><input type="radio" name="test3" id="">No estoy seguro/a</p>
-                    </div>
+                    </div> -->
                 </form>
             </div>
             <button id="flecha2">
@@ -135,6 +185,27 @@
     <div class="preguntaOtra" id="preguntaOtra">
         <div class="contenido">
             <form action="">
+                <div class="masPregunta" id="p1">
+
+                </div>
+            </form>
+        </div>
+        <div class="contenido">
+            <form action="">
+                <div class="masPregunta" id="p2">
+
+                </div>
+            </form>
+        </div>
+        <div class="contenido">
+            <form action="">
+                <div class="masPregunta" id="p3">
+
+                </div>
+            </form>
+        </div>
+        <!-- <div class="contenido">
+            <form action="">
                 <div class="masPregunta">
                     <h3>¿Has sentido que tu corazón late rápidamente o con fuerza sin motivo aparente?</h3>
                     <p><input type="radio" name="test1" id="">Nunca</p>
@@ -143,8 +214,8 @@
                     <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
                 </div>
             </form>
-        </div>
-        <div class="contenido">
+        </div> -->
+        <!-- <div class="contenido">
             <form action="">
                 <div class="masPregunta">
                     <h3>¿Has experimentado temblores o sacudidas en tu cuerpo sin razón evidente?</h3>
@@ -154,8 +225,8 @@
                     <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
                 </div>
             </form>
-        </div>
-        <div class="contenido">
+        </div> -->
+        <!-- <div class="contenido">
             <form action="">
                 <div class="masPregunta">
                     <h3>¿Has sentido tensión o nerviosismo la mayor parte del tiempo?</h3>
@@ -165,7 +236,7 @@
                     <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
                 </div>
             </form>
-        </div>
+        </div> -->
         <div class="cartaP"></div>
         <div class="cartaP"></div>
         <div class="cartaP"></div>
@@ -225,6 +296,51 @@
             <pre>Contacto   Centro de Ayuda   Preferencias</pre>
         </div>
     </footer>
-    
 </body>
+<script>
+    // conseguir id_ejercicio a través de bóton del tarjeta
+$(document).ready(function () {
+    //atraves tarjeta, 3 boton de tarjetas de ejercicios corresponden a ejercicio 2, 3 y 4
+    $(".bxs-caret-down-circle").each(function (index, boton) { 
+        $(boton).click(function () {
+            //guardar id de ejercicio
+            alert(index+2);
+            var id_ejercicio = index+2;
+            $.ajax({
+                type: "POST",
+                url: "procesarEjercicio.php",
+                data: {
+                    id_eje: id_ejercicio,
+                },
+                error: function() {
+                console.error("Error: no date");
+                },
+                dataType: 'json', 
+                success: function(data) {
+                    //ponemos las preguntas a su division
+                    $.each(data, function(i, htmlString) { 
+                        //debido data es un array que contiene 3 preguntas,debemos ponerlos a cada uno
+                        switch (i) {
+                            //p1,p2,p3 significan 3 paginas de preguntas
+                            case 0:
+                                $("#p1").html(htmlString); 
+                                break;
+                        
+                            case 1:
+                                $("#p2").html(htmlString); 
+                                break;
+
+                            case 2:
+                                $("#p3").html(htmlString); 
+                                break;
+                        }
+                        
+                    });
+
+                    },
+                });
+        });
+    });
+});
+</script>
 </html>
