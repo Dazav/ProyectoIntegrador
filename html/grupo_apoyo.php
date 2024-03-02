@@ -1,12 +1,11 @@
 <?php
-// Incluye el archivo de conexión a la base de datos
-include("../db/conecta.php");
-// Obtener la conexión a la base de datos
-$conexion = getConexion();
-session_start();
-//obtener el id de usuario de login
-$id=$_SESSION["id"];
-
+  include "../db/conecta.php";
+  $conexion = getConexion();
+    session_start();
+    if (isset($_SESSION["id"])) {
+        # code...
+        $id=$_SESSION["id"];
+    }
 // Verificar si la conexión fue exitosa
 if ($conexion) {
     // Consulta para obtener los grupos de apoyo junto con el nombre del organizador

@@ -240,18 +240,21 @@ td{
 }
 .infor2>div{
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 150px;
     box-shadow: 0 0 3px 1px inset #412c67;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
+    border-radius: 20px;
 }
-.infor2>div>table tr:nth-child(2n+1) {
+.hora-ocupada {
     text-decoration: line-through;
 }
-.infor2>div>table tr:nth-child(2n)>td:hover {
+.infor2 > div > form> table tr > td:not(.hora-ocupada):hover {
     cursor: pointer;
     background: #B19CD9;
     color: #ffff;
+    border-radius: 20px;
 }
 /* tienes dudas */
 .contacto{
