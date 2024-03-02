@@ -101,9 +101,9 @@ if ($conexion) {
         </h1>
     </div>
     <div class="buscar">
-            <input type="text" id="buscarInput" placeholder="Buscar un grupo" />
-            <i class='bx bx-search-alt'></i>
-        </div>
+    <input type="text" id="buscarInput" placeholder="Buscar un grupo" />
+    <i class='bx bx-search-alt'></i>
+</div>
         <main>
     <div class="contenedor-grupos">
         <div class="grupos-wrapper">
@@ -126,15 +126,16 @@ if ($conexion) {
                         <p class="grupo-fecha">Fecha:
                             <?php echo htmlspecialchars($grupo['fecha']); ?>
                         </p>
-                        <p class="grupo-participantes">Participantes:
-                            <?php echo htmlspecialchars($grupo['participantes']); ?>
+                        <p class="grupo-participantes">
+                            Participantes: 
+                            <span class="num-participantes" data-id-grupo="<?php echo $grupo['id']; ?>"><?php echo htmlspecialchars($grupo['participantes']); ?>
+                        </span>
                         </p>
                     </div>
                     <div class="grupo-accion">
-                        <form action="inscribir_grupo.php" method="post">
-                            <input type="hidden" name="id_grupo" value="<?php echo $grupo['id']; ?>">
-                            <button type="submit">Apuntarse ahora</button>
-                        </form>
+                    <button class="btn-inscribir" data-id-grupo="<?php echo $grupo['id']; ?>"
+                    >Apuntarse ahora
+                    </button>
                     </div>
                 </div>
             <?php endforeach; ?>

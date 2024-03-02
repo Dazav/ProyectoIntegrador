@@ -141,5 +141,73 @@ $(document).ready(function() {
     });
 });
 
+//fetch 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn-inscribir').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Previene la acción por defecto del botón
+            const idGrupo = this.getAttribute('data-id-grupo');
 
+            fetch('inscribir_grupo.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id_grupo=' + idGrupo,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    // Cambiar el texto y color del botón
+                    this.innerText = '¡Te has apuntado!';
+                    this.style.backgroundColor = 'green';
+                    // Opcionalmente, deshabilitar el botón para evitar múltiples inscripciones
+                    this.disabled = true;
 
+                    // Actualizar el número de participantes
+                    const participantesElement = document.querySelector(`.num-participantes[data-id-grupo="${idGrupo}"]`);
+                    let numParticipantes = parseInt(participantesElement.innerText);
+                    participantesElement.innerText = numParticipantes + 1; // Incrementa el número de participantes
+                } else {
+                    alert(data.mensaje); // Muestra el mensaje de error
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    });
+});
+
+//hacer un función del buscador
+function buscador() {  
+    // contenido introducido
+    var contenido=$("#buscarInput").val().toUpperCase(); 
+    // restablecer estilos de todos los grupos
+    $(".grupo-de-apoyo").css("display", "flex"); 
+    //atravesar array de todos los grupos
+    $(".grupo-tema").each(function (index,tema){
+        var temaContenido=$(tema).text().trim().toUpperCase();
+        //buscar la letra de contenido introducido si está en el tema de los grupos,esconder todas las resultas que no concuerden
+        if(temaContenido.indexOf(contenido)==-1){
+            //cada index indica cada grupo
+            $(".grupo-de-apoyo").eq(index).css("display", "none");
+        }
+    });
+}
+//buscador
+$(document).ready(function () {
+    // buscar tema
+    $(".bx-search-alt").on("click", function () {
+        buscador();
+    });
+    //buscar tema existante en cada momento
+    $("#buscarInput").on("input", function (){
+        buscador();
+    }).keydown(function (e) {
+        //13 es código de tecla "intro" sobre evento de keyDown,8 es el código de tecla "borrar"
+        if (e.which == 8 || e.which ==13) {
+            buscador();
+        }
+    });
+});
