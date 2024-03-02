@@ -197,3 +197,16 @@ $(document).ready(function() {
         $('.iniciarUser').toggleClass('active');
     });
 });
+// // conseguir id_ejercicio a través de bóton del tarjeta
+// $(document).ready(function () {
+//     $(".bxs-caret-down-circle").each(function (index, boton) { 
+//         $(boton).click(function () { 
+//             $("#idEje").val(index+2);//guardar id de ejercicio
+//             $.ajax({
+//                 type: "POST",
+//                 url: "ejercicio.php",
+//                 data: {idEje: $("#idEje").val()},
+//             });
+//         });
+//     });
+// });

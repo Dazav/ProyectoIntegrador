@@ -9,7 +9,7 @@ if (isset($_SESSION["id"])) {
 //enviar la respuesta como json
 header('Content-Type: application/json');
 
-if (isset($_POST['numStar']) && $_POST['desc'] && $_POST['titulo']) {
+if (isset($_POST['numStar']) && isset($_POST['desc']) && isset($_POST['titulo'])) {
     // conseguir los datos
     $titulo=$_POST['titulo'];
     $desc=$_POST['desc'];

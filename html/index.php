@@ -1,6 +1,6 @@
 <?php
-  include "../db/conecta.php";
-  $conexion = getConexion();
+  include "../db/crear_tablas.php";
+//   $conexion = getConexion();
     session_start();
     if (isset($_SESSION["id"])) {
         # code...
