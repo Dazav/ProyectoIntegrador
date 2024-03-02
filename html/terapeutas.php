@@ -1,14 +1,15 @@
 <?php
-  include "../db/conecta.php";
-  $conexion = getConexion();
-    session_start();
-    if (isset($_SESSION["id"])) {
-        # code...
-        $id=$_SESSION["id"];
-    }
+include "../db/conecta.php";
+$conexion = getConexion();
+session_start();
+if (isset($_SESSION["id"])) {
+    # code...
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@
     <script src="../js/teuapeuta.js"></script>
     <title>terapeuta</title>
 </head>
+
 <body>
     <!-- barra navegación -->
     <nav>
@@ -44,26 +46,26 @@
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <?php
-            if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
-                $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {
-                    while ($user=$resulta->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
+        if (isset($_SESSION["id"])) {
+            $select = "SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
+            $resulta = mysqli_query($conexion, $select);
+            if ($resulta->num_rows > 0) {
+                while ($user = $resulta->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
-                    }
-                }else {
-                    echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
                 }
-            }else{
-                echo "
+            } else {
+                echo "<img src='../img/bg-ejercicio.png' class='usr-circulo'>";
+            }
+        } else {
+            echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
                     <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
-            }
+        }
         ?>
     </nav>
     <!-- main -->
@@ -75,21 +77,29 @@
                 <i class='bx bx-search'></i>
             </div>
             <div class="selecciones">
-                <select name="" id="">
-                    <option value="defecto">Duración</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                <select name="" id="">
-                    <option value="defecto">Especialidad</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                <select name="" id="">
-                    <option value="defecto">Selecciona día</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
+                <?php
+                // La consulta SQL
+                $sql = "SELECT DISTINCT especializacion FROM terapeuta";
+                $conexion=getConexion();
+                // Ejecutar la consulta
+                $result = $conexion->query($sql);
+
+                // Verificar si la consulta fue exitosa y si hay resultados
+                if ($result && $result->num_rows > 0) {
+                    // Comenzar el elemento select
+                    echo '<select name="especialidad">';
+                    echo '<option value="defecto">Especialización</option>';
+                    // Iterar a través de los resultados y añadir cada opción al select
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<option value="' . htmlspecialchars($row['especializacion']) . '">' . htmlspecialchars($row['especializacion']) . '</option>';
+                    }
+                
+                    // Cerrar el elemento select
+                    echo '</select>';
+                } else {
+                    echo 'No se encontraron especialidades.';
+                }
+                ?>
             </div>
         </div>
         <div class="contenido">
@@ -119,289 +129,103 @@
             </aside>
             <section>
                 <div class="scrollbar">
-                    <div class="tarjeta-tera">
-                        <div class="infor1">
-                            <div class="img-des">
-                                <div class="img-tera">
-                                    <img src="../img/autor1.png" alt="" srcset="">
-                                    <img src="../img/es.png" alt="">
+                    <?php
+
+                    $sql = "SELECT * FROM terapeuta";
+                    $conexion = getConexion();
+                    $result = mysqli_query($conexion, $sql);
+                    if ($result->num_rows > 0) {
+                        while ($terapeuta = $result->fetch_assoc()) {
+                            $sql = "SELECT fecha_disponible FROM cita WHERE id_terapeuta = ?";
+                            $stmt = $conexion->prepare($sql);
+                            $stmt->bind_param("i", $terapeuta['id']);
+                            $stmt->execute();
+                            $resultado = $stmt->get_result();
+
+                            // Verificar si la consulta tuvo éxito
+                            if ($resultado) {
+                                // Recuperar los resultados en un array
+                                $arrayResultados = [];
+                                while ($fila = $resultado->fetch_assoc()) {
+                                    $arrayResultados[] = $fila['fecha_disponible'];
+                                }
+                            }
+                            echo '
+                                <div class="tarjeta-tera">
+                                    <div class="infor1">
+                                        <div class="img-des">
+                                            <div class="img-tera">
+                                                <img src="' . $terapeuta["img_perfil"] . '" alt="" srcset="">
+                                                <img src="' . $terapeuta["img_nac"] . '" alt="">
+                                            </div>
+                                            <div>
+                                                <h3>' . $terapeuta['nombre'] . ' ' . $terapeuta['apellidos'] . '</h3>
+                                                <p>Nº Identificación: ' . $terapeuta['n_identificacion'] . '</p>
+                                                <p>Especialización: ' . $terapeuta['especializacion'] . '</p>
+                                            </div>
+                                        </div>
+                                        <div class="idiomas">
+                                            <p><i class="bx bx-world"></i>Idiomas: ' . $terapeuta['idiomas'] . '</p>
+                                            <p><i class="bx bx-map"></i>Nacionalidad: ' . $terapeuta['nacionalidad'] . '</p>
+                                        </div>
+                                        <hr>
+                                        <div class="precio">
+                                            <p>Cita - 50 minutos</p>
+                                            <button>50.00€</button>
+                                        </div>
+                                    </div>
+                                    <div class="infor2">
+                                        <h3>Disponibilidad</h3>
+                                        <table>
+                                            <tr>
+                                                <td>Hoy</td>
+                                                <td>Mañana</td>
+                                                <td>Pasado Mañana</td>
+                                            </tr>
+                                        </table>
+                                        <div>
+                                        <form>
+                                            <table data-id-terapeuta=' . $terapeuta['id'] . '>';
+                            $disponibilidad = explode(",", $terapeuta['disponibilidad']);
+                            foreach ($disponibilidad as $hora) {
+                                $hoy = date("Y-m-d $hora:00");
+                                $tomorrow = date("Y-m-d $hora:00", strtotime('+1 day'));
+                                $tomorrow_pasado = date("Y-m-d $hora:00", strtotime('+2 day'));
+
+                                if (in_array($hoy, $arrayResultados)) {
+                                    $clase1 = "class='hora-ocupada'";
+                                } else {
+                                    $clase1 = "";
+                                }
+                                if (in_array($tomorrow, $arrayResultados)) {
+                                    $clase2 = "class='hora-ocupada'";
+                                } else {
+                                    $clase2 = "";
+                                }
+                                if (in_array($tomorrow_pasado, $arrayResultados)) {
+                                    $clase3 = "class='hora-ocupada'";
+                                } else {
+                                    $clase3 = "";
+                                }
+                                echo "<tr>
+                                                            <td $clase1 datetime='$hoy'>$hora</td>
+                                                            <td $clase2 datetime='$tomorrow'>$hora</td>
+                                                            <td $clase3 datetime='$tomorrow_pasado'>$hora</td> 
+                                                        </tr> 
+                                                        ";
+                            }
+
+                            echo '
+                                            </table>
+                                        </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3>Santiago Daza Villamar</h3>
-                                    <p>Nº Identificación: 999999</p>
-                                    <p>Especialización: Transtorno del Pánico, Mutismo Selectivo</p>
-                                </div>
-                            </div>
-                            <div class="idiomas">
-                                <p><i class='bx bx-world'></i>Idiomas: Español, Inglés</p>
-                                <p><i class='bx bx-map'></i>Nacionalidad: Española</p>
-                            </div>
-                            <hr>
-                            <div class="precio">
-                                <p>Cita - 50 minutos</p>
-                                <button>50.00€</button>
-                            </div>
-                        </div>
-                        <div class="infor2">
-                            <h3>Disponibilidad</h3>
-                            <table>
-                                <tr>
-                                    <td>Hoy</td>
-                                    <td>Mañana</td>
-                                    <td>Pasado Mañana</td>
-                                </tr>
-                            </table>
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>8:00</td>
-                                        <td>8:00</td>
-                                        <td>8:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9:00</td>
-                                        <td>9:00</td>
-                                        <td>9:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10:00</td>
-                                        <td>10:00</td>
-                                        <td>10:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11:00</td>
-                                        <td>11:00</td>
-                                        <td>11:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>12:00</td>
-                                        <td>12:00</td>
-                                        <td>12:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>13:00</td>
-                                        <td>13:00</td>
-                                        <td>13:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>14:00</td>
-                                        <td>14:00</td>
-                                        <td>14:00</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tarjeta-tera">
-                        <div class="infor1">
-                            <div class="img-des">
-                                <div class="img-tera">
-                                    <img src="../img/autor2.png" alt="" srcset="">
-                                    <img src="../img/ger.png" alt="">
-                                </div>
-                                <div>
-                                    <h3>Ismael Moreno Mor</h3>
-                                    <p>Nº Identificación: 999999</p>
-                                    <p>Especialización: Transtorno del Pánico, Mutismo Selectivo</p>
-                                </div>
-                            </div>
-                            <div class="idiomas">
-                                <p><i class='bx bx-world'></i>Idiomas: Español, Inglés</p>
-                                <p><i class='bx bx-map'></i>Nacionalidad: Española</p>
-                            </div>
-                            <hr>
-                            <div class="precio">
-                                <p>Cita - 50 minutos</p>
-                                <button>50.00€</button>
-                            </div>
-                        </div>
-                        <div class="infor2">
-                            <h3>Disponibilidad</h3>
-                            <table>
-                                <tr>
-                                    <td>Hoy</td>
-                                    <td>Mañana</td>
-                                    <td>Pasado Mañana</td>
-                                </tr>
-                            </table>
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>8:00</td>
-                                        <td>8:00</td>
-                                        <td>8:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9:00</td>
-                                        <td>9:00</td>
-                                        <td>9:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10:00</td>
-                                        <td>10:00</td>
-                                        <td>10:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11:00</td>
-                                        <td>11:00</td>
-                                        <td>11:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>12:00</td>
-                                        <td>12:00</td>
-                                        <td>12:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>13:00</td>
-                                        <td>13:00</td>
-                                        <td>13:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>14:00</td>
-                                        <td>14:00</td>
-                                        <td>14:00</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tarjeta-tera">
-                        <div class="infor1">
-                            <div class="img-des">
-                                <div class="img-tera">
-                                    <img src="../img/autor3.png" alt="" srcset="">
-                                    <img src="../img/cn.png" alt="">
-                                </div>
-                                <div>
-                                    <h3>Wei Xu</h3>
-                                    <p>Nº Identificación: 999999</p>
-                                    <p>Especialización: Transtorno del Pánico, Mutismo Selectivo</p>
-                                </div>
-                            </div>
-                            <div class="idiomas">
-                                <p><i class='bx bx-world'></i>Idiomas: Español, Inglés</p>
-                                <p><i class='bx bx-map'></i>Nacionalidad: Española</p>
-                            </div>
-                            <hr>
-                            <div class="precio">
-                                <p>Cita - 50 minutos</p>
-                                <button>50.00€</button>
-                            </div>
-                        </div>
-                        <div class="infor2">
-                            <h3>Disponibilidad</h3>
-                            <table>
-                                <tr>
-                                    <td>Hoy</td>
-                                    <td>Mañana</td>
-                                    <td>Pasado Mañana</td>
-                                </tr>
-                            </table>
-                            <div>
-                                <?php
-                                // conseguir la fecha de cita
-                                // $select="SELECT c.fecha_disponible AS fecha
-                                // FROM cita c
-                                // INNER JOIN terapeuta tp ON c.id_terapeuta = tp.id 
-                                // INNER JOIN usuario us ON c.id_usuario=us.id 
-                                // WHERE us.id=$id";
-                                // $resulta=mysqli_query($conexion,$select);
-                                // while ($cita=$resulta->fetch_assoc()) {
-                                //     echo"<input type='hidden' value='{$cita['fecha']}'>";
-                                // }
-                                ?>
-                                <table>
-                                    <tr>
-                                        <?php
-                                            //mostrar
-                                            $hoy=date('Y-m-d 8:00:00');
-                                            $tomorrow=date('Y-m-d 8:00:00', strtotime('+1 day'));
-                                            $tomorrow_pasado=date('Y-m-d 8:00:00', strtotime('+2 day'));
-                                            echo"
-                                            <td datetime='$hoy'>8:00</td>
-                                            <td datetime='$tomorrow'>8:00</td>
-                                            <td datetime='$tomorrow_pasado'>8:00</td>  
-                                            ";
-                                        ?>
-                                    </tr>
-                                    <tr>
-                                        <?php
-                                         $hoy=date('Y-m-d 9:00');
-                                         $tomorrow=date('Y-m-d 9:00', strtotime('+1 day'));
-                                         $tomorrow_pasado=date('Y-m-d 9:00', strtotime('+2 day'));
-                                         echo"
-                                         <td datetime='$hoy'>9:00</td>
-                                         <td datetime='$tomorrow'>9:00</td>
-                                         <td datetime='$tomorrow_pasado'>9:00</td>  
-                                         "; 
-                                        ?>
-                                    </tr>
-                                    <tr>
-                                        <?php
-                                         $hoy=date('Y-m-d 10:00');
-                                         $tomorrow=date('Y-m-d 10:00', strtotime('+1 day'));
-                                         $tomorrow_pasado=date('Y-m-d 10:00', strtotime('+2 day'));
-                                         echo"
-                                         <td datetime='$hoy'>10:00</td>
-                                         <td datetime='$tomorrow'>10:00</td>
-                                         <td datetime='$tomorrow_pasado'>10:00</td>  
-                                         ";
-                                        ?>
-                                    </tr>
-                                    <tr>
-                                        <?php
-                                         $hoy=date('Y-m-d 11:00');
-                                         $tomorrow=date('Y-m-d 11:00', strtotime('+1 day'));
-                                         $tomorrow_pasado=date('Y-m-d 11:00', strtotime('+2 day'));
-                                         echo"
-                                         <td datetime='$hoy'>11:00</td>
-                                         <td datetime='$tomorrow'>11:00</td>
-                                         <td datetime='$tomorrow_pasado'>11:00</td>  
-                                         ";
-                                        ?>
-                                    </tr>
-                                    <tr>
-                                        <?php
-                                         $hoy=date('Y-m-d 12:00');
-                                         $tomorrow=date('Y-m-d 12:00', strtotime('+1 day'));
-                                         $tomorrow_pasado=date('Y-m-d 12:00', strtotime('+2 day'));
-                                         echo"
-                                         <td datetime='$hoy'>12:00</td>
-                                         <td datetime='$tomorrow'>12:00</td>
-                                         <td datetime='$tomorrow_pasado'>12:00</td>  
-                                         ";
-                                        ?>
-                                    </tr>
-                                    <tr>
-                                        <?php
-                                         $hoy=date('Y-m-d 13:00');
-                                         $tomorrow=date('Y-m-d 13:00', strtotime('+1 day'));
-                                         $tomorrow_pasado=date('Y-m-d 13:00', strtotime('+2 day'));
-                                         echo"
-                                         <td datetime='$hoy'>13:00</td>
-                                         <td datetime='$tomorrow'>13:00</td>
-                                         <td datetime='$tomorrow_pasado'>13:00</td>  
-                                         ";
-                                        ?>
-                                    </tr>
-                                    <tr>
-                                        <?php
-                                         $hoy=date('Y-m-d 14:00');
-                                         $tomorrow=date('Y-m-d 14:00', strtotime('+1 day'));
-                                         $tomorrow_pasado=date('Y-m-d 14:00', strtotime('+2 day'));
-                                         echo"
-                                         <td datetime='$hoy'>14:00</td>
-                                         <td datetime='$tomorrow'>14:00</td>
-                                         <td datetime='$tomorrow_pasado'>14:00</td>  
-                                         ";
-                                        ?>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                            ';
+                        }
+                    }
+                    ?>
+
             </section>
         </div>
     </main>
@@ -439,13 +263,13 @@
                     <li>Foros de Comunidad</li>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -459,6 +283,49 @@
     </footer>
 </body>
 <script>
-    
+    $(document).ready(function() {
+        // Escucha el evento click en los td que no tengan la clase 'hora-ocupada'
+        $('td:not(.hora-ocupada)').click(function() {
+            var fechaHora = $(this).attr('datetime'); // Obtiene la fecha y hora del atributo 'datetime'
+            var idTerapeuta = $(this).closest('table').data('id-terapeuta'); // Obtiene la ID del terapeuta del atributo de la tabla
+            var celdaSeleccionada = $(this); // Guarda la referencia a la celda seleccionada
+            // Mensaje de confirmación
+            var mensajeConfirmacion = '¿Quieres pedir cita para el día ' + fechaHora + '?';
+
+            // Mostrar ventana de confirmación
+            if (confirm(mensajeConfirmacion)) {
+                // Aquí asumimos que la ID del usuario está almacenada en una variable de JavaScript
+                // Esta variable debe ser establecida en algún lugar de tu script PHP donde la sesión esté disponible
+                var idUsuario = <?php echo json_encode($_SESSION['id']); ?>;
+
+                // Crear un objeto FormData y agregar los datos
+                var formData = new FormData();
+                formData.append('fechaHora', fechaHora);
+                formData.append('idTerapeuta', idTerapeuta);
+                formData.append('idUsuario', idUsuario);
+                fetch('insertar_cita.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            celdaSeleccionada.addClass('hora-ocupada');
+                            alert(data.mensaje);
+                        } else {
+                            alert(data.mensaje);
+                        }
+                    })
+                    .catch(error => {
+                        // Manejo de errores de la petición
+                        alert(error);
+                    });
+            } else {
+                // Si el usuario cancela, simplemente no hace nada
+                alert('La reserva ha sido cancelada.');
+            }
+        });
+    });
 </script>
+
 </html>
