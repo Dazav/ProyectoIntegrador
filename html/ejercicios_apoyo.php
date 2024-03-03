@@ -156,9 +156,9 @@
                         <i class='bx bxs-caret-down-circle' ></i>
                     </div>
                 </div>
-                <button id="comfirma">confirma</button>
             </section>
         </div>
+        <button id="comfirma">confirma</button>
     </main>
     <!--  -->
     <div class="preguntaOtra" id="preguntaOtra">
