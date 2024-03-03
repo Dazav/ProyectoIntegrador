@@ -104,7 +104,8 @@
             id_usuario INT,
             titular VARCHAR(250),
             descripcion VARCHAR(250),
-            img VARCHAR(50),
+            img_portada VARCHAR(50),
+            img_banner VARCHAR(50),
             fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
@@ -182,11 +183,11 @@
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
              $insert1 = "INSERT INTO terapeuta (nombre, apellidos, n_identificacion, especializacion, nacionalidad, idiomas,sexo,img_perfil,img_nac, disponibilidad) VALUES
-             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English','mujer','../img/tera1.png','../img/es.png', '14:00,15:00,18:00,19:00,20:00'),
-             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch','hombre','../img/tera2.png','../img/ger.png', '12:00,13:00,17:00,19:00,20:00'),
-             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский','hombre','../img/tera3.png','../img/us.png', '00:00,12:00,19:00,22:00,23:00'),
-             ('Xin', 'Zhao', '707234', 'Ansiedad', 'Chino', '中文, English,Español','hombre','../img/tera3.png','../img/cn.png', '14:00,15:00,18:00,19:00,20:00'),
-             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English','mujer','../img/tera4.png','../img/fr.png', '14:00,15:00,18:00,19:00,20:00')
+             ('María', 'Paveda Martínez', '247334', 'Fobia Social', 'Española', 'Español, English','mujer','../img/tera1.jpg','../img/es.png', '14:00,15:00,18:00,19:00,20:00'),
+             ('Nikolas', 'Müller Weber', '099834', 'Mutismo Selectivo', 'Alemana', 'Español, Deutsch','hombre','../img/tera2.jpg','../img/ger.png', '12:00,13:00,17:00,19:00,20:00'),
+             ('John', 'Krsinski', '541634', 'Trastorno del Pánico', 'Estadounidense', 'English, Русский','hombre','../img/tera3.jpg','../img/us.png', '00:00,12:00,19:00,22:00,23:00'),
+             ('Xin', 'Zhao', '707234', 'Ansiedad', 'Chino', '中文, English,Español','hombre','../img/tera4.jpg','../img/cn.png', '14:00,15:00,18:00,19:00,20:00'),
+             ('Asan', 'Diop', '000634', 'Fobia Social', 'Francesa', 'Français, English','mujer','../img/tera5.jpg','../img/fr.png', '14:00,15:00,18:00,19:00,20:00')
              ";
              mysqli_query($conexion, $insert1) or die("Error insert terapeuta");
          }
@@ -267,12 +268,12 @@
          $select = "SELECT * FROM recursos";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO recursos (id_usuario, titular, descripcion, img) VALUES
-             (2, 'Cómo relajarse', '1. Inspirar \n 2. Expirar \n 3. Meditamos en silencio', 'relajacion.jpg'),
-             (3, 'Cómo detectar un ataque', 'Si vemos que la persona empieza a sudar y tiritar, podríamos estar ante un ataque de pánico', 'sudores.jpg'),
-             (4, 'Cómo ayudar a enfermos', 'Lo mejor sería llamar a un médico especializado, pero si no podemos, tumbamos al paciente de lado, y le abrazamos para que se calme.', 'tumbar.jpg'),
-             (2, 'Cuándo actuar', 'Sobre todo ante ataques de pánico hay que ayudar a la persona a relajarse. Pueden ser ejercicios de respiración, o simplemente un abrazo o algo suave para que se relaje.', 'panico.jpg'),
-             (1, 'Tabla de síntomas', 'Tabla de síntomas', 'tabla.jpg')";
+             $insert1 = "INSERT INTO recursos (id_usuario, titular, descripcion, img_banner, img_portada) VALUES
+             (2, 'Cómo relajarse', '1. Inspirar \n 2. Expirar \n 3. Meditamos en silencio', 'relajacion.jpg', 'tema-an1.png'),
+             (3, 'Cómo detectar un ataque', 'Si vemos que la persona empieza a sudar y tiritar, podríamos estar ante un ataque de pánico', 'sudores.jpg', 'tema-an2.png'),
+             (4, 'Cómo ayudar a enfermos', 'Lo mejor sería llamar a un médico especializado, pero si no podemos, tumbamos al paciente de lado, y le abrazamos para que se calme.', 'tumbar.jpg', 'tema-an3.png'),
+             (2, 'Cuándo actuar', 'Sobre todo ante ataques de pánico hay que ayudar a la persona a relajarse. Pueden ser ejercicios de respiración, o simplemente un abrazo o algo suave para que se relaje.', 'panico.jpg', 'tema-an4.png'),
+             (1, 'Tabla de síntomas', 'Tabla de síntomas', 'tabla.jpg', 'tema-an5.png')";
              mysqli_query($conexion, $insert1) or die("Error insert recursos");
          }
 
