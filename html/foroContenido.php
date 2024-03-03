@@ -27,7 +27,7 @@ if (isset($_POST["enviar"])) {
         // Verificar si se insertaron filas
         if ($stmt->affected_rows > 0) {
             // Éxito
-            echo "Respuesta insertada correctamente.";
+            
         } else {
             // Error al insertar
             echo "Error al insertar la respuesta.";
