@@ -54,18 +54,6 @@
 
         mysqli_query($conexion, $tabla_foro) or die("Error en tabla usuario");
 
-        // tabla de pago
-        $tabla_pago = "CREATE TABLE IF NOT EXISTS pago(
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            id_usuario INT,
-            metodo VARCHAR(50),
-            num_tarjeta VARCHAR(19),
-            fecha_valida DATE,
-            cvv INT(3),
-            FOREIGN KEY (id_usuario) REFERENCES usuario(id)
-        );";
-        mysqli_query($conexion,$tabla_pago) or die("Error en tabla pago");
-
         $tabla_respuestas = "CREATE TABLE IF NOT EXISTS respuestas(
             id INT AUTO_INCREMENT PRIMARY KEY,
             id_usuario INT,
@@ -106,6 +94,7 @@
             descripcion VARCHAR(250),
             img_portada VARCHAR(50),
             img_banner VARCHAR(50),
+            premium INT(1) DEFAULT 0,
             fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)
@@ -204,19 +193,6 @@
             (4,5,'2024-03-03 14:00')";
             mysqli_query($conexion, $insert1)  or die("Error insert pago");
         }
-         //inserta datos
-         $select="SELECT * FROM pago";
-         $result=mysqli_query($conexion, $select);
-         if ($result->num_rows== 0) {
-            $insert1="INSERT INTO pago(id_usuario, metodo,num_tarjeta,fecha_valida,cvv) VALUES
-            (1,'tarjeta credito','5790-2428-9091-4585','2026-03-04',123),
-            (2,'tarjeta credito','5790-2428-9091-4585','2026-03-04',892),
-            (3,'paypal','5340-2678-3821-4325','2024-11-12',229),
-            (4,'tarjeta credito','5790-2428-9091-4585','2024-10-10',781),
-            (5,'paypal','2320-2428-9091-4585','2040-06-07',123)";
-            mysqli_query($conexion, $insert1)  or die("Error insert pago");
-         }
-
          $select = "SELECT * FROM foro";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
@@ -269,12 +245,12 @@
          $select = "SELECT * FROM recursos";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO recursos (id_usuario, titular, descripcion, img_banner, img_portada) VALUES
-             (2, 'Cómo relajarse', '1. Inspirar \n 2. Expirar \n 3. Meditamos en silencio', '../img/recursos-contenido1.png', 'tema-an1.png'),
-             (3, 'Cómo detectar un ataque', 'Si vemos que la persona empieza a sudar y tiritar, podríamos estar ante un ataque de pánico', '../img/recursos-contenido1.png', 'tema-an2.png'),
-             (4, 'Cómo ayudar a enfermos', 'Lo mejor sería llamar a un médico especializado, pero si no podemos, tumbamos al paciente de lado, y le abrazamos para que se calme.', '../img/recursos-contenido1.png', 'tema-an3.png'),
-             (2, 'Cuándo actuar', 'Sobre todo ante ataques de pánico hay que ayudar a la persona a relajarse. Pueden ser ejercicios de respiración, o simplemente un abrazo o algo suave para que se relaje.', '../img/recursos-contenido1.png', 'tema-an4.png'),
-             (1, 'Tabla de síntomas', 'Tabla de síntomas', '../img/recursos-contenido1.png', 'tema-an5.png')";
+             $insert1 = "INSERT INTO recursos (id_usuario, titular, descripcion, img_banner, img_portada, premium) VALUES
+             (2, 'Cómo relajarse', '1. Inspirar \n 2. Expirar \n 3. Meditamos en silencio', '../img/recursos-contenido1.png', 'tema-an1.png', 1),
+             (3, 'Cómo detectar un ataque', 'Si vemos que la persona empieza a sudar y tiritar, podríamos estar ante un ataque de pánico', '../img/recursos-contenido1.png', 'tema-an2.png', 0),
+             (4, 'Cómo ayudar a enfermos', 'Lo mejor sería llamar a un médico especializado, pero si no podemos, tumbamos al paciente de lado, y le abrazamos para que se calme.', '../img/recursos-contenido1.png', 'tema-an3.png', 1),
+             (2, 'Cuándo actuar', 'Sobre todo ante ataques de pánico hay que ayudar a la persona a relajarse. Pueden ser ejercicios de respiración, o simplemente un abrazo o algo suave para que se relaje.', '../img/recursos-contenido1.png', 'tema-an4.png', 0),
+             (1, 'Tabla de síntomas', 'Tabla de síntomas', '../img/recursos-contenido1.png', 'tema-an5.png', 0)";
              mysqli_query($conexion, $insert1) or die("Error insert recursos");
          }
 
