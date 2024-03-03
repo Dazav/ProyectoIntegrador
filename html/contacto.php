@@ -31,6 +31,7 @@ if (isset($_SESSION["id"])) {
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="../js/contacto.js"></script>
+        <script src="../js/main.js"></script>
         <title>Iniciar Sesión</title>
     </head>
 
