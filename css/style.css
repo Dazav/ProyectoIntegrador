@@ -559,8 +559,18 @@ footer>hr{
         font-size: 0;
     }
 }
-
-@media screen and (max-width:500px) {
+/* pad */
+@media screen and (max-width:830px) {
+    /* comentarios responsive */
+    .introduccion2 h1 {
+        font-size: 1rem;
+    }
+    .introduccion2 p {
+        font-size: 0.8rem;
+    }
+}
+/* movil */
+@media screen and (max-width:600px) {
 
     .introduccion1{
         display: grid;

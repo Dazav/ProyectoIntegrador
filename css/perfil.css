@@ -60,12 +60,12 @@ main>h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 #editar,#logout{
     border: 3px solid #6545A1;
     width: 200px;
-    height: 50px;
+    height: 45px;
     border-radius: 12px;
     color: #6545A1;
     font-size: 20px;
