@@ -57,7 +57,7 @@ if (!empty($params)) {
 
 if ($result->num_rows > 0) {
     while ($terapeuta = $result->fetch_assoc()) {
-        $sql = "SELECT fecha_disponible FROM cita WHERE id_terapeuta = ?";
+        $sql = "SELECT fecha_cita FROM cita WHERE id_terapeuta = ?";
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("i", $terapeuta['id']);
         $stmt->execute();
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
             // Recuperar los resultados en un array
             $arrayResultados = [];
             while ($fila = $resultado->fetch_assoc()) {
-                $arrayResultados[] = $fila['fecha_disponible'];
+                $arrayResultados[] = $fila['fecha_cita'];
             }
         }
         echo '

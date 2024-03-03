@@ -1,7 +1,11 @@
 <?php
-include "../db/crear_tablas.php";
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+  include "../db/crear_tablas.php";
+  session_start();
+  if (isset($_SESSION["id"])) {
+    header('Location: perfil.php');
+  }else{
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

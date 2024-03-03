@@ -45,12 +45,14 @@ if (isset($_SESSION["id"])) {
             <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-         <?php
+        <?php
             if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
-                $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$resulta->fetch_assoc()) {
+                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                    while ($user=$result->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";

@@ -1,9 +1,7 @@
 <?php
   include "../db/crear_tablas.php";
-  $conexion = getConexion();
     session_start();
     if (isset($_SESSION["id"])) {
-        # code...
         $id=$_SESSION["id"];
     }
 ?>
@@ -51,10 +49,12 @@
         
         <?php
             if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id AND imagen !=''";
-                $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$resulta->fetch_assoc()) {
+                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                    while ($user=$result->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
@@ -87,43 +87,6 @@
         <hr>
         <section>
           <div class="tema-ansiedad">
-            <!-- <div class="tema1">
-              <div>
-                <h3>Ejercicios de exposición gradual</h3>
-                <a href="recursosContenido.php?id_recurso=1">
-                  ver detalle<i class='bx bx-right-arrow-alt'></i>
-                </a>
-              </div>
-              <img src="../img/tema-an1.png" alt="">
-            </div>
-            <div class="tema2">
-              <img src="../img/tema-an2.png" alt="">
-              <div>
-                <h3>Tabla de síntomas</h3>
-                <a href="">
-                  ver detalle<i class='bx bx-right-arrow-alt'></i>
-                </a>
-              </div>
-            </div>
-            <div class="tema3">
-              <img src="../img/tema-an3.png" alt="" srcset="">
-              <div>
-                <h3>Ejercicio de atención plena </h3>
-                <a href="">
-                  ver detalle<i class='bx bx-right-arrow-alt'></i>
-                </a>
-              </div>
-            </div>
-            <div class="tema4">
-              <img src="../img/tema-an4.png" alt="" srcset="">
-              <div>
-                <h3>Ejercicios de apoyo</h3>
-                <a href="">
-                  ver detalle<i class='bx bx-right-arrow-alt'></i>
-                </a>
-              </div>
-            </div> -->
-
             <?php
 
             $index = 1;

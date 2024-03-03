@@ -1,3 +1,10 @@
+<?php
+  include "../db/crear_tablas.php";
+    session_start();
+    if (isset($_SESSION["id"])) {
+        $id=$_SESSION["id"];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
