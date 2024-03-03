@@ -181,6 +181,7 @@ if (isset($_POST["modificar"])) {
                     <img src="../img/defecto.png" alt="" class="img-cita">
                     <!-- pon informacion -->
                     <div class="informacion-cita">
+                        <h1>Cita Proxima:</h1>
                         <p>nombre de doctor</p>
                         <p>nº de telefono de terapeuta</p>
                         <p>fecha_cita</p>
