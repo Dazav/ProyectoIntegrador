@@ -62,7 +62,7 @@ main>h1{
     align-items: center;
     gap: 10px;
 }
-#editar,#logout,#cita{
+#editar,#logout{
     border: 3px solid #6545A1;
     width: 200px;
     height: 45px;

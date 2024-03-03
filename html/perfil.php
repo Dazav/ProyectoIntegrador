@@ -143,9 +143,7 @@ if (isset($_POST["modificar"])) {
                 <div class="btn">
                     <button id="editar">Editar Perfil</button>
                     <button id="logout">Cerrar Sesión</button>
-                    <button id="cita">Pedir una cita</button>
                 </div>
-
             </div>
             <div class="infor-user">
                 <?php
@@ -172,11 +170,12 @@ if (isset($_POST["modificar"])) {
                 ?>  
             </div>
             <div class="citas">
-        <h2>Citas</h2>
-        <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
-    </div>
+            <h2>Citas</h2>
+            <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
         </div>
-        
+        </div>
+        <!-- cita -->
+        <div>Cita</div>
         <!-- editar perfil -->
         <form class="editar" method="post" enctype="multipart/form-data">
             <i class='bx bx-x'></i>
