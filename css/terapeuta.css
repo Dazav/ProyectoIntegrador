@@ -10,6 +10,7 @@ body,html{
 /* main */
 main{
     text-align: center;
+    height: auto;
 }
 @keyframes textIn {
     0%{}
@@ -18,6 +19,11 @@ main{
     opacity: 1;
     }
 }
+
+.contenido{
+    height: auto;
+}
+
 
 /* Buscador */
 .califica{
@@ -30,6 +36,9 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.califica .menu {
+    margin-top: 10px;
 }
 .bx-menu{
     cursor: pointer;
@@ -157,12 +166,12 @@ section{
     align-items: center;
     background: #ffffffbc;
 }
-.scrollbar{
-    width: 1200px;
-    overflow-y: scroll;
-    height: 800px;
-    /* scroll suave*/
-    scroll-snap-type: y mandatory;
+.scrollbar {
+    width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
+    max-height: 600px; /* Establece una altura máxima para el scrollbar */
+    overflow-y: auto; /* Habilita el scrollbar vertical cuando sea necesario */
+    padding-right: 20px; /* Agrega espacio para el scrollbar vertical */
+    box-sizing: border-box; /* Asegura que el padding no incremente el ancho total */
 }
 ::-webkit-scrollbar {
     width: 10px; 
@@ -180,12 +189,15 @@ section{
     background: #ffff;
     display: inline-flex;
     width: 960px;
-    padding: 30px 50px;
     border-top: 10px solid #6545A1;
-    margin: 30px 0;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     box-shadow: 0 0 5px #646464;
+    width: 100%;
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 30px;
+    box-sizing: border-box;
 }
 .tarjeta-tera h3{
     font-weight: bold;
@@ -264,73 +276,56 @@ td{
     color: #ffff;
     border-radius: 20px;
 }
-/* tienes dudas */
-.contacto{
-    height: 230px;
-    background: #D9D9D9;
-    text-align: center;
-    padding-top: 70px;
-    font-weight: bold;
+
+/* Estilos para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .scrollbar {
+        max-height: 400px; /* Ajusta la altura máxima para dispositivos pequeños */
+    }
+    .califica select#filtro-especialidad{
+        width: 100px;
+        font-size: small;
+    }
+    .buscador{
+        margin-bottom: 30px;
+    }
+    .bx-search{
+        margin-bottom: 30px;
+    }
+    aside{
+        display: none;
+    }
+
+    .tarjeta-tera {
+        flex-direction: column;
+        align-items: center;
+        flex: 0 0 auto; /* Para que las tarjetas no se hagan flexibles */
+         margin-right: 20px; /* Espacio entre las tarjetas */
+         width: 100%; /* Ajusta el ancho de las tarjetas según sea necesario */
+        margin: 0 auto 20px; /* Centra las tarjetas y agrega espacio en la parte inferior */
+    }
+    .tarjeta-tera h3{
+        font-size: 20px;
+    }
+    .scrollbar {
+        overflow-y: auto; /* Habilitar la barra de desplazamiento vertical cuando sea necesario */
+        max-height: 80vh; /* Establecer una altura máxima para el contenedor */
+    }
+    
+
+    .tarjeta-tera .infor1 {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .tarjeta-tera .infor2 {
+        margin-top: 20px;
+    }
 }
-.contacto h1{
-    margin: 0 0 32px 0;
-    font-size: 2rem;
-}
-.contacto p{
-    font-size: 1rem;
-    margin: 24px 0;
-}
-.contacto input{
-    background: #000;
-    border-radius: 35px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 12px;
-    width: 200px;
-    cursor: pointer;
-}
-/* footer */
-footer{
-    background: #000;
-    color: white;
-}
-footer .elementos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.elementos div:first-child img{
-    width: 95px;
-    height: 95px;
-}
-.elementos div:first-child{
-    display: flex;
-    align-items: center;
-}
-.elementos div:nth-child(n+2) h2 {
-    margin: 100px 0 32px 0;
-}
-.elementos div:nth-child(n+2) ul{
-    list-style-type: none;
-    margin: 0 0 120px 0;
-    padding-inline-start: 0;
-}
-/* Sociales */
-.social a i {
-    margin: 0.5rem;
-    padding: 0;
-}
-/* linea horzontal */
-footer>hr{
-    margin: 0.5rem;
-}
-/* avisos legales */
-.avisos{
-    display: flex;
-    justify-content: space-between;
-}
-.avisos pre{
-    margin: 0 0.5rem;
-    font-family: "Montserrat";
+
+/* Estilos para dispositivos muy pequeños */
+@media screen and (max-width: 480px) {
+    .tarjeta-tera {
+        padding: 20px; /* Reduce el relleno para dispositivos muy pequeños */
+    }
 }

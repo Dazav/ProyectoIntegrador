@@ -23,15 +23,18 @@ if (isset($_SESSION["id"])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../js/teuapeuta.js"></script>
+    <script src="../js/main.js"></script>
     <title>terapeuta</title>
 </head>
 
 <body>
     <!-- barra navegación -->
     <nav>
-        <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.php">Brain Hub</a>
+    <div class="usuario">
+                <!-- Botón de menú para móviles -->
+                <button class="menu-mobile">☰</button>
+                    <img src="../img/logo.png" alt="">
+                <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
             <button onclick="window.location.href='recursos.php'">Recursos</button>
@@ -91,7 +94,7 @@ if (isset($_SESSION["id"])) {
                 // Verificamos si la consulta fue exitosa y si hay resultados
                 if ($result && $result->num_rows > 0) {
                     echo '<select id="filtro-especialidad" name="especialidad">';
-                    echo '<option value="">Especialización</option>';
+                    echo '<option value="">Especialidad</option>';
                     // Iterar a través de los resultados y añadir cada opción al select
                     while ($row = $result->fetch_assoc()) {
                         echo '<option value="' . htmlspecialchars($row['especializacion']) . '">' . htmlspecialchars($row['especializacion']) . '</option>';
@@ -170,6 +173,7 @@ if (isset($_SESSION["id"])) {
             </aside>
             <section>
                 <div class="scrollbar">
+                 
                     <?php
                     // Para todos los terapeutas hacemos su "card"
                     $sql = "SELECT * FROM terapeuta";
@@ -269,6 +273,7 @@ if (isset($_SESSION["id"])) {
                     ?>
 
             </section>
+            </div>
         </div>
     </main>
     <!-- contacto -->
