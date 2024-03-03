@@ -19,31 +19,36 @@ if (isset($_POST["jsonInputs"]) && isset($_SESSION["id"])) {
     // Inicializa la transacción
     mysqli_begin_transaction($conexion);
 
-    try {
         foreach ($inputs as $respuesta) {
-            $insert = "INSERT INTO respuestaEjercicio (id_usuario, id_pregunta, respuesta) VALUES (?, ?, ?)";
-            $stmt = mysqli_prepare($conexion, $insert);
-            mysqli_stmt_bind_param($stmt, "iis", $id, $index, $respuesta);
-            if (mysqli_stmt_execute($stmt)) {
-                // No establezca $response aquí ya que se sobrescribirá en el bucle
+            $query = "SELECT COUNT(*) FROM respuestaEjercicio WHERE id_usuario = ? AND id_pregunta = ?";
+            $stmt = mysqli_prepare($conexion, $query);
+            mysqli_stmt_bind_param($stmt, "ii", $id, $index);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $count);
+            mysqli_stmt_fetch($stmt);
+            mysqli_stmt_close($stmt);
+            if ($count > 0) {//si existe respuestas mismas ,no inserta
+
             } else {
-                // Si hay un error, lanzar una excepción para manejarlo
-                throw new Exception('Error en la inserción de datos.');
+                 //si no existe inserta
+                $insert = "INSERT INTO respuestaEjercicio (id_usuario, id_pregunta, respuesta) VALUES (?, ?, ?)";
+                $stmt = mysqli_prepare($conexion, $insert);
+                mysqli_stmt_bind_param($stmt, "iis", $id, $index, $respuesta);
+                if (mysqli_stmt_execute($stmt)) {
+                    $response = array('status' => 'success', 'message' => 'Datos insertados con éxito.');
+                } else {
+                    $response = array('status' => 'error', 'message' => 'Error al insertar datos.');
+                }
+                mysqli_stmt_close($stmt);
+
+                $index++;
             }
-            $index++;
         }
         // Si todas las inserciones son exitosas, actualizar $response
         $response = array('status' => 'success', 'message' => 'Datos insertados con éxito.');
 
         // Confirmar la transacción
         mysqli_commit($conexion);
-    } catch (Exception $e) {
-        // Si hay una excepción, cancelar la transacción
-        mysqli_rollback($conexion);
-
-        // Actualizar $response con el mensaje de error
-        $response = array('status' => 'error', 'message' => $e->getMessage());
-    }
 } else {
     $response = array('status' => 'error', 'message' => 'Datos POST requeridos no están presentes.');
 }
