@@ -3,7 +3,6 @@
 //   $conexion = getConexion();
     session_start();
     if (isset($_SESSION["id"])) {
-        # code...
         $id=$_SESSION["id"];
     }
 ?>
@@ -48,7 +47,7 @@
         
         <?php
             if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id AND imagen !=''";
+                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
                 $resulta=mysqli_query($conexion,$select);
                 if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
                     while ($user=$resulta->fetch_assoc()) {

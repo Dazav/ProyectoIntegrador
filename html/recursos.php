@@ -1,5 +1,5 @@
 <?php
-  include "../db/conecta.php";
+  include "../db/crear_tablas.php";
   $conexion = getConexion();
     session_start();
     if (isset($_SESSION["id"])) {
@@ -87,7 +87,7 @@
         <hr>
         <section>
           <div class="tema-ansiedad">
-            <div class="tema1">
+            <!-- <div class="tema1">
               <div>
                 <h3>Ejercicios de exposición gradual</h3>
                 <a href="recursosContenido.php?id_recurso=1">
@@ -122,7 +122,36 @@
                   ver detalle<i class='bx bx-right-arrow-alt'></i>
                 </a>
               </div>
-            </div>
+            </div> -->
+
+            <?php
+
+            $index = 1;
+            $sql = "SELECT * FROM recursos";
+            $result=mysqli_query($conexion,$sql);
+                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                    while ($recurso=$result->fetch_assoc()) {
+                      echo '
+                      <div class="tema'.$index.'">
+                        <div>
+                          <h3>'.$recurso['titular'].'</h3>
+                          <a href="recursosContenido.php?id_recurso='.$recurso['id'].'">
+                            ver detalle<i class="bx bx-right-arrow-alt"></i>
+                          </a>
+                        </div>
+                        <img src="../img/'.$recurso['img_portada'].'" alt="">
+                      </div>
+                      ';
+                      $index++;
+                      if ($index==5){
+                        echo "<br>";
+                        $index=1;
+                      }
+                    }
+
+                }
+            ?>
+
           </div>
         </section>
     </main>
