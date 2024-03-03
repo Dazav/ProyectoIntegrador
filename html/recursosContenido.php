@@ -1,23 +1,27 @@
 <?php
-include("../db/crear_tablas.php");
-session_start();
-//conseguir id y id de foro
-if (isset($_SESSION["id"])) {
-    $id=$_SESSION["id"];
-}
-if (isset($_GET["id_recurso"])) {
-    # code...
-    $id_r = $_GET['id_recurso'];
-}
-// 
-
-?>
-<?php
   include "../db/crear_tablas.php";
     session_start();
     if (isset($_SESSION["id"])) {
         $id=$_SESSION["id"];
+        $premium=0;
+        // Seleccionamos el premium del usuario
+        $stmt = $conexion->prepare("SELECT premium FROM usuario WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows>0) {
+            while ($user=$result->fetch_assoc()) {
+                $premium = $user['premium'];
+            }
+        }
     }
+if (isset($_GET["id_recurso"])) {
+    # code...
+    $id_r = $_GET['id_recurso'];
+    
+}
+// 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,18 +71,21 @@ if (isset($_GET["id_recurso"])) {
             <i class="bx bx-arrow-back"></i>
             <?php
                     $select = "SELECT r.titular AS t, us.nombre AS nombre, us.apellidos AS ap,r.descripcion AS dsc,
-                        r.fecha_creacion AS fc, r.img_banner AS img
+                        r.fecha_creacion AS fc, r.img_banner AS img, r.premium as premium
                         FROM recursos r
                         INNER JOIN usuario us ON us.id = r.id_usuario
                         WHERE r.id=$id_r";
                     $resulta = mysqli_query($conexion, $select);
                     while ($contenido = $resulta->fetch_assoc()) {
-                        # code...
+                        // Si el usuario no es premium y el recurso es sólo para premiums, le mandamos al premium.php
+                        if($premium==0 && $contenido['premium']==1){
+                            header("Location: premium.php");
+                        }
                         echo "
                                 <h1 style='font-size: 40px;'>{$contenido['t']}</h1>
                                 <p>{$contenido['fc']}</p>
                                 <div class='bg-contenido'>
-                                    <img src='{$contenido['img']}' class='img_des'>
+                                    <img src='../img/{$contenido['img']}' class='img_des'>
                                 </div>
                                 <p style='font-size: 20px;' class='articulo'>{$contenido['dsc']}</p>
                             ";

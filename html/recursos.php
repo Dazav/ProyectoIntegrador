@@ -3,6 +3,17 @@
     session_start();
     if (isset($_SESSION["id"])) {
         $id=$_SESSION["id"];
+        $premium=0;
+        // Seleccionamos el premium del usuario
+        $stmt = $conexion->prepare("SELECT premium FROM usuario WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows>0) {
+            while ($user=$result->fetch_assoc()) {
+                $premium = $user['premium'];
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -92,16 +103,27 @@
           
             $sql = "SELECT * FROM recursos";
             $result=mysqli_query($conexion,$sql);
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                if ($result->num_rows>0) {
                     while ($recurso=$result->fetch_assoc()) {
+                      if($recurso['premium']==1 && $premium==1){
+                        $link = '<a href="recursosContenido.php?id_recurso='.$recurso['id'].'">
+                                    ver detalle<i class="bx bx-right-arrow-alt"></i>
+                                  </a>';
+                      }else if($recurso['premium']==1 && $premium==0){
+                        $link = '<a href="premium.php">
+                                    Hazte premium<i class="bx bx-lock-alt"></i>
+                                  </a>';
+                      }else{
+                        $link = '<a href="recursosContenido.php?id_recurso='.$recurso['id'].'">
+                                    ver detalle<i class="bx bx-right-arrow-alt"></i>
+                                  </a>';
+                      }
                       echo '
                       <div class="tema'.$recurso['id'].'">
                         <div>
-                          <h3>'.$recurso['titular'].'</h3>
-                          <a href="recursosContenido.php?id_recurso='.$recurso['id'].'">
-                            ver detalle<i class="bx bx-right-arrow-alt"></i>
-                          </a>
-                        </div>
+                          <h3>'.$recurso['titular'].'</h3>'.
+                          $link
+                        .'</div>
                         <img src="../img/'.$recurso['img_portada'].'" alt="">
                       </div>
                       ';

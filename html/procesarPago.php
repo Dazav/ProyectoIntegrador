@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: perfil.php");
         exit;
     } else {
-        // Si falla, manejar el error (p.ej., mostrar un mensaje de error)
+        
         echo "Error al procesar el pago.";
     }
 }else{
