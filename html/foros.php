@@ -120,7 +120,7 @@
                 <div class='imgAutor'><i class='bx bx-add-to-queue'></i></div>
               </a>
 
-              <form class='add-tema' id="add-tema" method="post" enctype="multipart/form-data">
+              <form class='add-tema' id="add-tema" enctype="multipart/form-data" >
                 <i class='bx bx-arrow-back'></i>
                 <label><input type="file" name="addImg" id="addImg" accept=".png,.jpg,.jpeg"><i class='bx bx-image-add' ></i></label>
                 <input type="text" placeholder="Apunte título de artículo" name="addTitulo">
@@ -187,11 +187,9 @@
     // jquery fetch de formulario de crear tema
 $(document).ready(function () {
     $("#add-tema").submit(function () { 
-        e.preventDefault();//previene para no cargar la página
+        // e.preventDefault();//previene para no cargar la página
         //crea objeto FormData con los datos de formulario
         var formData=new FormData(this);
-        // var img=document.getElementById("addImg");
-        // formData.append('image', img);
         //enviar formData a servidor
         fetch("procesarForo.php",{
             method: "POST",
