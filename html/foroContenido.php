@@ -4,6 +4,8 @@ include "../db/crear_tablas.php";
 session_start();
 if (isset($_SESSION["id"])) {
     $id=$_SESSION["id"];
+}else{
+    header('Location: registrar.php');
 }
 if (isset($_GET["idForo"])) {
     # code...
@@ -182,7 +184,7 @@ if (isset($_POST["enviar"])) {
                         WHERE r.id_foro=$idForo";
                     $resulta = mysqli_query($conexion, $select);
                     while ($user = $resulta->fetch_assoc()) {
-                        # code...
+                        
                         echo "
                             <div class='comentario_arti'>
                                 <img src='{$user['img']}'>
@@ -194,27 +196,6 @@ if (isset($_POST["enviar"])) {
                             ";
                     }
                     ?>
-                    <!-- <div class="comentario_arti">
-                        <img src="../img/autor1.png" alt="">
-                        <div>
-                            <h2>Elizabeth Rex</h2>
-                            <p>Destaca la versatilidad del tratamiento psicológico, resaltando la importancia de la resiliencia. Esencial para el bienestar emocional.</p>
-                        </div>
-                    </div>
-                    <div class="comentario_arti">
-                        <img src="../img/autor2.png" alt="">
-                        <div>
-                            <h2>Selena Brish</h2>
-                            <p>Artículo clave sobre tratamiento psicológico, destaca resiliencia y bienestar emocional. Esencial.</p>
-                        </div>
-                    </div>
-                    <div class="comentario_arti">
-                        <img src="../img/autor3.png" alt="">
-                        <div>
-                            <h2>Evan Gelia</h2>
-                            <p>I don like this 😡</p>
-                        </div>
-                    </div> -->
                 </div>
             </main>
         </div>
@@ -269,7 +250,7 @@ if (isset($_POST["enviar"])) {
         <hr>
         <div class="avisos">
             <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
     </footer>
 </body>

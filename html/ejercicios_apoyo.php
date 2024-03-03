@@ -3,7 +3,9 @@ include "../db/crear_tablas.php";
 //   $conexion = getConexion();
 session_start();
 if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
+    $id=$_SESSION["id"];
+}else{
+    header('Location: registrar.php');
 }
 ?>
 <!DOCTYPE html>
@@ -106,24 +108,7 @@ if (isset($_SESSION["id"])) {
                         ";
                     }
                     ?>
-                    <!-- <div class="pregunta">
-                        <h3>¿Qué emociones has sentido con más frecuencia esta semana?</h3>
-                        <p><input type="radio" name="test1" id="">Alegría</p>
-                        <p><input type="radio" name="test1" id="">Tristeza</p>
-                        <p><input type="radio" name="test1" id="">Otro</p>
-                    </div>
-                    <div class="pregunta">
-                        <h3>¿Cuáles son las opciones de tratamiento que se discutieron para su condición?</h3>
-                        <p><input type="radio" name="test2" id="">Medicamentos</p>
-                        <p><input type="radio" name="test2" id="">Terapia física</p>
-                        <p><input type="radio" name="test2" id="">Cambios en el estilo de vida</p>
-                    </div>
-                    <div class="pregunta">
-                        <h3>¿Se discutieron posibles efectos secundarios de su tratamiento durante la exposición?</h3>
-                        <p><input type="radio" name="test3" id="">Sí</p>
-                        <p><input type="radio" name="test3" id="">No</p>
-                        <p><input type="radio" name="test3" id="">No estoy seguro/a</p>
-                    </div> -->
+                   
                 </form>
             </div>
             <button id="flecha2">
@@ -184,39 +169,7 @@ if (isset($_SESSION["id"])) {
                 </div>
             </form>
         </div>
-        <!-- <div class="contenido">
-            <form action="">
-                <div class="masPregunta">
-                    <h3>¿Has sentido que tu corazón late rápidamente o con fuerza sin motivo aparente?</h3>
-                    <p><input type="radio" name="test1" id="">Nunca</p>
-                    <p><input type="radio" name="test1" id="">En algunas ocasiones</p>
-                    <p><input type="radio" name="test1" id="">A menudo</p>
-                    <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
-                </div>
-            </form>
-        </div> -->
-        <!-- <div class="contenido">
-            <form action="">
-                <div class="masPregunta">
-                    <h3>¿Has experimentado temblores o sacudidas en tu cuerpo sin razón evidente?</h3>
-                    <p><input type="radio" name="test1" id="">Nunca</p>
-                    <p><input type="radio" name="test1" id="">En algunas ocasiones</p>
-                    <p><input type="radio" name="test1" id="">A menudo</p>
-                    <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
-                </div>
-            </form>
-        </div> -->
-        <!-- <div class="contenido">
-            <form action="">
-                <div class="masPregunta">
-                    <h3>¿Has sentido tensión o nerviosismo la mayor parte del tiempo?</h3>
-                    <p><input type="radio" name="test1" id="">Nunca</p>
-                    <p><input type="radio" name="test1" id="">En algunas ocasiones</p>
-                    <p><input type="radio" name="test1" id="">A menudo</p>
-                    <p><input type="radio" name="test1" id="">La mayoría del tiempo</p>
-                </div>
-            </form>
-        </div> -->
+
         <div class="cartaP"></div>
         <div class="cartaP"></div>
         <div class="cartaP"></div>
@@ -282,7 +235,7 @@ if (isset($_SESSION["id"])) {
         <hr>
         <div class="avisos">
             <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
     </footer>
 </body>

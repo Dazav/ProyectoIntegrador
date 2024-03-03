@@ -3,8 +3,10 @@ include "../db/crear_tablas.php";
 //   $conexion = getConexion();
   session_start();
   if (isset($_SESSION["id"])) {
-      $id=$_SESSION["id"];
-  }
+    $id=$_SESSION["id"];
+}else{
+    header('Location: registrar.php');
+}
 // Verificar si la conexión fue exitosa
 if ($conexion) {
     // Consulta para obtener los grupos de apoyo junto con el nombre del organizador
@@ -194,7 +196,7 @@ if ($conexion) {
         <hr>
         <div class="avisos">
             <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
     </footer>
 </body>

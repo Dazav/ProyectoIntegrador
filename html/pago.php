@@ -2,7 +2,23 @@
 include "../db/crear_tablas.php";
 session_start();
 if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
+    $id=$_SESSION["id"];
+    $premium = 0;
+    // Seleccionamos el premium del usuario
+    $stmt = $conexion->prepare("SELECT premium FROM usuario WHERE id=?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+      while ($user = $result->fetch_assoc()) {
+        $premium = $user['premium'];
+        if($premium==1){
+            header('Location: perfil.php');
+        }
+      }
+    }
+}else{
+    header('Location: registrar.php');
 }
 ?>
 <!DOCTYPE html>
@@ -173,7 +189,7 @@ if (isset($_SESSION["id"])) {
         <hr>
         <div class="avisos">
             <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
     </footer>
 </body>
