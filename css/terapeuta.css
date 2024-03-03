@@ -91,6 +91,7 @@ select:hover{
 
 /* nav bar */
 aside{
+    padding-top: 80px;
     width: 20%;
     left: -20%;
     top: 0;
@@ -139,6 +140,13 @@ aside>img{
     position: absolute;
     right: 20px;
     top: 10px;
+}
+
+#formularioFiltro label{
+    font-size: 24px;
+}
+#formularioFiltro p{
+    text-decoration: underline;
 }
 /* section */
 section{

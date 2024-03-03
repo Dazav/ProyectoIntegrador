@@ -12,7 +12,7 @@ if (isset($_POST['fechaHora'], $_POST['idTerapeuta'], $_POST['idUsuario'])) {
 
     $conexion = getConexion();
     // Usa declaraciones preparadas para proteger contra inyecciones SQL
-    $stmt = $conexion->prepare("INSERT INTO cita (id_terapeuta, id_usuario, fecha_disponible) VALUES (?, ?, ?)");
+    $stmt = $conexion->prepare("INSERT INTO cita (id_terapeuta, id_usuario, fecha_cita) VALUES (?, ?, ?)");
     $stmt->bind_param("iis", $idTerapeuta, $idUsuario, $fechaHora);
     // Ejecutar la sentencia
     if ($stmt->execute()) {

@@ -1,9 +1,9 @@
 <?php
-include "../db/conecta.php";
+include "../db/crear_tablas.php";
 $conexion = getConexion();
 session_start();
 if (isset($_SESSION["id"])) {
-    # code...
+    // Scamos la ide de la session
     $id = $_SESSION["id"];
 }
 ?>
@@ -46,6 +46,7 @@ if (isset($_SESSION["id"])) {
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <?php
+        // Si la session está iniciada, ponemos el logo del usuario, si no, el iniciar sesión
         if (isset($_SESSION["id"])) {
             $select = "SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
             $resulta = mysqli_query($conexion, $select);
@@ -81,20 +82,17 @@ if (isset($_SESSION["id"])) {
                 // La consulta SQL
                 $sql = "SELECT DISTINCT especializacion FROM terapeuta";
                 $conexion=getConexion();
-                // Ejecutar la consulta
+                // Ejecutamos la consulta
                 $result = $conexion->query($sql);
 
-                // Verificar si la consulta fue exitosa y si hay resultados
+                // Verificamos si la consulta fue exitosa y si hay resultados
                 if ($result && $result->num_rows > 0) {
-                    // Comenzar el elemento select
-                    echo '<select name="especialidad">';
-                    echo '<option value="defecto">Especialización</option>';
+                    echo '<select id="filtro-especialidad" name="especialidad">';
+                    echo '<option value="">Especialización</option>';
                     // Iterar a través de los resultados y añadir cada opción al select
                     while ($row = $result->fetch_assoc()) {
                         echo '<option value="' . htmlspecialchars($row['especializacion']) . '">' . htmlspecialchars($row['especializacion']) . '</option>';
                     }
-                
-                    // Cerrar el elemento select
                     echo '</select>';
                 } else {
                     echo 'No se encontraron especialidades.';
@@ -105,38 +103,79 @@ if (isset($_SESSION["id"])) {
         <div class="contenido">
             <aside>
                 <i class='bx bx-x'></i>
-                <p>País de tu psicólogo</p>
-                <div>
-                    <label for=""><input type="checkbox" name="" id="">España</label>
-                    <label for=""><input type="checkbox" name="" id="">Inglaterra</label>
-                    <label for=""><input type="checkbox" name="" id="">Alemania</label>
-                    <label for=""><input type="checkbox" name="" id="">China</label>
-                </div>
-                <hr>
-                <div>
-                    <label for=""><input type="checkbox" name="" id="">Hombre</label>
-                    <label for=""><input type="checkbox" name="" id="">Mujer</label>
-                </div>
-                <hr>
-                <div>
-                    <label for=""><input type="checkbox" name="" id="">Chino</label>
-                    <label for=""><input type="checkbox" name="" id="">Inglés</label>
-                    <label for=""><input type="checkbox" name="" id="">Español</label>
-                    <label for=""><input type="checkbox" name="" id="">Alemán</label>
-                </div>
+                <form id="formularioFiltro" method="POST">
+                    <p>Nacionalidad</p>
+                    <?php
+
+                    // Sacamos los arrays de la nacionalidades e idiomas únicos
+                    $nacionalidadesUnicas = obtenerNacionalidadesUnicas($conexion);
+                    $idiomasUnicos = obtenerIdiomasUnicos($conexion);
+                    // Imprimimos los checkboxes de nacionalidad
+                    foreach ($nacionalidadesUnicas as $nacionalidad) {
+                        echo '<label><input type="checkbox" name="nacionalidades[]" value="' . htmlspecialchars($nacionalidad) . '"> ' . htmlspecialchars($nacionalidad) . '</label><br>';
+                    }
+                    echo "<hr><p>Idioma</p>";
+                    // Imprimimos los checkboxes de idioma
+                    foreach ($idiomasUnicos as $idioma) {
+                        echo '<label><input type="checkbox" name="idiomas[]" value="' . htmlspecialchars($idioma) . '"> ' . htmlspecialchars($idioma) . '</label><br>';
+                    }
+
+                    // Función para obtener los idiomas
+                    function obtenerIdiomasUnicos($conexion) {
+                        $sql = "SELECT idiomas FROM terapeuta";
+                        $result = mysqli_query($conexion, $sql);
+                        $todosIdiomas = [];
+                        // Como los idiomas están separados por un ", ", y es un array, lo separamos con explode.
+                        while ($fila = mysqli_fetch_assoc($result)) {
+                            $idiomasTerapeuta = explode(', ', $fila['idiomas']);
+                            foreach ($idiomasTerapeuta as $idioma) {
+                                $idiomaLimpio = trim($idioma); // Lo arreglamos un poco por si acaso
+                                if (!in_array($idiomaLimpio, $todosIdiomas)) {
+                                    // Lo añadimos al array
+                                    $todosIdiomas[] = $idiomaLimpio;
+                                }
+                            }
+                        }
+
+                        return $todosIdiomas;
+                    }
+
+                    // Función para obtener las nacionalidades
+                    function obtenerNacionalidadesUnicas($conexion) {
+                        $nacionalidades = [];
+
+                        // La consulta SQL para seleccionar nacionalidades únicas
+                        $sql = "SELECT DISTINCT nacionalidad FROM terapeuta ORDER BY nacionalidad ASC";
+
+                        $resultado = mysqli_query($conexion, $sql);
+
+                        // Verificamos si se obtuvieron resultados
+                        if ($resultado && mysqli_num_rows($resultado) > 0) {
+                            // Recorremos los resultados y agregamos cada nacionalidad al array
+                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                $nacionalidades[] = $fila['nacionalidad'];
+                            }
+                        }
+
+                        return $nacionalidades;
+                    }
+
+                    ?>
+                </form>
                 <hr>
                 <img src="../img/logo.png" alt="" srcset="">
             </aside>
             <section>
                 <div class="scrollbar">
                     <?php
-
+                    // Para todos los terapeutas hacemos su "card"
                     $sql = "SELECT * FROM terapeuta";
                     $conexion = getConexion();
                     $result = mysqli_query($conexion, $sql);
                     if ($result->num_rows > 0) {
                         while ($terapeuta = $result->fetch_assoc()) {
-                            $sql = "SELECT fecha_disponible FROM cita WHERE id_terapeuta = ?";
+                            // Para cada terapeuta miramos su disponibilidad para luego ponerla en la tabla
+                            $sql = "SELECT fecha_cita FROM cita WHERE id_terapeuta = ?";
                             $stmt = $conexion->prepare($sql);
                             $stmt->bind_param("i", $terapeuta['id']);
                             $stmt->execute();
@@ -147,7 +186,7 @@ if (isset($_SESSION["id"])) {
                                 // Recuperar los resultados en un array
                                 $arrayResultados = [];
                                 while ($fila = $resultado->fetch_assoc()) {
-                                    $arrayResultados[] = $fila['fecha_disponible'];
+                                    $arrayResultados[] = $fila['fecha_cita'];
                                 }
                             }
                             echo '
@@ -326,6 +365,55 @@ if (isset($_SESSION["id"])) {
             }
         });
     });
+document.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('filtro-especialidad');
+
+    select.addEventListener('change', function() {
+        var especialidadSeleccionada = this.value;
+
+        // Utiliza fetch o jQuery.ajax para enviar esta información al servidor
+        fetch('procesarTerapeuta.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'especialidad=' + encodeURIComponent(especialidadSeleccionada)
+        })
+        .then(response => response.text())
+        .then(html => {
+            // Aquí asumes que el servidor devuelve el HTML de la sección actualizada
+            document.querySelector('.scrollbar').innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+
+    // Selecciona todos los elementos de entrada y el selector dentro del formulario
+    var inputs = document.querySelectorAll('#formularioFiltro input[type="checkbox"]');
+
+    // Función para manejar el filtrado
+    var handleFilterChange = function() {
+        console.log("Se ha clikado un input");
+        var formData = new FormData(document.getElementById('formularioFiltro'));
+
+        fetch('procesarTerapeuta.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text()) // Asume que la respuesta es HTML
+        .then(html => {
+            document.querySelector('.scrollbar').innerHTML = html; // Actualiza el contenido
+        })
+        .catch(error => console.error('Error:', error));
+    };
+
+    // Agrega el evento change a cada elemento de entrada
+    inputs.forEach(function(input) {
+        input.addEventListener('change', handleFilterChange);
+    });
+
+});
+
 </script>
 
 </html>
