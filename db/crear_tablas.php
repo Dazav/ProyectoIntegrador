@@ -187,8 +187,8 @@
         $result=mysqli_query($conexion, $select);       
         if($result->num_rows==0){
             $insert1="INSERT INTO cita(id_terapeuta,id_usuario,fecha_cita) VALUES
-            (2,1,'2024-03-04 12:00'),
-            (3,2,'2024-03-05 19:00'),
+            (2,1,'2024-05-05 12:00'),
+            (3,2,'2024-07-05 19:00'),
             (1,3,'2024-03-04 15:00'),
             (5,4,'2024-03-03 14:00'),
             (4,5,'2024-03-03 14:00')";

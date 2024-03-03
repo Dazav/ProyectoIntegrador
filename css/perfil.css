@@ -21,6 +21,13 @@ main>h1{
     margin: 30px 0;
     color: #6545A1;
 }
+section#cita.informacion{
+    height: auto;
+}
+.cita-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-bottom: 20px; /* Espacio entre cada cita */
+}
 .informacion{
     width: 1000px;
     height: 500px;
@@ -140,13 +147,17 @@ main>h1{
 }
 /* cita */
 #cita{
-    height: 150px;
-    display: flex;
+    height: auto;
+    flex-wrap: wrap; /* Añade esta línea */
     justify-content: space-between;
     align-items: center;
     text-align: left;
     color: #6545A1;
     padding: 20px;
+}
+#cita .cita-container {
+    display: flex;
+    justify-content: space-between; /* Alinear los elementos en la cita-container */
 }
 .img-informacion{
     display: flex;
@@ -160,6 +171,16 @@ main>h1{
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
+.cancelar-btn {
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 12px;
+    background: #6545A1;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }
 /* editR perfil */
 .editar{
@@ -316,48 +337,4 @@ main>h1{
     top: 10px;
     font-size: 30px;
     cursor: pointer;
-}
-/* footer */
-footer{
-    background: #000;
-    color: white;
-}
-footer .elementos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.elementos div:first-child img{
-    width: 95px;
-    height: 95px;
-}
-.elementos div:first-child{
-    display: flex;
-    align-items: center;
-}
-.elementos div:nth-child(n+2) h2 {
-    margin: 100px 0 32px 0;
-}
-.elementos div:nth-child(n+2) ul{
-    list-style-type: none;
-    margin: 0 0 120px 0;
-    padding-inline-start: 0;
-}
-/* Sociales */
-.social a i {
-    margin: 0.5rem;
-    padding: 0;
-}
-/* linea horzontal */
-footer>hr{
-    margin: 0.5rem;
-}
-/* avisos legales */
-.avisos{
-    display: flex;
-    justify-content: space-between;
-}
-.avisos pre{
-    margin: 0 0.5rem;
-    font-family: "Montserrat";
 }

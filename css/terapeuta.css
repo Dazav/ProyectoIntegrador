@@ -175,6 +175,8 @@ select option {
     overflow-y: auto; /* Habilita el scrollbar vertical cuando sea necesario */
     padding-right: 20px; /* Agrega espacio para el scrollbar vertical */
     box-sizing: border-box; /* Asegura que el padding no incremente el ancho total */
+    display: flex;
+    flex-direction: column;
 }
 ::-webkit-scrollbar {
     width: 10px; 
