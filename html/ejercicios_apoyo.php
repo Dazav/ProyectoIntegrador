@@ -333,21 +333,20 @@ $(document).ready(function () {
         });
         console.log(arr);
         // si se cumplen las condiciones para el envio,realizar ajax
-        if (suma>=3) {
-            console.log(suma);
-            var dataTosend=JSON.stringify({arr});
+        if (suma==12) {
+            // var dataTosend=JSON.stringify({arr});
             $.ajax({
                 type: "POST",
                 url: "procesarEjercicio2.php",
                 data: {
-                    jsonInputs: dataTosend
+                    jsonInputs: arr
                 },//enviar array
                 dataType: "JSON",
                 success: function () {
                     alert("success");
                 },
-                error: function () {
-                    alert("error");
+                error: function (response) {
+                    alert("error"+response.responseText);
                 }
             });
         }
