@@ -70,12 +70,14 @@ main{
 }
 
 .images-wrapper {
+    max-height: 50%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 }
 
 .image {
+    height: 100%;
     width: 100%;
     grid-column: 1/2;
     grid-row: 1/2;
@@ -89,10 +91,14 @@ main{
 
 .img-2{
     transform: scale(0.4, 0.5);
+    max-width: 524px;
+    max-height: 382px;
 }
 
 .img-3{
     transform: scale(0.3) rotate(-20deg);
+    max-width: 524px;
+    max-height: 382px;
 }
 
 .image.show {
@@ -319,76 +325,6 @@ main.sign-up-mode .carousel {
 }
 
 
-/* tienes dudas */
-.contacto{
-    height: 230px;
-    background: #D9D9D9;
-    text-align: center;
-    padding-top: 70px;
-    font-weight: bold;
-}
-.contacto h1{
-    margin: 0 0 32px 0;
-    font-size: 2rem;
-}
-.contacto p{
-    font-size: 1rem;
-    margin: 24px 0;
-}
-.contacto input{
-    background: #000;
-    border-radius: 35px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 12px;
-    width: 200px;
-    cursor: pointer;
-}
-/* footer */
-footer{
-    background: #000;
-    color: white;
-}
-footer .elementos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.elementos div:first-child img{
-    width: 95px;
-    height: 95px;
-}
-.elementos div:first-child{
-    display: flex;
-    align-items: center;
-}
-.elementos div:nth-child(n+2) h2 {
-    margin: 100px 0 32px 0;
-}
-.elementos div:nth-child(n+2) ul{
-    list-style-type: none;
-    margin: 0 0 120px 0;
-    padding-inline-start: 0;
-}
-/* Sociales */
-.social a i {
-    margin: 0.5rem;
-    padding: 0;
-}
-/* linea horzontal */
-footer>hr{
-    margin: 0.5rem;
-}
-/* avisos legales */
-.avisos{
-    display: flex;
-    justify-content: space-between;
-}
-.avisos pre{
-    margin: 0 0.5rem;
-    font-family: "Montserrat";
-}
 /* responsiveness*/
 @media (max-width: 850px) {
     .box {
