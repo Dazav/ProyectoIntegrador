@@ -169,13 +169,25 @@ if (isset($_POST["modificar"])) {
                     
                 ?>  
             </div>
-            <div class="citas">
-            <h2>Citas</h2>
-            <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
-        </div>
+            <!-- <div class="citas">
+                <h2></h2> -->
+                <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
+            <!-- </div> -->
         </div>
         <!-- cita -->
-        <div>Cita</div>
+        <section class="informacion" id="cita">
+                <div class="img-informacion">
+                    <!-- pon img de doctor -->
+                    <img src="../img/defecto.png" alt="" class="img-cita">
+                    <!-- pon informacion -->
+                    <div class="informacion-cita">
+                        <p>nombre de doctor</p>
+                        <p>nº de telefono de terapeuta</p>
+                        <p>fecha_cita</p>
+                    </div>
+                </div>
+                <button id="cancela">Cancela</button>
+        </section>
         <!-- editar perfil -->
         <form class="editar" method="post" enctype="multipart/form-data">
             <i class='bx bx-x'></i>
