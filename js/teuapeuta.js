@@ -25,3 +25,31 @@ $(document).ready(function () {
         },1500,"easeInOutExpo");
     });
 });
+
+// carusel movile
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('.terapeutas-carousel');
+    const prevBtn = document.querySelector('.carousel-control.prev');
+    const nextBtn = document.querySelector('.carousel-control.next');
+
+    let currentPosition = 0;
+    const cardWidth = carousel.querySelector('.tarjeta-tera').offsetWidth;
+    const cardMarginRight = parseInt(window.getComputedStyle(carousel.querySelector('.tarjeta-tera')).marginRight);
+
+    // Configurar el ancho del carousel
+    carousel.style.width = (cardWidth + cardMarginRight) * carousel.children.length + 'px';
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPosition > -(carousel.offsetWidth - carousel.parentNode.offsetWidth)) {
+            currentPosition -= cardWidth + cardMarginRight;
+            carousel.style.transform = `translateX(${currentPosition}px)`;
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPosition < 0) {
+            currentPosition += cardWidth + cardMarginRight;
+            carousel.style.transform = `translateX(${currentPosition}px)`;
+        }
+    });
+});

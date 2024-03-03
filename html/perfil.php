@@ -169,10 +169,14 @@ if (isset($_POST["modificar"])) {
                         }
                     }
                     
-                ?>
-                
+                ?>  
             </div>
+            <div class="citas">
+        <h2>Citas</h2>
+        <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
+    </div>
         </div>
+        
         <!-- editar perfil -->
         <form class="editar" method="post" enctype="multipart/form-data">
             <i class='bx bx-x'></i>
