@@ -158,7 +158,6 @@
                 </div>
             </section>
         </div>
-        <button id="comfirma">confirma</button>
     </main>
     <!--  -->
     <div class="preguntaOtra" id="preguntaOtra">
@@ -220,7 +219,7 @@
         <div class="cartaP"></div>
         <div class="cartaP"></div>
         <div class="up-icon">
-            <i class='bx bx-caret-up-circle'></i>
+            <i class='bx bx-caret-up-circle' id="confirma-btn"></i>
         </div>
     </div>
     <!-- contacto -->
@@ -324,7 +323,7 @@ $(document).ready(function () {
     var suma=0;
     var arr=[];//almanecer los valores de input
     //
-    $("#comfirma").click(function () {//bóton para terminar
+    $("#confirma-btn").click(function () {//bóton para terminar
         $("input[type='radio']").each(function (index, input) {
             if ($(input).is(':checked')) {// repuestas si está elegido ?
                 suma++;
@@ -333,24 +332,23 @@ $(document).ready(function () {
         });
         console.log(arr);
         // si se cumplen las condiciones para el envio,realizar ajax
-        if (suma>=3) {
-            console.log(suma);
-            var dataTosend=JSON.stringify({arr});
+        // if (suma>=6) {
+            // var dataTosend=JSON.stringify({arr});
             $.ajax({
                 type: "POST",
                 url: "procesarEjercicio2.php",
                 data: {
-                    jsonInputs: dataTosend
+                    jsonInputs: arr
                 },//enviar array
                 dataType: "JSON",
                 success: function () {
                     alert("success");
                 },
-                error: function () {
-                    alert("error");
+                error: function (response) {
+                    alert("error"+response.responseText);
                 }
             });
-        }
+        // }
     });
 });
 </script>
