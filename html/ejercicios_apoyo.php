@@ -341,6 +341,7 @@ $(document).ready(function () {
                 data: {
                     jsonInputs: dataTosend
                 },//enviar array
+                dataType: "JSON",
                 success: function () {
                     alert("success");
                 },
