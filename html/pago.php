@@ -72,7 +72,7 @@ if (isset($_SESSION["id"])) {
         ?>
     </nav>
     <!-- parte de pago -->
-    <form class="pago">
+    <form id="formPago" class="pago" method="post" action="">
         <!-- detalle -->
         <section>
             <div class="detalle">
@@ -166,50 +166,70 @@ if (isset($_SESSION["id"])) {
     </footer>
 </body>
 <script>
-    // $(document).ready(function () {
-   // Función para validar el número de tarjeta
+// Tus funciones de validación aquí
 function validarNTarjeta() {
     const nTarjeta = document.getElementById("n_tarjeta");
     const errorNTarjeta = document.getElementById("error_n_tarjeta");
     if (!/^\d{16}$/.test(nTarjeta.value.replace(/\s+/g, ''))) {
         errorNTarjeta.textContent = "El número de tarjeta debe tener 16 dígitos.";
         nTarjeta.classList.add("error");
+        return false;
     } else {
         errorNTarjeta.textContent = "";
         nTarjeta.classList.remove("error");
+        return true;
     }
 }
 
-// Función para validar la fecha
 function validarFecha() {
     const fecha = document.getElementById("fecha");
     const errorFecha = document.getElementById("error_fecha");
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(fecha.value)) {
         errorFecha.textContent = "La fecha debe estar en formato mm/yy.";
         fecha.classList.add("error");
+        return false;
     } else {
         errorFecha.textContent = "";
         fecha.classList.remove("error");
+        return true;
     }
 }
 
-// Función para validar el CVV
 function validarCvv() {
     const cvv = document.getElementById("cvv");
     const errorCvv = document.getElementById("error_cvv");
     if (!/^\d{3}$/.test(cvv.value)) {
         errorCvv.textContent = "El CVV debe tener 3 dígitos.";
         cvv.classList.add("error");
+        return false;
     } else {
         errorCvv.textContent = "";
         cvv.classList.remove("error");
+        return true;
     }
 }
 
-// Agregar event listeners
+// Agregar event listeners a los campos para validación en tiempo real
 document.getElementById("n_tarjeta").addEventListener("input", validarNTarjeta);
 document.getElementById("fecha").addEventListener("input", validarFecha);
-document.getElementById("cvv").addEventListener("input", validarCvv); 
-// });
+document.getElementById("cvv").addEventListener("input", validarCvv);
+
+// Función para validar todo el formulario antes de enviar
+function validarFormulario(event) {
+    // Llamada a las funciones de validación
+    const esNTarjetaValido = validarNTarjeta();
+    const esFechaValida = validarFecha();
+    const esCvvValido = validarCvv();
+
+    // Si alguno falla, prevenir el envío del formulario
+    if (!esNTarjetaValido || !esFechaValida || !esCvvValido) {
+        event.preventDefault();
+        alert("Por favor, corrija los errores en el formulario.");
+    }
+}
+
+// Agregar event listener al formulario para interceptar el envío
+document.getElementById("formPago").addEventListener("submit", validarFormulario);
 </script>
+
 </html>
