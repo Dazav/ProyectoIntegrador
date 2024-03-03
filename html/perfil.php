@@ -8,41 +8,56 @@ if (isset($_SESSION["id"])) {
     header('Location: registrar.php');
 }
 if (isset($_POST["modificar"])) {
-    //obtener imagen de perfil que modificar
-    $dir_subido="../img/";
-    $img=$_FILES["addImg"]["name"];
-    $tmp=$_FILES["addImg"]["tmp_name"];
-    $ruta=$dir_subido . $img;
-    move_uploaded_file($tmp,$ruta);
-    $img=mysqli_escape_string($conexion,$ruta);
-    // conseguir nombre,apellidos,correo,contraseña
-    $nombre=$_POST["nombre"];
-    $apellidos=$_POST["apellidos"];
-    $email=$_POST["email"];
-    $pwd=$_POST["pwd"];
-    $nombre=mysqli_escape_string($conexion,$nombre);
-    $apellidos=mysqli_escape_string($conexion,$apellidos);
-    $email=mysqli_escape_string($conexion,$email);
-    //actualizar usuario
-    $update="UPDATE usuario 
-    SET nombre='$nombre', email='$email',apellidos='$apellidos',pssword='$pwd',imagen='$img'
-    WHERE id=$id";
-    mysqli_query($conexion,$update);
+    // Conectar a la base de datos
+    // $conexion = mysqli_connect("hostname", "username", "password", "database");
+
+    // Inicializar una variable para almacenar los campos a actualizar
+    $camposAActualizar = [];
+
+    // Verificar y procesar la nueva imagen de perfil si se ha proporcionado
+    if (!empty($_FILES["addImg"]["name"])) {
+        $dir_subido = "../img/";
+        $img = $_FILES["addImg"]["name"];
+        $tmp = $_FILES["addImg"]["tmp_name"];
+        $ruta = $dir_subido . basename($img); // Usar basename() para evitar problemas de ruta
+
+        if (move_uploaded_file($tmp, $ruta)) {
+            $img = mysqli_escape_string($conexion, $ruta);
+            $camposAActualizar[] = "imagen='$img'";
+        }
+    }
+
+    // Procesar otros campos si se han proporcionado
+    if (!empty($_POST["nombre"])) {
+        $nombre = mysqli_escape_string($conexion, $_POST["nombre"]);
+        $camposAActualizar[] = "nombre='$nombre'";
+    }
+
+    if (!empty($_POST["apellidos"])) {
+        $apellidos = mysqli_escape_string($conexion, $_POST["apellidos"]);
+        $camposAActualizar[] = "apellidos='$apellidos'";
+    }
+
+    if (!empty($_POST["email"])) {
+        $email = mysqli_escape_string($conexion, $_POST["email"]);
+        $camposAActualizar[] = "email='$email'";
+    }
+
+    // Verificar y procesar la nueva contraseña si se ha proporcionado
+    if (!empty($_POST["pwd"])) {
+        $pwd = mysqli_escape_string($conexion, $_POST["pwd"]);
+        // Aquí deberías aplicar alguna forma de encriptación a la contraseña antes de guardarla, por ejemplo, password_hash
+        $pwdEncriptada = password_hash($pwd, PASSWORD_DEFAULT);
+        $camposAActualizar[] = "pssword='$pwdEncriptada'";
+    }
+
+    // Si hay campos para actualizar, construir y ejecutar la consulta de actualización
+    if (!empty($camposAActualizar)) {
+        $update = "UPDATE usuario SET " . implode(", ", $camposAActualizar) . " WHERE id=$id";
+        mysqli_query($conexion, $update);
+    }
 }
-// if (isset($_POST["modifiCard"])) {
-//     $numTarjeta=$_POST["num-tarjeta"];
-//     $fecha=$_POST["fecha"];
-//     $cvv=$_POST["cvv"];
-//     $metodo=$_POST["metodo"];
-//     $numTarjeta=mysqli_escape_string($conexion,$numTarjeta);
-//     $fecha=mysqli_escape_string($conexion,$fecha);
-//     $metodo=mysqli_escape_string($conexion,$metodo);
-//     // actualizar nombre de título de tarjeta
-//     $update="UPDATE pago
-//     SET num_tajeta='$numTarjeta',metodo='$metodo',cvv=$cvv,fecha_valida='$fecha'
-//     WHERE id_usuario=$id";
-//     mysqli_query($conexion,$update);
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -170,48 +185,18 @@ if (isset($_POST["modificar"])) {
                 while ($user=$result->fetch_assoc()) {
                     # code...
                     echo "
-                    <label>nombre</label>
+                    <label>Nombre:</label>
                     <input type='text' name='nombre' value='{$user['nombre']}'>
-                    <label>apellidos</label>
+                    <label>Apellidos:</label>
                     <input type='text' name='apellidos' value='{$user['apellidos']}'>
-                    <label>correo</label>
+                    <label>Email:</label>
                     <input type='email' name='email' value='{$user['email']}'>
                     ";
                 }
             ?>
-            <label>contraseña nueva</label>
+            <label>Establecer nueva contraseña:</label>
             <input type="password" name="pwd" id="">
             <input type="submit" value="Guardar" name="modificar">
-        </form>
-        <!-- cambio de met'odo de pago -->
-        <form class="pago">
-            <i class='bx bx-x'></i>
-            <div class="card-border"></div>
-            <img src="../img/logo.png" alt="">
-            <hr>
-            <?php
-                $select="SELECT p.num_tarjeta AS tarjeta, us.nombre AS nombre,p.fecha_valida AS fecha,p.cvv AS cvv,p.metodo AS metodo
-                FROM usuario us
-                INNER JOIN pago p ON p.id_usuario=us.id
-                WHERE us.id=$id";
-                $result=mysqli_query($conexion,$select);
-                if ($user=$result->fetch_assoc()) {
-                    echo "
-                    <input type='text' name='num-tarjeta' value='{$user['tarjeta']}' class='tarjeta'  maxlength='19' minlength='19' placeholder='xxxx-xxxx-xxxx-xxxx'>
-                    <p name='nombre'  class='nombre' >Nombre de título: {$user['nombre']}</p>
-                    <fieldset>
-                        <input type='date' name='fecha' value='{$user['fecha']}' placeholder='dd/mm/yy'>
-                        <input type='text' name='cvv' value='{$user['cvv']}' placeholder='CVV' pattern='\d{3}' maxlength='3' minlength='3'>
-                        <input type='text' name='metodo' value='{$user['metodo']}' id='metodo' placeholder='metodo de pago' >
-                    </fieldset>
-                    ";
-                }
-            ?>
-            <div class="btn-pago">
-                <i class='bx bx-credit-card'></i>
-                <i class='bx bxl-paypal' ></i>
-            </div>
-            <input type="submit" value="Guardar" name="modifCard">
         </form>
     </main>
     <!-- footer -->
