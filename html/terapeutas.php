@@ -5,6 +5,8 @@ session_start();
 if (isset($_SESSION["id"])) {
     // Scamos la ide de la session
     $id = $_SESSION["id"];
+}else{
+    header('Location: registrar.php');
 }
 ?>
 <!DOCTYPE html>
@@ -294,31 +296,30 @@ if (isset($_SESSION["id"])) {
             <div>
                 <h2>Recursos</h2>
                 <ul>
-                    <li>Recursos de Ansiedad</li>
-                    <li>Técnicas Relajación</li>
+                    <a href="recursos.php"><li>Recursos de Ansiedad</li></a>
+                    <a href="relajacion.php"><li>Técnicas Relajación</li></a>
                 </ul>
             </div>
             <div>
                 <h2>Apoyo</h2>
                 <ul>
-                    <li>Herramientas</li>
-                    <li>Seguimiento y Progreso</li>
+                    <a href="grupo_apoyo.php"><li>Grupos de apoyo</li></a>
+                    <a href="ejercicios_apoyo.php"><li>Ejercicios de apoyo</li></a>
                 </ul>
             </div>
             <div class="social">
                 <h2>Social</h2>
                 <ul>
-                    <li>Grupos de Apoyo</li>
-                    <li>Foros de Comunidad</li>
+                    <a href="foros.php"><li>Foros de Comunidad</li></a>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
                         </a>
                     </li>
                 </ul>
@@ -327,7 +328,7 @@ if (isset($_SESSION["id"])) {
         <hr>
         <div class="avisos">
             <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
     </footer>
 </body>

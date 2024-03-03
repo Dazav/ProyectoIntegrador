@@ -2,59 +2,68 @@
 include "../db/crear_tablas.php";
 session_start();
 if (isset($_SESSION["id"])) {
-    # code...
     $id=$_SESSION["id"];
 }else{
     header('Location: registrar.php');
 }
 if (isset($_POST["modificar"])) {
-    // Conectar a la base de datos
-    // $conexion = mysqli_connect("hostname", "username", "password", "database");
-
+    $email = mysqli_escape_string($conexion, $_POST["email"]);
+    $error='';
     // Inicializar una variable para almacenar los campos a actualizar
     $camposAActualizar = [];
+    // Verificar si el correo electrónico ya está registrado por otro usuario
+    $sql = "SELECT * FROM usuario WHERE email = ? AND id != ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("si", $email, $id);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    
+    if ($resultado->num_rows > 0) {
+        // Correo ya registrado por otro usuario
+        $error = "El correo electrónico ya está en uso por otro usuario.";
+    } else {
+        // Verificar y procesar la nueva imagen de perfil si se ha proporcionado
+        if (!empty($_FILES["addImg"]["name"])) {
+            $dir_subido = "../img/";
+            $img = $_FILES["addImg"]["name"];
+            $tmp = $_FILES["addImg"]["tmp_name"];
+            $ruta = $dir_subido . basename($img); // Usar basename() para evitar problemas de ruta
 
-    // Verificar y procesar la nueva imagen de perfil si se ha proporcionado
-    if (!empty($_FILES["addImg"]["name"])) {
-        $dir_subido = "../img/";
-        $img = $_FILES["addImg"]["name"];
-        $tmp = $_FILES["addImg"]["tmp_name"];
-        $ruta = $dir_subido . basename($img); // Usar basename() para evitar problemas de ruta
-
-        if (move_uploaded_file($tmp, $ruta)) {
-            $img = mysqli_escape_string($conexion, $ruta);
-            $camposAActualizar[] = "imagen='$img'";
+            if (move_uploaded_file($tmp, $ruta)) {
+                $img = mysqli_escape_string($conexion, $ruta);
+                $camposAActualizar[] = "imagen='$img'";
+            }
         }
-    }
 
-    // Procesar otros campos si se han proporcionado
-    if (!empty($_POST["nombre"])) {
-        $nombre = mysqli_escape_string($conexion, $_POST["nombre"]);
-        $camposAActualizar[] = "nombre='$nombre'";
-    }
+        // Procesar otros campos si se han proporcionado
+        if (!empty($_POST["nombre"])) {
+            $nombre = mysqli_escape_string($conexion, $_POST["nombre"]);
+            $camposAActualizar[] = "nombre='$nombre'";
+        }
 
-    if (!empty($_POST["apellidos"])) {
-        $apellidos = mysqli_escape_string($conexion, $_POST["apellidos"]);
-        $camposAActualizar[] = "apellidos='$apellidos'";
-    }
+        if (!empty($_POST["apellidos"])) {
+            $apellidos = mysqli_escape_string($conexion, $_POST["apellidos"]);
+            $camposAActualizar[] = "apellidos='$apellidos'";
+        }
 
-    if (!empty($_POST["email"])) {
-        $email = mysqli_escape_string($conexion, $_POST["email"]);
-        $camposAActualizar[] = "email='$email'";
-    }
+        if (!empty($_POST["email"])) {
+            $email = mysqli_escape_string($conexion, $_POST["email"]);
+            $camposAActualizar[] = "email='$email'";
+        }
 
-    // Verificar y procesar la nueva contraseña si se ha proporcionado
-    if (!empty($_POST["pwd"])) {
-        $pwd = mysqli_escape_string($conexion, $_POST["pwd"]);
-        // Aquí deberías aplicar alguna forma de encriptación a la contraseña antes de guardarla, por ejemplo, password_hash
-        $pwdEncriptada = password_hash($pwd, PASSWORD_DEFAULT);
-        $camposAActualizar[] = "pssword='$pwdEncriptada'";
-    }
+        // Verificar y procesar la nueva contraseña si se ha proporcionado
+        if (!empty($_POST["pwd"])) {
+            $pwd = mysqli_escape_string($conexion, $_POST["pwd"]);
+            // Aquí deberías aplicar alguna forma de encriptación a la contraseña antes de guardarla, por ejemplo, password_hash
+            $pwdEncriptada = password_hash($pwd, PASSWORD_DEFAULT);
+            $camposAActualizar[] = "pssword='$pwdEncriptada'";
+        }
 
-    // Si hay campos para actualizar, construir y ejecutar la consulta de actualización
-    if (!empty($camposAActualizar)) {
-        $update = "UPDATE usuario SET " . implode(", ", $camposAActualizar) . " WHERE id=$id";
-        mysqli_query($conexion, $update);
+        // Si hay campos para actualizar, construir y ejecutar la consulta de actualización
+        if (!empty($camposAActualizar)) {
+            $update = "UPDATE usuario SET " . implode(", ", $camposAActualizar) . " WHERE id=$id";
+            mysqli_query($conexion, $update);
+        }
     }
 }
 // Obtiene el ID del usuario logueado
@@ -238,6 +247,11 @@ $resultado_citas = mysqli_query($conexion, $query_citas);
             <label>Establecer nueva contraseña:</label>
             <input type="password" name="pwd" id="">
             <input type="submit" value="Guardar" name="modificar">
+            <?php
+                if (!empty($error)) {
+                    echo "<div style='color: red;'>$error</div>";
+                }
+            ?>
         </form>
     </main>
     <!-- footer -->
@@ -282,7 +296,7 @@ $resultado_citas = mysqli_query($conexion, $query_citas);
         <hr>
         <div class="avisos">
             <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-            <pre>Contacto   Centro de Ayuda   Preferencias</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
     </footer>
 </body>

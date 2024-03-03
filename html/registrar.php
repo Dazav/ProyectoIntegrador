@@ -21,16 +21,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="../js/main.js"></script>
   <title>Iniciar Sesión</title>
 </head>
 
 <body>
   <!-- barra navegación -->
   <nav>
-    <div class="usuario">
-      <!-- <img src="../img/logo.png" alt="" srcset=""> -->
-      <a href="index.php">Brain Hub</a>
-    </div>
+  <div class="usuario">
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
+            <a href="index.php">Brain Hub</a>
+        </div>
     <div class="menu">
       <button onclick="window.location.href='recursos.php'">Recursos</button>
       <div class="dropdown">
@@ -130,16 +133,16 @@
         <div class="carousel">
           <div class="images-wrapper">
             <img src="../img/shape1.png" class="image img-1 show" alt="">
-            <img src="../img/LOL.png" class="image img-2" alt="">
-            <img src="../img/LOCOXD.jpg" class="image img-3" alt="">
+            <img src="../img/bglog.png" class="image img-2" alt="">
+            <img src="../img/shape2.png" class="image img-3" alt="">
           </div>
 
           <div class="text-slider">
             <div class="text-wrap">
               <div class="text-group">
-                <h2>Hola buenasds</h2>
-                <h2>EL 94%</h2>
-                <h2>ESTOY LOCO XD</h2>
+                <h2>El cambio comienza con un paso.</h2>
+                <h2>Cree en ti mismo y todo será posible.</h2>
+                <h2>La vida es un viaje, no un destino. Disfruta del camino.</h2>
               </div>
             </div>
 
@@ -159,50 +162,49 @@
     </div>
   <!-- footer -->
   <footer>
-    <div class="elementos">
-        <div>
-            <img src="../img/logo.png" alt="">
-            <h2>Brain Hub</h2>
+        <div class="elementos">
+            <div>
+                <img src="../img/logo.png" alt="">
+                <h2>Brain Hub</h2>
+            </div>
+            <div>
+                <h2>Recursos</h2>
+                <ul>
+                    <a href="recursos.php"><li>Recursos de Ansiedad</li></a>
+                    <a href="relajacion.php"><li>Técnicas Relajación</li></a>
+                </ul>
+            </div>
+            <div>
+                <h2>Apoyo</h2>
+                <ul>
+                    <a href="grupo_apoyo.php"><li>Grupos de apoyo</li></a>
+                    <a href="ejercicios_apoyo.php"><li>Ejercicios de apoyo</li></a>
+                </ul>
+            </div>
+            <div class="social">
+                <h2>Social</h2>
+                <ul>
+                    <a href="foros.php"><li>Foros de Comunidad</li></a>
+                    <li>
+                        <a href="">
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                        </a>
+                        <a href="">
+                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <h2>Recursos</h2>
-            <ul>
-                <li>Recursos de Ansiedad</li>
-                <li>Técnicas Relajación</li>
-            </ul>
+        <hr>
+        <div class="avisos">
+            <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
+            <pre>Contacto  Preferencias</pre>
         </div>
-        <div>
-            <h2>Apoyo</h2>
-            <ul>
-                <li>Herramientas</li>
-                <li>Seguimiento y Progreso</li>
-            </ul>
-        </div>
-        <div class="social">
-            <h2>Social</h2>
-            <ul>
-                <li>Grupos de Apoyo</li>
-                <li>Foros de Comunidad</li>
-                <li>
-                    <a href="">
-                        <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
-                    </a>
-                    <a href="">
-                        <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
-                    </a>
-                    <a href="">
-                        <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <hr>
-    <div class="avisos">
-        <pre>● Política de Privacidad   Términos de Uso   Configuración de Cookies</pre>
-        <pre>Contacto   Centro de Ayuda   Preferencias</pre>
-    </div>
-</footer>
+    </footer>
   <!-- fetch -->
   <script src="../js/register.js"></script>
 </body>
