@@ -140,6 +140,17 @@ i:hover{
 .grupo-imagen{
     width: auto;
     flex:1;
+    /* para esteblecer posicion de img de idioma */
+    position: relative;
+}
+/* img de idioma */
+.grupo-idioma{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 35%;
+    bottom: 0px;
+    border: 5px solid #ffff;
 }
 
 .grupo-info{

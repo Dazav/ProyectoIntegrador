@@ -119,6 +119,7 @@
             idioma VARCHAR(20),
             tema VARCHAR(100),
             fecha DATETIME,
+            img_idioma VARCHAR(255),
             FOREIGN KEY (organizador) REFERENCES usuario(id)
         );";
 
@@ -280,12 +281,12 @@
          $select = "SELECT * FROM GruposApoyo";
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
-             $insert1 = "INSERT INTO GruposApoyo (organizador, idioma, tema, fecha) VALUES
-             (2, 'Español', 'Ansiedad general', '2024-01-23'),
-             (3, 'Fraçais', 'Trastorno del pánico', '2024-01-24'),
-             (4, 'English', 'Mutismo Selectivo', '2024-01-27'),
-             (2, 'Deutsch', 'Cómo ayudamos a los familiares', '2024-01-30'),
-             (1, 'Español', 'Ayuda en el uso de la web', '2024-01-23')";
+             $insert1 = "INSERT INTO GruposApoyo (organizador, idioma, tema, fecha,img_idioma) VALUES
+             (2, 'Español', 'Ansiedad general', '2024-03-23','../img/es.png'),
+             (3, 'Fraçais', 'Trastorno del pánico', '2024-03-24','../img/fr.png'),
+             (4, 'English', 'Mutismo Selectivo', '2024-03-27','../img/us.png'),
+             (2, 'Deutsch', 'Cómo ayudamos a los familiares', '2024-03-30','../img/ger.png'),
+             (1, 'Español', 'Ayuda en el uso de la web', '2024-03-23','../img/es.png')";
              mysqli_query($conexion, $insert1) or die("Error insert recursos");
          }
 
