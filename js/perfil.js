@@ -65,3 +65,23 @@ $(document).ready(function () {
         $("#metodo").val("paypal");
     });
 });
+
+
+$(document).ready(function() {
+    // Manejador de eventos para cancelar cita
+    $('form[name="cancelar_cita"]').submit(function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe de manera convencional
+        var citaId = $(this).find('input[name="id_cita"]').val(); // Obtiene el ID de la cita
+        $.ajax({
+            type: 'POST',
+            url: 'cancelar_cita.php', // Script PHP que maneja la cancelación de la cita
+            data: { id_cita: citaId }, // Envía el ID de la cita al servidor
+            success: function(response) {
+                $('div[data-cita-id="' + citaId + '"]').remove(); // Elimina el contenedor de la cita
+            },
+            error: function(xhr, status, error) {
+                console.error(error); // Maneja los errores de la solicitud AJAX
+            }
+        });
+    });
+});

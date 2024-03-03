@@ -21,6 +21,13 @@ main>h1{
     margin: 30px 0;
     color: #6545A1;
 }
+section#cita.informacion{
+    height: auto;
+}
+.cita-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-bottom: 20px; /* Espacio entre cada cita */
+}
 .informacion{
     width: 1000px;
     height: 500px;
@@ -140,13 +147,17 @@ main>h1{
 }
 /* cita */
 #cita{
-    height: 150px;
-    display: flex;
+    height: auto;
+    flex-wrap: wrap; /* Añade esta línea */
     justify-content: space-between;
     align-items: center;
     text-align: left;
     color: #6545A1;
     padding: 20px;
+}
+#cita .cita-container {
+    display: flex;
+    justify-content: space-between; /* Alinear los elementos en la cita-container */
 }
 .img-informacion{
     display: flex;
@@ -160,6 +171,16 @@ main>h1{
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
+.cancelar-btn {
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 12px;
+    background: #6545A1;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }
 /* editR perfil */
 .editar{
@@ -317,47 +338,67 @@ main>h1{
     font-size: 30px;
     cursor: pointer;
 }
-/* footer */
-footer{
-    background: #000;
-    color: white;
-}
-footer .elementos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.elementos div:first-child img{
-    width: 95px;
-    height: 95px;
-}
-.elementos div:first-child{
-    display: flex;
-    align-items: center;
-}
-.elementos div:nth-child(n+2) h2 {
-    margin: 100px 0 32px 0;
-}
-.elementos div:nth-child(n+2) ul{
-    list-style-type: none;
-    margin: 0 0 120px 0;
-    padding-inline-start: 0;
-}
-/* Sociales */
-.social a i {
-    margin: 0.5rem;
-    padding: 0;
-}
-/* linea horzontal */
-footer>hr{
-    margin: 0.5rem;
-}
-/* avisos legales */
-.avisos{
-    display: flex;
-    justify-content: space-between;
-}
-.avisos pre{
-    margin: 0 0.5rem;
-    font-family: "Montserrat";
+
+/* Media Query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Estilos que se aplicarán solo en dispositivos móviles */
+
+    /* Estilos para la sección informacion */
+    .informacion {
+        height: auto;
+        width: 100%;
+        max-width: 1000px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado */
+        margin: 0 auto; /* Centra el div horizontalmente */
+        display: flex;
+        flex-direction: column; /* Alinea los elementos en columna */
+        justify-content: center; /* Centra los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        padding: 20px;
+        box-sizing: border-box;
+        border-right: 10px solid #6545A1;
+        box-shadow: 0 0 4px #818181;
+        padding: 10px; /* Reduce el espacio alrededor del contenido */
+    }
+
+    .bg-img {
+        height: 30%; /* Reducir la altura del contenedor en dispositivos móviles */
+    }
+
+    /* Estilos para la sección cita */
+    #cita.informacion {
+        width: 100%;
+        max-width: 1000px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado */
+        margin: 20px auto; /* Ajusta el margen según sea necesario */
+        padding: 20px;
+        box-sizing: border-box;
+        border: 2px solid #6545A1; /* Agrega un borde para resaltar la sección */
+        border-radius: 10px; /* Redondea las esquinas del borde */
+    }
+    .cita-container {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+    input{
+        max-width:80%;
+    }
+
+    /* Puedes ajustar los estilos de los elementos internos según sea necesario */
+    .informacion > div {
+        margin-bottom: 10px; /* Reduce el espacio entre los elementos */
+    }
+    .editar {
+        width: 90%; /* Ancho máximo del formulario en dispositivos móviles */
+        padding: 10px; /* Espacio interior reducido */
+    }
+
+    .editar > input[type="text"],
+    .editar > input[type="password"],
+    .editar > input[type="email"] {
+        width: 100%; /* Ancho completo para los campos de entrada */
+    }
+
+    .editar > input[type="submit"] {
+        width: 100%; /* Ancho completo para el botón de enviar */
+        margin-top: 10px; /* Espacio superior entre el botón de enviar y los campos de entrada */
+    }
 }

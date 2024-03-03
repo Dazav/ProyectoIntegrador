@@ -57,6 +57,17 @@ if (isset($_POST["modificar"])) {
         mysqli_query($conexion, $update);
     }
 }
+// Obtiene el ID del usuario logueado
+$id_usuario = $_SESSION["id"];
+
+// Realiza la consulta para obtener las citas del usuario logueado
+// Realiza la consulta para obtener las citas del usuario logueado
+$query_citas = "SELECT c.id, t.nombre AS nombre_terapeuta, t.telefono, c.fecha_cita 
+                FROM cita c
+                INNER JOIN terapeuta t ON c.id_terapeuta = t.id
+                WHERE c.id_usuario = $id_usuario";
+
+$resultado_citas = mysqli_query($conexion, $query_citas);
 
 ?>
 <!DOCTYPE html>
@@ -73,15 +84,19 @@ if (isset($_POST["modificar"])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/perfil.js"></script>
+    <script src="../js/main.js"></script>
     <title>Perfil</title>
 </head>
 <body>
     <!-- barra navegación -->
     <nav>
         <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
-            <a href="index.php">Brain Hub</a>
+                <!-- Botón de menú para móviles -->
+                <button class="menu-mobile">☰</button>
+                    <img src="../img/logo.png" alt="">
+                <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
             <button onclick="window.location.href='recursos.php'">Recursos</button>
@@ -169,26 +184,35 @@ if (isset($_POST["modificar"])) {
                     
                 ?>  
             </div>
-            <!-- <div class="citas">
-                <h2></h2> -->
-                <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
-            <!-- </div> -->
+           
         </div>
         <!-- cita -->
         <section class="informacion" id="cita">
-                <div class="img-informacion">
-                    <!-- pon img de doctor -->
-                    <img src="../img/defecto.png" alt="" class="img-cita">
-                    <!-- pon informacion -->
-                    <div class="informacion-cita">
-                        <h1>Cita Proxima:</h1>
-                        <p>nombre de doctor</p>
-                        <p>nº de telefono de terapeuta</p>
-                        <p>fecha_cita</p>
-                    </div>
-                </div>
-                <button id="cancela">Cancela</button>
-        </section>
+        <?php
+        if (mysqli_num_rows($resultado_citas) > 0) {
+            while ($cita = mysqli_fetch_assoc($resultado_citas)) {
+                echo "<div class='cita-container' data-cita-id='{$cita['id']}'>";
+                echo "<div class='img-informacion'>";
+                echo "<img src='../img/defecto.png' alt='' class='img-cita'>";
+                echo "<div class='informacion-cita'>";
+                echo "<h1>Cita Proxima:</h1>";
+                echo "<p>Nombre del terapeuta: {$cita['nombre_terapeuta']}</p>";
+                echo "<p>Número de teléfono: {$cita['telefono']}</p>";
+                echo "<p>Fecha de la cita: {$cita['fecha_cita']}</p>";
+                echo "</div>"; // Cierre de div 'informacion-cita'
+                echo "</div>"; // Cierre de div 'img-informacion'
+                // Formulario para cancelar la cita
+                echo "<form method='post' name='cancelar_cita'>";
+                echo "<input type='hidden' name='id_cita' value='{$cita['id']}'>";
+                echo "<button type='submit' id='cancelar_cita' class='cancelar-btn'>Cancelar</button>";
+                echo "</form>";
+                echo "</div>"; // Cierre de div 'cita-container'
+            }
+        } else {
+            echo "<p>No hay citas programadas.</p>";
+        }
+        ?>
+    </section>
         <!-- editar perfil -->
         <form class="editar" method="post" enctype="multipart/form-data">
             <i class='bx bx-x'></i>
@@ -264,3 +288,20 @@ if (isset($_POST["modificar"])) {
     </footer>
 </body>
 </html>
+<?php
+// Procesamiento del formulario de cancelación de cita
+if (isset($_POST['cancelar_cita'])) {
+    $id_cita = $_POST['id_cita']; // Obtén el ID de la cita a cancelar
+
+    // Ejecuta la consulta para eliminar la cita de la base de datos
+    $query_eliminar_cita = "DELETE FROM cita WHERE id = $id_cita";
+
+    if (mysqli_query($conexion, $query_eliminar_cita)) {
+        echo "<script>alert('La cita ha sido cancelada correctamente.');</script>";
+        // Puedes redirigir al usuario o mostrar un mensaje de éxito aquí
+    } else {
+        echo "<script>alert('Error al cancelar la cita: " . mysqli_error($conexion) . "');</script>";
+        // Maneja el error de alguna manera apropiada
+    }
+}
+?>  
