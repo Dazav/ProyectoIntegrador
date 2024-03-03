@@ -72,16 +72,16 @@ if (isset($_SESSION["id"])) {
         ?>
     </nav>
     <!-- parte de pago -->
-    <form id="formPago" class="pago" method="post" action="">
+    <form id="formPago" class="pago" method="post" action="procesarPago.php">
         <!-- detalle -->
         <section>
             <div class="detalle">
                 <legend>Detalles del Pago</legend>
                 <fieldset>
                     <label>Nombre<input type="text" required></label>
-                    <label>Apellido<input type="text" required></label>
-                    <label class="tarjeta">Nº Tarjeta<input type="text" name="n_tarjeta" id="n_tarjeta" placeholder="xxxx xxxx xxxx xxxx" required>
-                    <span id="error_n_tarjeta" class="error-message"></span></label>
+                    <label>Apellidos<input type="text" required></label>
+                    <label class="tarjeta">Nº Tarjeta<input type="text" name="n_tarjeta" id="n_tarjeta" placeholder="xxxx xxxx xxxx xxxx" required></label>
+                    <span id="error_n_tarjeta" class="error-message"></span><br>
                     <label class="input_pequeño_pago">Fecha<input type="text" id="fecha" placeholder="mm/yy" required></label>
                     <label class="input_pequeño_pago">CVV<input type="text" id="cvv" required></label>
                     <span id="error_fecha" class="error-message"></span>
@@ -94,8 +94,7 @@ if (isset($_SESSION["id"])) {
         <div class="pedido">
             <h1>Tu Pedido</h1>
             <div>
-                <p>Nombre y Apellidos</p>
-                <p>Ana</p>
+                
             </div>
             <div>
                 <input id="elegir" type="checkbox" name="" id="">
@@ -106,8 +105,8 @@ if (isset($_SESSION["id"])) {
             <div class="pago-last">
                 <input type="submit" value="Pagar">
                 <div>
-                    <p>Totla: 10€</p>
-                    <input type="checkbox" name="" id="" required>Aceptas Terminos y Condiciones
+                    <p>Total: 10€</p>
+                    <input type="checkbox" name="" id="" required>Aceptas Términos y Condiciones
                 </div>
             </div>
         </div>
