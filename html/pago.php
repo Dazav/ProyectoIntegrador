@@ -1,17 +1,19 @@
 <?php
-  include "../db/crear_tablas.php";
-    session_start();
-    if (isset($_SESSION["id"])) {
-        $id=$_SESSION["id"];
-    }
+include "../db/crear_tablas.php";
+session_start();
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/pago.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +24,7 @@
     <script src="../js/pago.js"></script>
     <title>Pago</title>
 </head>
+
 <body>
     <!-- barra navegación -->
     <nav>
@@ -42,30 +45,30 @@
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <?php
-            if(isset($_SESSION["id"])){
-                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
-                $stmt->bind_param("i", $id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
+        if (isset($_SESSION["id"])) {
+            $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) { //si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                while ($user = $result->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
-                    }
-                }else {
-                    echo "<a href='perfil.php'>
+                }
+            } else {
+                echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
-                }
-            }else{
-                echo "
+            }
+        } else {
+            echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
                     <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
-            }
+        }
         ?>
     </nav>
     <!-- parte de pago -->
@@ -75,11 +78,17 @@
             <div class="detalle">
                 <legend>Detalles del Pago</legend>
                 <fieldset>
-                    <label >Nombre<input type="text"></label>
-                    <label >Apellido<input type="text"></label>
-                    <label class="tarjeta">Tarjeta<input type="text" name="" id=""></label>
-                    <label >País<input type="text"></label>
+                    <label>Nombre<input type="text" required></label>
+                    <label>Apellido<input type="text" required></label>
+                    <label class="tarjeta">Nº Tarjeta<input type="text" name="n_tarjeta" id="n_tarjeta" placeholder="xxxx xxxx xxxx xxxx" required></label>
+                    <span id="error_n_tarjeta" class="error-message"></span><br>
+                    <label class="input_pequeño_pago">Fecha<input type="text" id="fecha" placeholder="mm/yy" required></label>
+                    <label class="input_pequeño_pago">CVV<input type="text" id="cvv" required></label><br>
+                    <span id="error_fecha" class="error-message"></span>
+                    <span id="error_cvv" class="error-message"></span>
+                    <br>
                 </fieldset>
+
             </div>
         </section>
         <!-- pedido -->
@@ -138,13 +147,13 @@
                     <li>Foros de Comunidad</li>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -157,4 +166,5 @@
         </div>
     </footer>
 </body>
+
 </html>
