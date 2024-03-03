@@ -65,15 +65,7 @@ $(document).ready(function () {
         $("#metodo").val("paypal");
     });
 });
-$(document).ready(function() {
-    $('.cancela').click(function() {
-        var cita_id = $(this).data('cita-id');
-        $.post('eliminar_cita.php', { id: cita_id }, function(response) {
-            // Manejar la respuesta del servidor si es necesario
-            // Por ejemplo, recargar la página o actualizar la lista de citas
-        });
-    });
-});
+
 
 $(document).ready(function() {
     // Manejador de eventos para cancelar cita

@@ -338,3 +338,67 @@ section#cita.informacion{
     font-size: 30px;
     cursor: pointer;
 }
+
+/* Media Query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Estilos que se aplicarán solo en dispositivos móviles */
+
+    /* Estilos para la sección informacion */
+    .informacion {
+        height: auto;
+        width: 100%;
+        max-width: 1000px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado */
+        margin: 0 auto; /* Centra el div horizontalmente */
+        display: flex;
+        flex-direction: column; /* Alinea los elementos en columna */
+        justify-content: center; /* Centra los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        padding: 20px;
+        box-sizing: border-box;
+        border-right: 10px solid #6545A1;
+        box-shadow: 0 0 4px #818181;
+        padding: 10px; /* Reduce el espacio alrededor del contenido */
+    }
+
+    .bg-img {
+        height: 30%; /* Reducir la altura del contenedor en dispositivos móviles */
+    }
+
+    /* Estilos para la sección cita */
+    #cita.informacion {
+        width: 100%;
+        max-width: 1000px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado */
+        margin: 20px auto; /* Ajusta el margen según sea necesario */
+        padding: 20px;
+        box-sizing: border-box;
+        border: 2px solid #6545A1; /* Agrega un borde para resaltar la sección */
+        border-radius: 10px; /* Redondea las esquinas del borde */
+    }
+    .cita-container {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+    input{
+        max-width:80%;
+    }
+
+    /* Puedes ajustar los estilos de los elementos internos según sea necesario */
+    .informacion > div {
+        margin-bottom: 10px; /* Reduce el espacio entre los elementos */
+    }
+    .editar {
+        width: 90%; /* Ancho máximo del formulario en dispositivos móviles */
+        padding: 10px; /* Espacio interior reducido */
+    }
+
+    .editar > input[type="text"],
+    .editar > input[type="password"],
+    .editar > input[type="email"] {
+        width: 100%; /* Ancho completo para los campos de entrada */
+    }
+
+    .editar > input[type="submit"] {
+        width: 100%; /* Ancho completo para el botón de enviar */
+        margin-top: 10px; /* Espacio superior entre el botón de enviar y los campos de entrada */
+    }
+}
