@@ -80,13 +80,12 @@ if (isset($_SESSION["id"])) {
                 <fieldset>
                     <label>Nombre<input type="text" required></label>
                     <label>Apellido<input type="text" required></label>
-                    <label class="tarjeta">Nº Tarjeta<input type="text" name="n_tarjeta" id="n_tarjeta" placeholder="xxxx xxxx xxxx xxxx" required></label>
-                    <span id="error_n_tarjeta" class="error-message"></span><br>
+                    <label class="tarjeta">Nº Tarjeta<input type="text" name="n_tarjeta" id="n_tarjeta" placeholder="xxxx xxxx xxxx xxxx" required>
+                    <span id="error_n_tarjeta" class="error-message"></span></label>
                     <label class="input_pequeño_pago">Fecha<input type="text" id="fecha" placeholder="mm/yy" required></label>
-                    <label class="input_pequeño_pago">CVV<input type="text" id="cvv" required></label><br>
+                    <label class="input_pequeño_pago">CVV<input type="text" id="cvv" required></label>
                     <span id="error_fecha" class="error-message"></span>
                     <span id="error_cvv" class="error-message"></span>
-                    <br>
                 </fieldset>
 
             </div>
