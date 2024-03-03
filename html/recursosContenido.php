@@ -1,9 +1,24 @@
+<?php
+include("../db/crear_tablas.php");
+session_start();
+//conseguir id y id de foro
+if (isset($_SESSION["id"])) {
+    $id=$_SESSION["id"];
+}
+if (isset($_GET["id_recurso"])) {
+    # code...
+    $id_r = $_GET['id_recurso'];
+}
+// 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/recursosContenido.css">
+    <link>
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,12 +58,31 @@
     <div class="descripcionClic">
         <main>
             <i class="bx bx-arrow-back"></i>
-            <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
+            <?php
+                    $select = "SELECT r.titular AS t, us.nombre AS nombre, us.apellidos AS ap,r.descripcion AS dsc,
+                        r.fecha_creacion AS fc, r.img_banner AS img
+                        FROM recursos r
+                        INNER JOIN usuario us ON us.id = r.id_usuario
+                        WHERE r.id=$id_r";
+                    $resulta = mysqli_query($conexion, $select);
+                    while ($contenido = $resulta->fetch_assoc()) {
+                        # code...
+                        echo "
+                                <h1 style='font-size: 40px;'>{$contenido['t']}</h1>
+                                <p>{$contenido['fc']}</p>
+                                <div class='bg-contenido'>
+                                    <img src='{$contenido['img']}' class='img_des'>
+                                </div>
+                                <p style='font-size: 20px;' class='articulo'>{$contenido['dsc']}</p>
+                            ";
+                    }
+                    ?>
+            <!-- <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
             <p>12-12-2023 Wei Xu</p>
             <div class='bg-contenido'>
                 <img src="../img/recursos-contenido1.png" class="img_des">
             </div>
-            <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
+            <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p> -->
         </main>
     </div>
         <!-- contacto -->

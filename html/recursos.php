@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/recurso.css">
+    <link rel="stylesheet" href="../css/recurso1.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,10 +143,10 @@
                       </div>
                       ';
                       $index++;
-                      if ($index==5){
-                        echo "<br>";
-                        $index=1;
-                      }
+                      // if ($index==5){
+                      //   echo "<br>";
+                      //   $index=1;
+                      // }
                     }
 
                 }

@@ -108,13 +108,13 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: auto;
     scroll-snap-align: center; 
 }
 .tema-ansiedad{
     display: grid;
     grid-template-columns: repeat(5,200px) ;
-    grid-template-rows: 300px 350px;
+    grid-template-rows: 300px 350px 300px;
     gap: 20px;
 }
 .tema-ansiedad>div{
@@ -189,7 +189,7 @@ section{
     grid-column: 1/6;
     border-left: 10px solid #6545A1;
     display: flex;
-    justify-content: space-between;
+    justify-content: baseline;
 }
 .tema5>img{
     border-radius:0 10px 10px 0;
