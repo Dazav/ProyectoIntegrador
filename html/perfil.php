@@ -143,6 +143,7 @@ if (isset($_POST["modificar"])) {
                 <div class="btn">
                     <button id="editar">Editar Perfil</button>
                     <button id="logout">Cerrar Sesión</button>
+                    <button id="cita">Pedir una cita</button>
                 </div>
 
             </div>
