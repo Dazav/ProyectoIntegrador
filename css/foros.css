@@ -229,122 +229,31 @@ input[type="file"]{
 .add-tema>input[type="submit"]:hover{
     box-shadow: 2px 2px 4px 0px var(--busca-color-active);
 }
-/* tienes dudas */
-.contacto{
-    height: 230px;
-    background: #D9D9D9;
-    text-align: center;
-    padding-top: 70px;
-    font-weight: bold;
-}
-.contacto h1{
-    margin: 0 0 32px 0;
-    font-size: 2rem;
-}
-.contacto p{
-    font-size: 1rem;
-    margin: 24px 0;
-}
-.contacto input{
-    background: #000;
-    border-radius: 35px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 12px;
-    width: 200px;
-}
-/* contacto */
-.contact-div {
-    background-color: #858484;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-  }
-  .contact-div h2 {
-    font-size: 2em; /* Ajusta este valor según tu diseño */
-    margin-bottom: 10px;
-  }
-  .contact-div p {
-    font-size: 1em; /* Ajusta este valor según tu diseño */
-    margin-bottom: 20px;
-  }
-  .contact-button {
-    background-color: #333; /* Ajusta el color de fondo según tu diseño */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .contact-button:hover {
-    background-color: #555; /
-  }
-/* footer */
-footer{
-    background: #000;
-    color: white;
-}
-footer .elementos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.elementos div:first-child img{
-    width: 95px;
-    height: 95px;
-}
-.elementos div:first-child{
-    display: flex;
-    align-items: center;
-}
-.elementos div:nth-child(n+2) h2 {
-    margin: 100px 0 32px 0;
-}
-.elementos div:nth-child(n+2) ul{
-    list-style-type: none;
-    margin: 0 0 120px 0;
-    padding-inline-start: 0;
-}
-/* Sociales */
-.social a i {
-    margin: 0.5rem;
-    padding: 0;
-}
-/* linea horzontal */
-footer>hr{
-    margin: 0.5rem;
-}
-/* avisos legales */
-.avisos{
-    display: flex;
-    justify-content: space-between;
-}
-.avisos pre{
-    margin: 0 0.5rem;
-    font-family: "Montserrat";
-}
+/* Para dispositivos con un ancho máximo de 768px */
+@media screen and (max-width: 768px) {
+    .buscar {
+        width: 90%;
+        justify-content: flex-start; /* Alinear el contenido a la izquierda */
+        padding: 0 20px; /* Agregar espacio de padding a los lados */
+        height: auto; /* Altura automática */
+        margin-bottom: 20px; /* Agregar margen inferior */
+    }
 
-/* responsive */
-@media screen and (max-width: 1700px){
-    nav{
-        height: 50px;
-        padding: 10px 0;
+    .buscar > input {
+        width: 90%; /* Ancho completo */
     }
-    nav a,li{
-        font-size: 1rem;
+
+    .tema-bg {
+        width: 90%; /* Ancho completo */
+        padding: 20px; /* Agregar espacio de padding */
     }
-    .menu ul ul{
-        right: -120px;
-        top: 1.5rem;
+
+    .tema {
+        width: 90%; /* Ancho completo */
     }
-    .menu ul li:hover>ul{
-        opacity: 1;
-        top: 2rem;
-    }
-    nav div.iniciarUser input{
-        font-size: 1rem;
-        padding: 5px;
+
+    .add-tema {
+        width: 90%; /* Ancho completo */
+        max-width: 400px; /* Máximo ancho de 400px */
     }
 }

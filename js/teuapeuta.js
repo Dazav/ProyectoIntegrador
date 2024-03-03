@@ -26,30 +26,36 @@ $(document).ready(function () {
     });
 });
 
-// carusel movile
-document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('.terapeutas-carousel');
-    const prevBtn = document.querySelector('.carousel-control.prev');
-    const nextBtn = document.querySelector('.carousel-control.next');
+function buscador() {  
+    // Contenido introducido en el campo de búsqueda
+    var contenido = $(".buscador").val().toUpperCase(); 
 
-    let currentPosition = 0;
-    const cardWidth = carousel.querySelector('.tarjeta-tera').offsetWidth;
-    const cardMarginRight = parseInt(window.getComputedStyle(carousel.querySelector('.tarjeta-tera')).marginRight);
+    // Restablecer estilos de todas las tarjetas de terapeutas
+    $(".tarjeta-tera").css("display", "flex"); 
 
-    // Configurar el ancho del carousel
-    carousel.style.width = (cardWidth + cardMarginRight) * carousel.children.length + 'px';
+    // Iterar sobre cada tarjeta de terapeuta
+    $(".tarjeta-tera").each(function (index, tarjeta) {
+        var tarjetaContenido = $(tarjeta).text().trim().toUpperCase();
 
-    nextBtn.addEventListener('click', () => {
-        if (currentPosition > -(carousel.offsetWidth - carousel.parentNode.offsetWidth)) {
-            currentPosition -= cardWidth + cardMarginRight;
-            carousel.style.transform = `translateX(${currentPosition}px)`;
+        // Ocultar la tarjeta de terapeuta si no coincide con el contenido buscado
+        if (tarjetaContenido.indexOf(contenido) === -1) {
+            $(tarjeta).css("display", "none");
         }
     });
+}
+$(document).ready(function () {
+    // buscar tema
+    $(".bx-search").on("click", function () {
+        buscador();
+    });
 
-    prevBtn.addEventListener('click', () => {
-        if (currentPosition < 0) {
-            currentPosition += cardWidth + cardMarginRight;
-            carousel.style.transform = `translateX(${currentPosition}px)`;
+    // buscar tema existente en cada momento
+    $(".buscador").on("input", function () {
+        buscador();
+    }).keydown(function (e) {
+        // 13 es el código de tecla "intro" y 8 es el código de tecla "borrar"
+        if (e.which == 8 || e.which == 13) {
+            buscador();
         }
     });
 });
