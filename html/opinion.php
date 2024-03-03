@@ -1,12 +1,13 @@
 <?php
-  include "../db/crear_tablas.php";
-    session_start();
-    if (isset($_SESSION["id"])) {
-        $id=$_SESSION["id"];
-    }
+include "../db/crear_tablas.php";
+session_start();
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +24,14 @@
     <script src="../js/main.js"></script>
     <title>Opiniones</title>
 </head>
+
 <body>
-     <!-- barra navegación -->
-     <nav>
+    <!-- barra navegación -->
+    <nav>
         <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
             <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
@@ -43,30 +47,30 @@
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <?php
-            if(isset($_SESSION["id"])){
-                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
-                $stmt->bind_param("i", $id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
+        if (isset($_SESSION["id"])) {
+            $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                while ($user = $result->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
-                    }
-                }else {
-                    echo "<a href='perfil.php'>
+                }
+            } else {
+                echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
-                }
-            }else{
-                echo "
+            }
+        } else {
+            echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
                     <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
-            }
+        }
         ?>
     </nav>
     <header>
@@ -87,31 +91,41 @@
     </header>
     <main>
         <section class="sidebar">
-                <div class="detalle">
-                    <h2>Opiniones <span class="promedio-star"></span></h2>
-                    <p class="total"></p>
-                    <p>1 ⭐</p>
-                    <div class="star"><div></div></div>
-                    <p>2 ⭐</p>
-                    <div class="star"><div></div></div>
-                    <p>3 ⭐</p>
-                    <div class="star"><div></div></div>
-                    <p>4 ⭐</p>
-                    <div class="star"><div></div></div>
-                    <p>5 ⭐</p>
-                    <div class="star"><div></div></div>
+            <div class="detalle">
+                <h2>Opiniones <span class="promedio-star"></span></h2>
+                <p class="total"></p>
+                <p>1 ⭐</p>
+                <div class="star">
+                    <div></div>
                 </div>
-            </section>
+                <p>2 ⭐</p>
+                <div class="star">
+                    <div></div>
+                </div>
+                <p>3 ⭐</p>
+                <div class="star">
+                    <div></div>
+                </div>
+                <p>4 ⭐</p>
+                <div class="star">
+                    <div></div>
+                </div>
+                <p>5 ⭐</p>
+                <div class="star">
+                    <div></div>
+                </div>
+            </div>
+        </section>
         <aside>
             <section>
                 <form method="post">
                     <fieldset>
                         <?php
-                        $select="SELECT *
+                        $select = "SELECT *
                         FROM usuario
                         WHERE id=$id";
-                        $resulta=mysqli_query($conexion,$select);
-                        while ($usr=$resulta->fetch_assoc()) {
+                        $resulta = mysqli_query($conexion, $select);
+                        while ($usr = $resulta->fetch_assoc()) {
                             echo "
                             <img src='{$usr['imagen']}' alt=''>
                             ";
@@ -119,11 +133,11 @@
                         ?>
                         <div class="apunta">
                             <?php
-                            $select="SELECT *
+                            $select = "SELECT *
                             FROM usuario
                             WHERE id=$id";
-                            $resulta=mysqli_query($conexion,$select);
-                            while ($usr=$resulta->fetch_assoc()) {
+                            $resulta = mysqli_query($conexion, $select);
+                            while ($usr = $resulta->fetch_assoc()) {
                                 echo "
                                 <p>{$usr['nombre']} {$usr['apellidos']}</p>
                                 ";
@@ -145,13 +159,13 @@
                     <input type="submit" class="enviar">
                 </form>
                 <?php
-                    $select="SELECT op.titulo AS titulo, op.descripcion AS dsc, op.estrellas AS star,us.imagen AS img,us.nombre AS nombre,us.apellidos AS apellidos
+                $select = "SELECT op.titulo AS titulo, op.descripcion AS dsc, op.estrellas AS star,us.imagen AS img,us.nombre AS nombre,us.apellidos AS apellidos
                     FROM opiniones op
                     INNER JOIN usuario us ON  us.id=op.id_autor
                     ";
-                    $resulta=mysqli_query($conexion,$select);
-                    while ($op=$resulta->fetch_assoc()) {
-                        echo "
+                $resulta = mysqli_query($conexion, $select);
+                while ($op = $resulta->fetch_assoc()) {
+                    echo "
                         <div class='opinion'>
                             <img src='{$op['img']}' alt=''>
                             <div>
@@ -163,7 +177,7 @@
                             </div>
                         </div>
                         ";
-                    }
+                }
                 ?>
             </section>
         </aside>
@@ -178,31 +192,40 @@
             <div>
                 <h2>Recursos</h2>
                 <ul>
-                    <li>Recursos de Ansiedad</li>
-                    <li>Técnicas Relajación</li>
+                    <a href="recursos.php">
+                        <li>Recursos de Ansiedad</li>
+                    </a>
+                    <a href="relajacion.php">
+                        <li>Técnicas Relajación</li>
+                    </a>
                 </ul>
             </div>
             <div>
                 <h2>Apoyo</h2>
                 <ul>
-                    <li>Herramientas</li>
-                    <li>Seguimiento y Progreso</li>
+                    <a href="grupo_apoyo.php">
+                        <li>Grupos de apoyo</li>
+                    </a>
+                    <a href="ejercicios_apoyo.php">
+                        <li>Ejercicios de apoyo</li>
+                    </a>
                 </ul>
             </div>
             <div class="social">
                 <h2>Social</h2>
                 <ul>
-                    <li>Grupos de Apoyo</li>
-                    <li>Foros de Comunidad</li>
+                    <a href="foros.php">
+                        <li>Foros de Comunidad</li>
+                    </a>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -217,23 +240,24 @@
 </body>
 <script>
     $(".enviar").click(function (e) {
-        e.preventDefault(); 
+        e.preventDefault();
         $.ajax({
-        type: "POST",
-        url: "procesarOpinion.php",
-        data: {
-            titulo: $("#titulo").val(),
-            desc: $("#desc").val(),
-            numStar: $("#numStar").text()
-        },
-        dataType: "JSON",
-        success: function (response) {
-            alert(response);
-        },
-        error: function (xhr, status, error){
-            alert(xhr.responseText);
-        }
-    }); 
+            type: "POST",
+            url: "procesarOpinion.php",
+            data: {
+                titulo: $("#titulo").val(),
+                desc: $("#desc").val(),
+                numStar: $("#numStar").text()
+            },
+            dataType: "JSON",
+            success: function (response) {
+                alert(response);
+            },
+            error: function (xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
     });
 </script>
+
 </html>

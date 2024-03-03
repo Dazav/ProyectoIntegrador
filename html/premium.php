@@ -1,12 +1,13 @@
 <?php
-  include "../db/crear_tablas.php";
-    session_start();
-    if (isset($_SESSION["id"])) {
-        $id=$_SESSION["id"];
-    }
+include "../db/crear_tablas.php";
+session_start();
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,43 +23,46 @@
     <script src="../js/premium.js"></script>
     <title>ejercicios de apoyo</title>
 </head>
+
 <body>
     <!-- barra navegación -->
     <nav>
-        <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
+        <<div class="usuario">
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
             <a href="index.php">Brain Hub</a>
-        </div>
-        <div class="menu">
-            <button onclick="window.location.href='recursos.php'">Recursos</button>
-            <div class="dropdown">
-                Apoyo
-                <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
-                </div>
             </div>
-            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
-            <button onclick="window.location.href='foros.php'">Social</button>
-        </div>
-        <?php
-            if(isset($_SESSION["id"])){
+            <div class="menu">
+                <button onclick="window.location.href='recursos.php'">Recursos</button>
+                <div class="dropdown">
+                    Apoyo
+                    <div class="dropdown-menu">
+                        <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                        <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
+                    </div>
+                </div>
+                <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+                <button onclick="window.location.href='foros.php'">Social</button>
+            </div>
+            <?php
+            if (isset($_SESSION["id"])) {
                 $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
                 $stmt->bind_param("i", $id);
                 $stmt->execute();
                 $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
+                if ($result->num_rows > 0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                    while ($user = $result->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
                     }
-                }else {
+                } else {
                     echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
                 }
-            }else{
+            } else {
                 echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
@@ -66,9 +70,9 @@
                 </div>
                 ";
             }
-        ?>
+            ?>
     </nav>
-    
+
     <div class="desPlus">
         <img src="../img/bg-plus.png" alt="">
         <div class="des">
@@ -91,11 +95,13 @@
             <p>Te ofrecemos un universo de posibilidades para cuidar tu salud mental.</p>
         </div>
         <div class="intro" id="intro2">
-            <p>Por un precio accesible de solo 10 euros, abrimos la puerta a un espacio donde cada recurso está diseñado pensando en ti. </p>
+            <p>Por un precio accesible de solo 10 euros, abrimos la puerta a un espacio donde cada recurso está diseñado
+                pensando en ti. </p>
         </div>
     </div>
     <div class="last-intro">
-        <p>Invertir en tu bienestar emocional nunca fue tan sencillo. Brain Hub se adapta a tus necesidades, brindándote opciones accesibles para tu cuidado mental.</p>
+        <p>Invertir en tu bienestar emocional nunca fue tan sencillo. Brain Hub se adapta a tus necesidades, brindándote
+            opciones accesibles para tu cuidado mental.</p>
     </div>
     <!-- tarjeta -->
     <main id="tarjetas">
@@ -117,10 +123,10 @@
             </div>
             <button onclick="window.location.href='pago.php'">10€/mes</button>
         </div>
-        <i class='bx bx-up-arrow-circle' ></i>
+        <i class='bx bx-up-arrow-circle'></i>
     </main>
 
-    
+
     <div class="contacto">
         <h1>¿TIENES DUDAS?</h1>
         <p>Nuestro equipo de soporte está disponible 24/7</p>
@@ -153,14 +159,14 @@
                     <li>Grupos de Apoyo</li>
                     <li>Foros de Comunidad</li>
                     <li>
-                    <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                        <a href="">
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -173,4 +179,5 @@
         </div>
     </footer>
 </body>
+
 </html>

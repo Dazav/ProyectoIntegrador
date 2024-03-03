@@ -1,13 +1,14 @@
 <?php
-  include "../db/crear_tablas.php";
+include "../db/crear_tablas.php";
 //   $conexion = getConexion();
-    session_start();
-    if (isset($_SESSION["id"])) {
-        $id=$_SESSION["id"];
-    }
+session_start();
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +23,15 @@
     <script src="../js/app.js"></script>
     <title>Página Principal</title>
 </head>
+
 <body>
     <!-- barra navegación -->
     <nav>
         <div class="usuario">
-                <!-- Botón de menú para móviles -->
-                <button class="menu-mobile">☰</button>
-                    <img src="../img/logo.png" alt="">
-                <a href="index.php">Brain Hub</a>
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
+            <a href="index.php">Brain Hub</a>
         </div>
 
         <div class="menu">
@@ -44,32 +46,32 @@
             <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-        
+
         <?php
-            if(isset($_SESSION["id"])){
-                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
-                $stmt->bind_param("i", $id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
+        if (isset($_SESSION["id"])) {
+            $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                while ($user = $result->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
-                    }
-                }else {
-                    echo "<a href='perfil.php'>
+                }
+            } else {
+                echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
-                }
-            }else{
-                echo "
+            }
+        } else {
+            echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
                     <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
-            }
+        }
         ?>
     </nav>
     <!-- introducción principal -->
@@ -97,9 +99,12 @@ en el mercado</pre>
         </div>
         <div class="contenido">
             <h1>Psicólogos online experimentados, listos para ayudarte a construir una vida con mayor bienestar</h1>
-            <p>En nuestro equipo de psicólogos en línea, encontrarás psicólogos altamente capacitados y experimentados, con una sólida formación académica en psicología y maestría en psicoterapia.</p>
-            <p>Todos nuestros psicólogos online cuentan con la documentación necesaria para ejercer su profesión y tienen más de 5 años de experiencia profesional comprobable.</p>
-            <p>Con horarios flexibles y una amplia variedad de días disponibles, podrás comenzar tu terapia psicológica en línea en el momento que lo necesites.</p> 
+            <p>En nuestro equipo de psicólogos en línea, encontrarás psicólogos altamente capacitados y experimentados,
+                con una sólida formación académica en psicología y maestría en psicoterapia.</p>
+            <p>Todos nuestros psicólogos online cuentan con la documentación necesaria para ejercer su profesión y
+                tienen más de 5 años de experiencia profesional comprobable.</p>
+            <p>Con horarios flexibles y una amplia variedad de días disponibles, podrás comenzar tu terapia psicológica
+                en línea en el momento que lo necesites.</p>
         </div>
     </div>
     <!-- linea horizontal -->
@@ -113,18 +118,21 @@ en el mercado</pre>
                     <div></div>
                 </center>
                 <h1>Ejercicios de exposición gradual</h1>
-                <p>La técnica de exposición es un tipo de procedimiento terapéutico empleado en psicología clínica para tratar los trastornos de ansiedad. Esta técnica implica enfrentar al paciente con el objeto, el contexto o el pensamiento temido para ayudarle a superar los síntomas de ansiedad.</p>
+                <p>La técnica de exposición es un tipo de procedimiento terapéutico empleado en psicología clínica para
+                    tratar los trastornos de ansiedad. Esta técnica implica enfrentar al paciente con el objeto, el
+                    contexto o el pensamiento temido para ayudarle a superar los síntomas de ansiedad.</p>
                 <a href="">Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
-                <i class='bx bx-plus-circle' ></i>
+                <i class='bx bx-plus-circle'></i>
             </div>
             <div class="carta2 responsiveCarta carta">
                 <center>
                     <div></div>
                 </center>
                 <h1>Técnicas de relajación</h1>
-                <p>Las técnicas de relajación son métodos que se utilizan para reducir el estrés, la ansiedad y la tensión muscular, promoviendo un estado de calma y bienestar.</p>
-                <a href="" >Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
-                <i class='bx bx-plus-circle' ></i>
+                <p>Las técnicas de relajación son métodos que se utilizan para reducir el estrés, la ansiedad y la
+                    tensión muscular, promoviendo un estado de calma y bienestar.</p>
+                <a href="">Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
+                <i class='bx bx-plus-circle'></i>
             </div>
             <div class="carta3 responsiveCarta carta">
                 <center>
@@ -132,9 +140,10 @@ en el mercado</pre>
                 </center>
                 <h1>Ejercicios de apoyo</h1>
                 <p>
-                    Los ejercicios de apoyo psicológico son técnicas y actividades diseñadas para mejorar la salud mental y el bienestar emocional de una persona. </p>
+                    Los ejercicios de apoyo psicológico son técnicas y actividades diseñadas para mejorar la salud
+                    mental y el bienestar emocional de una persona. </p>
                 <a href="">Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
-                <i class='bx bx-plus-circle' ></i>
+                <i class='bx bx-plus-circle'></i>
             </div>
         </div>
     </div>
@@ -144,18 +153,18 @@ en el mercado</pre>
             <h1>Opiniones de clientes</h1>
             <div class="comentarios">
                 <button class="flecha" id="flecha1" disabled>
-                    <i class='bx bxs-left-arrow' ></i>
+                    <i class='bx bxs-left-arrow'></i>
                 </button>
                 <div class="outer">
                     <div class="cartaList">
                         <!-- 1º lista -->
                         <?php
-                            $select="SELECT DISTINCT u.nombre as nombre, u.apellidos as apellidos, u.Imagen as src, o.estrellas as star, o.titulo as comentario
+                        $select = "SELECT DISTINCT u.nombre as nombre, u.apellidos as apellidos, u.Imagen as src, o.estrellas as star, o.titulo as comentario
                             FROM opiniones o
                             INNER JOIN usuario u ON u.id=o.id_autor";
-                            $resulta=mysqli_query($conexion,$select);
-                            while ($opinion=$resulta->fetch_assoc()) {
-                                echo "
+                        $resulta = mysqli_query($conexion, $select);
+                        while ($opinion = $resulta->fetch_assoc()) {
+                            echo "
                                     <div class='comentario'>
                                         <div>
                                             <img src='{$opinion['src']}'>
@@ -166,7 +175,7 @@ en el mercado</pre>
                                             <p>{$opinion['star']}</p>
                                         </div>
                                     </div>";
-                            }
+                        }
                         ?>
                         <!--  -->
                         <div class="comentario verMas">
@@ -178,7 +187,7 @@ en el mercado</pre>
                     </div>
                 </div>
                 <button class="flecha" id="flecha2">
-                    <i class='bx bxs-right-arrow' ></i>             
+                    <i class='bx bxs-right-arrow'></i>
                 </button>
             </div>
         </div>
@@ -199,31 +208,40 @@ en el mercado</pre>
             <div>
                 <h2>Recursos</h2>
                 <ul>
-                    <li>Recursos de Ansiedad</li>
-                    <li>Técnicas Relajación</li>
+                    <a href="recursos.php">
+                        <li>Recursos de Ansiedad</li>
+                    </a>
+                    <a href="relajacion.php">
+                        <li>Técnicas Relajación</li>
+                    </a>
                 </ul>
             </div>
             <div>
                 <h2>Apoyo</h2>
                 <ul>
-                    <li>Herramientas</li>
-                    <li>Seguimiento y Progreso</li>
+                    <a href="grupo_apoyo.php">
+                        <li>Grupos de apoyo</li>
+                    </a>
+                    <a href="ejercicios_apoyo.php">
+                        <li>Ejercicios de apoyo</li>
+                    </a>
                 </ul>
             </div>
             <div class="social">
                 <h2>Social</h2>
                 <ul>
-                    <li>Grupos de Apoyo</li>
-                    <li>Foros de Comunidad</li>
+                    <a href="foros.php">
+                        <li>Foros de Comunidad</li>
+                    </a>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -236,4 +254,5 @@ en el mercado</pre>
         </div>
     </footer>
 </body>
+
 </html>

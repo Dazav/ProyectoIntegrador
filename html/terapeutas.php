@@ -30,11 +30,11 @@ if (isset($_SESSION["id"])) {
 <body>
     <!-- barra navegación -->
     <nav>
-    <div class="usuario">
-                <!-- Botón de menú para móviles -->
-                <button class="menu-mobile">☰</button>
-                    <img src="../img/logo.png" alt="">
-                <a href="index.php">Brain Hub</a>
+        <div class="usuario">
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
+            <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
             <button onclick="window.location.href='recursos.php'">Recursos</button>
@@ -49,30 +49,30 @@ if (isset($_SESSION["id"])) {
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
         <?php
-            if(isset($_SESSION["id"])){
-                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
-                $stmt->bind_param("i", $id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
+        if (isset($_SESSION["id"])) {
+            $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                while ($user = $result->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
-                    }
-                }else {
-                    echo "<a href='perfil.php'>
+                }
+            } else {
+                echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
-                }
-            }else{
-                echo "
+            }
+        } else {
+            echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
                     <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
-            }
+        }
         ?>
     </nav>
     <!-- main -->
@@ -87,7 +87,7 @@ if (isset($_SESSION["id"])) {
                 <?php
                 // La consulta SQL
                 $sql = "SELECT DISTINCT especializacion FROM terapeuta";
-                $conexion=getConexion();
+                $conexion = getConexion();
                 // Ejecutamos la consulta
                 $result = $conexion->query($sql);
 
@@ -127,7 +127,8 @@ if (isset($_SESSION["id"])) {
                     }
 
                     // Función para obtener los idiomas
-                    function obtenerIdiomasUnicos($conexion) {
+                    function obtenerIdiomasUnicos($conexion)
+                    {
                         $sql = "SELECT idiomas FROM terapeuta";
                         $result = mysqli_query($conexion, $sql);
                         $todosIdiomas = [];
@@ -147,7 +148,8 @@ if (isset($_SESSION["id"])) {
                     }
 
                     // Función para obtener las nacionalidades
-                    function obtenerNacionalidadesUnicas($conexion) {
+                    function obtenerNacionalidadesUnicas($conexion)
+                    {
                         $nacionalidades = [];
 
                         // La consulta SQL para seleccionar nacionalidades únicas
@@ -173,7 +175,7 @@ if (isset($_SESSION["id"])) {
             </aside>
             <section>
                 <div class="scrollbar">
-                 
+
                     <?php
                     // Para todos los terapeutas hacemos su "card"
                     $sql = "SELECT * FROM terapeuta";
@@ -273,7 +275,7 @@ if (isset($_SESSION["id"])) {
                     ?>
 
             </section>
-            </div>
+        </div>
         </div>
     </main>
     <!-- contacto -->
@@ -330,9 +332,9 @@ if (isset($_SESSION["id"])) {
     </footer>
 </body>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Escucha el evento click en los td que no tengan la clase 'hora-ocupada'
-        $('td:not(.hora-ocupada)').click(function() {
+        $('td:not(.hora-ocupada)').click(function () {
             var fechaHora = $(this).attr('datetime'); // Obtiene la fecha y hora del atributo 'datetime'
             var idTerapeuta = $(this).closest('table').data('id-terapeuta'); // Obtiene la ID del terapeuta del atributo de la tabla
             var celdaSeleccionada = $(this); // Guarda la referencia a la celda seleccionada
@@ -351,9 +353,9 @@ if (isset($_SESSION["id"])) {
                 formData.append('idTerapeuta', idTerapeuta);
                 formData.append('idUsuario', idUsuario);
                 fetch('insertar_cita.php', {
-                        method: 'POST',
-                        body: formData
-                    })
+                    method: 'POST',
+                    body: formData
+                })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -373,54 +375,54 @@ if (isset($_SESSION["id"])) {
             }
         });
     });
-document.addEventListener('DOMContentLoaded', function() {
-    var select = document.getElementById('filtro-especialidad');
+    document.addEventListener('DOMContentLoaded', function () {
+        var select = document.getElementById('filtro-especialidad');
 
-    select.addEventListener('change', function() {
-        var especialidadSeleccionada = this.value;
+        select.addEventListener('change', function () {
+            var especialidadSeleccionada = this.value;
 
-        // Utiliza fetch o jQuery.ajax para enviar esta información al servidor
-        fetch('procesarTerapeuta.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'especialidad=' + encodeURIComponent(especialidadSeleccionada)
-        })
-        .then(response => response.text())
-        .then(html => {
-            // Aquí asumes que el servidor devuelve el HTML de la sección actualizada
-            document.querySelector('.scrollbar').innerHTML = html;
-        })
-        .catch(error => console.error('Error:', error));
+            // Utiliza fetch o jQuery.ajax para enviar esta información al servidor
+            fetch('procesarTerapeuta.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'especialidad=' + encodeURIComponent(especialidadSeleccionada)
+            })
+                .then(response => response.text())
+                .then(html => {
+                    // Aquí asumes que el servidor devuelve el HTML de la sección actualizada
+                    document.querySelector('.scrollbar').innerHTML = html;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+
+        // Selecciona todos los elementos de entrada y el selector dentro del formulario
+        var inputs = document.querySelectorAll('#formularioFiltro input[type="checkbox"]');
+
+        // Función para manejar el filtrado
+        var handleFilterChange = function () {
+            console.log("Se ha clikado un input");
+            var formData = new FormData(document.getElementById('formularioFiltro'));
+
+            fetch('procesarTerapeuta.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text()) // Asume que la respuesta es HTML
+                .then(html => {
+                    document.querySelector('.scrollbar').innerHTML = html; // Actualiza el contenido
+                })
+                .catch(error => console.error('Error:', error));
+        };
+
+        // Agrega el evento change a cada elemento de entrada
+        inputs.forEach(function (input) {
+            input.addEventListener('change', handleFilterChange);
+        });
+
     });
-
-
-    // Selecciona todos los elementos de entrada y el selector dentro del formulario
-    var inputs = document.querySelectorAll('#formularioFiltro input[type="checkbox"]');
-
-    // Función para manejar el filtrado
-    var handleFilterChange = function() {
-        console.log("Se ha clikado un input");
-        var formData = new FormData(document.getElementById('formularioFiltro'));
-
-        fetch('procesarTerapeuta.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text()) // Asume que la respuesta es HTML
-        .then(html => {
-            document.querySelector('.scrollbar').innerHTML = html; // Actualiza el contenido
-        })
-        .catch(error => console.error('Error:', error));
-    };
-
-    // Agrega el evento change a cada elemento de entrada
-    inputs.forEach(function(input) {
-        input.addEventListener('change', handleFilterChange);
-    });
-
-});
 
 </script>
 

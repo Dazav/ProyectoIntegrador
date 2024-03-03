@@ -1,13 +1,14 @@
 <?php
-  include "../db/crear_tablas.php";
+include "../db/crear_tablas.php";
 //   $conexion = getConexion();
-    session_start();
-    if (isset($_SESSION["id"])) {
-        $id=$_SESSION["id"];
-    }
+session_start();
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,48 +24,49 @@
     <script src="../js/main.js"></script>
     <title>ejercicios de apoyo</title>
 </head>
+
 <body>
     <header>
-   <!-- barra navegación -->
-   <nav>
-        <div class="usuario">
+        <!-- barra navegación -->
+        <nav>
+            <div class="usuario">
                 <!-- Botón de menú para móviles -->
                 <button class="menu-mobile">☰</button>
-                    <img src="../img/logo.png" alt="">
+                <img src="../img/logo.png" alt="">
                 <a href="index.php">Brain Hub</a>
-        </div>
-
-        <div class="menu">
-            <button onclick="window.location.href='recursos.php'">Recursos</button>
-            <div class="dropdown">
-                Apoyo
-                <div class="dropdown-menu">
-                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
-                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
-                </div>
             </div>
-            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
-            <button onclick="window.location.href='foros.php'">Social</button>
-        </div>
-        
-        <?php
-            if(isset($_SESSION["id"])){
+
+            <div class="menu">
+                <button onclick="window.location.href='recursos.php'">Recursos</button>
+                <div class="dropdown">
+                    Apoyo
+                    <div class="dropdown-menu">
+                        <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                        <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
+                    </div>
+                </div>
+                <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+                <button onclick="window.location.href='foros.php'">Social</button>
+            </div>
+
+            <?php
+            if (isset($_SESSION["id"])) {
                 $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
                 $stmt->bind_param("i", $id);
                 $stmt->execute();
                 $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
+                if ($result->num_rows > 0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                    while ($user = $result->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
                     }
-                }else {
+                } else {
                     echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
                 }
-            }else{
+            } else {
                 echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
@@ -72,8 +74,8 @@
                 </div>
                 ";
             }
-        ?>
-    </nav>
+            ?>
+        </nav>
         <!-- ejercios de apoyo -->
         <!-- titulo -->
         <div class="apoyoTitulo">
@@ -82,18 +84,18 @@
         <!-- preguntas -->
         <div class="parte_preguntas">
             <button disabled="disabled" id="flecha1">
-                <i class='bx bx-right-arrow-alt bx-flip-horizontal' ></i>
+                <i class='bx bx-right-arrow-alt bx-flip-horizontal'></i>
             </button>
             <div class="ventana">
                 <h2>Ejercicios de exposición</h2>
                 <form class="preguntas">
                     <?php
-                    $select="SELECT p.pregunta AS p, p.seleccionA AS a, p.seleccionB AS b, p.seleccionC AS c 
+                    $select = "SELECT p.pregunta AS p, p.seleccionA AS a, p.seleccionB AS b, p.seleccionC AS c 
                     FROM pregunta p
                     INNER JOIN ejercicio eje ON eje.id=p.id_ejercicio
                     WHERE  p.id_ejercicio=1";
-                    $resulta=mysqli_query($conexion,$select);
-                    while ($pregunta=$resulta->fetch_assoc()) {
+                    $resulta = mysqli_query($conexion, $select);
+                    while ($pregunta = $resulta->fetch_assoc()) {
                         echo " 
                         <div class='pregunta'>
                         <h3>{$pregunta['p']}</h3>
@@ -139,13 +141,13 @@
                 <div class="otroEje carta1">
                     <div class="descripcionEje">
                         <h2>Escala <br>De <br>Ansiedad</h2>
-                        <i class='bx bxs-caret-down-circle' ></i>
+                        <i class='bx bxs-caret-down-circle'></i>
                     </div>
                 </div>
                 <div class="otroEje carta2">
                     <div class="descripcionEje">
                         <h2>Evaluación <br>De <br>Estrés</h2>
-                        <i class='bx bxs-caret-down-circle' ></i>
+                        <i class='bx bxs-caret-down-circle'></i>
                     </div>
                     <img src="../img/imgEjeApoyo2.png" alt="">
                 </div>
@@ -153,7 +155,7 @@
                     <img src="../img/imgEjeApoyo3.png" alt="">
                     <div class="descripcionEje">
                         <h2>Reflexión sobre la Autoestima</h2>
-                        <i class='bx bxs-caret-down-circle' ></i>
+                        <i class='bx bxs-caret-down-circle'></i>
                     </div>
                 </div>
             </section>
@@ -238,31 +240,40 @@
             <div>
                 <h2>Recursos</h2>
                 <ul>
-                    <li>Recursos de Ansiedad</li>
-                    <li>Técnicas Relajación</li>
+                    <a href="recursos.php">
+                        <li>Recursos de Ansiedad</li>
+                    </a>
+                    <a href="relajacion.php">
+                        <li>Técnicas Relajación</li>
+                    </a>
                 </ul>
             </div>
             <div>
                 <h2>Apoyo</h2>
                 <ul>
-                    <li>Herramientas</li>
-                    <li>Seguimiento y Progreso</li>
+                    <a href="grupo_apoyo.php">
+                        <li>Grupos de apoyo</li>
+                    </a>
+                    <a href="ejercicios_apoyo.php">
+                        <li>Ejercicios de apoyo</li>
+                    </a>
                 </ul>
             </div>
             <div class="social">
                 <h2>Social</h2>
                 <ul>
-                    <li>Grupos de Apoyo</li>
-                    <li>Foros de Comunidad</li>
+                    <a href="foros.php">
+                        <li>Foros de Comunidad</li>
+                    </a>
                     <li>
-                    <a href="https://www.facebook.com/psicologiapositiva">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                        <a href="">
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -277,62 +288,62 @@
 </body>
 <script>
     // conseguir id_ejercicio a través de bóton del tarjeta
-$(document).ready(function () {
-    //atraves tarjeta, 3 boton de tarjetas de ejercicios corresponden a ejercicio 2, 3 y 4
-    $(".bxs-caret-down-circle").each(function (index, boton) { 
-        $(boton).click(function () {
-            //guardar id de ejercicio
-            var id_ejercicio = index+2;
-            $.ajax({
-                type: "POST",
-                url: "procesarEjercicio.php",
-                data: {
-                    id_eje: id_ejercicio,
-                },
-                error: function() {
-                console.error("Error: no date");
-                },
-                dataType: 'json', 
-                success: function(data) {
-                    //ponemos las preguntas a su division
-                    $.each(data, function(i, htmlString) { 
-                        //debido data es un array que contiene 3 preguntas,debemos ponerlos a cada uno
-                        switch (i) {
-                            //p1,p2,p3 significan 3 paginas de preguntas
-                            case 0:
-                                $("#p1").html(htmlString); 
-                                break;
-                        
-                            case 1:
-                                $("#p2").html(htmlString); 
-                                break;
+    $(document).ready(function () {
+        //atraves tarjeta, 3 boton de tarjetas de ejercicios corresponden a ejercicio 2, 3 y 4
+        $(".bxs-caret-down-circle").each(function (index, boton) {
+            $(boton).click(function () {
+                //guardar id de ejercicio
+                var id_ejercicio = index + 2;
+                $.ajax({
+                    type: "POST",
+                    url: "procesarEjercicio.php",
+                    data: {
+                        id_eje: id_ejercicio,
+                    },
+                    error: function () {
+                        console.error("Error: no date");
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        //ponemos las preguntas a su division
+                        $.each(data, function (i, htmlString) {
+                            //debido data es un array que contiene 3 preguntas,debemos ponerlos a cada uno
+                            switch (i) {
+                                //p1,p2,p3 significan 3 paginas de preguntas
+                                case 0:
+                                    $("#p1").html(htmlString);
+                                    break;
 
-                            case 2:
-                                $("#p3").html(htmlString); 
-                                break;
-                        } 
-                    });
-                },
+                                case 1:
+                                    $("#p2").html(htmlString);
+                                    break;
+
+                                case 2:
+                                    $("#p3").html(htmlString);
+                                    break;
+                            }
+                        });
+                    },
+                });
             });
         });
     });
-});
-// ajax inserta ajax inserta los respuestas que usuario ha terminado a bd
-$(document).ready(function () {
-    //hay 12 preguntas de respuesta única,entonces atravesamos toda input:radio,en resultado, si existe 12 input:radio elegidas, podemos comfirmar que usuario ha terminado todos ejercicios
-    var suma=0;
-    var arr=[];//almanecer los valores de input
-    //
-    $("#confirma-btn").click(function () {//bóton para terminar
-        $("input[type='radio']").each(function (index, input) {
-            if ($(input).is(':checked')) {// repuestas si está elegido ?
-                suma++;
-                arr.push($(input).val());//agregar respuesta elegida a array
-            }
-        });
-        console.log(arr);
-        // si se cumplen las condiciones para el envio,realizar ajax
-        // if (suma>=6) {
+    // ajax inserta ajax inserta los respuestas que usuario ha terminado a bd
+    $(document).ready(function () {
+        //hay 12 preguntas de respuesta única,entonces atravesamos toda input:radio,en resultado, si existe 12 input:radio elegidas, podemos comfirmar que usuario ha terminado todos ejercicios
+        var suma = 0;
+        var arr = [];//almanecer los valores de input
+        //
+        $("#confirma-btn").click(function () {//bóton para terminar
+            $("input[type='radio']").each(function (index, input) {
+                if ($(input).is(':checked')) {// repuestas si está elegido ?
+                    suma++;
+                    arr.push($(input).val());//agregar respuesta elegida a array
+                }
+            });
+            console.log(arr);
+            // si se cumplen las condiciones para el envio,realizar ajax
+            // if (suma>=6) {
             // var dataTosend=JSON.stringify({arr});
             $.ajax({
                 type: "POST",
@@ -345,11 +356,12 @@ $(document).ready(function () {
                     alert("success");
                 },
                 error: function (response) {
-                    alert("error"+response.responseText);
+                    alert("error" + response.responseText);
                 }
             });
-        // }
+            // }
+        });
     });
-});
 </script>
+
 </html>

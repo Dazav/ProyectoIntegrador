@@ -1,14 +1,15 @@
 <?php
-  include "../db/conecta.php";
-  $conexion = getConexion();
-    session_start();
-    if (isset($_SESSION["id"])) {
-        # code...
-        $id=$_SESSION["id"];
-    }
+include "../db/conecta.php";
+$conexion = getConexion();
+session_start();
+if (isset($_SESSION["id"])) {
+    # code...
+    $id = $_SESSION["id"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +26,15 @@
     <script src="../js/main.js"></script>
     <title>Relajación Contenidos</title>
 </head>
+
 <body>
-   <!-- barra navegación -->
-   <nav>
+    <!-- barra navegación -->
+    <nav>
         <div class="usuario">
-                <!-- Botón de menú para móviles -->
-                <button class="menu-mobile">☰</button>
-                    <img src="../img/logo.png" alt="">
-                <a href="index.php">Brain Hub</a>
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
+            <a href="index.php">Brain Hub</a>
         </div>
 
         <div class="menu">
@@ -47,32 +49,32 @@
             <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
             <button onclick="window.location.href='foros.php'">Social</button>
         </div>
-        
+
         <?php
-            if(isset($_SESSION["id"])){
-                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
-                $stmt->bind_param("i", $id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$result->fetch_assoc()) {
-                        echo "<a href='perfil.php'>
+        if (isset($_SESSION["id"])) {
+            $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                while ($user = $result->fetch_assoc()) {
+                    echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
-                    }
-                }else {
-                    echo "<a href='perfil.php'>
+                }
+            } else {
+                echo "<a href='perfil.php'>
                     <img src='../img/defecto.png' class='usr-circulo'>
                     </a>";
-                }
-            }else{
-                echo "
+            }
+        } else {
+            echo "
                 <div class='iniciarUser'>
                     <input type='button' value='Iniciar Sesión' id='iniciar' />
                     <input type='button' value='Comenzar' id='comenzar' />
                 </div>
                 ";
-            }
+        }
         ?>
     </nav>
     <!-- contenido y artículo -->
@@ -85,27 +87,39 @@
             <div class='bg-contenido'>
                 <img src="../img/recursos-contenido1.png" class="img_des">
             </div>
-            <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p>
+            <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme
+                un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones
+                me quede parado en un lugar público.</p>
             <h1>Paso :</h1>
             <div class="paso">
                 <img src="../img/paso1.png" alt="">
                 <div>
-                    <h2>Paso 1</h2>
-                    <p>Artículo clave sobre tratamiento psicológico, destaca resiliencia y bienestar emocional. Esencial.</p>
+                    <h2>Conocer los síntomas comunes:</h2>
+                    <p>
+                        Los ataques de pánico pueden presentarse de diferentes maneras, pero algunos síntomas comunes
+                        incluyen palpitaciones cardíacas rápidas o fuertes, dificultad para respirar, sensación de
+                        ahogo, mareos, temblores, sudoración, sensación de irrealidad o desconexión, miedo intenso,
+                        sensación de pérdida de control, entre otros.
+                    </p>
                 </div>
             </div>
             <div class="paso">
                 <img src="../img/paso2.png" alt="">
                 <div>
-                    <h2>Paso 2</h2>
-                    <p>Artículo clave sobre tratamiento psicológico, destaca resiliencia y bienestar emocional. Esencial.</p>
+                    <h2>Estar atento a las señales físicas y emocionales:</h2>
+                    <p>Antes de un ataque de pánico, es posible que experimentes señales físicas y emocionales que
+                        indican que algo no está bien. Estos podrían incluir un aumento en la frecuencia cardíaca,
+                        dificultad para respirar, sensación de nerviosismo o ansiedad intensa, tensión muscular,
+                        sudoración excesiva, entre otros.</p>
                 </div>
             </div>
             <div class="paso">
                 <img src="../img/paso3.png" alt="">
                 <div>
-                    <h2>Paso 3</h2>
-                    <p>I don like this 😡</p>
+                    <h2>Autoevaluación y reconocimiento de patrones:</h2>
+                    <p>Lleva un registro de tus síntomas y circunstancias que los preceden. Esto puede ayudarte a
+                        identificar patrones o desencadenantes específicos que puedan preceder a tus ataques de pánico.
+                        Estos desencadenantes pueden ser situacionales, emocionales, cognitivos o físicos.</p>
                 </div>
             </div>
         </main>
@@ -144,13 +158,13 @@
                     <li>Foros de Comunidad</li>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -163,4 +177,5 @@
         </div>
     </footer>
 </body>
+
 </html>

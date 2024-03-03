@@ -1,34 +1,36 @@
 <?php
-  include "../db/crear_tablas.php";
-    session_start();
-    if (isset($_SESSION["id"])) {
-        $id=$_SESSION["id"];
-        $premium=0;
-        // Seleccionamos el premium del usuario
-        $stmt = $conexion->prepare("SELECT premium FROM usuario WHERE id=?");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows>0) {
-            while ($user=$result->fetch_assoc()) {
-                $premium = $user['premium'];
-            }
+include "../db/crear_tablas.php";
+session_start();
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+    $premium = 0;
+    // Seleccionamos el premium del usuario
+    $stmt = $conexion->prepare("SELECT premium FROM usuario WHERE id=?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        while ($user = $result->fetch_assoc()) {
+            $premium = $user['premium'];
         }
     }
+}
 if (isset($_GET["id_recurso"])) {
     # code...
     $id_r = $_GET['id_recurso'];
-    
+
 }
 // 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/recursosContenido.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link>
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,11 +42,14 @@ if (isset($_GET["id_recurso"])) {
     <script src="../js/recursosContenido.js"></script>
     <title>Recursos Contenidos</title>
 </head>
+
 <body>
     <!-- barra navegación -->
     <nav>
         <div class="usuario">
-            <img src="../img/logo.png" alt="" srcset="">
+            <!-- Botón de menú para móviles -->
+            <button class="menu-mobile">☰</button>
+            <img src="../img/logo.png" alt="">
             <a href="index.php">Brain Hub</a>
         </div>
         <div class="menu">
@@ -70,18 +75,18 @@ if (isset($_GET["id_recurso"])) {
         <main>
             <i class="bx bx-arrow-back"></i>
             <?php
-                    $select = "SELECT r.titular AS t, us.nombre AS nombre, us.apellidos AS ap,r.descripcion AS dsc,
+            $select = "SELECT r.titular AS t, us.nombre AS nombre, us.apellidos AS ap,r.descripcion AS dsc,
                         r.fecha_creacion AS fc, r.img_banner AS img, r.premium as premium
                         FROM recursos r
                         INNER JOIN usuario us ON us.id = r.id_usuario
                         WHERE r.id=$id_r";
-                    $resulta = mysqli_query($conexion, $select);
-                    while ($contenido = $resulta->fetch_assoc()) {
-                        // Si el usuario no es premium y el recurso es sólo para premiums, le mandamos al premium.php
-                        if($premium==0 && $contenido['premium']==1){
-                            header("Location: premium.php");
-                        }
-                        echo "
+            $resulta = mysqli_query($conexion, $select);
+            while ($contenido = $resulta->fetch_assoc()) {
+                // Si el usuario no es premium y el recurso es sólo para premiums, le mandamos al premium.php
+                if ($premium == 0 && $contenido['premium'] == 1) {
+                    header("Location: premium.php");
+                }
+                echo "
                                 <h1 style='font-size: 40px;'>{$contenido['t']}</h1>
                                 <p>{$contenido['fc']}</p>
                                 <div class='bg-contenido'>
@@ -89,8 +94,8 @@ if (isset($_GET["id_recurso"])) {
                                 </div>
                                 <p style='font-size: 20px;' class='articulo'>{$contenido['dsc']}</p>
                             ";
-                    }
-                    ?>
+            }
+            ?>
             <!-- <h1 style="font-size: 40px;">¿Cómo podemos saber cuando tendremos un ataque de pánico?</h1>
             <p>12-12-2023 Wei Xu</p>
             <div class='bg-contenido'>
@@ -99,8 +104,8 @@ if (isset($_GET["id_recurso"])) {
             <p style="font-size: 20px;" class="articulo">Buenas, me llamo Ismael y me gustaría saber cuando podría darme un ataque de pánico. Desafortunadamente sufro de Trastorno del Pánico y eso me provoca que en ocasiones me quede parado en un lugar público.</p> -->
         </main>
     </div>
-        <!-- contacto -->
-        <div class="contacto">
+    <!-- contacto -->
+    <div class="contacto">
         <h1>¿TIENES DUDAS?</h1>
         <p>Nuestro equipo de soporte está disponible 24/7</p>
         <input type="button" value="CONTACTO" onclick="window.location.href='contacto.php'" />
@@ -133,13 +138,13 @@ if (isset($_GET["id_recurso"])) {
                     <li>Foros de Comunidad</li>
                     <li>
                         <a href="">
-                            <i class='bx bxl-facebook-circle' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-facebook-circle' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-twitter' style='color:#fffcfc'  ></i>
+                            <i class='bx bxl-twitter' style='color:#fffcfc'></i>
                         </a>
                         <a href="">
-                            <i class='bx bxl-instagram' style='color:#fffcfc' ></i>
+                            <i class='bx bxl-instagram' style='color:#fffcfc'></i>
                         </a>
                     </li>
                 </ul>
@@ -152,4 +157,5 @@ if (isset($_GET["id_recurso"])) {
         </div>
     </footer>
 </body>
+
 </html>

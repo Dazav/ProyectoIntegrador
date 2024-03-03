@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_cita'])) {
 
     // Ejecuta la consulta
     if (mysqli_query($conexion, $query_eliminar_cita)) {
-        // La consulta se ejecutó correctamente, puedes devolver una respuesta si es necesario
+        // La consulta se ejecutó correctamente, 
         echo "Cita cancelada correctamente";
     } else {
         // Maneja el error si la consulta no se ejecuta correctamente
