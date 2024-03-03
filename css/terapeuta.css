@@ -166,6 +166,9 @@ section{
     align-items: center;
     background: #ffffffbc;
 }
+select option {
+    color: black;
+}
 .scrollbar {
     width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
     max-height: 600px; /* Establece una altura máxima para el scrollbar */
