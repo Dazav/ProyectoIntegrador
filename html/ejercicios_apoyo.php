@@ -25,30 +25,28 @@
     <title>ejercicios de apoyo</title>
 </head>
 <body>
-    <!-- barra navegación -->
     <header>
-         <!-- barra navegación -->
-    <nav>
-            <div class="usuario">
+   <!-- barra navegación -->
+   <nav>
+        <div class="usuario">
                 <!-- Botón de menú para móviles -->
                 <button class="menu-mobile">☰</button>
                     <img src="../img/logo.png" alt="">
                 <a href="index.php">Brain Hub</a>
-            
-            </div>
-            
-             <div class="menu">
-                <button onclick="window.location.href='recursos.php'">Recursos</button>
-                <div class="dropdown">
-                    Apoyo
-                    <div class="dropdown-menu">
-                        <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
-                        <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
-                    </div>
+        </div>
+
+        <div class="menu">
+            <button onclick="window.location.href='recursos.php'">Recursos</button>
+            <div class="dropdown">
+                Apoyo
+                <div class="dropdown-menu">
+                    <button onclick="window.location.href='grupo_apoyo.php'">Grupo Apoyo</button>
+                    <button onclick="window.location.href='ejercicios_apoyo.php'">Ejercicios de Apoyo</button>
                 </div>
-                <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
-                <button onclick="window.location.href='foros.php'">Social</button>
             </div>
+            <button onclick="window.location.href='terapeutas.php'">Terapeutas</button>
+            <button onclick="window.location.href='foros.php'">Social</button>
+        </div>
         
         <?php
         if(isset($_SESSION["id"])){

@@ -29,6 +29,13 @@ nav a{
     font-weight: bolder;
     cursor: pointer;
 }
+/* icon de inicar sesion */
+.usr-circulo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #6545A1;
+}   
     /*  menu de nav */
 .menu{
     display: inline-flex;

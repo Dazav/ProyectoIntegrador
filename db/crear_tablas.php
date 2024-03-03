@@ -9,7 +9,7 @@
             pssword varchar(100),
             email varchar(50),
             nombreUser varchar(20),
-            imagen varchar(50),
+            imagen varchar(50) DEFAULT '../img/defecto.png',
             premium int(1) DEFAULT 0
         );";
 
@@ -35,7 +35,7 @@
             id INT AUTO_INCREMENT PRIMARY KEY,
             id_terapeuta INT,
             id_usuario INT,
-            fecha_disponible datetime,
+            fecha_cita datetime,
             FOREIGN KEY (id_terapeuta) REFERENCES terapeuta(id),
             FOREIGN KEY (id_usuario) REFERENCES usuario(id)           
         );";
@@ -194,12 +194,12 @@
         $select="SELECT * FROM cita";
         $result=mysqli_query($conexion, $select);       
         if($result->num_rows==0){
-            $insert1="INSERT INTO cita(id_terapeuta,id_usuario,fecha_disponible) VALUES
-            (2,1,'2024-02-27 8:00'),
-            (3,2,'2024-02-28 9:00'),
-            (1,3,'2024-02-27 13:00'),
-            (5,4,'2024-02-26 14:00'),
-            (4,5,'2024-02-26 8:00')";
+            $insert1="INSERT INTO cita(id_terapeuta,id_usuario,fecha_cita) VALUES
+            (2,1,'2024-03-04 12:00'),
+            (3,2,'2024-03-05 19:00'),
+            (1,3,'2024-03-04 15:00'),
+            (5,4,'2024-03-03 14:00'),
+            (4,5,'2024-03-03 14:00')";
             mysqli_query($conexion, $insert1)  or die("Error insert pago");
         }
          //inserta datos
