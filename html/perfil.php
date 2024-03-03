@@ -4,6 +4,8 @@ session_start();
 if (isset($_SESSION["id"])) {
     # code...
     $id=$_SESSION["id"];
+}else{
+    header('Location: registrar.php');
 }
 if (isset($_POST["modificar"])) {
     //obtener imagen de perfil que modificar
@@ -27,20 +29,20 @@ if (isset($_POST["modificar"])) {
     WHERE id=$id";
     mysqli_query($conexion,$update);
 }
-if (isset($_POST["modifiCard"])) {
-    $numTarjeta=$_POST["num-tarjeta"];
-    $fecha=$_POST["fecha"];
-    $cvv=$_POST["cvv"];
-    $metodo=$_POST["metodo"];
-    $numTarjeta=mysqli_escape_string($conexion,$numTarjeta);
-    $fecha=mysqli_escape_string($conexion,$fecha);
-    $metodo=mysqli_escape_string($conexion,$metodo);
-    // actualizar nombre de título de tarjeta
-    $update="UPDATE pago
-    SET num_tajeta='$numTarjeta',metodo='$metodo',cvv=$cvv,fecha_valida='$fecha'
-    WHERE id_usuario=$id";
-    mysqli_query($conexion,$update);
-}
+// if (isset($_POST["modifiCard"])) {
+//     $numTarjeta=$_POST["num-tarjeta"];
+//     $fecha=$_POST["fecha"];
+//     $cvv=$_POST["cvv"];
+//     $metodo=$_POST["metodo"];
+//     $numTarjeta=mysqli_escape_string($conexion,$numTarjeta);
+//     $fecha=mysqli_escape_string($conexion,$fecha);
+//     $metodo=mysqli_escape_string($conexion,$metodo);
+//     // actualizar nombre de título de tarjeta
+//     $update="UPDATE pago
+//     SET num_tajeta='$numTarjeta',metodo='$metodo',cvv=$cvv,fecha_valida='$fecha'
+//     WHERE id_usuario=$id";
+//     mysqli_query($conexion,$update);
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,10 +82,12 @@ if (isset($_POST["modifiCard"])) {
         </div>
         <?php
             if(isset($_SESSION["id"])){
-                $select="SELECT imagen AS img,id AS id FROM usuario WHERE id=$id";
-                $resulta=mysqli_query($conexion,$select);
-                if ($resulta->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
-                    while ($user=$resulta->fetch_assoc()) {
+                $stmt = $conexion->prepare("SELECT imagen AS img,id AS id FROM usuario WHERE id=?");
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
+                    while ($user=$result->fetch_assoc()) {
                         echo "<a href='perfil.php'>
                               <img src='{$user['img']}' class='usr-circulo'>
                             </a>";
@@ -129,23 +133,28 @@ if (isset($_POST["modifiCard"])) {
             </div>
             <div class="infor-user">
                 <?php
-                    $select="SELECT nombre AS nombre, email AS email, metodo AS metodo
-                    FROM usuario us
-                    INNER JOIN pago p ON us.id=p.id_usuario
-                    WHERE us.id=$id";
-                    $result=mysqli_query($conexion,$select);
+                    $stmt = $conexion->prepare("SELECT * FROM usuario WHERE id = ?");
+                    $stmt->bind_param("i", $id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
                     while ($user=$result->fetch_assoc()) {
                         echo "
                             <h3>Nombre:</h3>
                             <p>{$user["nombre"]}</p>
+                            <h3>Apellidos:</h3>
+                            <p>{$user["apellidos"]}</p>
                             <h3>Correo:</h3>
                             <p>{$user["email"]}</p>
-                            <h3>Metodo de pago:</h3>
-                            <p>{$user['metodo']}<i class='bx bxs-credit-card-alt'></i></p>
                         ";
+                        if($user['premium']==0){
+                            echo '<button onclick="window.location.href=\'premium.php\'">Hazte premium</button>';
+                        }else{
+                            echo "<button>¡Eres premium!</button>";
+                        }
                     }
+                    
                 ?>
-                <button onclick="window.location.href='premium.php'">Hazte premium</button>
+                
             </div>
         </div>
         <!-- editar perfil -->
