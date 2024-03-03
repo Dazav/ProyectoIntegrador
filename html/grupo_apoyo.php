@@ -8,7 +8,7 @@ include "../db/crear_tablas.php";
 // Verificar si la conexión fue exitosa
 if ($conexion) {
     // Consulta para obtener los grupos de apoyo junto con el nombre del organizador
-    $consulta = "SELECT ga.id, u.nombre AS organizador, u.imagen AS imagen_organizador, ga.idioma, ga.tema, ga.fecha, (SELECT COUNT(*) FROM inscripcion_grupo WHERE id_grupo = ga.id) AS participantes 
+    $consulta = "SELECT ga.img_idioma AS img_idioma,ga.id, u.nombre AS organizador, u.imagen AS imagen_organizador, ga.idioma, ga.tema, ga.fecha, (SELECT COUNT(*) FROM inscripcion_grupo WHERE id_grupo = ga.id) AS participantes 
                  FROM GruposApoyo ga 
                  JOIN usuario u ON ga.organizador = u.id 
                  WHERE ga.fecha > NOW() 
@@ -34,7 +34,7 @@ if ($conexion) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/grupos.css">
+    <link rel="stylesheet" href="../css/grupo.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,6 @@ if ($conexion) {
     <script src="../js/grupo.js"></script>
     <title>Grupos de apoyo</title>
 </head>
-
 <body>
     <!-- barra navegación -->
     <nav>
@@ -114,9 +113,7 @@ if ($conexion) {
                     <div class="grupo-imagen">
                         <!-- Muestra la imagen del organizador usando la ruta de la base de datos -->
                         <img src="<?php echo htmlspecialchars($grupo['imagen_organizador']); ?>" alt="Organizador">
-                        <div class="grupo-idioma">
-                            <?php echo htmlspecialchars($grupo['idioma']); ?>
-                        </div>
+                        <img class="grupo-idioma" src="<?php echo htmlspecialchars($grupo['img_idioma']); ?>" alt="idioma">
                     </div>
                     <div class="grupo-info">
                         <p class="grupo-organizador"><b>Organizado por:</b>

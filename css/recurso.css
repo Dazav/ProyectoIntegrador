@@ -58,7 +58,7 @@ a:active{
 /* main */
 main{
     padding: 60px 80px;
-    height: 100vh;
+    height: auto;
     background-image: linear-gradient(to bottom,#fff,#ffffff68),url("../img/bg-recurso2.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -75,9 +75,6 @@ main>h2>span{
     opacity: 0;
     position: relative;
     right: 20px;
-}
-.primera-parte{
-    height: auto;
 }
 .primera-parte>h2>span{
     animation: 0.5s spanIn ease-in-out forwards;
@@ -161,7 +158,6 @@ section{
     justify-content: space-between;
 }
 .tema2>img{
-    border-radius:10px 0px 0px 10px;
     object-fit: cover;
 }
 /* tema3 */
@@ -342,62 +338,120 @@ footer>hr{
     margin: 0 0.5rem;
     font-family: "Montserrat";
 }
+/* portátil */
+@media screen and (max-width:1300px) {
+    nav .usr-circulo{
+        width: 40px;
+        height: 40px;
+    }
+    .forosTitulo{
+        height: auto;
+        font-size: 1.5rem;
+    }
+    main{
+        padding: 40px 50px;
+    }
+    main>h2{
+        font-size: 25px;
+    }
+    .tema-ansiedad{
+        grid-template-columns: repeat(5, 150px);;
+        grid-template-rows: 150px 150px 150px;
+    }
+    .tema-ansiedad>div h3 {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+    .tema-ansiedad>div a {
+        font-size: 1rem;
+    }
+    .tema3,.tema4{
 
-/* Estilos base (ya existentes en tu CSS) */
-@media (max-width: 767px) {
-    .tema-ansiedad {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: unset;
     }
-    
-    .tema-ansiedad>div {
-        /* Se pueden ajustar padding, margin, etc., aquí si es necesario */
+    .tema3>img,.tema4>img{
+        border-radius: 0 10px 10px 0;
+        height: 100%;
+        width: 40%;
     }
-    
-    .tema1, .tema2, .tema3, .tema4 {
-        grid-column: span 2; /* Hace que cada tema ocupe el ancho completo */
+    .tema{
+        width: 250px;
+        height: 300px;
     }
-    
-    /* Otros estilos responsivos aquí */
+    .tema>div>h3 {
+        font-size: 1.5rem;
+        margin: 10px 10px;
+    }
 }
-
-/* Mejoras específicas para la segunda parte y ajustes generales */
-@media (max-width: 767px) {
-    main {
-        padding: 20px; /* Reduce el padding en dispositivos pequeños */
+/* para pad */
+@media screen and (max-width:830px) {
+    nav .usr-circulo{
+        width: 30px;
+        height: 30px;
     }
-    
-    .tema-relajacion {
-        display: grid;
-        grid-template-columns: 1fr; /* Acomoda los temas en una sola columna */
-        gap: 20px;
+    .tema-ansiedad{
+        grid-template-columns: repeat(1, 500px);
+        grid-template-rows: repeat(5,150px);
     }
-    
-    .tema {
-        height: auto; /* Permite que la altura se ajuste al contenido */
-        width: 100%; /* Asegura que el tema use todo el ancho disponible */
+    .tema-ansiedad>div{
+        grid-column: unset;
     }
-    
-    .tema>img {
-        height: 200px; /* Ajusta la altura de las imágenes para mantener la proporción */
+    .tema{
+        width: 180px;
     }
-    
-    .tema>div h3 {
-        font-size: 24px; /* Reduce el tamaño del texto para una mejor lectura */
+}
+/* para movil */
+@media screen and (max-width:700px) {
+    nav .usr-circulo{
+        width: 30px;
+        height: 30px;
     }
-    
-    /* Ajusta el tamaño de los íconos si es necesario */
-    .bx {
-        font-size: 20px; /* Ajusta según necesidad */
+    .forosTitulo{
+        font-size: 1rem;
     }
-    
-    /* Reducción de márgenes y paddings en general para optimizar el espacio */
-    section, .tema-ansiedad>div div, .tema>div {
+    main{
         padding: 10px;
     }
-    
-    /* Ajustar el tamaño de fuente de los títulos y textos para mejorar la legibilidad */
-    h2, h3 {
-        font-size: 20px; /* Ajustar según sea necesario */
+    main>h2{
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+    section{
+        padding: 20px;
+    }
+    .tema-ansiedad{
+        grid-template-columns: repeat(1, 200px);
+        grid-template-rows: repeat(5,100px);
+    }
+    .tema-ansiedad>div h3 {
+        font-size: 0.8rem;
+    }
+    .tema-ansiedad>div a {
+        font-size: 0.6rem;
+    }
+    .tema-ansiedad>div>img{
+        display: none;
+    }
+    .tema-relajacion{
+        display: grid;
+    }
+    .tema{
+        width: 180px;
+        height: 100px;
+    }
+    .tema>div{
+        height: 100%;
+    }
+    .tema>div>h3 {
+        font-size: 1rem;
+    }
+    .tema>img{
+        display: none;
+    }
+    .bx-right-arrow-circle {
+        right: 10px;
+        bottom: 10px;
     }
 }
+
 

@@ -72,7 +72,7 @@ if (isset($_SESSION["id"])) {
         ?>
     </nav>
     <!-- parte de pago -->
-    <form id="formPago" class="pago" method="post" action="">
+    <form id="formPago" class="pago" method="post" action="procesarPago.php">
         <!-- detalle -->
         <section>
             <div class="detalle">
