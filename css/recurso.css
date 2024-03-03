@@ -76,6 +76,9 @@ main>h2>span{
     position: relative;
     right: 20px;
 }
+.primera-parte{
+    height: auto;
+}
 .primera-parte>h2>span{
     animation: 0.5s spanIn ease-in-out forwards;
     animation-delay: var(--time);}
@@ -110,6 +113,7 @@ section{
     align-items: center;
     height: auto;
     scroll-snap-align: center; 
+    padding: 40px;
 }
 .tema-ansiedad{
     display: grid;
@@ -166,11 +170,12 @@ section{
     border-left: 10px solid #6545A1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .tema3>img{
-    border-top-right-radius: 10px;
     object-fit: cover;
     height: 150px;
+    border-bottom-right-radius: 10px;
 }
 /* tema4 */
 .tema4{
@@ -178,18 +183,18 @@ section{
     border-right: 10px solid #6545A1;
     display: flex;
     flex-direction: column;
-    justify-content: baseline;
+    justify-content: space-between;
 }
 .tema4>img{
     object-fit: cover;
     height: 150px;
-    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .tema5{
     grid-column: 1/6;
     border-left: 10px solid #6545A1;
     display: flex;
-    justify-content: baseline;
+    justify-content: space-between;
 }
 .tema5>img{
     border-radius:0 10px 10px 0;

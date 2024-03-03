@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/recurso1.css">
+    <link rel="stylesheet" href="../css/recurso.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,13 +89,13 @@
           <div class="tema-ansiedad">
             <?php
 
-            $index = 1;
+          
             $sql = "SELECT * FROM recursos";
             $result=mysqli_query($conexion,$sql);
                 if ($result->num_rows>0) {//si nuevo usuario no tiene la imagen,le ponemos la defecta.
                     while ($recurso=$result->fetch_assoc()) {
                       echo '
-                      <div class="tema'.$index.'">
+                      <div class="tema'.$recurso['id'].'">
                         <div>
                           <h3>'.$recurso['titular'].'</h3>
                           <a href="recursosContenido.php?id_recurso='.$recurso['id'].'">
@@ -105,11 +105,6 @@
                         <img src="../img/'.$recurso['img_portada'].'" alt="">
                       </div>
                       ';
-                      $index++;
-                      // if ($index==5){
-                      //   echo "<br>";
-                      //   $index=1;
-                      // }
                     }
 
                 }

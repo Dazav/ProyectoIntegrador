@@ -43,7 +43,7 @@ $(document).ready(function () {
                         $(this).css({
                             boxShadow: "0 0 10px #6545A1",
                         });
-                        $(".tema4,.tema2,.tema3").css({
+                        $(".tema4,.tema2,.tema3,.tema5").css({
                             transition: "0.5s",
                             filter: "grayscale(100%)",
                         });
@@ -55,7 +55,7 @@ $(document).ready(function () {
                         $(this).css({
                             boxShadow: "0 0 10px #00000025",
                         });
-                        $(".tema4,.tema2,.tema3").css({
+                        $(".tema4,.tema2,.tema3,.tema5").css({
                             transition: "0.5s",
                             filter: "grayscale(0)"
                         });
@@ -64,6 +64,7 @@ $(document).ready(function () {
         );
             break;
             //me da pereza comentario, las animaciones siguientes son iguales que arriba
+            // tema2
             case 1:
                 $(tema).css({
                     position:"relative",
@@ -80,7 +81,7 @@ $(document).ready(function () {
                             $(this).css({
                                 boxShadow: "0 0 10px #6545A1",
                             });
-                            $(".tema1,.tema3,.tema4").css({
+                            $(".tema1,.tema3,.tema4,.tema5").css({
                                 transition: "0.5s",
                                 filter: "grayscale(100%)",
                             });
@@ -92,7 +93,7 @@ $(document).ready(function () {
                             $(this).css({
                                 boxShadow: "0 0 10px #00000025",
                             });
-                            $(".tema1,.tema3,.tema4").css({
+                            $(".tema1,.tema3,.tema4,.tema5").css({
                                 transition: "0.5s",
                                 filter: "none"
                             });
@@ -100,6 +101,7 @@ $(document).ready(function () {
                 }
             );
             break;
+            //tema3
             case 2:
                 $(tema).css({
                     position:"relative",
@@ -118,7 +120,7 @@ $(document).ready(function () {
                             $(this).css({
                                 boxShadow: "0 0 10px #6545A1",
                             });
-                            $(".tema1,.tema2,.tema4").css({
+                            $(".tema1,.tema2,.tema4,.tema5").css({
                                 transition: "0.5s",
                                 filter: "grayscale(100%)",
                             });
@@ -130,7 +132,7 @@ $(document).ready(function () {
                             $(this).css({
                                 boxShadow: "0 0 10px #00000025",
                             });
-                            $(".tema1,.tema2,.tema4").css({
+                            $(".tema1,.tema2,.tema4,.tema5").css({
                                 transition: "0.5s",
                                 filter: "none"
                             });
@@ -154,7 +156,7 @@ $(document).ready(function () {
                             $(this).css({
                                 boxShadow: "0 0 10px #6545A1",
                             });
-                            $(".tema1,.tema2,.tema3").css({
+                            $(".tema1,.tema2,.tema3.tema5").css({
                                 transition: "0.5s",
                                 filter: "grayscale(100%)",
                             });
@@ -166,7 +168,44 @@ $(document).ready(function () {
                             $(this).css({
                                 boxShadow: "0 0 10px #00000025",
                             });
-                            $(".tema1,.tema2,.tema3").css({
+                            $(".tema1,.tema2,.tema3,tema5").css({
+                                transition: "0.5s",
+                                filter: "none"
+                            });
+                          });
+                }
+            );
+            break;
+            // tema5
+            case 4:
+                $(tema).css({
+                    position:"relative",
+                    bottom:"-20px",
+                });
+                $(tema).delay(tiempo).animate({
+                    opacity:1,
+                    bottom:"0px"
+                },1000);
+                // hover
+                $(tema).hover(function () {
+                    // over
+                    $(this).animate({scale: 0.95},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #6545A1",
+                            });
+                            $(".tema1,.tema2,.tema3,.tema4").css({
+                                transition: "0.5s",
+                                filter: "grayscale(100%)",
+                            });
+                          });
+                    
+                }, function () {
+                    // out
+                    $(this).animate({scale: 1},200,function () {
+                            $(this).css({
+                                boxShadow: "0 0 10px #00000025",
+                            });
+                            $(".tema1,.tema2,.tema3,.tema4").css({
                                 transition: "0.5s",
                                 filter: "none"
                             });
