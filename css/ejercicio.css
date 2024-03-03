@@ -31,6 +31,7 @@ body,html{
     background-repeat: no-repeat;
     background-size: cover;
     color: #6545A1;
+    padding-top: 70px;
 }
 b{
     opacity: 0;
@@ -343,10 +344,6 @@ section{
     filter: drop-shadow(0px -1px 3px rgb(77, 77, 77));
     cursor: pointer;
 }
-/* cuando termina todo ejercicios, pulsa btn */
-#confirma{
-    
-}
 /* tienes dudas */
 .contacto{
     height: 230px;
@@ -419,3 +416,89 @@ footer hr{
     font-family: "Montserrat";
 }
 
+@media screen and (max-height: 900px) {
+    .ventana,.preguntas,.pregunta{
+        height: 200px;
+    }
+    .ventana h2{
+        font-size: 1.5rem;
+    }
+    .pregunta h3,.pregunta p{
+        font-size: 1rem;
+    }
+}
+/* portatil */
+@media screen and (max-width: 1300px) {
+    .apoyoTitulo{
+        font-size: 1.5rem;
+    }
+    section{
+        grid-template-rows: repeat(2, 180px);
+        grid-template-columns: repeat(4, 160px);
+    }
+    .carta1>.descripcionEje {
+        top: 60px;
+    }
+    .descripcionEje>h2,.carta1>.descripcionEje>h2 {
+        font-size: 1rem;
+    }
+    /* tarjeta de crazy */
+    .preguntaOtra>div:nth-child(4) {
+        right: 160px;
+        bottom: 100px;
+    }
+    .preguntaOtra>div:nth-child(5) {
+        right: 180px;
+        bottom: 120px;
+    }
+    .preguntaOtra>div:nth-child(6) {
+        right: 200px;
+        bottom: 140px;
+    }
+    .masPregunta>h3 {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+    .masPregunta>p {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+}
+/* pad */
+@media screen and (max-width:800px) {
+    .preguntaOtra>div:nth-child(4) {
+        right: 60px;
+        bottom: 100px;
+    }
+    .preguntaOtra>div:nth-child(5) {
+        right: 80px;
+        bottom: 120px;
+    }
+    .preguntaOtra>div:nth-child(6) {
+        right: 100px;
+        bottom: 140px;
+    }
+}
+/* movil */
+@media screen and (max-width:700px) {
+    .apoyoTitulo{
+        font-size: 1rem;
+    }
+    /* section tarjeta  */
+    section {
+        display: block;
+    }
+
+    .preguntaOtra>div:nth-child(4) {
+        right: 60px;
+        bottom: 100px;
+    }
+    .preguntaOtra>div:nth-child(5) {
+        right: 80px;
+        bottom: 120px;
+    }
+    .preguntaOtra>div:nth-child(6) {
+        right: 100px;
+        bottom: 140px;
+    }
+}
