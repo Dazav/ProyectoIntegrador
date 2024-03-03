@@ -157,11 +157,9 @@
         $tabla_respuesta_ejercicio="CREATE TABLE IF NOT EXISTS respuestaEjercicio(
             id INT AUTO_INCREMENT PRIMARY KEY,
             id_usuario INT,
-            id_ejercicio INT,
             id_pregunta INT,
             respuesta VARCHAR(255),
             FOREIGN KEY (id_usuario) REFERENCES usuario (id),
-            FOREIGN KEY (id_ejercicio) REFERENCES ejercicio (id),
             FOREIGN KEY (id_pregunta) REFERENCES pregunta (id)
         );";
         mysqli_query($conexion, $tabla_respuesta_ejercicio) or die("Error en tabla ejercicio apoyo");
@@ -336,22 +334,17 @@
         $select="SELECT * FROM respuestaEjercicio";
         $result=$conexion->query($select);
         if ($result->num_rows ==0) {
-            $insert1="INSERT INTO respuestaEjercicio(id_usuario,id_ejercicio,id_pregunta,respuesta) VALUES
+            $insert1="INSERT INTO respuestaEjercicio(id_usuario,id_pregunta,respuesta) VALUES
             -- usuario 1 que termina todos 4 ejercicios
-            (1,1,1,'Alegría'),(1, 1, 2, 'Terapia física'),(1, 1, 3, 'No'),
-            (1, 2, 4, 'En algunas ocasiones'),(1, 2, 5, 'En algunas ocasiones'),(1, 2, 6, 'En algunas ocasiones'),
-            (1, 3, 7, 'A veces'),(1, 3, 8, 'He estado muy irritable o impaciente'),(1, 3, 9, 'No ha tenido efecto'),
-            (1, 4, 10, 'A veces me siento satisfecho/a'),(1, 4, 11, 'Me afecta temporalmente pero luego lo supero'),(1, 4, 12, 'Siempre me siento cómodo/a y lo hago abiertamente'),
+            (1,1,'Alegría'),(1, 2, 'Terapia física'),(1, 3, 'No'),
+            (1, 4, 'En algunas ocasiones'),(1, 5, 'En algunas ocasiones'),(1, 6, 'En algunas ocasiones'),
+            (1, 7, 'A veces'),(1, 8, 'He estado muy irritable o impaciente'),(1,9, 'No ha tenido efecto'),
+            (1,10, 'A veces me siento satisfecho/a'),(1,11, 'Me afecta temporalmente pero luego lo supero'),(1,12, 'Siempre me siento cómodo/a y lo hago abiertamente'),
             -- usuario 2 que termina todos 4 ejercicios
-            (2,1,1,'Tristeza'),(2, 1, 2, 'Medicamentos'),(2, 1, 3, 'No estoy seguro/a'),
-            (2, 2, 4, 'A menudo'),(2, 2, 5, 'En algunas ocasiones'),(2, 2, 6, 'Nunca'),
-            (2, 3, 7, 'Nunca'),(2, 3, 8, 'He estado muy irritable o impaciente'),(2, 3, 9, 'Ha tenido un efecto significativo'),
-            (2, 4, 10, 'A menudo me siento satisfecho/a'),(2, 4, 11, 'Me afecta temporalmente pero luego lo supero'),(2, 4, 12, 'Siempre me siento cómodo/a y lo hago abiertamente'),
-            -- usuario 3 que termina todos 4 ejercicios
-            (3,1,1,'Otro'),(3, 1, 2, 'Cambios en el estilo de vida'),(3, 1, 3, 'Sí'),
-            (3, 2, 4, 'A menudo'),(3, 2, 5, 'En algunas ocasiones'),(3, 2, 6, 'Nunca'),
-            (3, 3, 7, 'Nunca'),(3, 3, 8, 'He estado muy irritable o impaciente'),(3, 3, 9, 'Ha tenido un efecto significativo'),
-            (3, 4, 10, 'A menudo me siento satisfecho/a'),(3, 4, 11, 'Me afecta temporalmente pero luego lo supero'),(3, 4, 12, 'Siempre me siento cómodo/a y lo hago abiertamente')
+            (2,1,'Tristeza'),(2, 2, 'Medicamentos'),(2, 3, 'No estoy seguro/a'),
+            (2,4, 'A menudo'),(2,5, 'En algunas ocasiones'),(2, 6, 'Nunca'),
+            (2,  7, 'Nunca'),(2,  8, 'He estado muy irritable o impaciente'),(2, 9, 'Ha tenido un efecto significativo'),
+            (2, 10, 'A menudo me siento satisfecho/a'),(2, 11, 'Me afecta temporalmente pero luego lo supero'),(2,12, 'Siempre me siento cómodo/a y lo hago abiertamente')
             ";
             mysqli_query($conexion, $insert1) or die("Error insert respuestas elegida de usuario ");
         }

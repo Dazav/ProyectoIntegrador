@@ -5,11 +5,7 @@
         # code...
         $id=$_SESSION["id"];
     }
-    // if (isset($_SESSION["id_eje"])) {
-    //     # code...
-    //     $id_eje=$_SESSION["id_eje"];
-    // }
-    // var_dump($id_eje);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,32 +92,15 @@
                     $select="SELECT p.pregunta AS p, p.seleccionA AS a, p.seleccionB AS b, p.seleccionC AS c 
                     FROM pregunta p
                     INNER JOIN ejercicio eje ON eje.id=p.id_ejercicio
-                    WHERE  p.id_ejercicio=1 AND p.n_pregunta<3";
+                    WHERE  p.id_ejercicio=1";
                     $resulta=mysqli_query($conexion,$select);
                     while ($pregunta=$resulta->fetch_assoc()) {
                         echo " 
                         <div class='pregunta'>
                         <h3>{$pregunta['p']}</h3>
-                        <p><input type='radio' name='' id=''>{$pregunta['a']}</p>
-                        <p><input type='radio' name='' id=''>{$pregunta['b']}</p>
-                        <p><input type='radio' name='' id=''>{$pregunta['c']}</p>
-                        </div>
-                        ";
-                    }
-                    // agrega un bóton enivar en la ultima pregunta
-                    $select="SELECT p.pregunta AS p, p.seleccionA AS a, p.seleccionB AS b, p.seleccionC AS c 
-                    FROM pregunta p
-                    INNER JOIN ejercicio eje ON eje.id=p.id_ejercicio
-                    WHERE  p.id_ejercicio=1 AND p.n_pregunta=3";
-                    $resulta=mysqli_query($conexion,$select);
-                    while ($pregunta=$resulta->fetch_assoc()) {
-                        echo " 
-                        <div class='pregunta'>
-                        <h3>{$pregunta['p']}</h3>
-                        <p><input type='radio' name='' id=''>{$pregunta['a']}</p>
-                        <p><input type='radio' name='' id=''>{$pregunta['b']}</p>
-                        <p><input type='radio' name='' id=''>{$pregunta['c']}</p>
-                        <input type='submit' name='' id='' value='Enviar'>
+                        <p><input type='radio' name='{$pregunta['p']}' value='{$pregunta['a']}'>{$pregunta['a']}</p>
+                        <p><input type='radio' name='{$pregunta['p']}' value='{$pregunta['b']}'>{$pregunta['b']}</p>
+                        <p><input type='radio' name='{$pregunta['p']}' value='{$pregunta['c']}'>{$pregunta['c']}</p>
                         </div>
                         ";
                     }
@@ -178,6 +157,7 @@
                         <i class='bx bxs-caret-down-circle' ></i>
                     </div>
                 </div>
+                <button id="comfirma">confirma</button>
             </section>
         </div>
     </main>
@@ -241,7 +221,7 @@
         <div class="cartaP"></div>
         <div class="cartaP"></div>
         <div class="up-icon">
-            <i class='bx bx-caret-up-circle' ></i>
+            <i class='bx bx-caret-up-circle'></i>
         </div>
     </div>
     <!-- contacto -->
@@ -304,7 +284,6 @@ $(document).ready(function () {
     $(".bxs-caret-down-circle").each(function (index, boton) { 
         $(boton).click(function () {
             //guardar id de ejercicio
-            alert(index+2);
             var id_ejercicio = index+2;
             $.ajax({
                 type: "POST",
@@ -333,13 +312,45 @@ $(document).ready(function () {
                             case 2:
                                 $("#p3").html(htmlString); 
                                 break;
-                        }
-                        
+                        } 
                     });
-
-                    },
-                });
+                },
+            });
         });
+    });
+});
+// ajax inserta ajax inserta los respuestas que usuario ha terminado a bd
+$(document).ready(function () {
+    //hay 12 preguntas de respuesta única,entonces atravesamos toda input:radio,en resultado, si existe 12 input:radio elegidas, podemos comfirmar que usuario ha terminado todos ejercicios
+    var suma=0;
+    var arr=[];//almanecer los valores de input
+    //
+    $("#comfirma").click(function () {//bóton para terminar
+        $("input[type='radio']").each(function (index, input) {
+            if ($(input).is(':checked')) {// repuestas si está elegido ?
+                suma++;
+                arr.push($(input).val());//agregar respuesta elegida a array
+            }
+        });
+        console.log(arr);
+        // si se cumplen las condiciones para el envio,realizar ajax
+        if (suma>=3) {
+            console.log(suma);
+            var dataTosend=JSON.stringify({arr});
+            $.ajax({
+                type: "POST",
+                url: "procesarEjercicio2.php",
+                data: {
+                    jsonInputs: dataTosend
+                },//enviar array
+                success: function () {
+                    alert("success");
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
     });
 });
 </script>
