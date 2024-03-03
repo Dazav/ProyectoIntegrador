@@ -83,6 +83,9 @@ main{
 
 /* Estilos para pantallas más pequeñas, como teléfonos */
 @media only screen and (max-width: 480px) {
+    h1{
+        margin-top: 50px;
+    }
     .descripcionClic {
         background-position: center;
     }
