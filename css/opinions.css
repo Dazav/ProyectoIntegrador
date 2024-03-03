@@ -209,3 +209,126 @@ fieldset>span{
 .star>div{
     background: #6541A6;
 }
+/* responsive */
+@media screen and (max-width:1800px) {
+    .opinion-intro>img{
+        width: 100px;
+        height: 100px;
+    }
+    fieldset{
+        gap: 10px;
+    }
+    fieldset>img {
+        width: 100px;
+        height: 100px;
+    }
+    .estrellas>input{
+        width: 20px;
+        height: 20px;
+    }
+    form{
+        align-items: center;
+    }
+}
+/* portatil */
+@media screen and (max-width:1600px) {
+    fieldset>img{
+        display: none;
+    }
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+    aside{
+        justify-self: center;
+    }
+    .sidebar{
+        width: 60%;
+    }
+    .detalle{
+        display: grid;
+        justify-content: center;
+        height: auto;
+    }
+}
+/*  */
+@media screen and (max-width:1300px) {
+    form{
+        height: auto;
+    }
+    fieldset{
+        display: block;
+    }
+    .estrellas{
+        margin: 10px 0;
+    }
+}
+/*  */
+@media screen and (max-width:1220px) {
+    aside>section{
+        grid-template-columns: none;
+    }
+    form{
+        grid-column: unset;
+    }
+    aside>section>div, form {
+        height: 250px;
+    }
+    form{
+        display: grid;
+    }
+    .apunta {
+        grid-template-columns: repeat(2, 150px);
+    }
+}
+/* para movil */
+@media screen and (max-width:700px) {
+    aside,aside>section{
+        display: flex;
+        flex-direction: column;
+    }
+    /* img de brainhub */
+    .opinion-intro>img{
+        display: none;
+    }
+    .opinion-nav{
+        display: none;
+    }
+    .detalle{
+        width: auto;
+        padding: 10px;
+    }
+    .detalle>h2{
+        font-size: 1rem;
+    }
+    .detalle>p{
+        font-size: 0.6rem;
+    }
+    /* formulario */
+    fieldset>span,.bx-revision{
+        font-size: 1rem;
+    }
+    .star{
+        width: 150px;
+    }
+    .apunta {
+        grid-template-columns: repeat(1,150px);
+    }
+    .apunta>input:last-child {
+        grid-column: 1/1;
+    }
+    .opinion{
+        display: block;
+    }
+    .opinion>img{
+        width: 50px;
+        height: 50px;
+    }
+    .opinion h1{
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+    .opinion p{
+        font-size: 0.7rem;
+    }
+}

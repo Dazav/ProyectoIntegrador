@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/opinion.css">
+    <link rel="stylesheet" href="../css/opinions.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,6 +86,22 @@
         </div>
     </header>
     <main>
+        <section class="sidebar">
+                <div class="detalle">
+                    <h2>Opiniones <span class="promedio-star"></span></h2>
+                    <p class="total"></p>
+                    <p>1 ⭐</p>
+                    <div class="star"><div></div></div>
+                    <p>2 ⭐</p>
+                    <div class="star"><div></div></div>
+                    <p>3 ⭐</p>
+                    <div class="star"><div></div></div>
+                    <p>4 ⭐</p>
+                    <div class="star"><div></div></div>
+                    <p>5 ⭐</p>
+                    <div class="star"><div></div></div>
+                </div>
+            </section>
         <aside>
             <section>
                 <form method="post">
@@ -151,22 +167,6 @@
                 ?>
             </section>
         </aside>
-        <section class="sidebar">
-            <div class="detalle">
-                <h2>Opiniones <span class="promedio-star"></span></h2>
-                <p class="total"></p>
-                <p>1 ⭐</p>
-                <div class="star"><div></div></div>
-                <p>2 ⭐</p>
-                <div class="star"><div></div></div>
-                <p>3 ⭐</p>
-                <div class="star"><div></div></div>
-                <p>4 ⭐</p>
-                <div class="star"><div></div></div>
-                <p>5 ⭐</p>
-                <div class="star"><div></div></div>
-            </div>
-        </section>
     </main>
     <!-- footer -->
     <footer>
