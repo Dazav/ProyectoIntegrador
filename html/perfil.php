@@ -170,10 +170,7 @@ if (isset($_POST["modificar"])) {
                     
                 ?>  
             </div>
-            <div class="citas">
-        <h2>Citas</h2>
-        <!-- Aquí puedes agregar cualquier contenido relacionado con citas -->
-    </div>
+            
         </div>
         
         <!-- editar perfil -->
