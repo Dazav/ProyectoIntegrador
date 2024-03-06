@@ -88,10 +88,6 @@ $(document).ready(function () {
         bottom: "30px",
         opacity: 1,
       },300);
-    // //evitar subir la formulario
-      // $(form).submit(function (e) {
-      //   e.preventDefault();
-      // });
     } else{
       isValid=true;
       //si corregir la informaci'on introducido, cancelará advertencia
@@ -146,7 +142,7 @@ $(document).ready(function () {
   $(".sign-up-form").submit(function (e) {
     if (!isValid) {
       e.preventDefault(); // Evita el envío del formulario
-  }
+    }
   });
 
 // aparece foto de perfil

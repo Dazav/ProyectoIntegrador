@@ -113,7 +113,7 @@
               </div>
               <p class="error-email">Introducir correo con forma correcto<i class='bx bxs-error bx-burst'></i></p>
               <div class="input-wrap">
-                <input type="password" name="password-register" minlength="4" class="input-field" autocomplete="off" required />
+                <input type="password" name="password-register" minlength="8" class="input-field" autocomplete="off" required />
                 <label>Contraseña</label>
               </div>
               <p class="error-pwd">Introducir contraseña sin espacio con limite entre 8 y 14 letras<i class='bx bxs-error bx-burst'></i></p>

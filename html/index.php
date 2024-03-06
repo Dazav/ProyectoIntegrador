@@ -84,7 +84,7 @@ en el mercado</pre>
                 <li>Herramientas de apoyo y seguimiento</li>
                 <li>+1000 terapeutas especializado a tu alcance</li>
             </ul>
-            <button>Comenzar ahora</button>
+            <button onclick="location.href='registrar.php'">Comenzar ahora</button>
         </div>
         <div>
             <img src="../img/img1.png" alt="">
@@ -121,7 +121,7 @@ en el mercado</pre>
                 <p>La técnica de exposición es un tipo de procedimiento terapéutico empleado en psicología clínica para
                     tratar los trastornos de ansiedad. Esta técnica implica enfrentar al paciente con el objeto, el
                     contexto o el pensamiento temido para ayudarle a superar los síntomas de ansiedad.</p>
-                <a href="">Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
+                
                 <i class='bx bx-plus-circle'></i>
             </div>
             <div class="carta2 responsiveCarta carta">
@@ -131,7 +131,7 @@ en el mercado</pre>
                 <h1>Técnicas de relajación</h1>
                 <p>Las técnicas de relajación son métodos que se utilizan para reducir el estrés, la ansiedad y la
                     tensión muscular, promoviendo un estado de calma y bienestar.</p>
-                <a href="">Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
+                
                 <i class='bx bx-plus-circle'></i>
             </div>
             <div class="carta3 responsiveCarta carta">
@@ -142,7 +142,7 @@ en el mercado</pre>
                 <p>
                     Los ejercicios de apoyo psicológico son técnicas y actividades diseñadas para mejorar la salud
                     mental y el bienestar emocional de una persona. </p>
-                <a href="">Ver Detalle<i class='bx bxs-right-arrow-circle'></i></a>
+                
                 <i class='bx bx-plus-circle'></i>
             </div>
         </div>

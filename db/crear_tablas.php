@@ -92,7 +92,7 @@
             id INT AUTO_INCREMENT PRIMARY KEY,
             id_usuario INT,
             titular VARCHAR(250),
-            descripcion VARCHAR(250),
+            descripcion TEXT,
             img_portada VARCHAR(50),
             img_banner VARCHAR(50),
             premium INT(1) DEFAULT 0,
@@ -247,11 +247,11 @@
          $result = $conexion->query($select);
          if ($result->num_rows == 0) {
              $insert1 = "INSERT INTO recursos (id_usuario, titular, descripcion, img_banner, img_portada, premium) VALUES
-             (2, 'Cómo relajarse', '1. Inspirar \n 2. Expirar \n 3. Meditamos en silencio', '../img/recursos-contenido1.png', 'tema-an1.png', 1),
-             (3, 'Cómo detectar un ataque', 'Si vemos que la persona empieza a sudar y tiritar, podríamos estar ante un ataque de pánico', '../img/recursos-contenido1.png', 'tema-an2.png', 0),
-             (4, 'Cómo ayudar a enfermos', 'Lo mejor sería llamar a un médico especializado, pero si no podemos, tumbamos al paciente de lado, y le abrazamos para que se calme.', '../img/recursos-contenido1.png', 'tema-an3.png', 1),
-             (2, 'Cuándo actuar', 'Sobre todo ante ataques de pánico hay que ayudar a la persona a relajarse. Pueden ser ejercicios de respiración, o simplemente un abrazo o algo suave para que se relaje.', '../img/recursos-contenido1.png', 'tema-an4.png', 0),
-             (1, 'Tabla de síntomas', 'Tabla de síntomas', '../img/recursos-contenido1.png', 'tema-an5.png', 0)";
+             (2, 'Cómo relajarse', 'Para relajarse antes de una situación de ansiedad, es útil practicar técnicas de respiración profunda, como la respiración diafragmática. Inhala lentamente por la nariz, contando hasta cuatro, siente cómo se expande tu abdomen, mantén la respiración durante un momento y luego exhala lentamente por la boca, contando hasta cuatro. Repite este proceso varias veces. También, intenta enfocarte en el presente a través de la atención plena, observando tus pensamientos y sensaciones sin juzgarlos. Realizar ejercicios suaves de estiramiento o caminar un poco puede ayudar a liberar la tensión física. Recuerda que tomarte un momento para ti, en un lugar tranquilo, puede ser muy beneficioso para calmar la ansiedad.', '../img/recursos-contenido1.png', 'tema-an1.png', 1),
+             (3, 'Cómo detectar un ataque', 'Detectar un ataque de ansiedad implica estar atento a una combinación de síntomas físicos y emocionales. Los síntomas físicos pueden incluir palpitaciones o aceleración del corazón, sudoración, temblores o sacudidas, sensaciones de ahogo o falta de aire, dolor o molestias en el pecho, náuseas o molestias abdominales, mareos, inestabilidad, aturdimiento o sensación de desmayo, y escalofríos o sensaciones de calor. En el aspecto emocional, se puede experimentar sensaciones intensas de miedo o terror, sensación de pérdida de control o de muerte inminente, y un deseo urgente de escapar de la situación. También pueden presentarse dificultades para concentrarse, pensamientos catastróficos, y un estado de hipervigilancia hacia los propios síntomas o el entorno. Identificar estos signos tempranamente puede ayudar a manejar el ataque de ansiedad de manera más efectiva.', '../img/recursos-contenido1.png', 'tema-an2.png', 0),
+             (4, 'Cómo ayudar a enfermos', 'Para ayudar a los enfermos de ansiedad, es fundamental ofrecer apoyo emocional, escuchar sin juzgar, y fomentar la búsqueda de ayuda profesional. Anima a la persona a practicar técnicas de relajación y mindfulness, a mantener una rutina saludable con ejercicio regular y sueño adecuado, y a evitar sustancias que puedan agravar la ansiedad, como la cafeína. Educar sobre la ansiedad puede también reducir el estigma y promover la comprensión.', '../img/recursos-contenido1.png', 'tema-an3.png', 1),
+             (2, 'Cuándo actuar', 'Actúa cuando observes cambios persistentes o intensificación en los síntomas de ansiedad, dificultad para realizar tareas diarias, o si la persona expresa pensamientos de daño hacia sí misma o hacia otros. La búsqueda de ayuda profesional es crucial en estos casos.', '../img/recursos-contenido1.png', 'tema-an4.png', 0),
+             (1, 'Tabla de síntomas', 'Los síntomas de los ataques de ansiedad incluyen palpitaciones, sudoración, temblores, sensación de ahogo, dolor en el pecho, náuseas, mareos, escalofríos o calor, miedo intenso, sensación de descontrol, y urgencia de escapar.', '../img/recursos-contenido1.png', 'tema-an5.png', 0)";
              mysqli_query($conexion, $insert1) or die("Error insert recursos");
          }
 
